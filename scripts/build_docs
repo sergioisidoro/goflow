@@ -1,7 +1,4 @@
 #epydoc --parse-only -o docs/api --name GoFlow --graph all ./goflow
-#export PYTHONPATH="/Users/ak/Code/workspace/goflow-src:${PYTHONPATH}"
-#export DJANGO_MODULE_SETTINGS="goflow.settings"
-#env
 rm -rf ./docs/build/html 
 rm -rf ./docs/build/doctrees
 cd docs

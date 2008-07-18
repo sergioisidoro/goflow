@@ -50,7 +50,7 @@ class Test(unittest.TestCase):
     def test_push_apps(self):
         user = User.objects.get(username='userA')
         workitem = start_instance('test2', user, DefaultAppModel.objects.create(comment='test_notif'))
-        workitem.activity.pushApplication.url = 'route_to_user'
+        workitem.activity.push_application.url = 'route_to_user'
         workitem.activity.pushapp_param = "{'username':'any'}"
         exec_push_application(workitem)
     
