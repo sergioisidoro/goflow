@@ -1,5 +1,5 @@
 import sys, os
-sys.path.insert(0, '/Users/ak/Code/workspace/goflow-src')
+sys.path.insert(0, '/Users/sa/Code/workspace/goflow-src')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'leavedemo.settings'
 
 from process_builder import ProcessBuilder, User, log

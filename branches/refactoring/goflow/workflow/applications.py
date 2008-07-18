@@ -118,7 +118,7 @@ def default_app(request, id, template='goflow/default_app.html', redirect='home'
         ob = inst.wfobject()
         form = DefaultAppForm(instance=ob)
         # add header with activity description, submit buttons dynamically
-        if workitem.activity.splitMode == 'x':
+        if workitem.activity.split_mode == 'x':
             tlist = workitem.activity.transition_inputs.all()
             if tlist.count() > 0:
                 submit_values = []
