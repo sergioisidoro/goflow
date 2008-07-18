@@ -20,8 +20,9 @@ GoFlow - A workflow engine for Django
 
 
 - cd leavedemo
-  > create the database with command "python manage.py syncdb --noinput"
-  > don't create the admin account, because
+  > export PYTHONPATH=..
+  > create the database with command "python manage.py syncdb"
+  > don't create the admin account (answer no when asked), because
     leave demo data and all users required for playing with it will
     be created at this stage.
  
