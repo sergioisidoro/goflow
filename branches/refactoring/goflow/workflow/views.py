@@ -14,7 +14,7 @@ from forms import ContentTypeForm
 from django.contrib.contenttypes.models import ContentType
 from api import start_instance
 
-def index(request, template):
+def index(request, template='workflow/index.html'):
     """workflow dashboard handler.
     
     template context contains following objects:
@@ -53,7 +53,7 @@ def userlist(request, template):
     return HttpResponse('user page.')
 
 
-def process_dot(request, id, template):
+def process_dot(request, id, template='goflow/process.dot'):
     """graphviz generator (WIP).
     
     id process id

@@ -1,9 +1,16 @@
-import sys, os
-sys.path.insert(0, '/Users/sa/Code/workspace/goflow-src')
+import sys, os; dirname = os.path.dirname
+sys.path.insert(0, dirname(dirname(__file__)))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'leavedemo.settings'
 
 from process_builder import ProcessBuilder, User, log
 from leavedemo.leave.models import Manager
+
+# Note:
+# To use this file, you must disable fixtures 
+# just rename root/leavedemo/leave/fixtures/initial_data.json to something else
+# then from root, do the following:
+# ./scripts/reset
+# say no to create the users/passwords as this is done automatically in this script
 
 # ------------------------------------------------------------------------------------
 # Leave Process Builder for goflow.leavedemo.leave

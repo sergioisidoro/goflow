@@ -21,6 +21,7 @@ import logger, logging
 _log = logging.getLogger('workflow.log')
 
 
+#TODO: which template to use 'goflow/(start_application.html|start_proto.html)' ?
 @login_required
 def start_application(request, app_label=None, model_name=None, process_name=None, instance_label=None,
                        template=None, template_def='goflow/start_application.html',
