@@ -30,8 +30,8 @@ def instancehistory(request, template='goflow/instancehistory.html'):
 
 @login_required
 def myrequests(request, template='goflow/myrequests.html'):
-    inst = get_instance(id=id)
-    # inst_list = ProcessInstance.objects.filter(user=request.user)
+    #inst = get_instance(id=id)
+    inst_list = ProcessInstance.objects.filter(user=request.user)
     return render_to_response(template, {'user':request.user, 'instances':inst_list})
 
 @login_required

@@ -68,7 +68,7 @@ class ProcessInstance(models.Model):
                       )
     title = models.CharField(max_length=100)
     process = models.ForeignKey('workflow.Process', related_name='instances', null=True, blank=True)
-    creationTime = models.DateTimeField(auto_now_add=True, core=True)
+    creation_time = models.DateTimeField(auto_now_add=True, core=True)
     user = models.ForeignKey(User, related_name='instances')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='initiated')
     old_status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=True, blank=True)
@@ -100,8 +100,8 @@ class ProcessInstance(models.Model):
         self.save()
     
     class Admin:
-        date_hierarchy = 'creationTime'
-        list_display = ('title', 'process', 'user', 'creationTime', 'status')
+        date_hierarchy = 'creation_time'
+        list_display = ('title', 'process', 'user', 'creation_time', 'status')
         list_filter = ('process', 'user')
 
 class WorkItem(models.Model):

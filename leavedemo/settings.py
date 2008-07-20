@@ -68,6 +68,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
+   #'goflow.extensions.middleware.debug_middleware.DebugFooter'
 )
 
 ROOT_URLCONF = 'leavedemo.urls'
@@ -79,7 +80,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'leavedemo.leave',
-    'goflow.extensions',
+   #'goflow.extensions',
     'goflow.workflow',
     'goflow.graphics2',
     'goflow.instances',
