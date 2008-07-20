@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="40" left="124" height="561" width="1187"/>
+	<global_window_position top="22" left="148" height="518" width="1172"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="0"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="1,0,1"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -20,7 +20,16 @@
 </v>
 </v>
 <v t="sa.20080714235246.1" a="E"><vh>src</vh>
-<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
+<v t="sa.20080720215142.1" a="E"><vh>snippets</vh>
+<v t="sa.20080720215142.3"><vh>inserting RequestContext into templates</vh>
+<v t="sa.20080720215142.2"><vh>render_response</vh></v>
+<v t="sa.20080720215142.4"><vh>render_to decorator</vh></v>
+<v t="sa.20080720215142.5"><vh>generic views</vh></v>
+<v t="sa.20080720215142.6"><vh>direct_to_template</vh></v>
+</v>
+<v t="sa.20080720215142.7"><vh>newforms</vh></v>
+</v>
+<v t="sa.20080714011136.2"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -1435,6 +1444,91 @@ for entry in ['html', 'doctrees']:
 
 # clean *.pycs and .log files
 cmd('scripts/clean')
+</t>
+<t tx="sa.20080720215142.1">@language python
+@tabwidth -4
+</t>
+<t tx="sa.20080720215142.2">@
+
+
+@c
+
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+
+def render_response(req, *args, **kwargs):
+    kwargs['context_instance'] = RequestContext(req)
+    return render_to_response(*args, **kwargs)
+
+</t>
+<t tx="sa.20080720215142.3"></t>
+<t tx="sa.20080720215142.4">def render_to(template_name):
+    def renderer(func):
+        def wrapper(request, *args, **kw):
+            output = func(request, *args, **kw)
+            if not isinstance(output, dict):
+                return output
+            return render_to_response(request, template_name, output)
+        return wrapper
+    return renderer
+
+@render_to('my_template.html')
+def my_view(request):
+    # View code here...
+    return some_dict
+</t>
+<t tx="sa.20080720215142.5">from django.views.generic import list_detail
+
+def my_view(request):
+    # View code here...
+    return list_detail.object_list_(request,
+                                    queryset=Foo.objects.all(),
+                                    extra_context=some_dict)
+
+</t>
+<t tx="sa.20080720215142.6">from django.views.generic.simple import direct_to_template
+
+def my_view(request):
+    # View code here...
+    return direct_to_template(request, params,
+                              extra_context=some_dict)
+
+</t>
+<t tx="sa.20080720215142.7">@register.inclusion_tag('_display_field.html')
+def display_field(field, alt_label=''):
+    """
+    Print HTML for a newform field. 
+    Optionally, a label can be supplied that overrides the default label generated for the form.
+    
+    Example:
+    {% display_field form.my_field "My New Label" %}
+    """
+
+    if alt_label:
+        field.label = alt_label
+    return { 'field': field }
+
+_display_field.html='''
+{% if field.errors %}
+&lt;p class="error"&gt;{{ field.errors|join:"&lt;br /&gt;" }}&lt;/p&gt;
+{% endif %}
+&lt;label for="{{ field.auto_id }}"&gt;
+    {{ field.label }}
+    {% if field.field.required %}&lt;br /&gt;
+&lt;span class="required"&gt;required&lt;/span&gt;
+    {% endif %}
+&lt;/label&gt; 
+{{ field }} &lt;br /&gt;
+'''
+
+now use this in the templates='''
+{% display_field form.first_name %}
+{% display_field form.last_name %}
+{% display_field form.email %}
+'''
+
+
+
 </t>
 </tnodes>
 </leo_file>
