@@ -3,23 +3,26 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="41" left="64" height="789" width="1314"/>
+	<global_window_position top="40" left="124" height="561" width="1187"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="1,0,1,6"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="0"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
-<v t="sa.20080716081317.4"><vh>@@button gendocs</vh></v>
+<v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
+<v t="sa.20080720195210.1"><vh>@button clean</vh></v>
 </v>
-<v t="sa.20080716081317.5"><vh>@settings</vh></v>
+<v t="sa.20080716081317.5"><vh>@settings</vh>
+<v t="sa.20080720191846.1"><vh>@strings[vertical,horizontal] initial_splitter_orientation = horizontal</vh></v>
+</v>
 </v>
 <v t="sa.20080714235246.1" a="E"><vh>src</vh>
 <v t="sa.20080714011136.2" a="E"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
-<v t="sa.20080714012008.2" a="E"><vh>@rst overview.rst</vh>
+<v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
 <v t="sa.20080714081843.3"><vh>Summary</vh></v>
 <v t="sa.20080714081843.2"><vh>Overview</vh></v>
@@ -44,7 +47,7 @@
 <v t="sa.20080714081843.10"><vh>Applications (How)</vh></v>
 <v t="sa.20080714081843.11"><vh>Users &amp; Roles (Who)</vh></v>
 </v>
-<v t="sa.20080714081843.12"><vh>The Process Instance</vh>
+<v t="sa.20080714081843.12"><vh>The Process ProcessInstance</vh>
 <v t="sa.20080714081843.13"><vh>Workitems: tracking the history</vh></v>
 <v t="sa.20080714081843.14"><vh>Worklist and assigning work</vh></v>
 <v t="sa.20080714081843.16"><vh>Exception Handling</vh></v>
@@ -55,7 +58,7 @@
 <v t="sa.20080714081843.19"><vh>Requirements</vh></v>
 <v t="sa.20080714081843.20"><vh>Download</vh></v>
 </v>
-<v t="sa.20080714012008.42" a="E"><vh>@rst patterns.rst</vh>
+<v t="sa.20080714012008.42"><vh>@rst patterns.rst</vh>
 <v t="sa.20080717192016.13"><vh>Sequence Pattern</vh>
 <v t="sa.20080717192016.14"><vh>Description</vh></v>
 <v t="sa.20080717192016.15"><vh>Synonyms</vh></v>
@@ -145,10 +148,15 @@
 </v>
 </v>
 <v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5"><vh>Release 0.51</vh>
+<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
 <v t="sa.20080714225902.6"><vh>New Features</vh></v>
 <v t="sa.20080714225902.7"><vh>Bug Fixes</vh></v>
 <v t="sa.20080714225902.8"><vh>Backwards Incompatible Changes</vh></v>
+</v>
+<v t="sa.20080720192331.1"><vh>Version 0.51</vh>
+<v t="sa.20080720192331.2"><vh>New Features</vh></v>
+<v t="sa.20080720192331.3"><vh>Bug Fixes</vh></v>
+<v t="sa.20080720192331.4"><vh>Backwards Incompatible Changes</vh></v>
 </v>
 </v>
 <v t="sa.20080714012008.1"><vh>@rst glossary.rst</vh>
@@ -359,9 +367,7 @@ Optional (but useful) Modules
 </t>
 <t tx="sa.20080714012008.11">.. _changes:
 
-==========
-What's new
-==========
+
 
 .. contents::
 
@@ -1191,13 +1197,17 @@ TODO</t>
 <t tx="sa.20080714081843.39"></t>
 <t tx="sa.20080714081843.40"></t>
 <t tx="sa.20080714225902.5"></t>
-<t tx="sa.20080714225902.6">
-	* Improved documentation based on leo-editor, Sphinx and epydoc. 
-</t>
-<t tx="sa.20080714225902.7">	* a bug was found here.
+<t tx="sa.20080714225902.6">* new more 'object-oriented' api using models classes and model managers
+
+    * note: the new api has not been activated and is still not functional pending 
+      further testing (and the writing of further tests) 
+
+* addition of goflow.extensions for custom management commands
 
 </t>
-<t tx="sa.20080714225902.8">	* api was cleaned up to make it more consistent.
+<t tx="sa.20080714225902.7">* fixes here...</t>
+<t tx="sa.20080714225902.8">* new api...
+
 
 </t>
 <t tx="sa.20080714235246.1"></t>
@@ -1337,7 +1347,9 @@ related concepts:
 <t tx="sa.20080715122316.12"></t>
 <t tx="sa.20080716081317.2"></t>
 <t tx="sa.20080716081317.3"></t>
-<t tx="sa.20080716081317.4"></t>
+<t tx="sa.20080716081317.4">import os
+os.system('./scripts/build_docs')
+</t>
 <t tx="sa.20080716081317.5"></t>
 <t tx="sa.20080717192016.4"></t>
 <t tx="sa.20080717192016.5">The convergence of two or more branches into a single subsequent branch such that the thread of control is passed to the subsequent branch when all input branches have been enabled.</t>
@@ -1395,6 +1407,34 @@ After the review election task is completed, either the declare results or the r
 <t tx="sa.20080717192016.27">The Exclusive Choice pattern allows the thread of control to be directed to a specific (subsequent) task depending on the outcome of a preceding task, the values of elements of specific data elements in the process, the results of an expression evaluation or some other form of programmatic selection mechanism. The routing decision is made dynamically allowing it to be deferred to the latest possible moment at runtime.
 
 
+</t>
+<t tx="sa.20080720191846.1"></t>
+<t tx="sa.20080720192331.1"></t>
+<t tx="sa.20080720192331.2">
+	* Improved documentation based on leo-editor, Sphinx and epydoc. 
+</t>
+<t tx="sa.20080720192331.3">	* a bug was found here.
+
+</t>
+<t tx="sa.20080720192331.4">	* api was cleaned up to make it more consistent.
+
+</t>
+<t tx="sa.20080720195210.1">import os
+join = os.path.join
+
+def cmd(command):
+    print '--&gt;', command
+    os.system(command)
+
+print "CLEANING Goflow environment..."
+
+# clean generated docs
+root = 'docs/build'
+for entry in ['html', 'doctrees']:
+    cmd('rm -rf %s' % join(root, entry))
+
+# clean *.pycs and .log files
+cmd('scripts/clean')
 </t>
 </tnodes>
 </leo_file>

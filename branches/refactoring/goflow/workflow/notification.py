@@ -11,6 +11,8 @@ def notify_if_needed(user=None, roles=None):
     '''
     from api import get_workitems
     if user:
+        #TDODO: complete this
+        #workitems = WorkItem.objects.retrieve(user=user, notstatus='complete', noauto=True)
         workitems = get_workitems(user=user, notstatus='c', noauto=True)
         UserProfile.objects.get_or_create(user=user)
         profile = user.get_profile()

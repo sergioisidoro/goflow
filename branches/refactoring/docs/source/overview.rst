@@ -9,9 +9,7 @@ Overview
 Preface
 +++++++
 
-This document presents an introduction to "GoFlow", a workflow engine for django. As there may many new terms which may or may not be familiar to the reader, we will try to define our terms as clearly as possible, but you can always refer to the `glossary`_ in case additional information is required.
-
-This is the official documentation for the GoFlow 0.x series. 
+This document presents an introduction to "GoFlow", a workflow engine for django. 
 
 The manual has been generated from reStructuredText source markup with
 Sphinx, which should make it much easier to keep it up-to-date in the
@@ -39,7 +37,7 @@ To this end, GoFlow provides a number of key functional elements:
 Overview
 ++++++++
 
-GoFlow is an activity based workflow management system that is designed as django component closely with the Django Web Application Framework.
+GoFlow is an activity based workflow management system that is designed as django component.
 
 Being activity based means that the processes, the workflows, are made of activities to be completed in order to get something done. This differs from entity based workflows where the focus is set on a given document and the states it has to go through in order to be completed.
 
@@ -180,8 +178,8 @@ Actually each role will keep three different lists:
     * assignable activities: list of process activities that users listed in this 
       role can assign to other users
 
-The Process Instance
-++++++++++++++++++++
+The Process ProcessInstance
++++++++++++++++++++++++++++
 
 A process definition gives the instructions for completing some work. A process instance, in turn, is an actual execution of a process definition.
 

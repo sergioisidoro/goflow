@@ -1,3 +1,4 @@
 #!
+# remove .pyc & .log files
 find . -name "*.pyc" -exec rm '{}' ';'
-rm leavedemo/workflow.log
+find . -name "*.log" -exec rm '{}' ';'

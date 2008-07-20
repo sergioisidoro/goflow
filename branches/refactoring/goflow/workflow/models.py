@@ -6,6 +6,56 @@ from django.contrib.contenttypes.models import ContentType
 
 from django import newforms as forms
 from goflow.workflow.decorators import allow_tags
+from goflow.workflow.managers import ProcessManager
+
+from datetime import datetime, timedelta
+
+class Activity(models.Model):
+    """Activities represent any kind of action an employee might want to do on an instance.
+    
+    The action might want to change the object instance, or simply
+    route the instance on a given path. Activities are the places
+    where any of these action are resolved by employees.
+    """
+    KIND_CHOICES = (
+                    ('standard', 'standard'),
+                    ('dummy', 'dummy'),
+                    ('subflow', 'subflow'),
+                    )
+    COMP_CHOICES = (
+                    ('and', 'and'),
+                    ('xor', 'xor'),
+                    )
+    title = models.CharField(max_length=100, core=True)
+    kind =  models.CharField(max_length=10, choices=KIND_CHOICES, verbose_name='type', default='standard')
+    process = models.ForeignKey('Process', related_name='activities')
+    push_application = models.ForeignKey('PushApplication', related_name='push_activities', null=True, blank=True)
+    pushapp_param = models.CharField(max_length=100, null=True, blank=True, 
+                                help_text="parameters dictionary; example: {'username':'john'}")
+    application = models.ForeignKey('Application', related_name='activities', null=True, blank=True,
+                                help_text='leave it blank for prototyping the process without coding')
+    app_param = models.CharField(max_length=100, verbose_name='parameters', 
+                                 help_text='parameters dictionary', null=True, blank=True)
+    subflow = models.ForeignKey('Process', related_name='parent_activities', null=True, blank=True)
+    roles = models.ManyToManyField(Group, related_name='activities', null=True, blank=True)
+    description = models.CharField(max_length=100, null=True, blank=True)
+    autostart = models.BooleanField(default=False)
+    autofinish = models.BooleanField(default=True)
+    join_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, verbose_name='join mode', default='xor')
+    split_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, verbose_name='split mode', default='and')
+    
+    def __unicode__(self):
+        return '%s (%s)' % (self.title, self.process.title)
+    
+    class Admin:
+        save_as = True
+        list_display = ('title', 'description', 'kind', 'application', 
+                        'join_mode', 'split_mode', 'autostart', 'autofinish', 'process')
+        list_filter = ('process', 'kind')
+    class Meta:
+        unique_together = (("title", "process"),)
+        verbose_name = 'Activity'
+        verbose_name_plural = 'Activities'
 
 class Process(models.Model):
     """A process holds the map that describes the flow of work.
@@ -25,6 +75,9 @@ class Process(models.Model):
     end = models.ForeignKey('Activity', related_name='eprocess', verbose_name='final activity', null=True, blank=True,
                             help_text='a default end activity will be created if blank')
     priority = models.IntegerField(default=0)
+    
+    # add new ProcessManager
+    objects = ProcessManager()
     
     def __unicode__(self):
         return self.title
@@ -191,52 +244,7 @@ class PushApplication(models.Model):
         list_display = ('url','test')
 
 
-class Activity(models.Model):
-    """Activities represent any kind of action an employee might want to do on an instance.
-    
-    The action might want to change the object instance, or simply
-    route the instance on a given path. Activities are the places
-    where any of these action are resolved by employees.
-    """
-    KIND_CHOICES = (
-                    ('standard', 'standard'),
-                    ('dummy', 'dummy'),
-                    ('subflow', 'subflow'),
-                    )
-    COMP_CHOICES = (
-                    ('and', 'and'),
-                    ('xor', 'xor'),
-                    )
-    title = models.CharField(max_length=100, core=True)
-    kind =  models.CharField(max_length=10, choices=KIND_CHOICES, verbose_name='type', default='standard')
-    process = models.ForeignKey(Process, related_name='activities')
-    push_application = models.ForeignKey(PushApplication, related_name='push_activities', null=True, blank=True)
-    pushapp_param = models.CharField(max_length=100, null=True, blank=True, 
-                                     help_text="parameters dictionary; example: {'username':'john'}")
-    application = models.ForeignKey(Application, related_name='activities', null=True, blank=True,
-                                    help_text='leave it blank for prototyping the process without coding')
-    app_param = models.CharField(max_length=100, verbose_name='parameters', 
-                                 help_text='parameters dictionary', null=True, blank=True)
-    subflow = models.ForeignKey(Process, related_name='parent_activities', null=True, blank=True)
-    roles = models.ManyToManyField(Group, related_name='activities', null=True, blank=True)
-    description = models.CharField(max_length=100, null=True, blank=True)
-    autostart = models.BooleanField(default=False)
-    autofinish = models.BooleanField(default=True)
-    join_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, verbose_name='join mode', default='xor')
-    split_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, verbose_name='split mode', default='and')
-    
-    def __unicode__(self):
-        return '%s (%s)' % (self.title, self.process.title)
-    
-    class Admin:
-        save_as = True
-        list_display = ('title', 'description', 'kind', 'application', 
-                        'join_mode', 'split_mode', 'autostart', 'autofinish', 'process')
-        list_filter = ('process', 'kind')
-    class Meta:
-        unique_together = (("title", "process"),)
-        verbose_name = 'Activity'
-        verbose_name_plural = 'Activities'
+
    
 class Transition(models.Model):
     """ A Transition connects two Activities: a From and a To activity.
@@ -276,7 +284,6 @@ class Transition(models.Model):
         list_display = ('name', 'input', 'output', 'condition', 'description', 'process')
         list_filter = ('process',)
 
-from datetime import datetime, timedelta
 class UserProfile(models.Model):
     """Contains workflow-specific user data.
     
