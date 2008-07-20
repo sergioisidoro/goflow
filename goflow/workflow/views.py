@@ -9,7 +9,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 
-from goflow.instances.models import DefaultAppModel, Instance
+from goflow.instances.models import DefaultAppModel, ProcessInstance
 from forms import ContentTypeForm
 from django.contrib.contenttypes.models import ContentType
 from api import start_instance
@@ -76,6 +76,7 @@ def cron(request=None):
         workitems = WorkItem.objects.filter(activity=t.input).exclude(status='complete')
         for wi in workitems:
             forward_workitem(wi, timeoutForwarding=True)
+            #wi.forward(timeoutForwarding=True)
     
     if request:
         request.user.message_set.create(message="cron has run.")
@@ -120,10 +121,11 @@ def test_start(request, id, template='goflow/test_start.html'):
             model = ctype.model_class()
             for inst in model.objects.all():
                 # just objects without link to a workflow instance
-                if Instance.objects.filter(content_type__pk=ctype.id,object_id=inst.id).count() > 0:
+                if ProcessInstance.objects.filter(content_type__pk=ctype.id,object_id=inst.id).count() > 0:
                     continue
                 inst.id = None
                 inst.save()
+                #TODO: convert this to method
                 start_instance(process_name='test_%s' % app.url,
                               user=request.user, item=inst, title="%s test instance for app %s" % (ctype.name, app.url))
             request.user.message_set.create(message='test instances created')

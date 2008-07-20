@@ -2,7 +2,6 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from instances.forms import DefaultAppStartForm
 
-
 urlpatterns = patterns('django.contrib.auth.views.',
     (r'^.*/logout/$', 'logout'),
     (r'^.*/accounts/login/$', 'login', {'template_name':'goflow/login.html'}),
@@ -17,8 +16,8 @@ urlpatterns += patterns('goflow.workflow.views',
 urlpatterns += patterns('goflow.workflow.applications',
     (r'^default_app/(?P<id>.*)/$', 'default_app'),
     (r'^start/(?P<app_label>.*)/(?P<model_name>.*)/$', 'start_application'),
-    (r'^start_proto/(?P<process_name>.*)/$', 'start_application', {'form_class':DefaultAppStartForm,
-                                                                   'template':'goflow/start_proto.html'}),
+    (r'^start_proto/(?P<process_name>.*)/$', 'start_application',
+        {'form_class':DefaultAppStartForm, 'template':'goflow/start_proto.html'}),
 )
 
 urlpatterns += patterns('goflow.instances.views',
@@ -35,6 +34,4 @@ urlpatterns += patterns('goflow.graphics.views',
     (r'^graph/(?P<id>.*)/save/$', 'graph_save'),
     (r'^graph/(?P<id>.*)/$', 'graph'),
 )
-
-
 

@@ -11,8 +11,8 @@ class BaseForm(ModelForm):
     '''
     base class for edition forms
     '''
-    
     workitem_id = forms.IntegerField(widget=forms.HiddenInput, required=False)
+    
     def save(self, workitem=None, submit_value=None, commit=True):
         ob = super(BaseForm, self).save(commit=commit)
         return ob
@@ -64,7 +64,7 @@ class DefaultAppForm(BaseForm):
 
     class Meta:
          model = DefaultAppModel
-         exclude = ('reasonDenial',)
+         exclude = ('reason_denial',)
 
 
 class DefaultAppStartForm(StartForm):
@@ -82,5 +82,5 @@ class DefaultAppStartForm(StartForm):
 
     class Meta:
          model = DefaultAppModel
-         exclude = ('reasonDenial',)
+         exclude = ('reason_denial',)
 

@@ -2,13 +2,34 @@
 
 .. _changes:
 
-==========
-What's new
-==========
+
 
 .. contents::
 
-Release 0.51
+Version 0.6 (refactored branch)
++++++++++++++++++++++++++++++++
+
+New Features
+************
+
+* new more 'object-oriented' api using models classes and model managers
+
+    * note: the new api has not been activated and is still not functional pending 
+      further testing (and the writing of further tests) 
+
+* addition of goflow.extensions for custom management commands
+
+Bug Fixes
+*********
+
+* fixes here...
+
+Backwards Incompatible Changes
+******************************
+
+* new api...
+
+Version 0.51
 ++++++++++++
 
 New Features
