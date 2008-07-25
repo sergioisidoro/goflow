@@ -14,8 +14,9 @@ New Features
 
 * new more 'object-oriented' api using models classes and model managers
 
-    * note: the new api has not been activated and is still not functional pending 
-      further testing (and the writing of further tests) 
+    * 
+
+* new logging system
 
 * addition of goflow.extensions for custom management commands
 

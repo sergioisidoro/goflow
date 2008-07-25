@@ -31,7 +31,7 @@ transitions have a condition attribute: it is a python expression that returns a
 
     * OK: the user has pushed the OK button
     * instance.condition == "OK": the user has pushed the OK button
-    * workitem.time_out(delay=5, unit='days'): the task is waiting for 5 days or more (NYI but soon)
+    * workitem.timeout(delay=5, unit='days'): the task is waiting for 5 days or more (NYI but soon)
 
 Is it valid to reuse Activities?
 ++++++++++++++++++++++++++++++++

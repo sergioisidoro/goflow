@@ -145,8 +145,7 @@ class Application(models.Model):
     Activities can call applications.
     A commmon prefix may be defined: see settings.WF_APPS_PREFIX
     """
-    url = models.CharField(max_length=255, unique=True, help_text='relatif au préfixe settings.WF_APPS_PREFIX')
-    # TODO: translate help text
+    url = models.CharField(max_length=255, unique=True, help_text='relative to prefix in settings.WF_APPS_PREFIX')
     # TODO: drop abbreviations (perhaps here not so necessary to ??
     SUFF_CHOICES = (
                     ('w', 'workitem.id'),
@@ -165,7 +164,7 @@ class Application(models.Model):
             if self.suffix:
                 if self.suffix == 'w': path = '%s%d/' % (path, workitem.id)
                 if self.suffix == 'i': path = '%s%d/' % (path, workitem.instance.id)
-                if self.suffix == 'o': path = '%s%d/' % (path, workitem.instance.wfobject().id)
+                if self.suffix == 'o': path = '%s%d/' % (path, workitem.instance.content_object.id)
             else:
                 path = '%s?workitem_id=%d' % (path, workitem.id) 
         if extern_for_user:
@@ -293,8 +292,8 @@ class UserProfile(models.Model):
     If your application have its own profile module, you must
     add to it the workflow.UserProfile fields.
     """
-    user = models.ForeignKey(User, verbose_name='utilisateur', unique=True, 
-                             edit_inline=True, max_num_in_admin=1, num_in_admin=1)
+    user = models.ForeignKey(User, unique=True, edit_inline=True, 
+                                   max_num_in_admin=1, num_in_admin=1)
     web_host = models.CharField(max_length=100, default='localhost:8000')
     notified = models.BooleanField(default=True, verbose_name='notification par mail')
     last_notif = models.DateTimeField(default=datetime.now())

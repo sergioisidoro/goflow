@@ -709,7 +709,7 @@
       "process": 3, 
       "output": 11, 
       "input": 10, 
-      "condition": "workitem.time_out(delay=1, unit='minutes')", 
+      "condition": "workitem.timeout(delay=1, unit='minutes')", 
       "name": "begin_notification"
     }
   }, 

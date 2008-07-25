@@ -3,19 +3,12 @@
 from django.db import models
 from django.contrib.auth.models import Group, User
 
-import logging; _log = logging.getLogger('workflow.log')
+from goflow.utils import Log; log = Log('goflow.instances.managers')
 
 class ProcessInstanceManager(models.Manager):
+    '''Custom model manager for ProcessInstance
     '''
-    Custom model manager for ProcessInstance
-    
-    can be accessed as follows:
-    
-    >>> process_instance.objects.add(user, title, content_object)
-    '''
-    
-    #TODO: is this really required?? smells redundant somehow
-    
+   
     def add(self, user, title, obj_instance):
         '''
         Returns a newly saved ProcessInstance instance.
@@ -36,14 +29,14 @@ class ProcessInstanceManager(models.Manager):
         return instance
 
 
-
 class WorkItemManager(models.Manager):
-    def get_by(self, id, user=None, even_process_disabled=False, status=('inactive','active')):
+    def get_by(self, id, user=None, enabled_only=False, status=('inactive','active')):
         '''
-        get WorkItem instance by 
+        get a WorkItem instance by 
         '''
-        workitem = self.get(id=id, activity__process__enabled=True)
-        if even_process_disabled:
+        if enabled_only:
+            workitem = self.get(id=id, activity__process__enabled=True)
+        else:
             workitem = self.get(id=id)
         workitem._check_all_for(user, status)
         return workitem
@@ -120,7 +113,7 @@ class WorkItemManager(models.Manager):
             if username:
                 pullables = pullables.exclude(user__username=username)
             
-            _log.debug('pullables workitems role %s: %s', role, str(pullables))
+            log.debug('pullables workitems role %s: %s', role, str(pullables))
             query.extend(list(pullables))
         
         return query
