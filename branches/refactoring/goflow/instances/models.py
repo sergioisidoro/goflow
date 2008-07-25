@@ -2,14 +2,17 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import Group, User
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+from django.conf import settings
+from django.core.urlresolvers import resolve
 
-from managers import ProcessInstanceManager, WorkItemManager
+#from goflow.workflow.notification import notify_if_needed
+from goflow.instances.managers import ProcessInstanceManager, WorkItemManager
+from goflow.utils import Log; log = Log('goflow.instances.models')
 
-import logging; _log = logging.getLogger('workflow.log')
 
 class ProcessInstance(models.Model):
     """ This is a process instance.
@@ -48,9 +51,9 @@ class ProcessInstance(models.Model):
     (nothing: now managed by generic relation)
     
     From the instance, the implementation object is reached as following:
-      obj = instance.content_object (or instance.wfobject()).
+      obj = instance.content_object
     In a template, a field date1 will be displayed like this:
-      {{ instance.wfobject.date1 }} or {{ instance.content_object.date1 }}
+      {{ instance.content_object.date1 }}
       
     From the object, instances may be reached with the reverse generic relation:
     the following can be added to the model:
@@ -67,11 +70,14 @@ class ProcessInstance(models.Model):
                       ('suspended', 'suspended'),
                       )
     title = models.CharField(max_length=100)
-    process = models.ForeignKey('workflow.Process', related_name='instances', null=True, blank=True)
+    process = models.ForeignKey('workflow.Process', related_name='instances', 
+                                null=True, blank=True)
     creation_time = models.DateTimeField(auto_now_add=True, core=True)
     user = models.ForeignKey(User, related_name='instances')
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='initiated')
-    old_status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=True, blank=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, 
+                              default='initiated')
+    old_status = models.CharField(max_length=10, choices=STATUS_CHOICES, 
+                                  null=True, blank=True)
     condition = models.CharField(max_length=50, null=True, blank=True)
     
     # refactoring
@@ -81,11 +87,7 @@ class ProcessInstance(models.Model):
     
     # add Manager
     objects = ProcessInstanceManager()
-    #objects =
-    # TODO: is this really required?
-    def wfobject(self):
-        return self.content_object
-        
+
     def __str__(self):
         return self.title
     
@@ -93,7 +95,7 @@ class ProcessInstance(models.Model):
         return self.title
     
     def set_status(self, status):
-        if not status in [x for x,y in ProcessInstance.STATUS_CHOICES]:
+        if not status in [x for (x, y) in ProcessInstance.STATUS_CHOICES]:
             raise Exception('instance status incorrect :%s' % status)
         self.old_status = self.status
         self.status = status
@@ -108,7 +110,7 @@ class WorkItem(models.Model):
     """A workitem object represents an activity you are performing.
     
     An Activity object defines the activity, while the workitem object
-    represents that you are performing this activity. So workitem is
+    represents that you are performing this activity. A workitem is therfore
     an "instance" of the activity.
     """
     STATUS_CHOICES = (
@@ -120,15 +122,20 @@ class WorkItem(models.Model):
                       ('complete', 'complete'),
                       )
     date = models.DateTimeField(auto_now=True, core=True)
-    user = models.ForeignKey(User, related_name='workitems', null=True, blank=True)
+    user = models.ForeignKey(User, related_name='workitems', 
+                             null=True, blank=True)
     instance = models.ForeignKey(ProcessInstance, related_name='workitems')
     activity = models.ForeignKey('workflow.Activity', related_name='workitems')
-    workitem_from = models.ForeignKey('self', related_name='workitems_to', null=True, blank=True)
-    push_roles = models.ManyToManyField(Group, related_name='push_workitems', null=True, blank=True)
-    pull_roles = models.ManyToManyField(Group, related_name='pull_workitems', null=True, blank=True)
+    workitem_from = models.ForeignKey('self', related_name='workitems_to', 
+        null=True, blank=True)
+    push_roles = models.ManyToManyField(Group, related_name='push_workitems', 
+        null=True, blank=True)
+    pull_roles = models.ManyToManyField(Group, related_name='pull_workitems', 
+        null=True, blank=True)
     blocked = models.BooleanField(default=False)
     priority = models.IntegerField(default=0)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='inactive')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, 
+                              default='inactive')
 
     # set to the new WorkItemManager
     objects = WorkItemManager()
@@ -137,42 +144,39 @@ class WorkItem(models.Model):
         '''
         Forward this workitem to all valid destination activities.
         
-        @type timeoutForwarding: bool
-        @param timeoutForwarding: ??
+        @type timeout_forwarding: bool
+        @param timeout_forwarding: TODO: explain this better
         @type: subflow_workitem: WorkItem
-        @param subflow_workitem: a workitem associated with a subflow ??
-        
+        @param subflow_workitem: a workitem associated with a subflow   
         '''
-        _log.info('forward_workitem %s', str(self))
+        log.info(self)
         if not timeout_forwarding:
             if self.status != 'complete':
                 return
         if self.has_workitems_to() and not subflow_workitem:
-            _log.debug('forward_workitem canceled for %s: ' 
-                       'workitem.has_workitem_to()', str(self))
+            log.debug('forwarding canceled for'+ str(self))
             return
         
         if timeout_forwarding:
-            _log.info('timeout forwarding')
-            Event.objects.create(name='timeout', workitem=self)
+            log.event('timout forwarding', self)
         
-        for destination in self.get_destinations(timeout_forwarding):
-            self._forward_self_to_activity(destination)
-
+        for target in self.get_destinations(timeout_forwarding):
+            self._forward_self_to_activity(target)
 
     def get_destinations(self, timeout_forwarding=False):
         '''
-        Return list of destination activities that meet the conditions of each transition
+        Return list of destination activities that meet the 
+        conditions of each transition
         
         @type timeout_forwarding: bool
         @param timeout_forwarding: a workitem with a time-delay??
         @rtype: [Activity]
         @return: list of destination activities.
         '''
-        activity = self.activity
-        transitions = models.get_model('workflow', 'Transition').objects.filter(input=activity)
+        transitions = models.get_model('workflow', 'Transition'
+                                      ).objects.filter(input=self.activity)
         if timeout_forwarding:
-            transitions = transitions.filter(condition__contains='workitem.time_out')
+            transitions = transitions.filter(condition__contains='workitem.timeout')
         destinations = []
         for transition in transitions:
             if self.eval_transition_condition(transition):
@@ -192,59 +196,60 @@ class WorkItem(models.Model):
                  activity (and next user)
         '''
         instance = self.instance
-        wi = WorkItem.objects.create(instance=instance, user=None, activity=target_activity)
-        _log.info('forwarded to %s', target_activity.title)
-        Event.objects.create(name='creation by %s' % self.user.username, workitem=wi)
-        Event.objects.create(name='forwarded to %s' % target_activity.title, workitem=self)
+        wi = WorkItem.objects.create(instance=instance, user=None, 
+                                     activity=target_activity)
+        log.event('creation by %s' % self.user.username, wi)
+        log.event('forwarded to %s' % target_activity.title, self)
         wi.workitem_from = self
         if target_activity.autostart:
-            _log.info('run auto activity %s workitem %s', target_activity.title, str(wi))
+            log.info('run auto activity %s workitem %s', target_activity.title, str(wi))
             try:
                 auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             except Exception:
-                error = 'a user named %s (settings.WF_USER_AUTO) must be defined for auto activities'
+                error = ('a user named %s (settings.WF_USER_AUTO) must'
+                         'be defined for auto activities')
                 raise Exception(error % settings.WF_USER_AUTO)
             wi.activate(actor=auto_user)
-            #if exec_auto_application(wi):
             if wi.exec_auto_application():
                 wi.complete(actor=auto_user)
-                #complete_workitem(wi, actor=auto_user)
             return wi
         
         if target_activity.push_application:
             target_user = wi.exec_push_application()
-            _log.info('application pushed to user %s', target_user.username)
+            log.info('application pushed to user %s', target_user.username)
             wi.user = target_user
             wi.save()
-            Event.objects.create(name='assigned to %s' % target_user.username, workitem=wi)
-            notify_if_needed(user=target_user)
+            log.event('assigned to %s' % target_user.username, wi)
+            #notify_if_needed(user=target_user)
         else:
             wi.pull_roles = wi.activity.roles.all()
             wi.save()
-            notify_if_needed(roles=wi.pull_roles)
+            #notify_if_needed(roles=wi.pull_roles)
         return wi
+
 
     def exec_push_application(self):
         '''
-        Execute push application for this workitem
+        Execute push application in workitem
         '''
-        if not self.activity.process.enabled:
-            raise Exception('process %s disabled.' % self.activity.process.title)
-        appname = self.activity.push_application.url
-        params = self.activity.pushapp_param
+        # TODO: another horrible eval HACK:
+        workitem = self        
+        if not workitem.activity.process.enabled:
+            raise Exception('process %s disabled.' % workitem.activity.process.title)
+        appname = workitem.activity.push_application.url
+        params = workitem.activity.pushapp_param
         # try std pushapps:
         from goflow.workflow import pushapps
         if appname in dir(pushapps):
-            print 'appname', appname
             try:
                 kwargs = ''
                 if params:
                     kwargs = ',**%s' % params
                 result = eval('pushapps.%s(workitem%s)' % (appname, kwargs))
             except Exception, v:
-                _log.error('exec_push_application %s', v)
+                log.error('exec_push_application %s', v)
                 result = None
-                self.fallout()
+                workitem.fallout()
             return result
         
         try:
@@ -255,27 +260,23 @@ class WorkItem(models.Model):
             appname = '%s.%s' % (prefix, appname)
             result = eval('%s(workitem)' % appname)
         except Exception, v:
-            _log.error('exec_push_application %s', v)
+            log.error('exec_push_application %s', v)
             result = None
-            self.fallout()
+            workitem.fallout()
         return result
 
     def activate(self, actor):
         '''
         changes this workitem's status to 'active' and logs event & activator
-        '''
-        
+        '''        
         self._check_all_for(actor, status=('inactive', 'active'))
         if self.status == 'active':
-            _log.warning('activate_workitem actor %s workitem %s already active', 
-                actor.username, str(self))
+            log.warning('actor:%s workitem:%s already active', actor.username, str(self))
             return
         self.status = 'active'
         self.user = actor
         self.save()
-        _log.info('activate_workitem actor %s workitem %s', 
-            actor.username, str(self))
-        Event.objects.create(name='activated by %s' % actor.username, workitem=self)
+        log.event('activated by '+actor.username, workitem=self)
 
 
     def complete(self, actor):
@@ -286,26 +287,25 @@ class WorkItem(models.Model):
         self.status = 'complete'
         self.user = actor
         self.save()
-        _log.info('complete_workitem actor %s workitem %s', actor.username, str(self))
-        Event.objects.create(name='completed by %s' % actor.username, workitem=self)
+        log.event('completed by %s' % actor.username, self)
         
         if self.activity.autofinish:
-            _log.debug('activity autofinish: forward')
+            log.debug('activity autofinish: forward')
             self.forward()
         
         # if end activity, instance is complete
         if self.instance.process.end == self.activity:
-            _log.info('activity end process %s' % self.instance.process.title)
+            log.info('activity end process %s' % self.instance.process.title)
             # first test subflow
             lwi = WorkItem.objects.filter(activity__subflow=self.instance.process,
                                           status='blocked',
                                           instance=self.instance)
             if lwi.count() > 0:
-                _log.info('parent process for subflow %s' % self.instance.process.title)
+                log.info('parent process for subflow %s' % self.instance.process.title)
                 workitem0 = lwi[0]
                 workitem0.instance.process = workitem0.activity.process
                 workitem0.instance.save()
-                _log.info('process change for instance %s' % workitem0.instance.title)
+                log.info('process change for instance %s' % workitem0.instance.title)
                 workitem0.status = 'complete'
                 workitem0.save()
                 workitem0.forward(subflow_workitem=self)
@@ -335,17 +335,17 @@ class WorkItem(models.Model):
             func(workitem=self , **kwargs)
             return True
         except Exception, v:
-            _log.error('execution wi %s:%s', self, v)
+            log.error('execution wi %s:%s', self, v)
         return False
 
     def default_auto_app(self):
         '''
-        retrieves wfobject, logs info to it saves
+        retrieves content_object, logs info to it, saves
         
         @rtype: bool
         @return: always returns True
         '''
-        obj = self.instance.wfobject()
+        obj = self.instance.content_object
         obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title
         obj.save()
         return True
@@ -401,19 +401,19 @@ class WorkItem(models.Model):
             
         if not self.activity.process.enabled:
             error = 'process %s disabled.' % self.activity.process.title
-            _log.error('workflow.models.WorkItem._check_all: %s' % error)
+            log.error(error)
             raise Exception(error)
             
         if not self.check_user(user):
             error = 'user %s cannot take workitem %d.' % (user.username, self.id)
-            _log.error('workflow.models.WorkItem._check_all %s' % error)
+            log.error(error)
             self.fallout()
             raise Exception(error)
             
         if not self.status in status:
             error = 'workitem %d has not a correct status (%s/%s).' % (
                 self.id, self.status, str(status))
-            _log.error('workflow.models.WorkItem._check_all: %s' % error)
+            log.error(error)
             raise Exception(error)
     
         return
@@ -422,9 +422,8 @@ class WorkItem(models.Model):
         return '%s-%s-%s' % (unicode(self.instance), self.activity, str(self.id))
     
     def has_workitems_to(self):
-        b = ( self.workitems_to.count() > 0 )
-        return b
-    
+        return ( self.workitems_to.count() > 0 )
+
     def check_user(self, user):
         """return True if authorized, False if not.
         """
@@ -451,13 +450,13 @@ class WorkItem(models.Model):
             self.user = user
             if commit: self.save()
             return True
-        self.fallOut()
+        self.fallout()
         return False
     
     def fallout(self):
         self.status = 'fallout'
         self.save()
-        Event.objects.create(name='fallout', workitem=self)
+        log.event('fallout', self)
     
     def html_action(self):
         label = 'action'
@@ -483,13 +482,13 @@ class WorkItem(models.Model):
             raise Exception('no action for completed workitems')
         return '<a href=%s>' % (url)
     
-    def time_out(self, delay, unit='days'):
+    def timeout(self, delay, unit='days'):
         '''
         return True if timeout reached
           delay:    nb units
           unit: 'weeks' | 'days' | 'hours' ... (see timedelta)
         '''
-        tdelta = eval('timedelta('+unit+'=delay)')
+        tdelta = timedelta(**{unit:delay})
         now = datetime.now()
         return (now > (self.date + tdelta))
         
@@ -498,19 +497,21 @@ class WorkItem(models.Model):
         list_display = ('date', 'user', 'instance', 'activity', 'status')
         list_filter = ('user', 'activity', 'status')
 
+
 class Event(models.Model):
-    """Event are changes that happens on workitems.
+    """Events are changes that happen to workitems.
     """
     date = models.DateTimeField(auto_now=True, core=True)
     name = models.CharField(max_length=50, core=True)
-    workitem = models.ForeignKey(WorkItem, related_name='events', edit_inline=True)
+    workitem = models.ForeignKey('WorkItem', 
+        related_name='events', edit_inline=True)
     class Admin:
         date_hierarchy = 'date'
         list_display = ('date', 'name', 'workitem')
 
 
 class DefaultAppModel(models.Model):
-    """Default implementation object class  for process instances.
+    """Default implementation object class for process instances.
     
     When a process instance starts, the instance has to carry an
     implementation object that contains the application data. The

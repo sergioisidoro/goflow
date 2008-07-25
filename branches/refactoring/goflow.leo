@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="22" left="148" height="518" width="1172"/>
+	<global_window_position top="37" left="213" height="518" width="1172"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="1,0,1"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="1,2,7"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -20,7 +20,7 @@
 </v>
 </v>
 <v t="sa.20080714235246.1" a="E"><vh>src</vh>
-<v t="sa.20080720215142.1" a="E"><vh>snippets</vh>
+<v t="sa.20080720215142.1"><vh>snippets</vh>
 <v t="sa.20080720215142.3"><vh>inserting RequestContext into templates</vh>
 <v t="sa.20080720215142.2"><vh>render_response</vh></v>
 <v t="sa.20080720215142.4"><vh>render_to decorator</vh></v>
@@ -168,6 +168,14 @@
 <v t="sa.20080720192331.4"><vh>Backwards Incompatible Changes</vh></v>
 </v>
 </v>
+<v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
+<v t="sa.20080724074952.2" a="E"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
+<v t="sa.20080724074952.3"><vh>Improve API</vh></v>
+<v t="sa.20080724074952.10"><vh>Minimize / Manager Eval</vh></v>
+<v t="sa.20080724074952.11"><vh>Add docs</vh></v>
+</v>
+</v>
 <v t="sa.20080714012008.1"><vh>@rst glossary.rst</vh>
 <v t="sa.20080715122316.10"><vh>Application</vh></v>
 <v t="sa.20080715122316.11"><vh>PushApplication</vh></v>
@@ -215,6 +223,203 @@
 <v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
 </v>
+</v>
+<v t="sa.20080724074952.13" a="E"><vh>other workflow engines</vh>
+<v t="sa.20080724074952.15" a="E" tnodeList="sa.20080724074952.15,sa.20080724074952.16,sa.20080724074952.17,sa.20080724074952.18,sa.20080724074952.19"><vh>@file attributeintegration.py</vh>
+<v t="sa.20080724074952.16"><vh>attributeintegration declarations</vh></v>
+<v t="sa.20080724074952.17" a="E"><vh>class AttributeIntegration</vh>
+<v t="sa.20080724074952.18"><vh>createParticipant</vh></v>
+<v t="sa.20080724074952.19"><vh>createWorkItem</vh></v>
+</v>
+</v>
+<v t="sa.20080724074952.20" tnodeList="sa.20080724074952.20,sa.20080724074952.21,sa.20080724074952.22,sa.20080724074952.23,sa.20080724074952.24,sa.20080724074952.25,sa.20080724074952.26,sa.20080724074952.27,sa.20080724074952.28,sa.20080724074952.29,sa.20080724074952.30,sa.20080724074952.31,sa.20080724074952.32,sa.20080724074952.33,sa.20080724074952.34,sa.20080724074952.35,sa.20080724074952.36,sa.20080724074952.37,sa.20080724074952.38,sa.20080724074952.39,sa.20080724074952.40,sa.20080724074952.41,sa.20080724074952.42,sa.20080724074952.43,sa.20080724074952.44,sa.20080724074952.45,sa.20080724074952.46,sa.20080724074952.47,sa.20080724074952.48,sa.20080724074952.49,sa.20080724074952.50,sa.20080724074952.51"><vh>@file interfaces.py</vh>
+<v t="sa.20080724074952.21"><vh>interfaces declarations</vh></v>
+<v t="sa.20080724074952.22"><vh>class IIntegration</vh>
+<v t="sa.20080724074952.23"><vh>createParticipant</vh></v>
+<v t="sa.20080724074952.24"><vh>createWorkItem</vh></v>
+</v>
+<v t="sa.20080724074952.25"><vh>class IProcessDefinition</vh>
+<v t="sa.20080724074952.26"><vh>defineActivities</vh></v>
+<v t="sa.20080724074952.27"><vh>defineTransitions</vh></v>
+<v t="sa.20080724074952.28"><vh>defineParticipants</vh></v>
+<v t="sa.20080724074952.29"><vh>defineApplications</vh></v>
+<v t="sa.20080724074952.30"><vh>defineParameters</vh></v>
+</v>
+<v t="sa.20080724074952.31"><vh>class IActivityDefinition</vh>
+<v t="sa.20080724074952.32"><vh>addApplication</vh></v>
+<v t="sa.20080724074952.33"><vh>definePerformer</vh></v>
+<v t="sa.20080724074952.34"><vh>setAndSplit</vh></v>
+<v t="sa.20080724074952.35"><vh>setAndJoin</vh></v>
+</v>
+<v t="sa.20080724074952.36"><vh>class ITransitionDefinition</vh></v>
+<v t="sa.20080724074952.37"><vh>class IProcess</vh></v>
+<v t="sa.20080724074952.38"><vh>class IProcessContext</vh>
+<v t="sa.20080724074952.39"><vh>processFinished</vh></v>
+</v>
+<v t="sa.20080724074952.40" a="E"><vh>class IActivity</vh>
+<v t="sa.20080724074952.41"><vh>workItemFinished</vh></v>
+</v>
+<v t="sa.20080724074952.42"><vh>class IApplicationDefinition</vh></v>
+<v t="sa.20080724074952.43"><vh>class IParameterDefinition</vh></v>
+<v t="sa.20080724074952.44"><vh>class IParticipantDefinition</vh></v>
+<v t="sa.20080724074952.45"><vh>class IParticipant</vh></v>
+<v t="sa.20080724074952.46"><vh>class IWorkItem</vh>
+<v t="sa.20080724074952.47"><vh>start</vh></v>
+</v>
+<v t="sa.20080724074952.48"><vh>class InvalidProcessDefinition</vh></v>
+<v t="sa.20080724074952.49"><vh>class ProcessError</vh></v>
+<v t="sa.20080724074952.50"><vh>class IProcessStarted</vh></v>
+<v t="sa.20080724074952.51"><vh>class IProcessFinished</vh></v>
+</v>
+<v t="sa.20080724074952.52" tnodeList="sa.20080724074952.52,sa.20080724074952.53,sa.20080724074952.54,sa.20080724074952.55,sa.20080724074952.56,sa.20080724074952.57,sa.20080724074952.58,sa.20080724074952.59,sa.20080724074952.60,sa.20080724074952.61,sa.20080724074952.62,sa.20080724074952.63,sa.20080724074952.64,sa.20080724074952.65,sa.20080724074952.66,sa.20080724074952.67,sa.20080724074952.68,sa.20080724074952.69,sa.20080724074952.70,sa.20080724074952.71,sa.20080724074952.72,sa.20080724074952.73,sa.20080724074952.74,sa.20080724074952.75,sa.20080724074952.76,sa.20080724074952.77,sa.20080724074952.78,sa.20080724074952.79,sa.20080724074952.80,sa.20080724074952.81,sa.20080724074952.82,sa.20080724074952.83,sa.20080724074952.84,sa.20080724074952.85,sa.20080724074952.86,sa.20080724074952.87,sa.20080724074952.88,sa.20080724074952.89,sa.20080724074952.90,sa.20080724074952.91,sa.20080724074952.92,sa.20080724074952.93,sa.20080724074952.94,sa.20080724074952.95,sa.20080724074952.96,sa.20080724074952.97,sa.20080724074952.98,sa.20080724074952.99,sa.20080724074952.100,sa.20080724074952.101,sa.20080724074952.102,sa.20080724074952.103,sa.20080724074952.104,sa.20080724074952.105,sa.20080724074952.106,sa.20080724074952.107,sa.20080724074952.108,sa.20080724074952.109,sa.20080724074952.110,sa.20080724074952.111,sa.20080724074952.112,sa.20080724074952.113,sa.20080724074952.114,sa.20080724074952.115,sa.20080724074952.116,sa.20080724074952.117,sa.20080724074952.118,sa.20080724074952.119,sa.20080724074952.120,sa.20080724074952.121,sa.20080724074952.122,sa.20080724074952.123,sa.20080724074952.124"><vh>@file process.py</vh>
+<v t="sa.20080724074952.53"><vh>process declarations</vh></v>
+<v t="sa.20080724074952.54"><vh>always_true</vh></v>
+<v t="sa.20080724074952.55"><vh>class TransitionDefinition</vh>
+<v t="sa.20080724074952.56"><vh>__init__</vh></v>
+<v t="sa.20080724074952.57"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.58"><vh>class ProcessDefinition</vh>
+<v t="sa.20080724074952.59"><vh>__init__</vh></v>
+<v t="sa.20080724074952.60"><vh>__repr__</vh></v>
+<v t="sa.20080724074952.61"><vh>defineActivities</vh></v>
+<v t="sa.20080724074952.62"><vh>defineTransitions</vh></v>
+<v t="sa.20080724074952.63"><vh>defineApplications</vh></v>
+<v t="sa.20080724074952.64"><vh>defineParticipants</vh></v>
+<v t="sa.20080724074952.65"><vh>defineParameters</vh></v>
+<v t="sa.20080724074952.66"><vh>_start</vh></v>
+<v t="sa.20080724074952.67"><vh>__call__</vh></v>
+<v t="sa.20080724074952.68"><vh>_dirty</vh></v>
+</v>
+<v t="sa.20080724074952.69"><vh>class ActivityDefinition</vh>
+<v t="sa.20080724074952.70"><vh>__init__</vh></v>
+<v t="sa.20080724074952.71"><vh>andSplit</vh></v>
+<v t="sa.20080724074952.72"><vh>andJoin</vh></v>
+<v t="sa.20080724074952.73"><vh>addApplication</vh></v>
+<v t="sa.20080724074952.74"><vh>definePerformer</vh></v>
+<v t="sa.20080724074952.75"><vh>addOutgoing</vh></v>
+<v t="sa.20080724074952.76"><vh>transitionOutgoing</vh></v>
+<v t="sa.20080724074952.77"><vh>computeOutgoing</vh></v>
+<v t="sa.20080724074952.78"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.79"><vh>class Process</vh>
+<v t="sa.20080724074952.80"><vh>__init__</vh></v>
+<v t="sa.20080724074952.81"><vh>definition</vh></v>
+<v t="sa.20080724074952.82"><vh>start</vh></v>
+<v t="sa.20080724074952.83"><vh>outputs</vh></v>
+<v t="sa.20080724074952.84"><vh>_finish</vh></v>
+<v t="sa.20080724074952.85"><vh>transition</vh></v>
+<v t="sa.20080724074952.86"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.87"><vh>class WorkflowData</vh></v>
+<v t="sa.20080724074952.88"><vh>class ProcessStarted</vh>
+<v t="sa.20080724074952.89"><vh>__init__</vh></v>
+<v t="sa.20080724074952.90"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.91"><vh>class ProcessFinished</vh>
+<v t="sa.20080724074952.92"><vh>__init__</vh></v>
+<v t="sa.20080724074952.93"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.94"><vh>class Activity</vh>
+<v t="sa.20080724074952.95"><vh>__init__</vh></v>
+<v t="sa.20080724074952.96"><vh>definition</vh></v>
+<v t="sa.20080724074952.97"><vh>start</vh></v>
+<v t="sa.20080724074952.98"><vh>workItemFinished</vh></v>
+<v t="sa.20080724074952.99"><vh>finish</vh></v>
+<v t="sa.20080724074952.100"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.101"><vh>class WorkItemFinished</vh>
+<v t="sa.20080724074952.102"><vh>__init__</vh></v>
+<v t="sa.20080724074952.103"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.104"><vh>class Transition</vh>
+<v t="sa.20080724074952.105"><vh>__init__</vh></v>
+<v t="sa.20080724074952.106"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.107"><vh>class ActivityFinished</vh>
+<v t="sa.20080724074952.108"><vh>__init__</vh></v>
+<v t="sa.20080724074952.109"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.110"><vh>class ActivityStarted</vh>
+<v t="sa.20080724074952.111"><vh>__init__</vh></v>
+<v t="sa.20080724074952.112"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.113"><vh>class Parameter</vh>
+<v t="sa.20080724074952.114"><vh>__init__</vh></v>
+</v>
+<v t="sa.20080724074952.115"><vh>class OutputParameter</vh></v>
+<v t="sa.20080724074952.116"><vh>class InputParameter</vh></v>
+<v t="sa.20080724074952.117"><vh>class InputOutputParameter</vh></v>
+<v t="sa.20080724074952.118"><vh>class Application</vh>
+<v t="sa.20080724074952.119"><vh>__init__</vh></v>
+<v t="sa.20080724074952.120"><vh>defineParameters</vh></v>
+<v t="sa.20080724074952.121"><vh>__repr__</vh></v>
+</v>
+<v t="sa.20080724074952.122"><vh>class Participant</vh>
+<v t="sa.20080724074952.123"><vh>__init__</vh></v>
+<v t="sa.20080724074952.124"><vh>__repr__</vh></v>
+</v>
+</v>
+<v t="sa.20080724074952.125"><vh>@file publication.xpdl</vh></v>
+<v t="sa.20080724074952.126"><vh>@file README.txt</vh></v>
+<v t="sa.20080724074952.127" tnodeList="sa.20080724074952.127,sa.20080724074952.128,sa.20080724074952.129,sa.20080724074952.130,sa.20080724074952.131,sa.20080724074952.132,sa.20080724074952.133,sa.20080724074952.134,sa.20080724074952.135"><vh>@file tests.py</vh>
+<v t="sa.20080724074952.128"><vh>tests declarations</vh></v>
+<v t="sa.20080724074952.129"><vh>tearDown</vh></v>
+<v t="sa.20080724074952.130"><vh>setUp</vh></v>
+<v t="sa.20080724074952.131"><vh>test_multiple_input_parameters</vh></v>
+<v t="sa.20080724074952.132"><vh>test_pickling</vh></v>
+<v t="sa.20080724074952.133"><vh>test_inputoutput</vh></v>
+<v t="sa.20080724074952.134"><vh>test_wrong_number_process_args_error_message</vh></v>
+<v t="sa.20080724074952.135"><vh>test_suite</vh></v>
+</v>
+<v t="sa.20080724074952.136" tnodeList="sa.20080724074952.136,sa.20080724074952.137,sa.20080724074952.138,sa.20080724074952.139,sa.20080724074952.140,sa.20080724074952.141,sa.20080724074952.142,sa.20080724074952.143,sa.20080724074952.144,sa.20080724074952.145,sa.20080724074952.146,sa.20080724074952.147,sa.20080724074952.148,sa.20080724074952.149,sa.20080724074952.150,sa.20080724074952.151,sa.20080724074952.152,sa.20080724074952.153,sa.20080724074952.154,sa.20080724074952.155,sa.20080724074952.156,sa.20080724074952.157,sa.20080724074952.158,sa.20080724074952.159,sa.20080724074952.160,sa.20080724074952.161,sa.20080724074952.162,sa.20080724074952.163,sa.20080724074952.164,sa.20080724074952.165,sa.20080724074952.166,sa.20080724074952.167,sa.20080724074952.168,sa.20080724074952.169,sa.20080724074952.170,sa.20080724074952.171,sa.20080724074952.172,sa.20080724074952.173,sa.20080724074952.174,sa.20080724074952.175,sa.20080724074952.176,sa.20080724074952.177"><vh>@file xpdl.py</vh>
+<v t="sa.20080724074952.137"><vh>xpdl declarations</vh></v>
+<v t="sa.20080724074952.138"><vh>class HandlerError</vh>
+<v t="sa.20080724074952.139"><vh>__init__</vh></v>
+<v t="sa.20080724074952.140"><vh>__repr__</vh></v>
+<v t="sa.20080724074952.141"><vh>__str__</vh></v>
+</v>
+<v t="sa.20080724074952.142"><vh>class Package</vh>
+<v t="sa.20080724074952.143"><vh>__init__</vh></v>
+<v t="sa.20080724074952.144"><vh>defineApplications</vh></v>
+<v t="sa.20080724074952.145"><vh>defineParticipants</vh></v>
+</v>
+<v t="sa.20080724074952.146"><vh>class XPDLHandler</vh>
+<v t="sa.20080724074952.147"><vh>__init__</vh></v>
+<v t="sa.20080724074952.148"><vh>startElementNS</vh></v>
+<v t="sa.20080724074952.149"><vh>endElementNS</vh></v>
+<v t="sa.20080724074952.150"><vh>characters</vh></v>
+<v t="sa.20080724074952.151"><vh>setDocumentLocator</vh></v>
+<v t="sa.20080724074952.152"><vh>Package</vh></v>
+<v t="sa.20080724074952.153"><vh>WorkflowProcess</vh></v>
+<v t="sa.20080724074952.154"><vh>FormalParameter</vh></v>
+<v t="sa.20080724074952.155"><vh>Participant</vh></v>
+<v t="sa.20080724074952.156"><vh>Application</vh></v>
+<v t="sa.20080724074952.157"><vh>application</vh></v>
+<v t="sa.20080724074952.158"><vh>description</vh></v>
+<v t="sa.20080724074952.159"><vh>ActivitySet</vh></v>
+<v t="sa.20080724074952.160"><vh>Activity</vh></v>
+<v t="sa.20080724074952.161"><vh>Tool</vh></v>
+<v t="sa.20080724074952.162"><vh>tool</vh></v>
+<v t="sa.20080724074952.163"><vh>actualparameter</vh></v>
+<v t="sa.20080724074952.164"><vh>performer</vh></v>
+<v t="sa.20080724074952.165"><vh>Join</vh></v>
+<v t="sa.20080724074952.166"><vh>Split</vh></v>
+<v t="sa.20080724074952.167"><vh>TransitionRef</vh></v>
+<v t="sa.20080724074952.168"><vh>Transition</vh></v>
+<v t="sa.20080724074952.169"><vh>transition</vh></v>
+<v t="sa.20080724074952.170"><vh>condition</vh></v>
+</v>
+<v t="sa.20080724074952.171"><vh>class Tool</vh>
+<v t="sa.20080724074952.172"><vh>__init__</vh></v>
+</v>
+<v t="sa.20080724074952.173"><vh>class TextCondition</vh>
+<v t="sa.20080724074952.174"><vh>__init__</vh></v>
+<v t="sa.20080724074952.175"><vh>__getstate__</vh></v>
+<v t="sa.20080724074952.176"><vh>__call__</vh></v>
+</v>
+<v t="sa.20080724074952.177"><vh>read</vh></v>
+</v>
+<v t="sa.20080724074952.178"><vh>@file xpdl.txt</vh></v>
 </v>
 </v>
 </vnodes>
@@ -1037,7 +1242,7 @@ You can customize application with parameters:
 
     * OK: the user has pushed the OK button
     * instance.condition == "OK": the user has pushed the OK button
-    * workitem.time_out(delay=5, unit='days'): the task is waiting for 5 days or more (NYI but soon)</t>
+    * workitem.timeout(delay=5, unit='days'): the task is waiting for 5 days or more (NYI but soon)</t>
 <t tx="sa.20080714081843.26">
 An activity-based workflow is a workflow that is centered around a set of activities that someone (or something) has to do.
 
@@ -1529,6 +1734,3527 @@ now use this in the templates='''
 
 
 
+</t>
+<t tx="sa.20080724074952.1">.. _todo:
+
+
+
+.. contents::
+
+
+
+
+</t>
+<t tx="sa.20080724074952.2"></t>
+<t tx="sa.20080724074952.3">* make it more object oriented </t>
+<t tx="sa.20080724074952.10"></t>
+<t tx="sa.20080724074952.11">* autodoc tests
+* add uml diagram of model (80%)</t>
+<t tx="sa.20080724074952.12"></t>
+<t tx="sa.20080724074952.13">@ignores</t>
+<t tx="sa.20080724074952.15">@language python
+@tabwidth -4
+@ignore
+@others
+</t>
+<t tx="sa.20080724074952.16">##############################################################################
+#
+# Copyright (c) 2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+"""Attribute-based integration components
+
+
+$Id: attributeintegration.py 30314 2005-05-09 17:07:09Z jim $
+"""
+
+from zope.wfmc import interfaces
+from zope import interface
+
+</t>
+<t tx="sa.20080724074952.17">class AttributeIntegration:
+    """Integration component that uses simple attributes
+
+    Subclasses provide attributes with suffices Participant or Application to
+    provide participant and application factories of a given name.
+    """
+
+    interface.implements(interfaces.IIntegration)
+
+    @others
+</t>
+<t tx="sa.20080724074952.18">def createParticipant(self, activity,
+                      process_definition_identifier, performer):
+    return getattr(self, performer+'Participant')(activity)
+
+
+</t>
+<t tx="sa.20080724074952.19">def createWorkItem(self, participant,
+                   process_definition_identifier, application):
+    return getattr(self, application+'WorkItem')(participant)
+</t>
+<t tx="sa.20080724074952.20">@language python
+@tabwidth -4
+@ignore
+@others
+</t>
+<t tx="sa.20080724074952.21">##############################################################################
+#
+# Copyright (c) 2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.0 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+"""Workflow-integration interfaces
+
+$Id: interfaces.py 70052 2006-09-08 12:27:59Z adamg $
+"""
+__docformat__ = "reStructuredText"
+
+from zope import interface
+
+</t>
+<t tx="sa.20080724074952.22">class IIntegration(interface.Interface):
+    """Integration of a workflow definition with an application environment
+
+    ``IIntegration`` objects provide methods for integrating workflow
+    process definition with an application environment.
+    """
+    @others
+</t>
+<t tx="sa.20080724074952.23">
+
+def createParticipant(activity, process_definition_identifier, performer):
+    """Create a participant for an activity
+
+    The process id and especially the performer (id) are used to
+    select an appropriate participant type.
+    """
+
+</t>
+<t tx="sa.20080724074952.24">def createWorkItem(participant,
+                   process_definition_identifier, application):
+    """Create a work item for the given participant
+
+    The process id and especially the application (id) are used to
+    select an appropriate work-item type.
+    """
+
+</t>
+<t tx="sa.20080724074952.25">class IProcessDefinition(interface.Interface):
+    """Process definition
+
+    A process definition defines a particular workflow and define the control
+    and flow of the work. You can think of them as the workflow blueprint.
+    """
+
+    id = interface.Attribute("Process-definition identifier")
+
+    __name__ = interface.Attribute("Name")
+
+    description = interface.Attribute("Description")
+
+    integration = interface.Attribute(
+        """Environment-integration component
+
+        The integration component is used to hook up a process
+        definition with an application environment.
+
+        This is an ``IIntegration``.
+        """
+        )
+
+    participants = interface.Attribute(
+        """Process participants
+
+        This is a mapping from participant id to participant definition
+        """
+        )
+
+    activities = interface.Attribute(
+        """Process activities
+
+        This is a mapping from activity id to activity definition
+        """
+        )
+
+    applications = interface.Attribute(
+        """Process applications
+
+        This is a mapping from application id to participant definitions
+        """
+        )
+
+    @others
+</t>
+<t tx="sa.20080724074952.26">def defineActivities(**activities):
+    """Add activity definitions to the collection of defined activities
+
+    Activity definitions are supplied as keyword arguments.  The
+    keywords provide activity identifiers.  The values are
+    IActivityDefinition objects.
+
+    """
+
+</t>
+<t tx="sa.20080724074952.27">def defineTransitions(*transitions):
+    """Add transition definitions
+
+    The transitions are ITransition objects.
+    """
+
+</t>
+<t tx="sa.20080724074952.28">def defineParticipants(**participants):
+    """Declare participants
+
+    The participants are provided as keyword arguments.
+    Participant identifiers are supplied as the keywords and the
+    definitions are supplied as values.  The definitions are
+    IParticipantDefinition objects.
+    """
+
+</t>
+<t tx="sa.20080724074952.29">def defineApplications(**applications):
+    """Declare applications
+
+    The applications are provided as keyword arguments.
+    Application identifiers are supplied as the keywords and the
+    definitions are supplied as values.  The definitions are
+    IApplicationDefinition objects.
+    """
+
+</t>
+<t tx="sa.20080724074952.30">def defineParameters(*parameters):
+    """Declate process parameters
+
+    Input parameters are set as workflow-relevant data.  Output
+    parameters are passed from workflow-relevant data to the
+    processFinished method of process-instances process contexts.
+
+    """
+
+</t>
+<t tx="sa.20080724074952.31">class IActivityDefinition(interface.Interface):
+    """Activity definition
+    """
+
+    id = interface.Attribute("Activity identifier")
+
+    __name__ = interface.Attribute("Activity Name")
+
+    description = interface.Attribute("Description")
+
+    @others
+</t>
+<t tx="sa.20080724074952.32">def addApplication(id, *parameters):
+    """Declare that the activity uses the identified activity
+
+    The application identifier must match an application declared
+    for the process.
+
+    Parameter definitions can be given as positional arguments.
+    The parameter definition directions must match those given in
+    the application definition.
+    """
+
+</t>
+<t tx="sa.20080724074952.33">def definePerformer(performer):
+    """Set the activity performer
+
+    The argument must be the identifier of a participant defined
+    for the enclosing process.
+    """
+
+</t>
+<t tx="sa.20080724074952.34">def setAndSplit(setting):
+    """Provide an and-split setting
+
+    If the setting is true, then the activity will use an "and" split.
+    """
+
+</t>
+<t tx="sa.20080724074952.35">def setAndJoin(setting):
+    """Provide an and-join setting
+
+    If the setting is true, then the activity will use an "and" join.
+    """
+
+</t>
+<t tx="sa.20080724074952.36">class ITransitionDefinition(interface.Interface):
+    """Transition definition
+    """
+    id = interface.Attribute("Transition identifier")
+
+    __name__ = interface.Attribute(
+        "Transition name, Text used to identify the Transition.")
+
+    description = interface.Attribute("Description")
+
+    from_ = interface.Attribute(
+        "Determines the FROM source of a Transition. (Activity Identifier)")
+
+    to = interface.Attribute(
+        "Determines the TO target of a Transition (Activity Identifier)")
+
+    condition = interface.Attribute(
+        "A Transition condition expression based on relevant data field.")
+
+</t>
+<t tx="sa.20080724074952.37">class IProcess(interface.Interface):
+    """Process instance
+    """
+
+    definition = interface.Attribute("Process definition")
+
+    workflowRelevantData = interface.Attribute(
+        """Workflow-relevant data
+
+        Object with attributes containing data used in conditions and
+        to pass data as parameters between applications
+        """
+        )
+
+    applicationRelevantData = interface.Attribute(
+        """Application-relevant data
+
+        Object with attributes containing data used to pass data as
+        shared data for applications
+
+        """
+        )
+
+</t>
+<t tx="sa.20080724074952.38">class IProcessContext(interface.Interface):
+    """Object that can receive process results.
+    """
+    @others
+</t>
+<t tx="sa.20080724074952.39">
+def processFinished(process, *results):
+    """Receive notification of process completion, with results
+    """
+
+</t>
+<t tx="sa.20080724074952.40">class IActivity(interface.Interface):
+    """Activity instance
+    """
+
+    id = interface.Attribute(
+        """Activity identifier
+
+        This identifier is set by the process instance
+
+        """)
+
+    definition = interface.Attribute("Activity definition")
+
+    @others
+</t>
+<t tx="sa.20080724074952.41">def workItemFinished(work_item, *results):
+    """Notify the activity that the work item has been completed.
+    """
+
+</t>
+<t tx="sa.20080724074952.42">class IApplicationDefinition(interface.Interface):
+    """Application definition
+    """
+
+    __name__ = interface.Attribute("Name")
+
+    description = interface.Attribute("Description")
+
+    parameters = interface.Attribute(
+        "A sequence of parameter definitions")
+
+</t>
+<t tx="sa.20080724074952.43">class IParameterDefinition(interface.Interface):
+    """Parameter definition
+    """
+
+    name = interface.Attribute("Parameter name")
+
+    input = interface.Attribute("Is this an input parameter?")
+
+    output = interface.Attribute("Is this an output parameter?")
+
+</t>
+<t tx="sa.20080724074952.44">class IParticipantDefinition(interface.Interface):
+    """Participant definition
+    """
+
+</t>
+<t tx="sa.20080724074952.45">class IParticipant(interface.Interface):
+    """Workflow participant
+    """
+
+    __name__ = interface.Attribute("Name")
+
+    description = interface.Attribute("Description")
+
+</t>
+<t tx="sa.20080724074952.46">class IWorkItem(interface.Interface):
+    """Work items
+    """
+
+    id = interface.Attribute(
+        """Item identifier
+
+        This identifier is set by the activity instance
+
+        """)
+
+    @others
+</t>
+<t tx="sa.20080724074952.47">def start(*arguments):
+    """Start the work
+    """
+
+
+</t>
+<t tx="sa.20080724074952.48">class InvalidProcessDefinition(Exception):
+    """A process definition isn't valid in some way.
+    """
+
+</t>
+<t tx="sa.20080724074952.49">class ProcessError(Exception):
+    """An error occurred in execution of a process.
+    """
+
+</t>
+<t tx="sa.20080724074952.50">class IProcessStarted(interface.Interface):
+    """A process has begun executing
+    """
+
+    process = interface.Attribute("The process")
+
+</t>
+<t tx="sa.20080724074952.51">class IProcessFinished(interface.Interface):
+    """A process has finished executing
+    """
+
+    process = interface.Attribute("The process")
+</t>
+<t tx="sa.20080724074952.52">@language python
+@tabwidth -4
+@ignore
+@others
+</t>
+<t tx="sa.20080724074952.53">##############################################################################
+#
+# Copyright (c) 2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.0 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+"""Processes
+
+$Id: process.py 70052 2006-09-08 12:27:59Z adamg $
+"""
+
+import persistent
+
+import zope.cachedescriptors.property
+
+from zope import component, interface
+
+import zope.event
+
+from zope.wfmc import interfaces
+
+</t>
+<t tx="sa.20080724074952.54">def always_true(data):
+    return True
+
+</t>
+<t tx="sa.20080724074952.55">class TransitionDefinition(object):
+
+    interface.implements(interfaces.ITransitionDefinition)
+
+    @others
+</t>
+<t tx="sa.20080724074952.56">def __init__(self, from_, to, condition=always_true, id=None, __name__=None):
+    self.id = id
+    self.from_ = from_
+    self.to = to
+    self.condition = condition
+    self.__name__ = __name__
+    self.description = None
+
+</t>
+<t tx="sa.20080724074952.57">def __repr__(self):
+    return "TransitionDefinition(from=%r, to=%r)" %(self.from_, self.to)
+
+
+</t>
+<t tx="sa.20080724074952.58">class ProcessDefinition(object):
+
+    interface.implements(interfaces.IProcessDefinition)
+
+    TransitionDefinitionFactory = TransitionDefinition
+
+    @others
+</t>
+<t tx="sa.20080724074952.59">def __init__(self, id, integration=None):
+    self.id = id
+    self.integration = integration
+    self.activities = {}
+    self.transitions = []
+    self.applications = {}
+    self.participants = {}
+    self.parameters = ()
+    self.description = None
+
+</t>
+<t tx="sa.20080724074952.60">def __repr__(self):
+    return "ProcessDefinition(%r)" % self.id
+
+</t>
+<t tx="sa.20080724074952.61">def defineActivities(self, **activities):
+    self._dirty()
+    for id, activity in activities.items():
+        activity.id = id
+        if activity.__name__ is None:
+            activity.__name__ = self.id + '.' + id
+        activity.process = self
+        self.activities[id] = activity
+
+</t>
+<t tx="sa.20080724074952.62">def defineTransitions(self, *transitions):
+    self._dirty()
+    self.transitions.extend(transitions)
+
+    # Compute activity transitions based on transition data:
+    activities = self.activities
+    for transition in transitions:
+        activities[transition.from_].transitionOutgoing(transition)
+        activities[transition.to].incoming += (transition, )
+
+</t>
+<t tx="sa.20080724074952.63">def defineApplications(self, **applications):
+    for id, application in applications.items():
+        application.id = id
+        self.applications[id] = application
+
+</t>
+<t tx="sa.20080724074952.64">def defineParticipants(self, **participants):
+    for id, participant in participants.items():
+        participant.id = id
+        self.participants[id] = participant
+
+</t>
+<t tx="sa.20080724074952.65">def defineParameters(self, *parameters):
+    self.parameters += parameters
+
+</t>
+<t tx="sa.20080724074952.66">def _start(self):
+    # Return an initial transition
+
+    activities = self.activities
+
+    # Find the start, making sure that there is one and that there
+    # aren't any activities with no transitions:
+    start = ()
+    for aid, activity in activities.items():
+        if not activity.incoming:
+            start += ((aid, activity), )
+            if not activity.outgoing:
+                raise interfaces.InvalidProcessDefinition(
+                    "Activity %s has no transitions" %aid)
+
+    if len(start) != 1:
+        if start:
+            raise interfaces.InvalidProcessDefinition(
+                "Multiple start activities",
+                [id for (id, a) in start]
+                )
+        else:
+            raise interfaces.InvalidProcessDefinition(
+                "No start activities")
+
+    return self.TransitionDefinitionFactory(None, start[0][0])
+
+</t>
+<t tx="sa.20080724074952.67">_start = zope.cachedescriptors.property.Lazy(_start)
+
+def __call__(self, context=None):
+    return Process(self, self._start, context)
+
+</t>
+<t tx="sa.20080724074952.68">def _dirty(self):
+    try:
+        del self._start
+    except AttributeError:
+        pass
+
+</t>
+<t tx="sa.20080724074952.69">class ActivityDefinition(object):
+
+    interface.implements(interfaces.IActivityDefinition)
+
+    performer = ''
+    process = None
+
+    @others
+</t>
+<t tx="sa.20080724074952.70">def __init__(self, __name__=None):
+    self.__name__ = __name__
+    self.incoming = self.outgoing = ()
+    self.transition_outgoing = self.explicit_outgoing = ()
+    self.applications = ()
+    self.andJoinSetting = self.andSplitSetting = False
+    self.description = None
+
+</t>
+<t tx="sa.20080724074952.71">def andSplit(self, setting):
+    self.andSplitSetting = setting
+
+</t>
+<t tx="sa.20080724074952.72">def andJoin(self, setting):
+    self.andJoinSetting = setting
+
+</t>
+<t tx="sa.20080724074952.73">def addApplication(self, application, actual=()):
+    app = self.process.applications[application]
+    formal = app.parameters
+    if len(formal) != len(actual):
+        raise TypeError("Wrong number of parameters =&gt; "
+                        "Actual=%s, Formal=%s for Application %s with id=%s"
+                        %(actual, formal, app, app.id))
+    self.applications += ((application, formal, tuple(actual)), )
+
+</t>
+<t tx="sa.20080724074952.74">def definePerformer(self, performer):
+    self.performer = performer
+
+</t>
+<t tx="sa.20080724074952.75">def addOutgoing(self, transition_id):
+    self.explicit_outgoing += (transition_id,)
+    self.computeOutgoing()
+
+</t>
+<t tx="sa.20080724074952.76">def transitionOutgoing(self, transition):
+    self.transition_outgoing += (transition,)
+    self.computeOutgoing()
+
+</t>
+<t tx="sa.20080724074952.77">def computeOutgoing(self):
+    if self.explicit_outgoing:
+        transitions = dict([(t.id, t) for t in self.transition_outgoing])
+        self.outgoing = ()
+        for tid in self.explicit_outgoing:
+            transition = transitions.get(tid)
+            if transition is not None:
+                self.outgoing += (transition,)
+    else:
+        self.outgoing = self.transition_outgoing
+
+</t>
+<t tx="sa.20080724074952.78">def __repr__(self):
+    return "&lt;ActivityDefinition %r&gt;" %self.__name__
+
+
+</t>
+<t tx="sa.20080724074952.79">class Process(persistent.Persistent):
+
+    interface.implements(interfaces.IProcess)
+
+    @others
+</t>
+<t tx="sa.20080724074952.80">def __init__(self, definition, start, context=None):
+    self.process_definition_identifier = definition.id
+    self.startTransition = start
+    self.context = context
+    self.activities = {}
+    self.nextActivityId = 0
+    self.workflowRelevantData = WorkflowData()
+    self.applicationRelevantData = WorkflowData()
+
+</t>
+<t tx="sa.20080724074952.81">def definition(self):
+    return component.getUtility(
+        interfaces.IProcessDefinition,
+        self.process_definition_identifier,
+        )
+</t>
+<t tx="sa.20080724074952.82">definition = property(definition)
+
+def start(self, *arguments):
+    if self.activities:
+        raise TypeError("Already started")
+
+    definition = self.definition
+    data = self.workflowRelevantData
+    args = arguments
+    for parameter in definition.parameters:
+        if parameter.input:
+            arg, args = args[0], args[1:]
+            setattr(data, parameter.__name__, arg)
+    if args:
+        raise TypeError("Too many arguments. Expected %s. got %s" %
+                        (len(definition.parameters), len(arguments)))
+
+    zope.event.notify(ProcessStarted(self))
+    self.transition(None, (self.startTransition, ))
+
+</t>
+<t tx="sa.20080724074952.83">def outputs(self):
+    outputs = []
+    for parameter in self.definition.parameters:
+        if parameter.output:
+            outputs.append(
+                getattr(self.workflowRelevantData,
+                        parameter.__name__))
+
+    return outputs
+
+</t>
+<t tx="sa.20080724074952.84">def _finish(self):
+    if self.context is not None:
+        self.context.processFinished(self, *self.outputs())
+
+    zope.event.notify(ProcessFinished(self))
+
+
+</t>
+<t tx="sa.20080724074952.85">def transition(self, activity, transitions):
+    if transitions:
+        definition = self.definition
+
+        for transition in transitions:
+            activity_definition = definition.activities[transition.to]
+            next = None
+            if activity_definition.andJoinSetting:
+                # If it's an and-join, we want only one.
+                for i, a in self.activities.items():
+                    if a.activity_definition_identifier == transition.to:
+                        # we already have the activity -- use it
+                        next = a
+                        break
+
+            if next is None:
+                next = Activity(self, activity_definition)
+                self.nextActivityId += 1
+                next.id = self.nextActivityId
+
+            zope.event.notify(Transition(activity, next))
+            self.activities[next.id] = next
+            next.start(transition)
+
+    if activity is not None:
+        del self.activities[activity.id]
+        if not self.activities:
+            self._finish()
+
+    self._p_changed = True
+
+</t>
+<t tx="sa.20080724074952.86">def __repr__(self):
+    return "Process(%r)" % self.process_definition_identifier
+
+</t>
+<t tx="sa.20080724074952.87">class WorkflowData(persistent.Persistent):
+    """Container for workflow-relevant and application-relevant data
+    """
+
+</t>
+<t tx="sa.20080724074952.88">class ProcessStarted:
+    interface.implements(interfaces.IProcessStarted)
+
+    @others
+</t>
+<t tx="sa.20080724074952.89">def __init__(self, process):
+    self.process = process
+
+</t>
+<t tx="sa.20080724074952.90">def __repr__(self):
+    return "ProcessStarted(%r)" % self.process
+
+</t>
+<t tx="sa.20080724074952.91">class ProcessFinished:
+    interface.implements(interfaces.IProcessFinished)
+
+    @others
+</t>
+<t tx="sa.20080724074952.92">def __init__(self, process):
+    self.process = process
+
+</t>
+<t tx="sa.20080724074952.93">def __repr__(self):
+    return "ProcessFinished(%r)" % self.process
+
+
+</t>
+<t tx="sa.20080724074952.94">class Activity(persistent.Persistent):
+
+    interface.implements(interfaces.IActivity)
+
+    @others
+</t>
+<t tx="sa.20080724074952.95">def __init__(self, process, definition):
+    self.process = process
+    self.activity_definition_identifier = definition.id
+
+    integration = process.definition.integration
+
+    workitems = {}
+    if definition.applications:
+
+        participant = integration.createParticipant(
+            self,
+            process.process_definition_identifier,
+            definition.performer,
+            )
+
+        i = 0
+        for application, formal, actual in definition.applications:
+            workitem = integration.createWorkItem(
+                participant,
+                process.process_definition_identifier,
+                application,
+                )
+            i += 1
+            workitem.id = i
+            workitems[i] = workitem, application, formal, actual
+
+    self.workitems = workitems
+
+</t>
+<t tx="sa.20080724074952.96">def definition(self):
+    return self.process.definition.activities[
+        self.activity_definition_identifier]
+</t>
+<t tx="sa.20080724074952.97">definition = property(definition)
+
+incoming = ()
+def start(self, transition):
+    # Start the activity, if we've had enough incoming transitions
+
+    definition = self.definition
+
+    if definition.andJoinSetting:
+        if transition in self.incoming:
+            raise interfaces.ProcessError(
+                "Repeated incoming %s with id='%s' "
+                "while waiting for and completion"
+                %(transition, transition.id))
+        self.incoming += (transition, )
+
+        if len(self.incoming) &lt; len(definition.incoming):
+            return # not enough incoming yet
+
+    zope.event.notify(ActivityStarted(self))
+
+    if self.workitems:
+        for workitem, app, formal, actual in self.workitems.values():
+            args = []
+            for parameter, name in zip(formal, actual):
+                if parameter.input:
+                    args.append(
+                        getattr(self.process.workflowRelevantData, name))
+            workitem.start(*args)
+    else:
+        # Since we don't have any work items, we're done
+        self.finish()
+
+</t>
+<t tx="sa.20080724074952.98">def workItemFinished(self, work_item, *results):
+    unused, app, formal, actual = self.workitems.pop(work_item.id)
+    self._p_changed = True
+    res = results
+    for parameter, name in zip(formal, actual):
+        if parameter.output:
+            v = res[0]
+            res = res[1:]
+            setattr(self.process.workflowRelevantData, name, v)
+
+    if res:
+        raise TypeError("Too many results")
+
+    zope.event.notify(WorkItemFinished(
+        work_item, app, actual, results))
+
+    if not self.workitems:
+        self.finish()
+
+</t>
+<t tx="sa.20080724074952.99">def finish(self):
+    zope.event.notify(ActivityFinished(self))
+
+    definition = self.definition
+
+    transitions = []
+    for transition in definition.outgoing:
+        if transition.condition(self.process.workflowRelevantData):
+            transitions.append(transition)
+            if not definition.andSplitSetting:
+                break # xor split, want first one
+
+    self.process.transition(self, transitions)
+
+</t>
+<t tx="sa.20080724074952.100">def __repr__(self):
+    return "Activity(%r)" % (
+        self.process.process_definition_identifier + '.' +
+        self.activity_definition_identifier
+        )
+
+</t>
+<t tx="sa.20080724074952.101">class WorkItemFinished:
+    @others
+</t>
+<t tx="sa.20080724074952.102">
+def __init__(self, workitem, application, parameters, results):
+    self.workitem =  workitem
+    self.application = application
+    self.parameters = parameters
+    self.results = results
+
+</t>
+<t tx="sa.20080724074952.103">def __repr__(self):
+    return "WorkItemFinished(%r)" % self.application
+
+</t>
+<t tx="sa.20080724074952.104">class Transition:
+    @others
+</t>
+<t tx="sa.20080724074952.105">
+def __init__(self, from_, to):
+    self.from_ = from_
+    self.to = to
+
+</t>
+<t tx="sa.20080724074952.106">def __repr__(self):
+    return "Transition(%r, %r)" % (self.from_, self.to)
+
+</t>
+<t tx="sa.20080724074952.107">class ActivityFinished:
+    @others
+</t>
+<t tx="sa.20080724074952.108">
+def __init__(self, activity):
+    self.activity = activity
+
+</t>
+<t tx="sa.20080724074952.109">def __repr__(self):
+    return "ActivityFinished(%r)" % self.activity
+
+</t>
+<t tx="sa.20080724074952.110">class ActivityStarted:
+    @others
+</t>
+<t tx="sa.20080724074952.111">
+def __init__(self, activity):
+    self.activity = activity
+
+</t>
+<t tx="sa.20080724074952.112">def __repr__(self):
+    return "ActivityStarted(%r)" % self.activity
+
+</t>
+<t tx="sa.20080724074952.113">class Parameter(object):
+
+    interface.implements(interfaces.IParameterDefinition)
+
+    input = output = False
+
+    @others
+</t>
+<t tx="sa.20080724074952.114">def __init__(self, name):
+    self.__name__ = name
+
+</t>
+<t tx="sa.20080724074952.115">class OutputParameter(Parameter):
+
+    output = True
+
+</t>
+<t tx="sa.20080724074952.116">class InputParameter(Parameter):
+
+    input = True
+
+</t>
+<t tx="sa.20080724074952.117">class InputOutputParameter(InputParameter, OutputParameter):
+
+    pass
+
+</t>
+<t tx="sa.20080724074952.118">class Application:
+
+    interface.implements(interfaces.IApplicationDefinition)
+
+    @others
+</t>
+<t tx="sa.20080724074952.119">def __init__(self, *parameters):
+    self.parameters = parameters
+
+</t>
+<t tx="sa.20080724074952.120">def defineParameters(self, *parameters):
+    self.parameters += parameters
+
+</t>
+<t tx="sa.20080724074952.121">def __repr__(self):
+    input = u', '.join([param.__name__ for param in self.parameters
+                       if param.input == True])
+    output = u', '.join([param.__name__ for param in self.parameters
+                       if param.output == True])
+    return "&lt;Application %r: (%s) --&gt; (%s)&gt;" %(self.__name__, input, output)
+
+
+</t>
+<t tx="sa.20080724074952.122">class Participant:
+
+    interface.implements(interfaces.IParticipantDefinition)
+
+    @others
+</t>
+<t tx="sa.20080724074952.123">def __init__(self, name=None):
+    self.__name__ = name
+    self.description = None
+
+</t>
+<t tx="sa.20080724074952.124">def __repr__(self):
+    return "Participant(%r)" %self.__name__
+</t>
+<t tx="sa.20080724074952.125">@ignore
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Package Id="Publication" xmlns="http://www.wfmc.org/2002/XPDL1.0" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd"&gt;
+    &lt;PackageHeader&gt;
+        &lt;XPDLVersion&gt;1.0&lt;/XPDLVersion&gt;
+        &lt;Vendor&gt;Together&lt;/Vendor&gt;
+        &lt;Created&gt;2005-01-06 16:28:27&lt;/Created&gt;
+    &lt;/PackageHeader&gt;
+    &lt;RedefinableHeader PublicationStatus="UNDER_TEST"/&gt;
+    &lt;ConformanceClass GraphConformance="NON_BLOCKED"/&gt;
+    &lt;Participants&gt;
+        &lt;Participant Id="System"&gt;
+            &lt;ParticipantType Type="SYSTEM"/&gt;
+        &lt;/Participant&gt;
+    &lt;/Participants&gt;
+    &lt;Applications&gt;
+        &lt;Application Id="prepare"&gt;
+            &lt;FormalParameters&gt;
+                &lt;FormalParameter Id="publish" Mode="OUT"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/FormalParameter&gt;
+            &lt;/FormalParameters&gt;
+        &lt;/Application&gt;
+        &lt;Application Id="publish"/&gt;
+        &lt;Application Id="reject"/&gt;
+    &lt;/Applications&gt;
+    &lt;WorkflowProcesses&gt;
+        &lt;WorkflowProcess AccessLevel="PUBLIC" Id="Publication" Name="Publication"&gt;
+            &lt;ProcessHeader DurationUnit="D"&gt;
+                &lt;Created&gt;2005-01-06 16:29:02&lt;/Created&gt;
+                &lt;Description&gt;This is the sample process&lt;/Description&gt;
+            &lt;/ProcessHeader&gt;
+            &lt;RedefinableHeader PublicationStatus="UNDER_TEST"/&gt;
+            &lt;FormalParameters&gt;
+                &lt;FormalParameter Id="author" Mode="IN"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="STRING"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/FormalParameter&gt;
+                &lt;FormalParameter Id="publish" Mode="OUT"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/FormalParameter&gt;
+            &lt;/FormalParameters&gt;
+            &lt;DataFields&gt;
+                &lt;DataField Id="publish" IsArray="FALSE"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/DataField&gt;
+                &lt;DataField Id="tech_changes" IsArray="FALSE"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/DataField&gt;
+                &lt;DataField Id="ed_changes" IsArray="FALSE"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/DataField&gt;
+                &lt;DataField Id="publish1" IsArray="FALSE"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/DataField&gt;
+                &lt;DataField Id="tech_changes1" IsArray="FALSE"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/DataField&gt;
+                &lt;DataField Id="publish2" IsArray="FALSE"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/DataField&gt;
+                &lt;DataField Id="tech_changes2" IsArray="FALSE"&gt;
+                    &lt;DataType&gt;
+                        &lt;BasicType Type="BOOLEAN"/&gt;
+                    &lt;/DataType&gt;
+                &lt;/DataField&gt;
+            &lt;/DataFields&gt;
+            &lt;Participants&gt;
+                &lt;Participant Id="author" Name="Author"&gt;
+                    &lt;ParticipantType Type="ROLE"/&gt;
+                &lt;/Participant&gt;
+                &lt;Participant Id="tech1" Name="Technical Reviewer 1"&gt;
+                    &lt;ParticipantType Type="HUMAN"/&gt;
+                    &lt;Description&gt;He is a smart guy.&lt;/Description&gt;
+                &lt;/Participant&gt;
+                &lt;Participant Id="tech2" Name="Technical Reviewer 2"&gt;
+                    &lt;ParticipantType Type="HUMAN"/&gt;
+                &lt;/Participant&gt;
+                &lt;Participant Id="reviewer" Name="Editorial Reviewer"&gt;
+                    &lt;ParticipantType Type="HUMAN"/&gt;
+                &lt;/Participant&gt;
+            &lt;/Participants&gt;
+            &lt;Applications&gt;
+                &lt;Application Id="prepare" Name="Prepare"&gt;
+                    &lt;Description&gt;Prepare the initial draft&lt;/Description&gt;
+                &lt;/Application&gt;
+                &lt;Application Id="tech_review"&gt;
+                    &lt;FormalParameters&gt;
+                        &lt;FormalParameter Id="publish" Mode="OUT"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                        &lt;FormalParameter Id="tech_changes" Mode="OUT"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                    &lt;/FormalParameters&gt;
+                &lt;/Application&gt;
+                &lt;Application Id="ed_review"&gt;
+                    &lt;FormalParameters&gt;
+                        &lt;FormalParameter Id="publish1" Mode="IN"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                        &lt;FormalParameter Id="tech_changes1" Mode="IN"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                        &lt;FormalParameter Id="publish2" Mode="IN"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                        &lt;FormalParameter Id="tech_changes2" Mode="IN"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                        &lt;FormalParameter Id="publish" Mode="OUT"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                        &lt;FormalParameter Id="tech_changes" Mode="OUT"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                        &lt;FormalParameter Id="ed_changes" Mode="OUT"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                    &lt;/FormalParameters&gt;
+                &lt;/Application&gt;
+                &lt;Application Id="final"/&gt;
+                &lt;Application Id="rfinal"&gt;
+                    &lt;FormalParameters&gt;
+                        &lt;FormalParameter Id="ed_changes" Mode="OUT"&gt;
+                            &lt;DataType&gt;
+                                &lt;BasicType Type="BOOLEAN"/&gt;
+                            &lt;/DataType&gt;
+                        &lt;/FormalParameter&gt;
+                    &lt;/FormalParameters&gt;
+                &lt;/Application&gt;
+            &lt;/Applications&gt;
+            &lt;Activities&gt;
+                &lt;Activity Id="prepare" Name="Prepare"&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="prepare" Type="APPLICATION"/&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;author&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;TransitionRestrictions&gt;
+                        &lt;TransitionRestriction&gt;
+                            &lt;Join Type="XOR"/&gt;
+                            &lt;Split Type="AND"&gt;
+                                &lt;TransitionRefs&gt;
+                                    &lt;TransitionRef Id="Publication_Tra2"/&gt;
+                                    &lt;TransitionRef Id="Publication_Tra3"/&gt;
+                                &lt;/TransitionRefs&gt;
+                            &lt;/Split&gt;
+                        &lt;/TransitionRestriction&gt;
+                    &lt;/TransitionRestrictions&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="author"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="110"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="20"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="tech1" Name="Technical Review 1"&gt;
+                    &lt;Description&gt;This is the first Technical Review.&lt;/Description&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="tech_review" Type="APPLICATION"&gt;
+                            &lt;ActualParameters&gt;
+                                &lt;ActualParameter&gt;publish1&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;tech_changes1&lt;/ActualParameter&gt;
+                            &lt;/ActualParameters&gt;
+                        &lt;/Tool&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;tech1&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="tech1"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="210"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="30"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="tech2" Name="Technical Review 2"&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="tech_review" Type="APPLICATION"&gt;
+                            &lt;ActualParameters&gt;
+                                &lt;ActualParameter&gt;publish2&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;tech_changes2&lt;/ActualParameter&gt;
+                            &lt;/ActualParameters&gt;
+                        &lt;/Tool&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;tech2&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="tech2"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="190"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="20"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="review" Name="Editorial Review"&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="ed_review" Type="APPLICATION"&gt;
+                            &lt;ActualParameters&gt;
+                                &lt;ActualParameter&gt;publish1&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;tech_changes1&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;publish2&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;tech_changes2&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;publish&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;tech_changes&lt;/ActualParameter&gt;
+                                &lt;ActualParameter&gt;ed_changes&lt;/ActualParameter&gt;
+                            &lt;/ActualParameters&gt;
+                        &lt;/Tool&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;reviewer&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;TransitionRestrictions&gt;
+                        &lt;TransitionRestriction&gt;
+                            &lt;Join Type="AND"/&gt;
+                            &lt;Split Type="XOR"&gt;
+                                &lt;TransitionRefs&gt;
+                                    &lt;TransitionRef Id="Publication_Tra9"/&gt;
+                                    &lt;TransitionRef Id="Publication_Tra8"/&gt;
+                                    &lt;TransitionRef Id="Publication_Tra7"/&gt;
+                                    &lt;TransitionRef Id="Publication_Tra10"/&gt;
+                                &lt;/TransitionRefs&gt;
+                            &lt;/Split&gt;
+                        &lt;/TransitionRestriction&gt;
+                    &lt;/TransitionRestrictions&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="reviewer"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="300"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="20"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="final" Name="Final Preparation"&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="final" Type="APPLICATION"/&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;author&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;TransitionRestrictions&gt;
+                        &lt;TransitionRestriction&gt;
+                            &lt;Join Type="XOR"/&gt;
+                        &lt;/TransitionRestriction&gt;
+                    &lt;/TransitionRestrictions&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="author"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="370"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="30"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="rfinal" Name="Review Final"&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="rfinal" Type="APPLICATION"&gt;
+                            &lt;ActualParameters&gt;
+                                &lt;ActualParameter&gt;ed_changes&lt;/ActualParameter&gt;
+                            &lt;/ActualParameters&gt;
+                        &lt;/Tool&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;reviewer&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;TransitionRestrictions&gt;
+                        &lt;TransitionRestriction&gt;
+                            &lt;Split Type="XOR"&gt;
+                                &lt;TransitionRefs&gt;
+                                    &lt;TransitionRef Id="Publication_Tra13"/&gt;
+                                    &lt;TransitionRef Id="Publication_Tra12"/&gt;
+                                &lt;/TransitionRefs&gt;
+                            &lt;/Split&gt;
+                        &lt;/TransitionRestriction&gt;
+                    &lt;/TransitionRestrictions&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="reviewer"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="440"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="20"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="start" Name="Start"&gt;
+                    &lt;Implementation&gt;
+                        &lt;No/&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;System&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="System"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="60"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="10"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="publish" Name="Publish"&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="publish" Type="APPLICATION"/&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;System&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;TransitionRestrictions&gt;
+                        &lt;TransitionRestriction&gt;
+                            &lt;Join Type="XOR"/&gt;
+                        &lt;/TransitionRestriction&gt;
+                    &lt;/TransitionRestrictions&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="System"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="540"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="20"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+                &lt;Activity Id="reject" Name="Reject"&gt;
+                    &lt;Implementation&gt;
+                        &lt;Tool Id="reject" Type="APPLICATION"/&gt;
+                    &lt;/Implementation&gt;
+                    &lt;Performer&gt;System&lt;/Performer&gt;
+                    &lt;StartMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/StartMode&gt;
+                    &lt;FinishMode&gt;
+                        &lt;Automatic/&gt;
+                    &lt;/FinishMode&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="ParticipantID" Value="System"/&gt;
+                        &lt;ExtendedAttribute Name="XOffset" Value="540"/&gt;
+                        &lt;ExtendedAttribute Name="YOffset" Value="80"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Activity&gt;
+            &lt;/Activities&gt;
+            &lt;Transitions&gt;
+                &lt;Transition From="prepare" Id="Publication_Tra2" Name="Transition to Tech Review 1" To="tech1"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                        &lt;ExtendedAttribute Name="BreakPoint" Value="160;160;1"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="prepare" Id="Publication_Tra3" Name="Transition to Tech Review 2" To="tech2"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                        &lt;ExtendedAttribute Name="BreakPoint" Value="210;290;1"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="tech2" Id="Publication_Tra4" Name="Transition" To="review"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="tech1" Id="Publication_Tra5" Name="Transition" To="review"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="start" Id="Publication_Tra6" Name="Transition" To="prepare"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="review" Id="Publication_Tra7" Name="Transition" To="prepare"&gt;
+                    &lt;Condition Type="CONDITION"&gt;tech_changes&lt;/Condition&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="review" Id="Publication_Tra8" Name="Transition" To="final"&gt;
+                    &lt;Condition Type="CONDITION"&gt;ed_changes&lt;/Condition&gt;
+                    &lt;Description&gt;Use this transition if there are editorial changes required.&lt;/Description&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="review" Id="Publication_Tra9" Name="Transition" To="reject"&gt;
+                    &lt;Condition Type="CONDITION"&gt;not publish&lt;/Condition&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="review" Id="Publication_Tra10" Name="Transition" To="publish"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="final" Id="Publication_Tra11" Name="Transition" To="rfinal"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                        &lt;ExtendedAttribute Name="BreakPoint" Value="490;400;1"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="rfinal" Id="Publication_Tra12" Name="Transition" To="final"&gt;
+                    &lt;Condition Type="CONDITION"&gt;ed_changes&lt;/Condition&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                        &lt;ExtendedAttribute Name="BreakPoint" Value="440;430;1"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+                &lt;Transition From="rfinal" Id="Publication_Tra13" Name="Transition" To="publish"&gt;
+                    &lt;ExtendedAttributes&gt;
+                        &lt;ExtendedAttribute Name="RoutingType" Value="NOROUTING"/&gt;
+                    &lt;/ExtendedAttributes&gt;
+                &lt;/Transition&gt;
+            &lt;/Transitions&gt;
+            &lt;ExtendedAttributes&gt;
+                &lt;ExtendedAttribute Name="ParticipantVisualOrder" Value="tech1;tech2;author;reviewer;System;"/&gt;
+            &lt;/ExtendedAttributes&gt;
+        &lt;/WorkflowProcess&gt;
+    &lt;/WorkflowProcesses&gt;
+    &lt;ExtendedAttributes&gt;
+        &lt;ExtendedAttribute Name="MadeBy" Value="JaWE"/&gt;
+        &lt;ExtendedAttribute Name="Version" Value="1.4.2"/&gt;
+    &lt;/ExtendedAttributes&gt;
+&lt;/Package&gt;
+</t>
+<t tx="sa.20080724074952.126">@ignore
+@nocolor
+Workflow-Management Coalition Workflow Engine
+=============================================
+
+This package provides an implementation of a Workflow-Management
+Coalition (WFMC) workflow engine.  The engine is provided as a
+collection of workflow process components.  Workflow processes can be
+defined in Python or via the XML Process-Definition Language, XPDL.
+
+In this document, we'll look at Python-defined process definitions:
+
+    &gt;&gt;&gt; from zope.wfmc import process
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample')
+
+The argument to the process is a process id.
+
+A process has a number of parts.  Let's look at a sample review
+process::
+
+                              -----------
+                           --&gt;| Publish |
+  ----------   ---------- /   -----------
+  | Author |--&gt;| Review |-    ----------
+  ----------   ---------- \--&gt;| Reject |
+                              ----------
+
+Here we have a single start activity and 2 end activities.  We could
+have modeled this with a single end activity, but that is not
+required.  A single start activity *is* required. A process definition
+has a set of activities, with transitions between them.  Let's define
+the activities for our process definition:
+
+    &gt;&gt;&gt; pd.defineActivities(
+    ...     author  = process.ActivityDefinition(),
+    ...     review  = process.ActivityDefinition(),
+    ...     publish = process.ActivityDefinition(),
+    ...     reject  = process.ActivityDefinition(),
+    ...     )
+
+We supply activities as keyword arguments. The argument names provide
+activity ids that we'll use when defining transitions:
+
+    &gt;&gt;&gt; pd.defineTransitions(
+    ...     process.TransitionDefinition('author', 'review'),
+    ...     process.TransitionDefinition('review', 'publish'),
+    ...     process.TransitionDefinition('review', 'reject'),
+    ...     )
+
+Each transition is constructed with an identifier for a starting
+activity, and an identifier for an ending activity.
+
+Before we can use a workflow definition, we have to register it as a
+utility. This is necessary so that process instances can find their
+definitions.  In addition, the utility name must match the process id:
+
+    &gt;&gt;&gt; import zope.component
+    &gt;&gt;&gt; zope.component.provideUtility(pd, name=pd.id)
+
+Now, with this definition, we can execute our workflow.  We haven't
+defined any work yet, but we can see the workflow execute.  We'll see
+the workflow executing by registering a subscriber that logs workflow
+events:
+
+    &gt;&gt;&gt; def log_workflow(event):
+    ...     print event
+
+    &gt;&gt;&gt; import zope.event
+    &gt;&gt;&gt; zope.event.subscribers.append(log_workflow)
+
+To use the workflow definition, we need to create an instance:
+
+    &gt;&gt;&gt; proc = pd()
+
+Now, if we start the workflow:
+
+    &gt;&gt;&gt; proc.start()
+    ProcessStarted(Process('sample'))
+    Transition(None, Activity('sample.author'))
+    ActivityStarted(Activity('sample.author'))
+    ActivityFinished(Activity('sample.author'))
+    Transition(Activity('sample.author'), Activity('sample.review'))
+    ActivityStarted(Activity('sample.review'))
+    ActivityFinished(Activity('sample.review'))
+    Transition(Activity('sample.review'), Activity('sample.publish'))
+    ActivityStarted(Activity('sample.publish'))
+    ActivityFinished(Activity('sample.publish'))
+    ProcessFinished(Process('sample'))
+
+we see that we transition immediately into the author activity, then
+into review and publish.  Normally, we'd need to do some work in each
+activity, and transitions would continue only after work had been
+done, however, in this case, we didn't define any work, so each
+activity completed immediately.
+
+Note that we didn't transition into the rejected activity.  By
+default, when an activity is completed, the first transition for which
+its condition evaluates to `True` is used.  By default, transitions
+have boolean conditions [1]_ that evaluate to `True`, so the transition
+to `publish` is used because it was defined before the transition to
+`reject`.  What we want is to transition to `publish` if a reviewer
+approves the content for publication, but to `reject` if the reviewer
+rejects the content for publication.  We can use a condition for this:
+
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample')
+    &gt;&gt;&gt; zope.component.provideUtility(pd, name=pd.id)
+
+    &gt;&gt;&gt; pd.defineActivities(
+    ...     author = process.ActivityDefinition(),
+    ...     review = process.ActivityDefinition(),
+    ...     publish = process.ActivityDefinition(),
+    ...     reject = process.ActivityDefinition(),
+    ...     )
+    &gt;&gt;&gt; pd.defineTransitions(
+    ...     process.TransitionDefinition('author', 'review'),
+    ...     process.TransitionDefinition(
+    ...         'review', 'publish', condition=lambda data: data.publish),
+    ...     process.TransitionDefinition('review', 'reject'),
+    ...     )
+
+We redefined the workflow process, specifying a condition for the
+transition to `publish`.  Boolean conditions are just callable objects that
+take a data object and return a boolean value.  The data object is
+called "workflow-relevant data".  A process instance has a data object
+containing this data.  In the example, above, the condition simply
+returned the value of the `publish` attribute. How does this attribute
+get set? It needs to be set by the review activity. To do that, we
+need to arrange for the activity to set the data.  This brings us to
+applications.
+
+Process definitions are meant to be used with different
+applications. For this reason, process definitions don't include
+application logic.  What they do include is a specifications of the
+applications to be invoked and the flow of work-flow-relevant data to
+and from the application.  Now, we can define our applications:
+
+    &gt;&gt;&gt; pd.defineApplications(
+    ...     author = process.Application(),
+    ...     review = process.Application(
+    ...         process.OutputParameter('publish')),
+    ...     publish = process.Application(),
+    ...     reject = process.Application(),
+    ...     )
+
+We used the same names for the applications that we used for our
+activities. This isn't required, but is a common practice.  Note that
+the `review` application includes a specification of an output
+parameter.  Now that we've defined our applications, we need to modify
+our activities to use them:
+
+    &gt;&gt;&gt; pd.activities['author'].addApplication('author')
+    &gt;&gt;&gt; pd.activities['review'].addApplication('review', ['publish'])
+    &gt;&gt;&gt; pd.activities['publish'].addApplication('publish')
+    &gt;&gt;&gt; pd.activities['reject'].addApplication('reject')
+
+An activity can use many applications, so we call `addApplication`.
+In the application definition for the 'review' application, we
+provided the name of a workflow-relevent data variable corresponding
+to the output parameter defined for the application.  When using an
+application in an activity, a workflow-relevent data variable name
+must be provided for each of the parameters in the identified
+applications's signature.  When an application is used in an activity,
+workflow-relevent data are passed for each of the input parameters and
+are set by each of the output parameters. In this example, the output
+parameter, will be used to add a `publish` attribute to the workflow
+relevant data.
+
+Participants
+------------
+
+We've declared some applications, and we've wired them up to
+activities, but we still haven't specified any application code. Before
+we can specify application code, we need to consider who will be
+performing the application.  Workflow applications are normally
+executed by people, or other external actors.  As with applications,
+process definitions allow participants in the workflow to be declared
+and identified with activities.  We declare participants much as we
+declare applications, except without parameters:
+
+    &gt;&gt;&gt; pd.defineParticipants(
+    ...     author   = process.Participant(),
+    ...     reviewer = process.Participant(),
+    ...     )
+
+In this case, we happened to reuse an activity name for one, but
+not both of the participants.  Having defined these participants, we
+can associate them with activities:
+
+    &gt;&gt;&gt; pd.activities['author'].definePerformer('author')
+    &gt;&gt;&gt; pd.activities['review'].definePerformer('reviewer')
+
+Application Integration
+-----------------------
+
+To use a process definition to control application logic, we need to
+associate it with an "integration" object.
+
+When a process needs to get a participant, it calls createParticipant
+on its integration attribute, passing the process id and the
+performer id. If an activity doesn't have a
+performer, then the procedure above is used with an empty performer id.
+
+Similarly, when a process needs a work item, it calls createWorkItem
+on its integration attribute, passing the process id and the
+application id.
+
+Work items provide a `start` method, which is used to start the work
+and pass input arguments.  It is the responsibility of the work item,
+at some later time, to call the `workItemFinished` method on the
+activity, to notify the activity that the work item was
+completed. Output parameters are passed to the `workItemFinished`
+method.
+
+A simple way to create integration objects is with
+`zope.wfmc.attributeintegration.AttributeIntegration`.
+
+    &gt;&gt;&gt; from zope.wfmc.attributeintegration import AttributeIntegration
+    &gt;&gt;&gt; integration = AttributeIntegration()
+    &gt;&gt;&gt; pd.integration = integration
+
+We'll start by defining a simple Participant class:
+
+    &gt;&gt;&gt; import zope.interface
+    &gt;&gt;&gt; from zope.wfmc import interfaces
+
+    &gt;&gt;&gt; class Participant(object):
+    ...     zope.component.adapts(interfaces.IActivity)
+    ...     zope.interface.implements(interfaces.IParticipant)
+    ...
+    ...     def __init__(self, activity):
+    ...         self.activity = activity
+
+We set attributes on the integration for each participant:
+
+    &gt;&gt;&gt; integration.authorParticipant   = Participant
+    &gt;&gt;&gt; integration.reviewerParticipant = Participant
+
+We also define an attribute for participants for activities that don't
+have performers:
+
+    &gt;&gt;&gt; integration.Participant = Participant
+
+Now we'll define our work-items. First we'll define some classes:
+
+    &gt;&gt;&gt; work_list = []
+
+    &gt;&gt;&gt; class ApplicationBase:
+    ...     zope.component.adapts(interfaces.IParticipant)
+    ...     zope.interface.implements(interfaces.IWorkItem)
+    ...
+    ...     def __init__(self, participant):
+    ...         self.participant = participant
+    ...         work_list.append(self)
+    ...
+    ...     def start(self):
+    ...         pass
+    ...
+    ...     def finish(self):
+    ...         self.participant.activity.workItemFinished(self)
+
+    &gt;&gt;&gt; class Review(ApplicationBase):
+    ...     def finish(self, publish):
+    ...         self.participant.activity.workItemFinished(self, publish)
+
+    &gt;&gt;&gt; class Publish(ApplicationBase):
+    ...     def start(self):
+    ...         print "Published"
+    ...         self.finish()
+
+    &gt;&gt;&gt; class Reject(ApplicationBase):
+    ...     def start(self):
+    ...         print "Rejected"
+    ...         self.finish()
+
+and then we'll hook them up with the integration object:
+
+    &gt;&gt;&gt; integration.authorWorkItem  = ApplicationBase
+    &gt;&gt;&gt; integration.reviewWorkItem  = Review
+    &gt;&gt;&gt; integration.publishWorkItem = Publish
+    &gt;&gt;&gt; integration.rejectWorkItem  = Reject
+
+Using workflow processes
+------------------------
+
+To use a process definition, instantiate it and call its start method
+to start execution:
+
+    &gt;&gt;&gt; proc = pd()
+    &gt;&gt;&gt; proc.start()
+    ... # doctest: +NORMALIZE_WHITESPACE
+    ProcessStarted(Process('sample'))
+    Transition(None, Activity('sample.author'))
+    ActivityStarted(Activity('sample.author'))
+
+We transition into the author activity and wait for work to get done.
+To move forward, we need to get at the authoring work item, so we can
+finish it.  Our work items add themselves to a work list, so we can
+get the item from the list.
+
+    &gt;&gt;&gt; item = work_list.pop()
+
+Now we can finish the work item, by calling its finish method:
+
+    &gt;&gt;&gt; item.finish()
+    WorkItemFinished('author')
+    ActivityFinished(Activity('sample.author'))
+    Transition(Activity('sample.author'), Activity('sample.review'))
+    ActivityStarted(Activity('sample.review'))
+
+We see that we transitioned to the review activity.  Note that the
+`finish` method isn't a part of the workflow APIs.  It was defined by
+our sample classes. Other applications could use different mechanisms.
+
+Now, we'll finish the review process by calling the review work item's
+`finish`. We'll pass `False`, indicating that the content should not
+be published:
+
+    &gt;&gt;&gt; work_list.pop().finish(False)
+    WorkItemFinished('review')
+    ActivityFinished(Activity('sample.review'))
+    Transition(Activity('sample.review'), Activity('sample.reject'))
+    ActivityStarted(Activity('sample.reject'))
+    Rejected
+    WorkItemFinished('reject')
+    ActivityFinished(Activity('sample.reject'))
+    ProcessFinished(Process('sample'))
+
+Ordering output transitions
+---------------------------
+
+Normally, outgoing transitions are ordered in the order of transition
+definition and all transitions from a given activity are used.
+
+If transitions are defined in an inconvenient order, then the workflow
+might not work as expected.  For example, let's modify the above
+process by switching the order of definition of some of the
+transitions.  We'll reuse our integration object from the previous
+example by passing it to the definition constructor:
+
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample', integration)
+    &gt;&gt;&gt; zope.component.provideUtility(pd, name=pd.id)
+
+    &gt;&gt;&gt; pd.defineActivities(
+    ...     author = process.ActivityDefinition(),
+    ...     review = process.ActivityDefinition(),
+    ...     publish = process.ActivityDefinition(),
+    ...     reject = process.ActivityDefinition(),
+    ...     )
+    &gt;&gt;&gt; pd.defineTransitions(
+    ...     process.TransitionDefinition('author', 'review'),
+    ...     process.TransitionDefinition('review', 'reject'),
+    ...     process.TransitionDefinition(
+    ...         'review', 'publish', condition=lambda data: data.publish),
+    ...     )
+
+    &gt;&gt;&gt; pd.defineApplications(
+    ...     author = process.Application(),
+    ...     review = process.Application(
+    ...         process.OutputParameter('publish')),
+    ...     publish = process.Application(),
+    ...     reject = process.Application(),
+    ...     )
+
+    &gt;&gt;&gt; pd.activities['author'].addApplication('author')
+    &gt;&gt;&gt; pd.activities['review'].addApplication('review', ['publish'])
+    &gt;&gt;&gt; pd.activities['publish'].addApplication('publish')
+    &gt;&gt;&gt; pd.activities['reject'].addApplication('reject')
+
+    &gt;&gt;&gt; pd.defineParticipants(
+    ...     author   = process.Participant(),
+    ...     reviewer = process.Participant(),
+    ...     )
+
+    &gt;&gt;&gt; pd.activities['author'].definePerformer('author')
+    &gt;&gt;&gt; pd.activities['review'].definePerformer('reviewer')
+
+and run our process:
+
+    &gt;&gt;&gt; proc = pd()
+    &gt;&gt;&gt; proc.start()
+    ... # doctest: +NORMALIZE_WHITESPACE
+    ProcessStarted(Process('sample'))
+    Transition(None, Activity('sample.author'))
+    ActivityStarted(Activity('sample.author'))
+
+    &gt;&gt;&gt; work_list.pop().finish()
+    WorkItemFinished('author')
+    ActivityFinished(Activity('sample.author'))
+    Transition(Activity('sample.author'), Activity('sample.review'))
+    ActivityStarted(Activity('sample.review'))
+
+This time, we'll say that we should publish:
+
+    &gt;&gt;&gt; work_list.pop().finish(True)
+    WorkItemFinished('review')
+    ActivityFinished(Activity('sample.review'))
+    Transition(Activity('sample.review'), Activity('sample.reject'))
+    ActivityStarted(Activity('sample.reject'))
+    Rejected
+    WorkItemFinished('reject')
+    ActivityFinished(Activity('sample.reject'))
+    ProcessFinished(Process('sample'))
+
+But we went to the reject activity anyway. Why? Because transitions
+are tested in order. Because the transition to the reject activity was
+tested first and had no condition, we followed it without checking the
+condition for the transition to the publish activity.  We can fix this
+by specifying outgoing transitions on the reviewer activity directly.
+To do this, we'll also need to specify ids in our transitions.  Let's
+redefine the process:
+
+
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample', integration)
+    &gt;&gt;&gt; zope.component.provideUtility(pd, name=pd.id)
+
+    &gt;&gt;&gt; pd.defineActivities(
+    ...     author = process.ActivityDefinition(),
+    ...     review = process.ActivityDefinition(),
+    ...     publish = process.ActivityDefinition(),
+    ...     reject = process.ActivityDefinition(),
+    ...     )
+    &gt;&gt;&gt; pd.defineTransitions(
+    ...     process.TransitionDefinition('author', 'review'),
+    ...     process.TransitionDefinition('review', 'reject', id='reject'),
+    ...     process.TransitionDefinition(
+    ...         'review', 'publish', id='publish',
+    ...         condition=lambda data: data.publish),
+    ...     )
+
+    &gt;&gt;&gt; pd.defineApplications(
+    ...     author = process.Application(),
+    ...     review = process.Application(
+    ...         process.OutputParameter('publish')),
+    ...     publish = process.Application(),
+    ...     reject = process.Application(),
+    ...     )
+
+    &gt;&gt;&gt; pd.activities['author'].addApplication('author')
+    &gt;&gt;&gt; pd.activities['review'].addApplication('review', ['publish'])
+    &gt;&gt;&gt; pd.activities['publish'].addApplication('publish')
+    &gt;&gt;&gt; pd.activities['reject'].addApplication('reject')
+
+    &gt;&gt;&gt; pd.defineParticipants(
+    ...     author   = process.Participant(),
+    ...     reviewer = process.Participant(),
+    ...     )
+
+    &gt;&gt;&gt; pd.activities['author'].definePerformer('author')
+    &gt;&gt;&gt; pd.activities['review'].definePerformer('reviewer')
+
+    &gt;&gt;&gt; pd.activities['review'].addOutgoing('publish')
+    &gt;&gt;&gt; pd.activities['review'].addOutgoing('reject')
+
+Now, when we run the process, we'll go to the publish activity as
+expected:
+
+
+    &gt;&gt;&gt; proc = pd()
+    &gt;&gt;&gt; proc.start()
+    ... # doctest: +NORMALIZE_WHITESPACE
+    ProcessStarted(Process('sample'))
+    Transition(None, Activity('sample.author'))
+    ActivityStarted(Activity('sample.author'))
+
+    &gt;&gt;&gt; work_list.pop().finish()
+    WorkItemFinished('author')
+    ActivityFinished(Activity('sample.author'))
+    Transition(Activity('sample.author'), Activity('sample.review'))
+    ActivityStarted(Activity('sample.review'))
+
+    &gt;&gt;&gt; work_list.pop().finish(True)
+    WorkItemFinished('review')
+    ActivityFinished(Activity('sample.review'))
+    Transition(Activity('sample.review'), Activity('sample.publish'))
+    ActivityStarted(Activity('sample.publish'))
+    Published
+    WorkItemFinished('publish')
+    ActivityFinished(Activity('sample.publish'))
+    ProcessFinished(Process('sample'))
+
+
+Let's see the other way also, where we should transition to reject:
+
+
+    &gt;&gt;&gt; proc = pd()
+    &gt;&gt;&gt; proc.start()
+    ... # doctest: +NORMALIZE_WHITESPACE
+    ProcessStarted(Process('sample'))
+    Transition(None, Activity('sample.author'))
+    ActivityStarted(Activity('sample.author'))
+
+    &gt;&gt;&gt; work_list.pop().finish()
+    WorkItemFinished('author')
+    ActivityFinished(Activity('sample.author'))
+    Transition(Activity('sample.author'), Activity('sample.review'))
+    ActivityStarted(Activity('sample.review'))
+
+    &gt;&gt;&gt; work_list.pop().finish(False)
+    WorkItemFinished('review')
+    ActivityFinished(Activity('sample.review'))
+    Transition(Activity('sample.review'), Activity('sample.reject'))
+    ActivityStarted(Activity('sample.reject'))
+    Rejected
+    WorkItemFinished('reject')
+    ActivityFinished(Activity('sample.reject'))
+    ProcessFinished(Process('sample'))
+
+
+Complex Flows
+-------------
+
+Lets look at a more complex example.  In this example, we'll extend
+the process to work with multiple reviewers.  We'll also make the
+work-list handling a bit more sophisticated.  We'll also introduce
+some new concepts:
+
+- splits and joins
+
+- process arguments
+
+Consider the publication
+process shown below::
+
+
+  Author:      Tech          Tech          Editorial
+               Reviewer 1:   Reviewer 2:   Reviewer:
+  ===========  ===========   ===========   ==============
+                                                           ---------
+       ----------------------------------------------------| Start |
+      /                                                    ---------
+      |
+      V
+  -----------
+  | Prepare |&lt;------------------------------\
+  -----------                                \
+      |        ------------                   \
+      |        | Tech     |--------------- \   \
+      |-------&gt;| Review 1 |                 V   |
+      |        ------------  ----------    -------------
+       \                     | Tech   |    | Editorial |   ----------
+         -------------------&gt;| Review |---&gt;| Review    |--&gt;| Reject |
+                             | 2      |    -------------   ----------
+                             ----------      |      |
+  -----------                               /        \
+  | Prepare |                              /          \--------\
+  | Final   |&lt;----------------------------/                    |
+  -----------                                                  |
+     ^   |                                 ----------          V
+     |    \-------------------------------&gt;| Review |      -----------
+      \                                    | Final  |-----&gt;| Publish |
+       ------------------------------------|        |      -----------
+                                           ----------
+
+Here we've arranged the process diagram into columns, with the
+activities for each participant. We have four participants, the
+author, two technical reviewers, and an editorial reviewer.  The
+author prepares a draft.  The author sends the draft to *both*
+technical reviewers for review.  When the technical reviews have
+completed, the editorial review does an initial editorial
+review. Based on the technical reviews, the editor may choose to:
+
+- Reject the document
+
+- Publish the document as is
+
+- Request technical changes (based on the technical reviewers'
+  comments), or
+
+- Request editorial changes.
+
+If technical changes are required, the work flows back to the
+"Prepare" activity.  If editorial changes are necessary, then work
+flows to the "Prepare Final" activity.  When the author has made the
+editorial changes, work flows to "Review Final".  The editor may
+request additional changes, in which case, work flows back to "Prepare
+Final", otherwise, the work flows to "Publish".
+
+This example illustrates different kinds of "joins" and "splits".  The
+term "join" refers to the way incoming transitions to an activity are
+handled. There are two kinds of joins: "and" and "xor".  With an "and"
+join, the activity waits for each of the incoming transitions.  In
+this example, the inputs to the "Editorial Review" activity form an
+"and" join.  Editorial review waits until each of the technical
+reviews are completed.  The rest of the joins in this example are
+"xor" joins.  The activity starts on any transition into the activity.
+
+The term "split" refers to way outgoing transitions from an activity
+are handled.  Normally, exactly one transition out of an activity is
+used. This is called an "xor" split.  With an "and" split, all
+transitions with boolean conditions that evaluate to `True` are used.
+In this example, the "Prepare" activity has an "and" split.  Work
+flows simultaneously to the two technical review activities.  The rest
+of the splits in this example are "xor" splits.
+
+Lets create our new workflow process. We'll reuse our existing
+integration object:
+
+    &gt;&gt;&gt; Publication = process.ProcessDefinition('Publication')
+    &gt;&gt;&gt; Publication.integration = integration
+    &gt;&gt;&gt; zope.component.provideUtility(Publication, name=Publication.id)
+
+    &gt;&gt;&gt; Publication.defineActivities(
+    ...     start   = process.ActivityDefinition("Start"),
+    ...     prepare = process.ActivityDefinition("Prepare"),
+    ...     tech1   = process.ActivityDefinition("Technical Review 1"),
+    ...     tech2   = process.ActivityDefinition("Technical Review 2"),
+    ...     review  = process.ActivityDefinition("Editorial Review"),
+    ...     final   = process.ActivityDefinition("Final Preparation"),
+    ...     rfinal  = process.ActivityDefinition("Review Final"),
+    ...     publish = process.ActivityDefinition("Publish"),
+    ...     reject  = process.ActivityDefinition("Reject"),
+    ...     )
+
+Here, we've passed strings to the activity definitions providing
+names. Names must be either unicode or ASCII strings.
+
+We define our transitions:
+
+    &gt;&gt;&gt; Publication.defineTransitions(
+    ...     process.TransitionDefinition('start', 'prepare'),
+    ...     process.TransitionDefinition('prepare', 'tech1'),
+    ...     process.TransitionDefinition('prepare', 'tech2'),
+    ...     process.TransitionDefinition('tech1', 'review'),
+    ...     process.TransitionDefinition('tech2', 'review'),
+    ...
+    ...     process.TransitionDefinition(
+    ...         'review', 'reject',
+    ...         condition=lambda data: not data.publish
+    ...         ),
+    ...     process.TransitionDefinition(
+    ...         'review', 'prepare',
+    ...         condition=lambda data: data.tech_changes
+    ...         ),
+    ...     process.TransitionDefinition(
+    ...         'review', 'final',
+    ...         condition=lambda data: data.ed_changes
+    ...         ),
+    ...     process.TransitionDefinition('review', 'publish'),
+    ...
+    ...     process.TransitionDefinition('final', 'rfinal'),
+    ...     process.TransitionDefinition(
+    ...         'rfinal', 'final',
+    ...         condition=lambda data: data.ed_changes
+    ...         ),
+    ...     process.TransitionDefinition('rfinal', 'publish'),
+    ...     )
+
+We specify our "and" split and join:
+
+    &gt;&gt;&gt; Publication.activities['prepare'].andSplit(True)
+    &gt;&gt;&gt; Publication.activities['review'].andJoin(True)
+
+We define our participants and applications:
+
+    &gt;&gt;&gt; Publication.defineParticipants(
+    ...     author   = process.Participant("Author"),
+    ...     tech1    = process.Participant("Technical Reviewer 1"),
+    ...     tech2    = process.Participant("Technical Reviewer 2"),
+    ...     reviewer = process.Participant("Editorial Reviewer"),
+    ...     )
+
+    &gt;&gt;&gt; Publication.defineApplications(
+    ...     prepare = process.Application(),
+    ...     tech_review = process.Application(
+    ...         process.OutputParameter('publish'),
+    ...         process.OutputParameter('tech_changes'),
+    ...         ),
+    ...     ed_review = process.Application(
+    ...         process.InputParameter('publish1'),
+    ...         process.InputParameter('tech_changes1'),
+    ...         process.InputParameter('publish2'),
+    ...         process.InputParameter('tech_changes2'),
+    ...         process.OutputParameter('publish'),
+    ...         process.OutputParameter('tech_changes'),
+    ...         process.OutputParameter('ed_changes'),
+    ...         ),
+    ...     publish = process.Application(),
+    ...     reject = process.Application(),
+    ...     final = process.Application(),
+    ...     rfinal = process.Application(
+    ...         process.OutputParameter('ed_changes'),
+    ...         ),
+    ...     )
+
+    &gt;&gt;&gt; Publication.activities['prepare'].definePerformer('author')
+    &gt;&gt;&gt; Publication.activities['prepare'].addApplication('prepare')
+
+    &gt;&gt;&gt; Publication.activities['tech1'].definePerformer('tech1')
+    &gt;&gt;&gt; Publication.activities['tech1'].addApplication(
+    ...     'tech_review', ['publish1', 'tech_changes1'])
+
+    &gt;&gt;&gt; Publication.activities['tech2'].definePerformer('tech2')
+    &gt;&gt;&gt; Publication.activities['tech2'].addApplication(
+    ...     'tech_review', ['publish2', 'tech_changes2'])
+
+    &gt;&gt;&gt; Publication.activities['review'].definePerformer('reviewer')
+    &gt;&gt;&gt; Publication.activities['review'].addApplication(
+    ...     'ed_review',
+    ...     ['publish1', 'tech_changes1', 'publish2', 'tech_changes2',
+    ...      'publish', 'tech_changes', 'ed_changes'],
+    ...     )
+
+    &gt;&gt;&gt; Publication.activities['final'].definePerformer('author')
+    &gt;&gt;&gt; Publication.activities['final'].addApplication('final')
+
+    &gt;&gt;&gt; Publication.activities['rfinal'].definePerformer('reviewer')
+    &gt;&gt;&gt; Publication.activities['rfinal'].addApplication(
+    ...     'rfinal', ['ed_changes'],
+    ...     )
+
+    &gt;&gt;&gt; Publication.activities['publish'].addApplication('publish')
+    &gt;&gt;&gt; Publication.activities['reject'].addApplication('reject')
+
+We want to be able to specify an author when we start the process.
+We'd also like to be told the final disposition of the process.  To
+accomplish this, we'll define parameters for our process:
+
+    &gt;&gt;&gt; Publication.defineParameters(
+    ...     process.InputParameter('author'),
+    ...     process.OutputParameter('publish'),
+    ...     )
+
+Now that we've defined the process, we need to provide participant and
+application components.  Let's start with our participants.  Rather
+than sharing a single work list, we'll give each user their own
+work list.  We'll also create preexisting participants and return
+them. Finally, we'll create multiple authors and use the selected one:
+
+
+    &gt;&gt;&gt; class User:
+    ...     def __init__(self):
+    ...         self.work_list = []
+
+    &gt;&gt;&gt; authors = {'bob': User(), 'ted': User(), 'sally': User()}
+
+    &gt;&gt;&gt; reviewer = User()
+    &gt;&gt;&gt; tech1 = User()
+    &gt;&gt;&gt; tech2 = User()
+
+    &gt;&gt;&gt; class Author(Participant):
+    ...     def __init__(self, activity):
+    ...         Participant.__init__(self, activity)
+    ...         author_name = activity.process.workflowRelevantData.author
+    ...         print "Author `%s` selected" % author_name
+    ...         self.user = authors[author_name]
+
+In this example, we need to define a separate attribute for each participant:
+
+    &gt;&gt;&gt; integration.authorParticipant = Author
+
+When the process is created, the author name will be passed in and
+assigned to the workflow-relevant data.  Our author class uses this
+information to select the named user.
+
+    &gt;&gt;&gt; class Reviewer(Participant):
+    ...     user = reviewer
+    &gt;&gt;&gt; integration.reviewerParticipant = Reviewer
+
+    &gt;&gt;&gt; class Tech1(Participant):
+    ...     user = tech1
+    &gt;&gt;&gt; integration.tech1Participant = Tech1
+
+    &gt;&gt;&gt; class Tech2(Participant):
+    ...     user = tech2
+    &gt;&gt;&gt; integration.tech2Participant = Tech2
+
+We'll use our orginal participation class for activities without
+performers:
+
+    &gt;&gt;&gt; integration.Participant = Participant
+
+Now we'll create our applications. Let's start with our author:
+
+    &gt;&gt;&gt; class ApplicationBase(object):
+    ...     zope.component.adapts(interfaces.IParticipant)
+    ...     zope.interface.implements(interfaces.IWorkItem)
+    ...
+    ...     def __init__(self, participant):
+    ...         self.participant = participant
+    ...         self.activity = participant.activity
+    ...         participant.user.work_list.append(self)
+    ...
+    ...     def start(self):
+    ...         pass
+    ...
+    ...     def finish(self):
+    ...         self.participant.activity.workItemFinished(self)
+
+    &gt;&gt;&gt; class Prepare(ApplicationBase):
+    ...
+    ...     def summary(self):
+    ...         process = self.activity.process
+    ...         doc = getattr(process.applicationRelevantData, 'doc', '')
+    ...         if doc:
+    ...             print 'Previous draft:'
+    ...             print doc
+    ...             print 'Changes we need to make:'
+    ...             for change in process.workflowRelevantData.tech_changes:
+    ...                 print change
+    ...         else:
+    ...             print 'Please write the initial draft'
+    ...
+    ...     def finish(self, doc):
+    ...         self.activity.process.applicationRelevantData.doc = doc
+    ...         super(Prepare, self).finish()
+
+    &gt;&gt;&gt; integration.prepareWorkItem = Prepare
+
+Since we used the prepare application for revisions as well as initial
+preparation, we provide a summary method to show us what we have to do.
+
+Here we get the document created by the author passed in as an
+argument to the finish method.  In a more realistic implementation,
+the author task would create the document at the start of the task and
+provide a user interface for the user to edit it.  We store the
+document as application-relevant data, since we'll want reviewers to
+be able to access it, but we don't need it directly for workflow
+control.
+
+    &gt;&gt;&gt; class TechReview(ApplicationBase):
+    ...
+    ...     def getDoc(self):
+    ...         return self.activity.process.applicationRelevantData.doc
+    ...
+    ...     def finish(self, decision, changes):
+    ...         self.activity.workItemFinished(self, decision, changes)
+
+    &gt;&gt;&gt; integration.tech_reviewWorkItem = TechReview
+
+Here, we provided a method to access the original document.
+
+    &gt;&gt;&gt; class Review(TechReview):
+    ...
+    ...     def start(self, publish1, changes1, publish2, changes2):
+    ...         if not (publish1 and publish2):
+    ...             # Reject if either tech reviewer rejects
+    ...             self.activity.workItemFinished(
+    ...                 self, False, changes1 + changes2, ())
+    ...
+    ...         if changes1 or changes2:
+    ...             # we won't do anything if there are tech changes
+    ...             self.activity.workItemFinished(
+    ...                 self, True, changes1 + changes2, ())
+    ...
+    ...     def finish(self, ed_changes):
+    ...         self.activity.workItemFinished(self, True, (), ed_changes)
+
+    &gt;&gt;&gt; integration.ed_reviewWorkItem = Review
+
+In this implementation, we decided to reject outright if either
+technical editor recommended rejection and to send work back to
+preparation if there are any technical changes. We also subclassed
+`TechReview` to get the `getDoc` method.
+
+We'll reuse the `publish` and `reject` application from the previous
+example.
+
+    &gt;&gt;&gt; class Final(ApplicationBase):
+    ...
+    ...     def summary(self):
+    ...         process = self.activity.process
+    ...         doc = getattr(process.applicationRelevantData, 'doc', '')
+    ...         print 'Previous draft:'
+    ...         print self.activity.process.applicationRelevantData.doc
+    ...         print 'Changes we need to make:'
+    ...         for change in process.workflowRelevantData.ed_changes:
+    ...            print change
+    ...
+    ...     def finish(self, doc):
+    ...         self.activity.process.applicationRelevantData.doc = doc
+    ...         super(Final, self).finish()
+
+    &gt;&gt;&gt; integration.finalWorkItem = Final
+
+In our this application, we simply update the document to reflect
+changes.
+
+    &gt;&gt;&gt; class ReviewFinal(TechReview):
+    ...
+    ...     def finish(self, ed_changes):
+    ...         self.activity.workItemFinished(self, ed_changes)
+
+    &gt;&gt;&gt; integration.rfinalWorkItem = ReviewFinal
+
+Our process now returns data.  When we create a process, we need to
+supply an object that it can call back to:
+
+    &gt;&gt;&gt; class PublicationContext:
+    ...     zope.interface.implements(interfaces.IProcessContext)
+    ...
+    ...     def processFinished(self, process, decision):
+    ...         self.decision = decision
+
+Now, let's try out our process:
+
+    &gt;&gt;&gt; context = PublicationContext()
+    &gt;&gt;&gt; proc = Publication(context)
+    &gt;&gt;&gt; proc.start('bob')
+    ProcessStarted(Process('Publication'))
+    Transition(None, Activity('Publication.start'))
+    ActivityStarted(Activity('Publication.start'))
+    ActivityFinished(Activity('Publication.start'))
+    Author `bob` selected
+    Transition(Activity('Publication.start'), Activity('Publication.prepare'))
+    ActivityStarted(Activity('Publication.prepare'))
+
+We should have added an item to bob's work list. Let's get it and
+finish it, submitting a document:
+
+    &gt;&gt;&gt; item = authors['bob'].work_list.pop()
+    &gt;&gt;&gt; item.finish("I give my pledge, as an American\n"
+    ...             "to save, and faithfully to defend from waste\n"
+    ...             "the natural resources of my Country.")
+    WorkItemFinished('prepare')
+    ActivityFinished(Activity('Publication.prepare'))
+    Transition(Activity('Publication.prepare'), Activity('Publication.tech1'))
+    ActivityStarted(Activity('Publication.tech1'))
+    Transition(Activity('Publication.prepare'), Activity('Publication.tech2'))
+    ActivityStarted(Activity('Publication.tech2'))
+
+Notice that we transitioned to *two* activities, `tech1` and
+`tech2`.  This is because the prepare activity has an "and" split.
+Now we'll do a tech review.  Let's see what tech1 has:
+
+    &gt;&gt;&gt; item = tech1.work_list.pop()
+    &gt;&gt;&gt; print item.getDoc()
+    I give my pledge, as an American
+    to save, and faithfully to defend from waste
+    the natural resources of my Country.
+
+Let's tell the author to change "American" to "Earthling":
+
+    &gt;&gt;&gt; item.finish(True, ['Change "American" to "Earthling"'])
+    WorkItemFinished('tech_review')
+    ActivityFinished(Activity('Publication.tech1'))
+    Transition(Activity('Publication.tech1'), Activity('Publication.review'))
+
+Here we transitioned to the editorial review activity, but we didn't
+start it. This is because the editorial review activity has an "and"
+join, meaning that it won't start until both transitions have
+occurred.
+
+Now we'll do the other technical review:
+
+    &gt;&gt;&gt; item = tech2.work_list.pop()
+    &gt;&gt;&gt; item.finish(True, ['Change "Country" to "planet"'])
+    WorkItemFinished('tech_review')
+    ActivityFinished(Activity('Publication.tech2'))
+    Transition(Activity('Publication.tech2'), Activity('Publication.review'))
+    ActivityStarted(Activity('Publication.review'))
+    WorkItemFinished('ed_review')
+    ActivityFinished(Activity('Publication.review'))
+    Author `bob` selected
+    Transition(Activity('Publication.review'), Activity('Publication.prepare'))
+    ActivityStarted(Activity('Publication.prepare'))
+
+Now when we transitioned to the editorial review activity, we started
+it, because each of the input transitions had happened.  Our editorial
+review application automatically sent the work back to preparation,
+because there were technical comments. Of course the author is still `bob`.
+Let's address the comments:
+
+    &gt;&gt;&gt; item = authors['bob'].work_list.pop()
+    &gt;&gt;&gt; item.summary()
+    Previous draft:
+    I give my pledge, as an American
+    to save, and faithfully to defend from waste
+    the natural resources of my Country.
+    Changes we need to make:
+    Change "American" to "Earthling"
+    Change "Country" to "planet"
+
+    &gt;&gt;&gt; item.finish("I give my pledge, as an Earthling\n"
+    ...             "to save, and faithfully to defend from waste\n"
+    ...             "the natural resources of my planet.")
+    WorkItemFinished('prepare')
+    ActivityFinished(Activity('Publication.prepare'))
+    Transition(Activity('Publication.prepare'), Activity('Publication.tech1'))
+    ActivityStarted(Activity('Publication.tech1'))
+    Transition(Activity('Publication.prepare'), Activity('Publication.tech2'))
+    ActivityStarted(Activity('Publication.tech2'))
+
+As before, after completing the initial edits, we start the technical
+review activities again.  We'll review it again. This time, we have no
+comments, because the author applied our requested changes:
+
+    &gt;&gt;&gt; item = tech1.work_list.pop()
+    &gt;&gt;&gt; item.finish(True, [])
+    WorkItemFinished('tech_review')
+    ActivityFinished(Activity('Publication.tech1'))
+    Transition(Activity('Publication.tech1'), Activity('Publication.review'))
+
+    &gt;&gt;&gt; item = tech2.work_list.pop()
+    &gt;&gt;&gt; item.finish(True, [])
+    WorkItemFinished('tech_review')
+    ActivityFinished(Activity('Publication.tech2'))
+    Transition(Activity('Publication.tech2'), Activity('Publication.review'))
+    ActivityStarted(Activity('Publication.review'))
+
+This time, we are left in the technical review activity because there
+weren't any technical changes. We're ready to do our editorial review.
+We'll request an editorial change:
+
+    &gt;&gt;&gt; item = reviewer.work_list.pop()
+    &gt;&gt;&gt; print item.getDoc()
+    I give my pledge, as an Earthling
+    to save, and faithfully to defend from waste
+    the natural resources of my planet.
+
+    &gt;&gt;&gt; item.finish(['change "an" to "a"'])
+    WorkItemFinished('ed_review')
+    ActivityFinished(Activity('Publication.review'))
+    Author `bob` selected
+    Transition(Activity('Publication.review'), Activity('Publication.final'))
+    ActivityStarted(Activity('Publication.final'))
+
+Because we requested editorial changes, we transitioned to the final
+editing activity, so that the author (still bob) can make the changes:
+
+    &gt;&gt;&gt; item = authors['bob'].work_list.pop()
+    &gt;&gt;&gt; item.summary()
+    Previous draft:
+    I give my pledge, as an Earthling
+    to save, and faithfully to defend from waste
+    the natural resources of my planet.
+    Changes we need to make:
+    change "an" to "a"
+
+    &gt;&gt;&gt; item.finish("I give my pledge, as a Earthling\n"
+    ...             "to save, and faithfully to defend from waste\n"
+    ...             "the natural resources of my planet.")
+    WorkItemFinished('final')
+    ActivityFinished(Activity('Publication.final'))
+    Transition(Activity('Publication.final'), Activity('Publication.rfinal'))
+    ActivityStarted(Activity('Publication.rfinal'))
+
+We transition to the activity for reviewing the final edits.  We
+review the document and approve it for publication:
+
+    &gt;&gt;&gt; item = reviewer.work_list.pop()
+    &gt;&gt;&gt; print item.getDoc()
+    I give my pledge, as a Earthling
+    to save, and faithfully to defend from waste
+    the natural resources of my planet.
+
+    &gt;&gt;&gt; item.finish([])
+    WorkItemFinished('rfinal')
+    ActivityFinished(Activity('Publication.rfinal'))
+    Transition(Activity('Publication.rfinal'), Activity('Publication.publish'))
+    ActivityStarted(Activity('Publication.publish'))
+    Published
+    WorkItemFinished('publish')
+    ActivityFinished(Activity('Publication.publish'))
+    ProcessFinished(Process('Publication'))
+
+At this point, the rest of the process finished automatically.  In
+addition, the decision was recorded in the process context object:
+
+    &gt;&gt;&gt; context.decision
+    True
+
+Coming Soon
+------------
+
+- XPDL support
+
+- Timeouts/exceptions
+
+- "otherwise" conditions
+
+
+.. [1] There are other kinds of conditions, namely "otherwise" and
+       "exception" conditions.
+
+See also
+---------
+http://www.wfmc.org
+http://www.wfmc.org/standards/standards.htm</t>
+<t tx="sa.20080724074952.127">@language python
+@tabwidth -4
+@ignore
+@others
+if __name__ == '__main__':
+    unittest.main(defaultTest='test_suite')
+</t>
+<t tx="sa.20080724074952.128">##############################################################################
+#
+# Copyright (c) 2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.0 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+"""Test hookup
+
+$Id: tests.py 30336 2005-05-12 09:50:58Z jim $
+"""
+import os
+import unittest
+import zope.event
+from zope.component import testing
+
+</t>
+<t tx="sa.20080724074952.129">def tearDown(test):
+    testing.tearDown(test)
+    zope.event.subscribers.pop()
+
+</t>
+<t tx="sa.20080724074952.130">def setUp(test):
+    test.globs['this_directory'] = os.path.dirname(__file__)
+    testing.setUp(test)
+
+</t>
+<t tx="sa.20080724074952.131">def test_multiple_input_parameters():
+    """
+    We'll create a very simple process that inputs two variables and
+    has a single activity that just outputs them.
+
+    &gt;&gt;&gt; from zope.wfmc import process
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample')
+    &gt;&gt;&gt; from zope import component, interface
+    &gt;&gt;&gt; component.provideUtility(pd, name=pd.id)
+
+    &gt;&gt;&gt; pd.defineParameters(
+    ...     process.InputParameter('x'),
+    ...     process.InputParameter('y'),
+    ...     )
+
+    &gt;&gt;&gt; pd.defineActivities(
+    ...    eek = process.ActivityDefinition(),
+    ...    ook = process.ActivityDefinition(),
+    ...    )
+
+    &gt;&gt;&gt; pd.defineTransitions(process.TransitionDefinition('eek', 'ook'))
+
+    &gt;&gt;&gt; pd.defineApplications(
+    ...     eek = process.Application(
+    ...         process.InputParameter('x'),
+    ...         process.InputParameter('y'),
+    ...         )
+    ...     )
+
+    &gt;&gt;&gt; pd.activities['eek'].addApplication('eek', ['x', 'y'])
+
+    &gt;&gt;&gt; from zope.wfmc import interfaces
+
+    &gt;&gt;&gt; class Participant(object):
+    ...     zope.component.adapts(interfaces.IActivity)
+    ...     zope.interface.implements(interfaces.IParticipant)
+    ...
+    ...     def __init__(self, activity):
+    ...         self.activity = activity
+
+    &gt;&gt;&gt; from zope.wfmc.attributeintegration import AttributeIntegration
+    &gt;&gt;&gt; integration = AttributeIntegration()
+    &gt;&gt;&gt; pd.integration = integration
+
+    &gt;&gt;&gt; integration.Participant = Participant
+
+
+    &gt;&gt;&gt; class Eek:
+    ...     component.adapts(interfaces.IParticipant)
+    ...     interface.implements(interfaces.IWorkItem)
+    ...
+    ...     def __init__(self, participant):
+    ...         self.participant = participant
+    ...
+    ...     def start(self, x, y):
+    ...         print x, y
+
+
+    &gt;&gt;&gt; integration.eekWorkItem = Eek
+
+    &gt;&gt;&gt; proc = pd()
+    &gt;&gt;&gt; proc.start(99, 42)
+    99 42
+
+
+    """
+
+</t>
+<t tx="sa.20080724074952.132">def test_pickling():
+    """
+    &gt;&gt;&gt; from zope.wfmc import process
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample')
+    &gt;&gt;&gt; from zope import component, interface
+    &gt;&gt;&gt; component.provideUtility(pd, name=pd.id)
+
+    &gt;&gt;&gt; pd.defineActivities(
+    ...    eek = process.ActivityDefinition(),
+    ...    ook = process.ActivityDefinition(),
+    ...    )
+
+    &gt;&gt;&gt; pd.defineTransitions(process.TransitionDefinition('eek', 'ook'))
+
+    &gt;&gt;&gt; pd.defineApplications(
+    ...     eek = process.Application(
+    ...         process.InputParameter('x'),
+    ...         process.InputParameter('y'),
+    ...         )
+    ...     )
+
+    &gt;&gt;&gt; pd.activities['eek'].addApplication('eek', ['x', 'y'])
+
+
+    &gt;&gt;&gt; proc = pd()
+
+    &gt;&gt;&gt; import pickle
+    &gt;&gt;&gt; s = pickle.dumps(proc)
+
+    """
+
+</t>
+<t tx="sa.20080724074952.133">def test_inputoutput():
+    """
+
+    &gt;&gt;&gt; from zope.wfmc import process
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample')
+    &gt;&gt;&gt; from zope import component, interface
+    &gt;&gt;&gt; component.provideUtility(pd, name=pd.id)
+
+    &gt;&gt;&gt; pd.defineParameters(
+    ...     process.InputParameter('x'),
+    ...     )
+
+    &gt;&gt;&gt; pd.defineActivities(
+    ...    eek = process.ActivityDefinition(),
+    ...    ook = process.ActivityDefinition(),
+    ...    )
+
+    &gt;&gt;&gt; pd.defineTransitions(process.TransitionDefinition('eek', 'ook'))
+
+    &gt;&gt;&gt; pd.defineApplications(
+    ...     eek = process.Application(
+    ...         process.InputOutputParameter('x'),
+    ...         )
+    ...     )
+
+    &gt;&gt;&gt; pd.activities['eek'].addApplication('eek', ['x'])
+
+    &gt;&gt;&gt; class Participant(object):
+    ...     def __init__(self, activity):
+    ...         self.activity = activity
+
+    &gt;&gt;&gt; from zope.wfmc.attributeintegration import AttributeIntegration
+    &gt;&gt;&gt; integration = AttributeIntegration()
+    &gt;&gt;&gt; pd.integration = integration
+
+    &gt;&gt;&gt; integration.Participant = Participant
+
+    &gt;&gt;&gt; class Eek:
+    ...     def __init__(self, participant):
+    ...         self.participant = participant
+    ...
+    ...     def start(self, x):
+    ...         self.participant.activity.workItemFinished(self, x+1)
+
+
+    &gt;&gt;&gt; integration.eekWorkItem = Eek
+
+    &gt;&gt;&gt; proc = pd()
+    &gt;&gt;&gt; proc.start(1)
+    &gt;&gt;&gt; proc.workflowRelevantData.x
+    2
+
+    """
+</t>
+<t tx="sa.20080724074952.134">def test_wrong_number_process_args_error_message():
+    """
+
+    &gt;&gt;&gt; from zope.wfmc import process
+    &gt;&gt;&gt; pd = process.ProcessDefinition('sample')
+    &gt;&gt;&gt; from zope import component, interface
+    &gt;&gt;&gt; component.provideUtility(pd, name=pd.id)
+    &gt;&gt;&gt; pd.defineActivities(
+    ...    eek = process.ActivityDefinition(),
+    ...    ook = process.ActivityDefinition(),
+    ...    )
+    &gt;&gt;&gt; pd.defineTransitions(process.TransitionDefinition('eek', 'ook'))
+
+    &gt;&gt;&gt; proc = pd()
+    &gt;&gt;&gt; proc.start(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: Too many arguments. Expected 0. got 1
+
+    """
+
+
+</t>
+<t tx="sa.20080724074952.135">def test_suite():
+    from zope.testing import doctest
+    suite = unittest.TestSuite()
+    suite.addTest(doctest.DocFileSuite('README.txt', tearDown=tearDown,
+                                       setUp=testing.setUp))
+    suite.addTest(doctest.DocFileSuite(
+        'xpdl.txt', tearDown=tearDown, setUp=setUp,
+        optionflags=doctest.NORMALIZE_WHITESPACE))
+    suite.addTest(doctest.DocTestSuite(tearDown=testing.tearDown,
+                                       setUp=testing.setUp))
+    return suite
+
+</t>
+<t tx="sa.20080724074952.136">@language python
+@tabwidth -4
+@ignore
+@others
+</t>
+<t tx="sa.20080724074952.137">##############################################################################
+#
+# Copyright (c) 2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+"""XPDL reader for process definitions
+
+$Id: xpdl.py 70052 2006-09-08 12:27:59Z adamg $
+"""
+
+import sys
+import xml.sax
+import xml.sax.xmlreader
+import xml.sax.handler
+
+import zope.wfmc.process
+
+xpdlns = "http://www.wfmc.org/2002/XPDL1.0"
+
+
+</t>
+<t tx="sa.20080724074952.138">class HandlerError(Exception):
+    @others
+</t>
+<t tx="sa.20080724074952.139">
+def __init__(self, orig, tag, locator):
+    self.orig = orig
+    self.tag = tag
+    self.xml = locator.getSystemId()
+    self.line = locator.getLineNumber()
+
+</t>
+<t tx="sa.20080724074952.140">def __repr__(self):
+    return ('%r\nFile "%s", line %s. in %s'
+            % (self.orig, self.xml, self.line, self.tag))
+
+</t>
+<t tx="sa.20080724074952.141">def __str__(self):
+    return ('%s\nFile "%s", line %s. in %s'
+            % (self.orig, self.xml, self.line, self.tag))
+
+
+</t>
+<t tx="sa.20080724074952.142">class Package(dict):
+    @others
+</t>
+<t tx="sa.20080724074952.143">
+def __init__(self):
+    self.applications = {}
+    self.participants = {}
+
+</t>
+<t tx="sa.20080724074952.144">def defineApplications(self, **applications):
+    for id, application in applications.items():
+        application.id = id
+        self.applications[id] = application
+
+</t>
+<t tx="sa.20080724074952.145">def defineParticipants(self, **participants):
+    for id, participant in participants.items():
+        participant.id = id
+        self.participants[id] = participant
+
+
+</t>
+<t tx="sa.20080724074952.146">class XPDLHandler(xml.sax.handler.ContentHandler):
+
+    start_handlers = {}
+    end_handlers = {}
+    text = u''
+
+    ProcessDefinitionFactory = zope.wfmc.process.ProcessDefinition
+    ParticipantFactory = zope.wfmc.process.Participant
+    ApplicationFactory = zope.wfmc.process.Application
+    ActivityDefinitionFactory = zope.wfmc.process.ActivityDefinition
+    TransitionDefinitionFactory = zope.wfmc.process.TransitionDefinition
+
+    @others
+    end_handlers[(xpdlns, 'Condition')] = condition
+
+
+</t>
+<t tx="sa.20080724074952.147">def __init__(self, package):
+    self.package = package
+    self.stack = []
+
+</t>
+<t tx="sa.20080724074952.148">def startElementNS(self, name, qname, attrs):
+    handler = self.start_handlers.get(name)
+    if handler:
+        try:
+            result = handler(self, attrs)
+        except:
+            raise HandlerError(sys.exc_info()[1], name[1], self.locator
+                ), None, sys.exc_info()[2]
+    else:
+        result = None
+
+    if result is None:
+        # Just dup the top of the stack
+        result = self.stack[-1]
+
+    self.stack.append(result)
+    self.text = u''
+
+</t>
+<t tx="sa.20080724074952.149">def endElementNS(self, name, qname):
+    last = self.stack.pop()
+    handler = self.end_handlers.get(name)
+    if handler:
+        try:
+            handler(self, last)
+        except:
+            raise HandlerError(sys.exc_info()[1], name[1], self.locator
+                ), None, sys.exc_info()[2]
+
+    self.text = u''
+
+</t>
+<t tx="sa.20080724074952.150">def characters(self, text):
+    self.text += text
+
+</t>
+<t tx="sa.20080724074952.151">def setDocumentLocator(self, locator):
+    self.locator = locator
+
+</t>
+<t tx="sa.20080724074952.152">######################################################################
+# Application handlers
+
+# Pointless container elements that we want to "ignore" by having them
+# dup their containers:
+def Package(self, attrs):
+    package = self.package
+    package.id = attrs[(None, 'Id')]
+    package.__name__ = attrs.get((None, 'Name'))
+    return package
+</t>
+<t tx="sa.20080724074952.153">start_handlers[(xpdlns, 'Package')] = Package
+
+def WorkflowProcess(self, attrs):
+    id = attrs[(None, 'Id')]
+    process = self.ProcessDefinitionFactory(id)
+    process.__name__ = attrs.get((None, 'Name'))
+
+    # Copy package data:
+    process.defineApplications(**self.package.applications)
+    process.defineParticipants(**self.package.participants)
+
+    self.package[id] = process
+    return process
+</t>
+<t tx="sa.20080724074952.154">start_handlers[(xpdlns, 'WorkflowProcess')] = WorkflowProcess
+
+paramter_types = {
+    'IN': zope.wfmc.process.InputParameter,
+    'OUT': zope.wfmc.process.OutputParameter,
+    'INOUT': zope.wfmc.process.InputOutputParameter,
+    }
+
+
+def FormalParameter(self, attrs):
+    mode = attrs.get((None, 'Mode'), 'IN')
+    id = attrs[(None, 'Id')]
+    self.stack[-1].defineParameters(*[self.paramter_types[mode](id)])
+</t>
+<t tx="sa.20080724074952.155">start_handlers[(xpdlns, 'FormalParameter')] = FormalParameter
+
+def Participant(self, attrs):
+    id = attrs[(None, 'Id')]
+    name = attrs.get((None, 'Name'))
+    participant = self.ParticipantFactory(name)
+    self.stack[-1].defineParticipants(**{str(id): participant})
+    return participant
+</t>
+<t tx="sa.20080724074952.156">start_handlers[(xpdlns, 'Participant')] = Participant
+
+def Application(self, attrs):
+    id = attrs[(None, 'Id')]
+    name = attrs.get((None, 'Name'))
+    app = self.ApplicationFactory()
+    app.id = id
+    if name:
+        app.__name__ = name
+    return app
+</t>
+<t tx="sa.20080724074952.157">start_handlers[(xpdlns, 'Application')] = Application
+
+def application(self, app):
+    self.stack[-1].defineApplications(**{str(app.id): app})
+</t>
+<t tx="sa.20080724074952.158">end_handlers[(xpdlns, 'Application')] = application
+
+def description(self, ignored):
+    if self.stack[-1] is not None:
+        self.stack[-1].description = self.text
+</t>
+<t tx="sa.20080724074952.159">end_handlers[(xpdlns, 'Description')] = description
+
+######################################################################
+# Activity definitions
+
+def ActivitySet(self, attrs):
+    raise NotImplementedError("ActivitySet")
+</t>
+<t tx="sa.20080724074952.160">end_handlers[(xpdlns, 'ActivitySet')] = ActivitySet
+
+def Activity(self, attrs):
+    id = attrs[(None, 'Id')]
+    name = attrs.get((None, 'Name'))
+    activity = self.ActivityDefinitionFactory(name)
+    activity.id = id
+    self.stack[-1].defineActivities(**{str(id): activity})
+    return activity
+</t>
+<t tx="sa.20080724074952.161">start_handlers[(xpdlns, 'Activity')] = Activity
+
+def Tool(self, attrs):
+    return Tool(attrs[(None, 'Id')])
+</t>
+<t tx="sa.20080724074952.162">start_handlers[(xpdlns, 'Tool')] = Tool
+
+def tool(self, tool):
+    self.stack[-1].addApplication(tool.id, tool.parameters)
+</t>
+<t tx="sa.20080724074952.163">end_handlers[(xpdlns, 'Tool')] = tool
+
+def actualparameter(self, ignored):
+    self.stack[-1].parameters += (self.text, )
+</t>
+<t tx="sa.20080724074952.164">end_handlers[(xpdlns, 'ActualParameter')] = actualparameter
+
+def performer(self, ignored):
+    self.stack[-1].definePerformer(self.text.strip())
+</t>
+<t tx="sa.20080724074952.165">end_handlers[(xpdlns, 'Performer')] = performer
+
+def Join(self, attrs):
+    Type = attrs.get((None, 'Type'))
+    if Type == u'AND':
+        self.stack[-1].andJoin(True)
+</t>
+<t tx="sa.20080724074952.166">start_handlers[(xpdlns, 'Join')] = Join
+
+def Split(self, attrs):
+    Type = attrs.get((None, 'Type'))
+    if Type == u'AND':
+        self.stack[-1].andSplit(True)
+</t>
+<t tx="sa.20080724074952.167">start_handlers[(xpdlns, 'Split')] = Split
+
+def TransitionRef(self, attrs):
+    Id = attrs.get((None, 'Id'))
+    self.stack[-1].addOutgoing(Id)
+</t>
+<t tx="sa.20080724074952.168">start_handlers[(xpdlns, 'TransitionRef')] = TransitionRef
+
+
+# Activity definitions
+######################################################################
+
+def Transition(self, attrs):
+    id = attrs[(None, 'Id')]
+    name = attrs.get((None, 'Name'))
+    from_ = attrs.get((None, 'From'))
+    to = attrs.get((None, 'To'))
+    transition = self.TransitionDefinitionFactory(from_, to)
+    transition.id = id
+    transition.__name__ = name
+    return transition
+</t>
+<t tx="sa.20080724074952.169">start_handlers[(xpdlns, 'Transition')] = Transition
+
+def transition(self, transition):
+    self.stack[-1].defineTransitions(transition)
+</t>
+<t tx="sa.20080724074952.170">end_handlers[(xpdlns, 'Transition')] = transition
+
+def condition(self, ignored):
+    assert isinstance(self.stack[-1],
+                      self.TransitionDefinitionFactory)
+
+    text = self.text
+    self.stack[-1].condition = TextCondition("(%s)" % text)
+</t>
+<t tx="sa.20080724074952.171">class Tool:
+    @others
+    parameters = ()
+
+</t>
+<t tx="sa.20080724074952.172">
+def __init__(self, id):
+    self.id = id
+
+</t>
+<t tx="sa.20080724074952.173">class TextCondition:
+    @others
+</t>
+<t tx="sa.20080724074952.174">
+def __init__(self, source):
+    self.source = source
+
+    # make sure that we can compile the source
+    compile(source, '&lt;string&gt;', 'eval')
+
+</t>
+<t tx="sa.20080724074952.175">def __getstate__(self):
+    return {'source': self.source}
+
+</t>
+<t tx="sa.20080724074952.176">def __call__(self, data):
+    # We *depend* on being able to use the data's dict.
+    # TODO This needs to be part of the contract.
+    try:
+        compiled = self._v_compiled
+    except AttributeError:
+        self._v_compiled = compile(self.source, '&lt;string&gt;', 'eval')
+        compiled = self._v_compiled
+
+    return eval(compiled, {'__builtins__': None}, data.__dict__)
+
+
+</t>
+<t tx="sa.20080724074952.177">def read(file):
+    src = xml.sax.xmlreader.InputSource(getattr(file, 'name', '&lt;string&gt;'))
+    src.setByteStream(file)
+    parser = xml.sax.make_parser()
+    package = Package()
+    parser.setContentHandler(XPDLHandler(package))
+    parser.setFeature(xml.sax.handler.feature_namespaces, True)
+    parser.parse(src)
+    return package
+
+</t>
+<t tx="sa.20080724074952.178">@ignore
+@nocolor
+===========
+XPDL Import
+===========
+
+We can import process definitions from files in the XML Process
+Definition Language (XPDL) format. An XPDL file contains multiple
+process definitions arranged in a package. When we load the file, we
+get a package containing some number of process definitions.
+
+Let's look at an example.  The file `publication.xpdl`
+contains a definition for the publication example developed in the
+"README.txt" file.  We can read it using the xpdl module:
+
+    &gt;&gt;&gt; from zope.wfmc import xpdl
+    &gt;&gt;&gt; import os
+    &gt;&gt;&gt; package = xpdl.read(open(os.path.join(this_directory,
+    ...                                       'publication.xpdl')))
+
+This package contains a single definition:
+
+    &gt;&gt;&gt; package
+    {u'Publication': ProcessDefinition(u'Publication')}
+
+    &gt;&gt;&gt; pd = package[u'Publication']
+    &gt;&gt;&gt; from zope.wfmc.attributeintegration import AttributeIntegration
+    &gt;&gt;&gt; integration = AttributeIntegration()
+    &gt;&gt;&gt; pd.integration = integration
+
+Now, having read the process definition, we can use it as we did
+before (in "README.txt").  As before, we'll create an event subscriber
+so that we can see what's going on:
+
+    &gt;&gt;&gt; def log_workflow(event):
+    ...     print event
+
+    &gt;&gt;&gt; import zope.event
+    &gt;&gt;&gt; zope.event.subscribers.append(log_workflow)
+
+and we'll register the process definition as a utility:
+
+    &gt;&gt;&gt; import zope.component
+    &gt;&gt;&gt; zope.component.provideUtility(pd, name=pd.id)
+
+and we'll define and register participant and application adapters:
+
+    &gt;&gt;&gt; import zope.interface
+    &gt;&gt;&gt; from zope.wfmc import interfaces
+
+    &gt;&gt;&gt; class Participant(object):
+    ...     zope.component.adapts(interfaces.IActivity)
+    ...     zope.interface.implements(interfaces.IParticipant)
+    ...
+    ...     def __init__(self, activity):
+    ...         self.activity = activity
+
+    &gt;&gt;&gt; class User:
+    ...     def __init__(self):
+    ...         self.work_list = []
+
+    &gt;&gt;&gt; authors = {'bob': User(), 'ted': User(), 'sally': User()}
+
+    &gt;&gt;&gt; reviewer = User()
+    &gt;&gt;&gt; tech1 = User()
+    &gt;&gt;&gt; tech2 = User()
+
+    &gt;&gt;&gt; class Author(Participant):
+    ...     def __init__(self, activity):
+    ...         Participant.__init__(self, activity)
+    ...         author_name = activity.process.workflowRelevantData.author
+    ...         print "Author `%s` selected" % author_name
+    ...         self.user = authors[author_name]
+
+    &gt;&gt;&gt; integration.authorParticipant = Author
+
+    &gt;&gt;&gt; class Reviewer(Participant):
+    ...     user = reviewer
+    &gt;&gt;&gt; integration.reviewerParticipant = Reviewer
+
+    &gt;&gt;&gt; class Tech1(Participant):
+    ...     user = tech1
+    &gt;&gt;&gt; integration.tech1Participant = Tech1
+
+    &gt;&gt;&gt; class Tech2(Participant):
+    ...     user = tech2
+    &gt;&gt;&gt; integration.tech2Participant = Tech2
+
+    &gt;&gt;&gt; integration.SystemParticipant = Participant
+
+    &gt;&gt;&gt; class ApplicationBase(object):
+    ...     zope.component.adapts(interfaces.IParticipant)
+    ...     zope.interface.implements(interfaces.IWorkItem)
+    ...
+    ...     def __init__(self, participant):
+    ...         self.participant = participant
+    ...         self.activity = participant.activity
+    ...         participant.user.work_list.append(self)
+    ...
+    ...     def start(self):
+    ...         pass
+    ...
+    ...     def finish(self):
+    ...         self.participant.activity.workItemFinished(self)
+
+    &gt;&gt;&gt; class Prepare(ApplicationBase):
+    ...
+    ...     def summary(self):
+    ...         process = self.activity.process
+    ...         doc = getattr(process.applicationRelevantData, 'doc', '')
+    ...         if doc:
+    ...             print 'Previous draft:'
+    ...             print doc
+    ...             print 'Changes we need to make:'
+    ...             for change in process.workflowRelevantData.tech_changes:
+    ...                 print change
+    ...         else:
+    ...             print 'Please write the initial draft'
+    ...
+    ...     def finish(self, doc):
+    ...         self.activity.process.applicationRelevantData.doc = doc
+    ...         super(Prepare, self).finish()
+
+    &gt;&gt;&gt; integration.prepareWorkItem = Prepare
+
+    &gt;&gt;&gt; class TechReview(ApplicationBase):
+    ...
+    ...     def getDoc(self):
+    ...         return self.activity.process.applicationRelevantData.doc
+    ...
+    ...     def finish(self, decision, changes):
+    ...         self.activity.workItemFinished(self, decision, changes)
+
+    &gt;&gt;&gt; integration.tech_reviewWorkItem = TechReview
+
+    &gt;&gt;&gt; class Review(TechReview):
+    ...
+    ...     def start(self, publish1, changes1, publish2, changes2):
+    ...         if not (publish1 and publish2):
+    ...             # Reject if either tech reviewer rejects
+    ...             self.activity.workItemFinished(
+    ...                 self, False, changes1 + changes2, ())
+    ...
+    ...         if changes1 or changes2:
+    ...             # we won't do anyting if there are tech changes
+    ...             self.activity.workItemFinished(
+    ...                 self, True, changes1 + changes2, ())
+    ...
+    ...     def finish(self, ed_changes):
+    ...         self.activity.workItemFinished(self, True, (), ed_changes)
+
+    &gt;&gt;&gt; integration.ed_reviewWorkItem = Review
+
+    &gt;&gt;&gt; class Final(ApplicationBase):
+    ...
+    ...     def summary(self):
+    ...         process = self.activity.process
+    ...         doc = getattr(process.applicationRelevantData, 'doc', '')
+    ...         print 'Previous draft:'
+    ...         print self.activity.process.applicationRelevantData.doc
+    ...         print 'Changes we need to make:'
+    ...         for change in process.workflowRelevantData.ed_changes:
+    ...            print change
+    ...
+    ...     def finish(self, doc):
+    ...         self.activity.process.applicationRelevantData.doc = doc
+    ...         super(Final, self).finish()
+
+    &gt;&gt;&gt; integration.finalWorkItem = Final
+
+    &gt;&gt;&gt; class ReviewFinal(TechReview):
+    ...
+    ...     def finish(self, ed_changes):
+    ...         self.activity.workItemFinished(self, ed_changes)
+
+    &gt;&gt;&gt; integration.rfinalWorkItem = ReviewFinal
+
+
+    &gt;&gt;&gt; class Publish:
+    ...     zope.component.adapts(interfaces.IParticipant)
+    ...     zope.interface.implements(interfaces.IWorkItem)
+    ...
+    ...     def __init__(self, participant):
+    ...         self.participant = participant
+    ...
+    ...     def start(self):
+    ...         print "Published"
+    ...         self.finish()
+    ...
+    ...     def finish(self):
+    ...         self.participant.activity.workItemFinished(self)
+
+
+    &gt;&gt;&gt; integration.publishWorkItem = Publish
+
+    &gt;&gt;&gt; class Reject(Publish):
+    ...     def start(self):
+    ...         print "Rejected"
+    ...         self.finish()
+
+    &gt;&gt;&gt; integration.rejectWorkItem = Reject
+
+and a process context, so we can pass parameters:
+
+    &gt;&gt;&gt; class PublicationContext:
+    ...     zope.interface.implements(interfaces.IProcessContext)
+    ...
+    ...     def processFinished(self, process, decision):
+    ...         self.decision = decision
+
+Now, let's try out our process.  We'll follow the same steps we did in
+"README.txt", getting the same results:
+
+    &gt;&gt;&gt; context = PublicationContext()
+    &gt;&gt;&gt; proc = pd(context)
+    &gt;&gt;&gt; proc.start('bob')
+    ProcessStarted(Process(u'Publication'))
+    Transition(None, Activity(u'Publication.start'))
+    ActivityStarted(Activity(u'Publication.start'))
+    ActivityFinished(Activity(u'Publication.start'))
+    Author `bob` selected
+    Transition(Activity(u'Publication.start'),
+               Activity(u'Publication.prepare'))
+    ActivityStarted(Activity(u'Publication.prepare'))
+
+    &gt;&gt;&gt; item = authors['bob'].work_list.pop()
+    &gt;&gt;&gt; item.finish("I give my pledge, as an American\n"
+    ...             "to save, and faithfully to defend from waste\n"
+    ...             "the natural resources of my Country.")
+    WorkItemFinished(u'prepare')
+    ActivityFinished(Activity(u'Publication.prepare'))
+    Transition(Activity(u'Publication.prepare'),
+               Activity(u'Publication.tech1'))
+    ActivityStarted(Activity(u'Publication.tech1'))
+    Transition(Activity(u'Publication.prepare'),
+               Activity(u'Publication.tech2'))
+    ActivityStarted(Activity(u'Publication.tech2'))
+
+    &gt;&gt;&gt; item = tech1.work_list.pop()
+    &gt;&gt;&gt; print item.getDoc()
+    I give my pledge, as an American
+    to save, and faithfully to defend from waste
+    the natural resources of my Country.
+
+    &gt;&gt;&gt; item.finish(True, ['Change "American" to "human"'])
+    WorkItemFinished(u'tech_review')
+    ActivityFinished(Activity(u'Publication.tech1'))
+    Transition(Activity(u'Publication.tech1'),
+               Activity(u'Publication.review'))
+
+    &gt;&gt;&gt; item = tech2.work_list.pop()
+    &gt;&gt;&gt; item.finish(True, ['Change "Country" to "planet"'])
+    WorkItemFinished(u'tech_review')
+    ActivityFinished(Activity(u'Publication.tech2'))
+    Transition(Activity(u'Publication.tech2'),
+               Activity(u'Publication.review'))
+    ActivityStarted(Activity(u'Publication.review'))
+    WorkItemFinished(u'ed_review')
+    ActivityFinished(Activity(u'Publication.review'))
+    Author `bob` selected
+    Transition(Activity(u'Publication.review'),
+               Activity(u'Publication.prepare'))
+    ActivityStarted(Activity(u'Publication.prepare'))
+
+    &gt;&gt;&gt; item = authors['bob'].work_list.pop()
+    &gt;&gt;&gt; item.summary()
+    Previous draft:
+    I give my pledge, as an American
+    to save, and faithfully to defend from waste
+    the natural resources of my Country.
+    Changes we need to make:
+    Change "American" to "human"
+    Change "Country" to "planet"
+
+    &gt;&gt;&gt; item.finish("I give my pledge, as an human\n"
+    ...             "to save, and faithfully to defend from waste\n"
+    ...             "the natural resources of my planet.")
+    WorkItemFinished(u'prepare')
+    ActivityFinished(Activity(u'Publication.prepare'))
+    Transition(Activity(u'Publication.prepare'),
+               Activity(u'Publication.tech1'))
+    ActivityStarted(Activity(u'Publication.tech1'))
+    Transition(Activity(u'Publication.prepare'),
+               Activity(u'Publication.tech2'))
+    ActivityStarted(Activity(u'Publication.tech2'))
+
+    &gt;&gt;&gt; item = tech1.work_list.pop()
+    &gt;&gt;&gt; item.finish(True, [])
+    WorkItemFinished(u'tech_review')
+    ActivityFinished(Activity(u'Publication.tech1'))
+    Transition(Activity(u'Publication.tech1'),
+               Activity(u'Publication.review'))
+
+    &gt;&gt;&gt; item = tech2.work_list.pop()
+    &gt;&gt;&gt; item.finish(True, [])
+    WorkItemFinished(u'tech_review')
+    ActivityFinished(Activity(u'Publication.tech2'))
+    Transition(Activity(u'Publication.tech2'),
+               Activity(u'Publication.review'))
+    ActivityStarted(Activity(u'Publication.review'))
+
+    &gt;&gt;&gt; item = reviewer.work_list.pop()
+    &gt;&gt;&gt; print item.getDoc()
+    I give my pledge, as an human
+    to save, and faithfully to defend from waste
+    the natural resources of my planet.
+
+    &gt;&gt;&gt; item.finish(['change "an" to "a"'])
+    WorkItemFinished(u'ed_review')
+    ActivityFinished(Activity(u'Publication.review'))
+    Author `bob` selected
+    Transition(Activity(u'Publication.review'),
+               Activity(u'Publication.final'))
+    ActivityStarted(Activity(u'Publication.final'))
+
+    &gt;&gt;&gt; item = authors['bob'].work_list.pop()
+    &gt;&gt;&gt; item.summary()
+    Previous draft:
+    I give my pledge, as an human
+    to save, and faithfully to defend from waste
+    the natural resources of my planet.
+    Changes we need to make:
+    change "an" to "a"
+
+    &gt;&gt;&gt; item.finish("I give my pledge, as a human\n"
+    ...             "to save, and faithfully to defend from waste\n"
+    ...             "the natural resources of my planet.")
+    WorkItemFinished(u'final')
+    ActivityFinished(Activity(u'Publication.final'))
+    Transition(Activity(u'Publication.final'),
+               Activity(u'Publication.rfinal'))
+    ActivityStarted(Activity(u'Publication.rfinal'))
+
+    &gt;&gt;&gt; item = reviewer.work_list.pop()
+    &gt;&gt;&gt; print item.getDoc()
+    I give my pledge, as a human
+    to save, and faithfully to defend from waste
+    the natural resources of my planet.
+
+    &gt;&gt;&gt; item.finish([])
+    WorkItemFinished(u'rfinal')
+    ActivityFinished(Activity(u'Publication.rfinal'))
+    Transition(Activity(u'Publication.rfinal'),
+               Activity(u'Publication.publish'))
+    ActivityStarted(Activity(u'Publication.publish'))
+    Published
+    WorkItemFinished(u'publish')
+    ActivityFinished(Activity(u'Publication.publish'))
+    ProcessFinished(Process(u'Publication'))
+
+    &gt;&gt;&gt; context.decision
+    True
+
+
+Descriptions
+------------
+
+Most process elements can have names and descriptions.
+
+    &gt;&gt;&gt; pd.__name__
+    u'Publication'
+
+    &gt;&gt;&gt; pd.description
+    u'This is the sample process'
+
+    &gt;&gt;&gt; pd.applications['prepare'].__name__
+    u'Prepare'
+
+    &gt;&gt;&gt; pd.applications['prepare'].description
+    u'Prepare the initial draft'
+
+    &gt;&gt;&gt; pd.activities['tech1'].__name__
+    u'Technical Review 1'
+
+    &gt;&gt;&gt; pd.activities['tech1'].description
+    u'This is the first Technical Review.'
+
+    &gt;&gt;&gt; pd.participants['tech1'].__name__
+    u'Technical Reviewer 1'
+
+    &gt;&gt;&gt; pd.participants['tech1'].description
+    u'He is a smart guy.'
+
+    &gt;&gt;&gt; sorted([item.__name__ for item in pd.transitions])
+        [u'Transition', u'Transition', u'Transition', u'Transition',
+        u'Transition', u'Transition', u'Transition', u'Transition',
+        u'Transition', u'Transition', u'Transition to Tech Review 1',
+        u'Transition to Tech Review 2']
+
+    &gt;&gt;&gt; sorted([item.description for item in pd.transitions])
+        [None, None, None, None, None, None, None, None, None, None, None,
+        u'Use this transition if there are editorial changes required.']
 </t>
 </tnodes>
 </leo_file>

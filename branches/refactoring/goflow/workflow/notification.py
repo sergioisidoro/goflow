@@ -1,10 +1,9 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 
-import logger, logging
-_logger = logging.getLogger('workflow.log')
-from models import UserProfile
+from goflow.workflow.models import UserProfile
 from datetime import datetime, timedelta
+from goflow.utils import Log; log = Log('goflow.workflow.notification')
 
 def notify_if_needed(user=None, roles=None):
     ''' notify user if conditions are fullfilled
@@ -21,9 +20,9 @@ def notify_if_needed(user=None, roles=None):
                 if profile.check_notif_to_send():
                     send_mail(workitems=workitems, user=user, subject='message', template='mail.txt')
                     profile.notif_sent()
-                    _logger.info('notification sent to %s' % user.username)
+                    log.info('notification sent to %s' % user.username)
             except Exception, v:
-                _logger.error('sendmail error: %s' % v)
+                log.error('sendmail error: %s' % v)
     return
             
 

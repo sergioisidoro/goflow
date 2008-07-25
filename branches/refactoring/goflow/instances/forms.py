@@ -14,8 +14,8 @@ class BaseForm(ModelForm):
     workitem_id = forms.IntegerField(widget=forms.HiddenInput, required=False)
     
     def save(self, workitem=None, submit_value=None, commit=True):
-        ob = super(BaseForm, self).save(commit=commit)
-        return ob
+        obj = super(BaseForm, self).save(commit=commit)
+        return obj
     
     def pre_check(self, obj_context=None, user=None):
         """may be overriden to do some check before.

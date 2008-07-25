@@ -1,10 +1,10 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 from django.db import models
-from goflow.instances.models import ProcessInstance, WorkItem, Event
 from django.contrib.auth.models import User
 
-import logging; _log = logging.getLogger('workflow.log')
+from goflow.instances.models import ProcessInstance, WorkItem, Event
+from goflow.utils import Log; log = Log('goflow.workflow.managers')
 
 class ProcessManager(models.Manager):
     
@@ -38,33 +38,35 @@ class ProcessManager(models.Manager):
         instance.save()
         
         workitem = WorkItem.objects.create(instance=instance, user=user, activity=process.begin)
-        Event.objects.create(name='creation by %s' % user.username, workitem=workitem)
-        
-        _log.info('start_instance process %s user %s item %s', process_name, 
-            user.username, item)
+        log.event('created by ' + user.username, workitem)
+        log('process:', process_name, 'user:', user.username, 'item:', item)
     
         if process.begin.autostart:
-            _log.info('run auto activity %s workitem %s', process.begin.title, str(workitem))
+            log('run auto activity', process.begin.title, 'workitem:', workitem)
             auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             workitem.activate(actor=auto_user)
+            
             #activate_workitem(workitem, actor=auto_user)
+            #if exec_auto_application(workitem):
             if workitem.exec_auto_application():
+                log('workitem.exec_auto_application:', workitem)
                 workitem.complete(actor=auto_user)
                 #complete_workitem(workitem, actor=auto_user)
             return workitem
-        
+
         if process.begin.push_application:
+            #target_user = exec_push_application(workitem)
             target_user = workitem.exec_push_application()
-            _log.info('application pushed to user %s', target_user.username)
+            log('application pushed to user', target_user.username)
             workitem.user = target_user
             workitem.save()
-            Event.objects.create(name='assigned to %s' % target_user.username, workitem=workitem)
-            notify_if_needed(user=target_user)
+            log.event('assigned to '+target_user.username, workitem)
+            #notify_if_needed(user=target_user)
         else:
             # set pull roles; useful (in activity too)?
             workitem.pull_roles = workitem.activity.roles.all()
             workitem.save()
-            notify_if_needed(roles=workitem.pull_roles)
+            #notify_if_needed(roles=workitem.pull_roles)
         
         return workitem
     

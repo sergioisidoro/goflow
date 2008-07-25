@@ -16,7 +16,7 @@ class Test(unittest.TestCase):
         user = User.objects.get(username='userA')
         inst = DefaultAppModel.objects.create(comment='test_access_object_from_instance')
         instance = add_instance(user, "test_instance", inst)
-        self.assertEquals(inst, instance.wfobject(), "get object with instance.wfobject()")
+        self.assertEquals(inst, instance.content_object, "get object with instance.content_object")
     
     def test_connect_admin(self):
         client = Client()
@@ -76,8 +76,8 @@ class Test(unittest.TestCase):
         user = User.objects.get(username='any')
         workitem = start_instance('question_process', user, DefaultAppModel.objects.create(comment='test'))
         instance = workitem.instance
-        ob = instance.wfobject()
+        ob = instance.content_object
         changeObjectInstance(instance, DefaultAppModel.objects.create(comment='test 2'))
         instance = ProcessInstance.objects.get(id=instance.id)
-        self.assertNotEquals(instance.wfobject(), ob, "instance object has changed")
+        self.assertNotEquals(instance.content_object, ob, "instance object has changed")
           

@@ -14,10 +14,8 @@ from django.conf import settings
 from notification import notify_if_needed
 
 from django.core.urlresolvers import resolve
+from goflow.utils import Log; log = Log('goflow.workflow.api')
 
-# import logger #(was not being used)
-import logging
-_log = logging.getLogger('workflow.log')
 
 def add_process(title, description):
     '''
@@ -58,32 +56,6 @@ def add_instance(user, title, obj_instance):
     instance.save()
     return instance
 
-def check_start_instance_perm(process_name, user):
-    '''
-    Checks whether a process is enabled and whether the user has permission
-    to instantiate it; raises exceptions if not the case, returns None otherwise.
-    
-    @type process_name: string
-    @param process_name: a name of a process. e.g. 'leave'
-    @type user: User
-    @param user: an instance of django.contrib.auth.models.User, 
-                 typically retrieved through a request object.
-    @rtype:
-    @return: passes silently if checks are met, 
-             raises exceptions otherwise.
-    '''
-    if not is_process_enabled(process_name):
-        raise Exception('process %s disabled.' % process_name)
-    
-    if user.has_perm("workflow.can_instantiate"):
-        lst = user.groups.filter(name=process_name)
-        if lst.count()==0 or \
-           (lst[0].permissions.filter(codename='can_instantiate').count() == 0):
-            raise Exception('permission needed to instantiate process %s.' % process_name)
-    else:
-        raise Exception('permission needed.')
-    return
-
 def start_instance(process_name, user, item, title=None):
     '''
     Returns a workitem given the name of a preexisting enabled Process 
@@ -112,14 +84,13 @@ def start_instance(process_name, user, item, title=None):
     instance.set_status('running')
     instance.save()
     
-    workitem = WorkItem.objects.create(instance=instance, user=user, activity=process.begin)
-    Event.objects.create(name='creation by %s' % user.username, workitem=workitem)
-    
-    _log.info('start_instance process %s user %s item %s', process_name, 
-        user.username, item)
+    workitem = WorkItem.objects.create(instance=instance, user=user,
+                                       activity=process.begin)
+    log.event('created by ' + user.username, workitem)
+    log('process:', process_name, 'user:', user.username, 'item:', item)
 
     if process.begin.autostart:
-        _log.info('run auto activity %s workitem %s', process.begin.title, str(workitem))
+        log('run auto activity', process.begin.title, 'workitem:', workitem)
         auto_user = User.objects.get(username=settings.WF_USER_AUTO)
         activate_workitem(workitem, actor=auto_user)
         if exec_auto_application(workitem):
@@ -128,10 +99,10 @@ def start_instance(process_name, user, item, title=None):
     
     if process.begin.push_application:
         target_user = exec_push_application(workitem)
-        _log.info('application pushed to user %s', target_user.username)
+        log('application pushed to user', target_user.username)
         workitem.user = target_user
         workitem.save()
-        Event.objects.create(name='assigned to %s' % target_user.username, workitem=workitem)
+        log.event('assigned to '+target_user.username, workitem)
         notify_if_needed(user=target_user)
     else:
         # set pull roles; useful (in activity too)?
@@ -142,32 +113,29 @@ def start_instance(process_name, user, item, title=None):
     return workitem
 
 def forward_workitem(workitem, timeout_forwarding=False, subflow_workitem=None):
-    # forward_workitem(workitem, path=None, timeout_forwarding=False, subflow_workitem=None):
     '''
     Convenience procedure to forwards workitems to valid destination activities.
     
     @type workitem: WorkItem
     @param workitem: an instance of WorkItem
-    @type path: string??
-    @param path: XXX TODO: This is not used, so don't know why it's here.
-    @type timeoutForwarding: bool
-    @param timeoutForwarding:
+    @type timeout_forwarding: bool
+    @param timeout_forwarding:
     @type: subflow_workitem: WorkItem
-    @param subflow_workitem: a workitem associated with a subflow ???
+    @param subflow_workitem: a workitem associated with a subflow
     
     '''
-    _log.info('forward_workitem %s', str(workitem))
+    log.info(workitem)
     if not timeout_forwarding:
         if workitem.status != 'complete':
             return
     if workitem.has_workitems_to() and not subflow_workitem:
-        _log.debug('forward_workitem canceled for %s: ' 
+        log.debug('forward_workitem canceled for %s: ' 
                    'workitem.has_workitem_to()', str(workitem))
         return
     
     if timeout_forwarding:
-        _log.info('timeout forwarding')
-        Event.objects.create(name='timeout', workitem=workitem)
+        log.info('timeout forwarding')
+        log.event('timeout', workitem)
     
     for destination in get_destinations(workitem, timeout_forwarding):
         _forward_workitem_to_activity(workitem, destination)
@@ -187,17 +155,19 @@ def _forward_workitem_to_activity(workitem, target_activity):
              activity (and next user)
     '''
     instance = workitem.instance
-    wi = WorkItem.objects.create(instance=instance, user=None, activity=target_activity)
-    _log.info('forwarded to %s', target_activity.title)
-    Event.objects.create(name='creation by %s' % workitem.user.username, workitem=wi)
-    Event.objects.create(name='forwarded to %s' % target_activity.title, workitem=workitem)
+    wi = WorkItem.objects.create(instance=instance, user=None,
+                                 activity=target_activity)
+    log('forwarded to', target_activity.title)
+    #TODO: put log.events here re:forwarding
+    
     wi.workitem_from = workitem
     if target_activity.autostart:
-        _log.info('run auto activity %s workitem %s', target_activity.title, str(wi))
+        log.info('run auto activity %s workitem %s', target_activity.title, str(wi))
         try:
             auto_user = User.objects.get(username=settings.WF_USER_AUTO)
         except Exception:
-            error = 'a user named %s (settings.WF_USER_AUTO) must be defined for auto activities'
+            error = ('a user named %s (settings.WF_USER_AUTO)'
+                     'must be defined for auto activities')
             raise Exception(error % settings.WF_USER_AUTO)
         activate_workitem(wi, actor=auto_user)
         if exec_auto_application(wi):
@@ -206,10 +176,10 @@ def _forward_workitem_to_activity(workitem, target_activity):
     
     if target_activity.push_application:
         target_user = exec_push_application(wi)
-        _log.info('application pushed to user %s', target_user.username)
+        log.info('application pushed to user %s', target_user.username)
         wi.user = target_user
         wi.save()
-        Event.objects.create(name='assigned to %s' % target_user.username, workitem=wi)
+        log.event('assigned to %s' % target_user.username, workitem=wi)
         notify_if_needed(user=target_user)
     else:
         wi.pull_roles = wi.activity.roles.all()
@@ -218,14 +188,12 @@ def _forward_workitem_to_activity(workitem, target_activity):
     return wi
 
 def get_destinations(workitem, timeout_forwarding=False):
-    #get_destinations(workitem, path=None, timeout_forwarding=False):
     '''
-    Return list of destination activities that meet the conditions of each transition
+    Return list of destination activities that meet
+    the conditions of each transition
     
     @type workitem: WorkItem
     @param workitem: an instance of Workitem
-    @type path: string??
-    @param path: XXX TODO: This is not used, so don't know why it's here.
     @type timeout_forwarding: bool
     @param timeout_forwarding: a workitem with a time-delay??
     @rtype: [Activity]
@@ -234,7 +202,7 @@ def get_destinations(workitem, timeout_forwarding=False):
     activity = workitem.activity
     transitions = Transition.objects.filter(input=activity)
     if timeout_forwarding:
-        transitions = transitions.filter(condition__contains='workitem.time_out')
+        transitions = transitions.filter(condition__contains='workitem.timeout')
     destinations = []
     for t in transitions:
         if eval_transition_condition(t, workitem):
@@ -278,18 +246,18 @@ def exec_auto_application(workitem):
         func(workitem=workitem , **kwargs)
         return True
     except Exception, v:
-        _log.error('execution wi %s:%s', workitem, v)
+        log.error('execution wi %s:%s', workitem, v)
     return False
 
 
 def default_auto_app(workitem):
     '''
-    retrieves wfobject, logs info to it saves
+    retrieves content_object, logs info to it, saves
     
     @rtype: bool
     @return: always returns True
     '''
-    obj = workitem.instance.wfobject()
+    obj = workitem.instance.content_object
     obj.history += '\n>>> execute auto activity: [%s]' % workitem.activity.title
     obj.save()
     return True
@@ -312,7 +280,7 @@ def exec_push_application(workitem):
                 kwargs = ',**%s' % params
             result = eval('pushapps.%s(workitem%s)' % (appname, kwargs))
         except Exception, v:
-            _log.error('exec_push_application %s', v)
+            log.error('exec_push_application %s', v)
             result = None
             workitem.fallout()
         return result
@@ -325,13 +293,14 @@ def exec_push_application(workitem):
         appname = '%s.%s' % (prefix, appname)
         result = eval('%s(workitem)' % appname)
     except Exception, v:
-        _log.error('exec_push_application %s', v)
+        log.error('exec_push_application %s', v)
         result = None
         workitem.fallout()
     return result
 
-def get_workitems(user=None, username=None, queryset=WorkItem.objects, activity=None, status=None,
-                  notstatus=('blocked','suspended','fallout','complete'), noauto=True):
+def get_workitems(user=None, username=None, queryset=WorkItem.objects,
+                  activity=None, status=None, noauto=True,
+                  notstatus=('blocked','suspended','fallout','complete')):
     """
     get workitems (in order to display a task list for example).
     
@@ -403,7 +372,7 @@ def get_workitems(user=None, username=None, queryset=WorkItem.objects, activity=
         if username:
             pullables = pullables.exclude(user__username=username)
         
-        _log.debug('pullables workitems role %s: %s', role, str(pullables))
+        log.debug('pullables workitems role %s: %s', role, str(pullables))
         query.extend(list(pullables))
     
     return query
@@ -417,15 +386,14 @@ def activate_workitem(workitem, actor):
     '''
     _check_workitem(workitem, actor, ('inactive', 'active'))
     if workitem.status == 'active':
-        _log.warning('activate_workitem actor %s workitem %s already active', 
+        log.warning('activate_workitem actor %s workitem %s already active', 
             actor.username, str(workitem))
         return
     workitem.status = 'active'
     workitem.user = actor
     workitem.save()
-    _log.info('activate_workitem actor %s workitem %s', 
-        actor.username, str(workitem))
-    Event.objects.create(name='activated by %s' % actor.username, workitem=workitem)
+    log('actor:', actor.username, 'workitem:', workitem)
+    log.event('activated by %s' % actor.username, workitem)
 
 def complete_workitem(workitem, actor):
     '''
@@ -435,26 +403,26 @@ def complete_workitem(workitem, actor):
     workitem.status = 'complete'
     workitem.user = actor
     workitem.save()
-    _log.info('complete_workitem actor %s workitem %s', actor.username, str(workitem))
-    Event.objects.create(name='completed by %s' % actor.username, workitem=workitem)
+    log('actor:', actor.username, 'workitem:', workitem)
+    log.event('completed by '+actor.username, workitem)
     
     if workitem.activity.autofinish:
-        _log.debug('activity autofinish: forward')
+        log.debug('activity autofinish: forward')
         forward_workitem(workitem)
     
     # if end activity, instance is complete
     if workitem.instance.process.end == workitem.activity:
-        _log.info('activity end process %s' % workitem.instance.process.title)
+        log.info('activity end process %s' % workitem.instance.process.title)
         # first test subflow
         lwi = WorkItem.objects.filter(activity__subflow=workitem.instance.process,
                                       status='blocked',
                                       instance=workitem.instance)
         if lwi.count() > 0:
-            _log.info('parent process for subflow %s' % workitem.instance.process.title)
+            log.info('parent process for subflow %s' % workitem.instance.process.title)
             workitem0 = lwi[0]
             workitem0.instance.process = workitem0.activity.process
             workitem0.instance.save()
-            _log.info('process change for instance %s' % workitem0.instance.title)
+            log.info('process change for instance %s' % workitem0.instance.title)
             workitem0.status = 'complete'
             workitem0.save()
             forward_workitem(workitem0, subflow_workitem=workitem)
@@ -480,8 +448,7 @@ def get_instance(id):
     '''
     get ProcessInstance instance by id
     '''
-    instance = ProcessInstance.objects.get(id=id)
-    return instance
+    return ProcessInstance.objects.get(id=id)
 
 def get_workitem(id, user=None, even_process_disabled=False, status=('inactive','active')):
     '''
@@ -498,10 +465,7 @@ def is_process_enabled(title):
     determines if a process is enabled or otherwise
     @rtype: bool
     '''
-    process = Process.objects.get(title=title)
-    return process.enabled 
-    #return False 
-    # TODO: this was hardwired to false ???
+    return Process.objects.get(title=title).enabled
 
 def _check_workitem(workitem, user, status=('inactive','active')):
     '''
@@ -514,19 +478,19 @@ def _check_workitem(workitem, user, status=('inactive','active')):
         
     if not workitem.activity.process.enabled:
         error = 'process %s disabled.' % workitem.activity.process.title
-        _log.error('workflow.api._checkWorkItem: %s' % error)
+        log.error(error)
         raise Exception(error)
         
     if not workitem.check_user(user):
         error = 'user %s cannot take workitem %d.' % (user.username, workitem.id)
-        _log.error('workflow.api._check_workitem: %s' % error)
+        log.error(error)
         workitem.fallout()
         raise Exception(error)
         
     if not workitem.status in status:
         error = 'workitem %d has not a correct status (%s/%s).' % (
             workitem.id, workitem.status, str(status))
-        _log.error('workflow.api._check_workitem: %s' % error)
+        log.error(error)
         raise Exception(error)
 
     return
@@ -538,9 +502,7 @@ def eval_transition_condition(transition, workitem):
     if not transition.condition:
         return True
     instance = workitem.instance
-    wfobject = instance.wfobject()
-    _log.debug('eval_transition_condition %s - %s', 
-        transition.condition, instance.condition)
+    log.debug('%s - %s', transition.condition, instance.condition)
     try:
         result = eval(transition.condition)
         
@@ -550,7 +512,6 @@ def eval_transition_condition(transition, workitem):
         if type(result) == type(''):
             return (instance.condition==result)
     except Exception, v:
-        _log.debug('eval_transition_condition [%s]: %s', transition.condition, v)
+        log.debug('[%s]: %s', transition.condition, v)
         return (instance.condition==transition.condition)
-        #_log.error('eval_transition_condition [%s]: %s', transition.condition, v)
     return False
