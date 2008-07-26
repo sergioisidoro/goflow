@@ -15,6 +15,6 @@ def pos_activity(request, process_id):
     activity_pos.y = y
     activity_pos.save()
     request.user.message_set.create(
-        message='activity %s in positioned in the diagram of process %s.' % (activity.title, process.process.title)
+        message='activity %s is positioned in the diagram of process %s.' % (activity.title, process.process.title)
     )
     return HttpResponseRedirect('..')

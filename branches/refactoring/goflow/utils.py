@@ -51,3 +51,12 @@ class Log(object):
         # self._event.create(name=msg, workitem=workitem)
         self.log.info('EVENT: [%s] %s' % (workitem, msg))
 
+from django.contrib import admin
+
+def register_admin(module_name, model_class_names):
+    module = __import__(module_name, {}, {}, [''])
+    for model_class_name in model_class_names:
+        model = getattr(module, model_class_name)
+        admin_class = getattr(module, model_class_name+'Admin', None)
+        admin.site.register(model, admin_class)
+

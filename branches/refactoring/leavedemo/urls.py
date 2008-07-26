@@ -1,5 +1,10 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.contrib import admin
+from leave.admin import admin as leave_admin
+from goflow.instances.admin import admin as instances_admin
+from goflow.workflow.admin import admin as workflow_admin
+#admin.autodiscover()
 
 from leave.forms import StartRequestForm, RequesterForm, CheckRequestForm
 
@@ -45,7 +50,10 @@ urlpatterns = patterns('',
      # administration
     (r'^leave/admin/workflow/', include('goflow.urls_admin')),
     (r'^leave/admin/graphics2/', include('goflow.graphics2.urls_admin')),
-    (r'^leave/admin/', include('django.contrib.admin.urls')),
+    #(r'^leave/admin/', include('django.contrib.admin.urls')),
+    (r'^leave/admin/(.*)', leave_admin.site.root),
+    (r'^leave/admin/(.*)', instances_admin.site.root),
+    (r'^leave/admin/(.*)', workflow_admin.site.root),
     
     # Goflow pages
     (r'^leave/', include('goflow.urls')),
