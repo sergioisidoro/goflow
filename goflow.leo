@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="37" left="213" height="518" width="1172"/>
+	<global_window_position top="88" left="534" height="518" width="1172"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="1,2,7"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,0,0,0"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -19,7 +19,7 @@
 <v t="sa.20080720191846.1"><vh>@strings[vertical,horizontal] initial_splitter_orientation = horizontal</vh></v>
 </v>
 </v>
-<v t="sa.20080714235246.1" a="E"><vh>src</vh>
+<v t="sa.20080714235246.1"><vh>src</vh>
 <v t="sa.20080720215142.1"><vh>snippets</vh>
 <v t="sa.20080720215142.3"><vh>inserting RequestContext into templates</vh>
 <v t="sa.20080720215142.2"><vh>render_response</vh></v>
@@ -224,8 +224,9 @@
 <v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
 </v>
 </v>
-<v t="sa.20080724074952.13" a="E"><vh>other workflow engines</vh>
-<v t="sa.20080724074952.15" a="E" tnodeList="sa.20080724074952.15,sa.20080724074952.16,sa.20080724074952.17,sa.20080724074952.18,sa.20080724074952.19"><vh>@file attributeintegration.py</vh>
+<v t="sa.20080724074952.13"><vh>other workflow engines</vh>
+<v t="sa.20080726124242.1"><vh>wfmc</vh>
+<v t="sa.20080724074952.15" tnodeList="sa.20080724074952.15,sa.20080724074952.16,sa.20080724074952.17,sa.20080724074952.18,sa.20080724074952.19"><vh>@file attributeintegration.py</vh>
 <v t="sa.20080724074952.16"><vh>attributeintegration declarations</vh></v>
 <v t="sa.20080724074952.17" a="E"><vh>class AttributeIntegration</vh>
 <v t="sa.20080724074952.18"><vh>createParticipant</vh></v>
@@ -420,6 +421,84 @@
 <v t="sa.20080724074952.177"><vh>read</vh></v>
 </v>
 <v t="sa.20080724074952.178"><vh>@file xpdl.txt</vh></v>
+</v>
+</v>
+</v>
+<v t="sa.20080726124242.2" a="E"><vh>notes</vh>
+<v t="sa.20080726124242.3" a="E"><vh>new structure</vh>
+<v t="sa.20080726124242.4" a="E"><vh>goflow-refactored</vh>
+<v t="sa.20080726124242.5"><vh>docs</vh>
+<v t="sa.20080726124242.6"><vh>build</vh></v>
+<v t="sa.20080726124242.7"><vh>source</vh></v>
+<v t="sa.20080726124242.8"><vh>diagrams</vh></v>
+<v t="sa.20080726124242.9"><vh>presentations</vh></v>
+</v>
+<v t="sa.20080726124242.10"><vh>goflow</vh>
+<v t="sa.20080726124242.11"><vh>graphics</vh>
+<v t="sa.20080726124242.21"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.22"><vh>js</vh></v>
+<v t="sa.20080726124242.23"><vh>models.py</vh></v>
+<v t="sa.20080726124242.24"><vh>templates</vh></v>
+<v t="sa.20080726124242.25"><vh>templatetags</vh></v>
+<v t="sa.20080726124242.26"><vh>urls_admin.py</vh></v>
+<v t="sa.20080726124242.27"><vh>views.py</vh></v>
+</v>
+<v t="sa.20080726124242.13"><vh>instances</vh>
+<v t="sa.20080726124242.28"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.29"><vh>admin.py</vh></v>
+<v t="sa.20080726124242.30"><vh>api.py</vh></v>
+<v t="sa.20080726124242.31"><vh>forms.py</vh></v>
+<v t="sa.20080726124242.32"><vh>managers.py</vh></v>
+<v t="sa.20080726124242.33"><vh>models.py</vh></v>
+<v t="sa.20080726124242.34"><vh>views.py</vh></v>
+</v>
+<v t="sa.20080726124242.45"><vh>templates</vh></v>
+<v t="sa.20080726124242.14"><vh>utils</vh>
+<v t="sa.20080726124242.15"><vh>conf</vh></v>
+<v t="sa.20080726124242.16"><vh>management</vh></v>
+<v t="sa.20080726124242.17"><vh>middleware</vh></v>
+<v t="sa.20080726124242.43"><vh>notification.py</vh></v>
+<v t="sa.20080726124242.39"><vh>decorators.py</vh></v>
+<v t="sa.20080726124242.19"><vh>logger.py</vh></v>
+<v t="sa.20080726124242.20"><vh>__init__.py</vh></v>
+</v>
+<v t="sa.20080726124242.12"><vh>workflow</vh>
+<v t="sa.20080726124242.35"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.36"><vh>admin.py</vh></v>
+<v t="sa.20080726124242.38"><vh>applications.py</vh></v>
+<v t="sa.20080726124242.40"><vh>forms.py</vh></v>
+<v t="sa.20080726124242.41"><vh>managers.py</vh></v>
+<v t="sa.20080726124242.42"><vh>models.py</vh></v>
+<v t="sa.20080726124242.44"><vh>pushapps.py</vh></v>
+<v t="sa.20080726124242.46"><vh>templatetags</vh></v>
+<v t="sa.20080726124242.47"><vh>views.py</vh></v>
+</v>
+</v>
+<v t="sa.20080726124242.48"><vh>demo</vh>
+<v t="sa.20080726124242.49"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.50"><vh>leave</vh>
+<v t="sa.20080726124242.58"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.59"><vh>admin.py</vh></v>
+<v t="sa.20080726124242.60"><vh>auto.py</vh></v>
+<v t="sa.20080726124242.61"><vh>fixtures</vh></v>
+<v t="sa.20080726124242.62"><vh>forms.py</vh></v>
+<v t="sa.20080726124242.63"><vh>models.py</vh></v>
+<v t="sa.20080726124242.64"><vh>pushapplications.py</vh></v>
+<v t="sa.20080726124242.65"><vh>templates</vh></v>
+<v t="sa.20080726124242.66"><vh>tests.py</vh></v>
+<v t="sa.20080726124242.67"><vh>views.py</vh></v>
+</v>
+<v t="sa.20080726124242.51"><vh>manage.py</vh></v>
+<v t="sa.20080726124242.52"><vh>media</vh></v>
+<v t="sa.20080726124242.53"><vh>scripts</vh></v>
+<v t="sa.20080726124242.54"><vh>settings.py</vh></v>
+<v t="sa.20080726124242.55"><vh>test.py</vh></v>
+<v t="sa.20080726124242.56"><vh>urls.py</vh></v>
+</v>
+<v t="sa.20080726124242.57"><vh>scripts</vh></v>
+<v t="sa.20080726124242.68"><vh>README.TXT</vh></v>
+<v t="sa.20080726124242.69"><vh>LICENCE.TXT</vh></v>
+</v>
 </v>
 </v>
 </vnodes>
@@ -5256,5 +5335,75 @@ Most process elements can have names and descriptions.
         [None, None, None, None, None, None, None, None, None, None, None,
         u'Use this transition if there are editorial changes required.']
 </t>
+<t tx="sa.20080726124242.1"></t>
+<t tx="sa.20080726124242.2"></t>
+<t tx="sa.20080726124242.3"></t>
+<t tx="sa.20080726124242.4"></t>
+<t tx="sa.20080726124242.5"></t>
+<t tx="sa.20080726124242.6"></t>
+<t tx="sa.20080726124242.7"></t>
+<t tx="sa.20080726124242.8"></t>
+<t tx="sa.20080726124242.9"></t>
+<t tx="sa.20080726124242.10"></t>
+<t tx="sa.20080726124242.11">@
+combination of graphics and graphics2
+@c
+</t>
+<t tx="sa.20080726124242.12"></t>
+<t tx="sa.20080726124242.13"></t>
+<t tx="sa.20080726124242.14"></t>
+<t tx="sa.20080726124242.15"></t>
+<t tx="sa.20080726124242.16"></t>
+<t tx="sa.20080726124242.17"></t>
+<t tx="sa.20080726124242.19"></t>
+<t tx="sa.20080726124242.20"></t>
+<t tx="sa.20080726124242.21"></t>
+<t tx="sa.20080726124242.22"></t>
+<t tx="sa.20080726124242.23"></t>
+<t tx="sa.20080726124242.24"></t>
+<t tx="sa.20080726124242.25"></t>
+<t tx="sa.20080726124242.26"></t>
+<t tx="sa.20080726124242.27"></t>
+<t tx="sa.20080726124242.28"></t>
+<t tx="sa.20080726124242.29"></t>
+<t tx="sa.20080726124242.30"></t>
+<t tx="sa.20080726124242.31"></t>
+<t tx="sa.20080726124242.32"></t>
+<t tx="sa.20080726124242.33"></t>
+<t tx="sa.20080726124242.34"></t>
+<t tx="sa.20080726124242.35"></t>
+<t tx="sa.20080726124242.36"></t>
+<t tx="sa.20080726124242.38"></t>
+<t tx="sa.20080726124242.39"></t>
+<t tx="sa.20080726124242.40"></t>
+<t tx="sa.20080726124242.41"></t>
+<t tx="sa.20080726124242.42"></t>
+<t tx="sa.20080726124242.43"></t>
+<t tx="sa.20080726124242.44"></t>
+<t tx="sa.20080726124242.45"></t>
+<t tx="sa.20080726124242.46"></t>
+<t tx="sa.20080726124242.47"></t>
+<t tx="sa.20080726124242.48"></t>
+<t tx="sa.20080726124242.49"></t>
+<t tx="sa.20080726124242.50"></t>
+<t tx="sa.20080726124242.51"></t>
+<t tx="sa.20080726124242.52"></t>
+<t tx="sa.20080726124242.53"></t>
+<t tx="sa.20080726124242.54"></t>
+<t tx="sa.20080726124242.55"></t>
+<t tx="sa.20080726124242.56"></t>
+<t tx="sa.20080726124242.57"></t>
+<t tx="sa.20080726124242.58"></t>
+<t tx="sa.20080726124242.59"></t>
+<t tx="sa.20080726124242.60"></t>
+<t tx="sa.20080726124242.61"></t>
+<t tx="sa.20080726124242.62"></t>
+<t tx="sa.20080726124242.63"></t>
+<t tx="sa.20080726124242.64"></t>
+<t tx="sa.20080726124242.65"></t>
+<t tx="sa.20080726124242.66"></t>
+<t tx="sa.20080726124242.67"></t>
+<t tx="sa.20080726124242.68"></t>
+<t tx="sa.20080726124242.69"></t>
 </tnodes>
 </leo_file>

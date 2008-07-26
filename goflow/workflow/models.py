@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import Group, User, Permission
 from django.contrib.contenttypes.models import ContentType
 
-from django import newforms as forms
+from django import forms
 from goflow.workflow.decorators import allow_tags
 from goflow.workflow.managers import ProcessManager
 
@@ -47,15 +47,11 @@ class Activity(models.Model):
     def __unicode__(self):
         return '%s (%s)' % (self.title, self.process.title)
     
-    class Admin:
-        save_as = True
-        list_display = ('title', 'description', 'kind', 'application', 
-                        'join_mode', 'split_mode', 'autostart', 'autofinish', 'process')
-        list_filter = ('process', 'kind')
     class Meta:
         unique_together = (("title", "process"),)
         verbose_name = 'Activity'
         verbose_name_plural = 'Activities'
+        
 
 class Process(models.Model):
     """A process holds the map that describes the flow of work.
@@ -78,7 +74,12 @@ class Process(models.Model):
     
     # add new ProcessManager
     objects = ProcessManager()
-    
+    class Meta:
+        verbose_name_plural = 'Processes'
+        permissions = (
+            ("can_instantiate", "Can instantiate"),
+            ("can_browse", "Can browse"),
+        )
     def __unicode__(self):
         return self.title
     
@@ -129,15 +130,7 @@ class Process(models.Model):
             # admin console error ?!?
             pass
         
-    class Admin:
-        list_display = ('title', 'wizzard', 'enabled', 'description_disp')
-        
-    class Meta:
-        verbose_name_plural = 'Processes'
-        permissions = (
-            ("can_instantiate", "Can instantiate"),
-            ("can_browse", "Can browse"),
-        )
+
 
 class Application(models.Model):
     """ An application is a python view that can be called by URL.
@@ -213,9 +206,7 @@ class Application(models.Model):
         else:
             return '<a href=testenv/create/%d/>create unit test env</a>' % self.id
 
-    class Admin:
-        save_as = True
-        list_display = ('url','test')
+
 
 class PushApplication(models.Model):
     """A push application routes a workitem to a specific user.
@@ -238,9 +229,7 @@ class PushApplication(models.Model):
     def test(self):
         return '<a href=#>test (not yet implemented)</a>'
     
-    class Admin:
-        save_as = True
-        list_display = ('url','test')
+
 
 
 
@@ -259,7 +248,8 @@ class Transition(models.Model):
     be the transition choosen for the forwarding of the instance.
     """
     name = models.CharField(max_length=50, null=True, blank=True)
-    process = models.ForeignKey(Process, related_name='transitions', edit_inline=True, num_in_admin=0)
+    #process = models.ForeignKey(Process, related_name='transitions', edit_inline=True, num_in_admin=0)
+    process = models.ForeignKey(Process, related_name='transitions')
     input = models.ForeignKey(Activity, core=True, related_name='transition_inputs')
     condition = models.CharField(max_length=200, null=True, blank=True,
                                  help_text='ex: instance.condition=="OK" | OK')
@@ -273,15 +263,11 @@ class Transition(models.Model):
     
     def __unicode__(self):
         return self.name or 't%d' % self.id
-    
+
     class Meta:
         pass
         #unique_together = (("input", "condition"),)
-    
-    class Admin:
-        save_as = True
-        list_display = ('name', 'input', 'output', 'condition', 'description', 'process')
-        list_filter = ('process',)
+
 
 class UserProfile(models.Model):
     """Contains workflow-specific user data.
@@ -316,10 +302,7 @@ class UserProfile(models.Model):
         now = datetime.now()
         self.last_notif = now
         self.save()
-    
-    class Admin:
-        list_display = ('user', 'web_host', 'notified', 'last_notif', 'nb_wi_notif', 'delai_notif')
-        list_filter = ('web_host', 'notified')
+
     class Meta:
         verbose_name='Workflow user profile'
         verbose_name_plural='Workflow users profiles'

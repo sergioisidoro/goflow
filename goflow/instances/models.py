@@ -88,9 +88,6 @@ class ProcessInstance(models.Model):
     # add Manager
     objects = ProcessInstanceManager()
 
-    def __str__(self):
-        return self.title
-    
     def __unicode__(self):
         return self.title
     
@@ -101,10 +98,7 @@ class ProcessInstance(models.Model):
         self.status = status
         self.save()
     
-    class Admin:
-        date_hierarchy = 'creation_time'
-        list_display = ('title', 'process', 'user', 'creation_time', 'status')
-        list_filter = ('process', 'user')
+
 
 class WorkItem(models.Model):
     """A workitem object represents an activity you are performing.
@@ -492,10 +486,7 @@ class WorkItem(models.Model):
         now = datetime.now()
         return (now > (self.date + tdelta))
         
-    class Admin:
-        date_hierarchy = 'date'
-        list_display = ('date', 'user', 'instance', 'activity', 'status')
-        list_filter = ('user', 'activity', 'status')
+    
 
 
 class Event(models.Model):
@@ -505,9 +496,7 @@ class Event(models.Model):
     name = models.CharField(max_length=50, core=True)
     workitem = models.ForeignKey('WorkItem', 
         related_name='events', edit_inline=True)
-    class Admin:
-        date_hierarchy = 'date'
-        list_display = ('date', 'name', 'workitem')
+
 
 
 class DefaultAppModel(models.Model):
@@ -528,7 +517,5 @@ class DefaultAppModel(models.Model):
     
     def __unicode__(self):
         return 'simulation model %s' % str(self.id)
-    class Admin:
-        list_display = ('__unicode__',)
     class Meta:
         verbose_name='Simulation object'
