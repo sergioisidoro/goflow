@@ -2,19 +2,17 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
-#from api import (get_workitem, complete_workitem,
-#                 activate_workitem, is_process_enabled)
 from django.db import models
 from django.contrib.auth.models import User
 from django.newforms import form_for_model
 from django.contrib.auth.decorators import permission_required
 
-from goflow.workflow.decorators import login_required
 from goflow.instances.models import DefaultAppModel, WorkItem
 from goflow.instances.forms import DefaultAppForm
 from goflow.workflow.models import Process
 
-from goflow.utils import Log; log = Log('goflow.workflow.applications')
+from goflow.utils.decorators import login_required
+from goflow.utils.logger import Log; log = Log('goflow.workflow.applications')
 
 #TODO: which template to use 'goflow/(start_application.html|start_proto.html)' ?
 @login_required
@@ -42,8 +40,8 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
     except Exception, v:
         return HttpResponse(str(v))
     
-    #if not instance_label: instance_label = '%s-%s' % (app_label, model_name)
-    if not template: template = 'start_%s.html' % app_label
+    if not template:
+        template = 'start_%s.html' % app_label
     if not form_class:
         model = models.get_model(app_label, model_name)
         form_class = form_for_model(model)
@@ -92,10 +90,9 @@ def default_app(request, id, template='goflow/default_app.html', redirect='home'
     if request.method == 'POST':
         data = request.POST.copy()
         workitem = WorkItem.objects.get_by(id, user=request.user)
-        #workitem = get_workitem(id, user=request.user)
         inst = workitem.instance
-        ob = inst.content_object
-        form = DefaultAppForm(data, instance=ob)
+        obj = inst.content_object
+        form = DefaultAppForm(data, instance=obj)
         if form.is_valid():
             #data = form.cleaned_data
             submit_value = request.POST[submit_name]
@@ -103,21 +100,19 @@ def default_app(request, id, template='goflow/default_app.html', redirect='home'
             workitem.instance.condition = submit_value
             
             workitem.instance.save()
-            ob = form.save(workitem=workitem, submit_value=submit_value)
-            #ob.comment = data['comment']
-            #ob.save(workitem=workitem, submit_value=submit_value)
+            obj = form.save(workitem=workitem, submit_value=submit_value)
+            #obj.comment = data['comment']
+            #obj.save(workitem=workitem, submit_value=submit_value)
             
             workitem.complete(request.user)
-            #complete_workitem(workitem, request.user)
             return HttpResponseRedirect(redirect)
     else:
         workitem = WorkItem.objects.get_by(id, user=request.user)
-        #workitem = get_workitem(id, user=request.user)
         inst = workitem.instance
-        ob = inst.content_object
+        obj = inst.content_object
         form = DefaultAppForm(instance=ob)
         # add header with activity description, submit buttons dynamically
-        if workitem.activity.split_mode == 'x':
+        if workitem.activity.split_mode == 'xor':
             tlist = workitem.activity.transition_inputs.all()
             if tlist.count() > 0:
                 submit_values = []
@@ -149,21 +144,23 @@ def _cond_to_button_value(cond):
 
 
 @login_required
-def edit_model(request, id, form_class, cmp_attr=None,template=None, template_def='goflow/edit_model.html', title="",
-               redirect='home', submit_name='action', ok_values=('OK',), save_value='Save', cancel_value='Cancel'):
+def edit_model(request, id, form_class, cmp_attr=None,template=None, 
+               template_def='goflow/edit_model.html', title="",
+               redirect='home', submit_name='action', ok_values=('OK',), 
+               save_value='Save', cancel_value='Cancel'):
     '''
     generic handler for editing a model
     '''
-    if not template: template = 'goflow/edit_%s.html' % form_class._meta.model._meta.object_name.lower()
+    if not template:
+        model_name = form_class._meta.model._meta.object_name.lower()
+        template = 'goflow/edit_%s.html' % model_name
     model_class = form_class._meta.model
     workitem = WorkItem.objects.get_by(id, user=request.user)
-    #workitem = get_workitem(int(id), user=request.user)
     instance = workitem.instance
     activity = workitem.activity
     
     obj = instance.content_object
     obj_context = obj
-    # objet composite intermédiaire
     if cmp_attr:
         obj = getattr(obj, cmp_attr)
     
@@ -182,50 +179,49 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None, template_de
         if form.is_valid():
             if (submit_value == save_value):
                 # just save
-                #ob = form.save()
                 try:
-                    ob = form.save(workitem=workitem, submit_value=submit_value)
+                    obj = form.save(workitem=workitem, submit_value=submit_value)
                 except Exception, v:
                     raise Exception(str(v))
                 return HttpResponseRedirect(redirect)
             
             if submit_value in ok_values:
                 # save and complete activity
-                #ob = form.save()
                 try:
-                    ob = form.save(workitem=workitem, submit_value=submit_value)
+                    obj = form.save(workitem=workitem, submit_value=submit_value)
                 except Exception, v:
                     raise Exception(str(v))
                 instance.condition = submit_value
                 instance.save()
                 workitem.complete(request.user)
-                #complete_workitem(workitem, request.user)
+
                 return HttpResponseRedirect(redirect)
     else:
         form = form_class(instance=obj)
         # precheck
         form.pre_check(obj_context, user=request.user)
-    return render_to_response((template, template_def), {'form': form,
-                                                         'object':obj,
-                                                         'object_context':obj_context,
-                                                         'instance':instance,
-                                                         'submit_name':submit_name,
-                                                         'ok_values':ok_values,
-                                                         'save_value':save_value,
-                                                         'cancel_value':cancel_value,
-                                                         'title':title,})
+    return render_to_response((template, template_def), 
+                {'form': form,
+                 'object':obj,
+                 'object_context':obj_context,
+                 'instance':instance,
+                 'submit_name':submit_name,
+                 'ok_values':ok_values,
+                 'save_value':save_value,
+                 'cancel_value':cancel_value,
+                 'title':title,})
 
 
 @login_required
-def view_application(request, id, template='goflow/view_application.html', redirect='home', title="",
-               submit_name='action', ok_values=('OK',), cancel_value='Cancel'):
+def view_application(request, id, template='goflow/view_application.html', 
+                     redirect='home', title="", submit_name='action', 
+                     ok_values=('OK',), cancel_value='Cancel'):
     '''
     generic handler for a view.
     
     useful for a simple view or a complex object edition.
     '''
     workitem = WorkItem.objects.get_by(id, user=request.user)
-    #workitem = get_workitem(int(id), user=request.user)
     instance = workitem.instance
     activity = workitem.activity
     
@@ -246,7 +242,6 @@ def view_application(request, id, template='goflow/view_application.html', redir
             instance.condition = submit_value
             instance.save()
             workitem.complete(request.user)
-            #complete_workitem(workitem, request.user)
             return HttpResponseRedirect(redirect)
     return render_to_response(template, {'object':obj,
                                          'instance':instance,
@@ -267,5 +262,5 @@ def override_app_params(activity, name, value):
         if dicparams.has_key(name):
             return dicparams[name]
     except Exception, v:
-        log.error('_override_app_params %s %s - %s', activity, name, v)
+        log.error('%s %s - %s', activity, name, v)
     return value

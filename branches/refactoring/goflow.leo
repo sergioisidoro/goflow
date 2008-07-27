@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="88" left="534" height="518" width="1172"/>
+	<global_window_position top="97" left="178" height="518" width="1172"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,0,0,0"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,2,13,14"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -19,7 +19,84 @@
 <v t="sa.20080720191846.1"><vh>@strings[vertical,horizontal] initial_splitter_orientation = horizontal</vh></v>
 </v>
 </v>
-<v t="sa.20080714235246.1"><vh>src</vh>
+<v t="sa.20080726124242.2"><vh>notes</vh>
+<v t="sa.20080726124242.3" a="E"><vh>new structure</vh>
+<v t="sa.20080726124242.4"><vh>goflow-refactored</vh>
+<v t="sa.20080726124242.5"><vh>docs</vh>
+<v t="sa.20080726124242.6"><vh>build</vh></v>
+<v t="sa.20080726124242.7"><vh>source</vh></v>
+<v t="sa.20080726124242.8"><vh>diagrams</vh></v>
+<v t="sa.20080726124242.9"><vh>presentations</vh></v>
+</v>
+<v t="sa.20080726124242.10"><vh>goflow</vh>
+<v t="sa.20080726124242.11"><vh>graphics</vh>
+<v t="sa.20080726124242.21"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.22"><vh>js</vh></v>
+<v t="sa.20080726124242.23"><vh>models.py</vh></v>
+<v t="sa.20080726124242.24"><vh>templates</vh></v>
+<v t="sa.20080726124242.25"><vh>templatetags</vh></v>
+<v t="sa.20080726124242.26"><vh>urls_admin.py</vh></v>
+<v t="sa.20080726124242.27"><vh>views.py</vh></v>
+</v>
+<v t="sa.20080726124242.13"><vh>instances</vh>
+<v t="sa.20080726124242.28"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.29"><vh>admin.py</vh></v>
+<v t="sa.20080726124242.30"><vh>api.py</vh></v>
+<v t="sa.20080726124242.31"><vh>forms.py</vh></v>
+<v t="sa.20080726124242.32"><vh>managers.py</vh></v>
+<v t="sa.20080726124242.33"><vh>models.py</vh></v>
+<v t="sa.20080726124242.34"><vh>views.py</vh></v>
+</v>
+<v t="sa.20080726124242.45"><vh>templates</vh></v>
+<v t="sa.20080726124242.14" a="E"><vh>utils</vh>
+<v t="sa.20080726124242.15"><vh>conf</vh></v>
+<v t="sa.20080726124242.16"><vh>management</vh></v>
+<v t="sa.20080726124242.17"><vh>middleware</vh></v>
+<v t="sa.20080726124242.43"><vh>notification.py</vh></v>
+<v t="sa.20080726124242.39"><vh>decorators.py</vh></v>
+<v t="sa.20080726124242.19"><vh>logger.py</vh></v>
+<v t="sa.20080726124242.20"><vh>__init__.py</vh></v>
+</v>
+<v t="sa.20080726124242.12"><vh>workflow</vh>
+<v t="sa.20080726124242.35"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.36"><vh>admin.py</vh></v>
+<v t="sa.20080726124242.38"><vh>applications.py</vh></v>
+<v t="sa.20080726124242.40"><vh>forms.py</vh></v>
+<v t="sa.20080726124242.41"><vh>managers.py</vh></v>
+<v t="sa.20080726124242.42"><vh>models.py</vh></v>
+<v t="sa.20080726124242.44"><vh>pushapps.py</vh></v>
+<v t="sa.20080726124242.46"><vh>templatetags</vh></v>
+<v t="sa.20080726124242.47"><vh>views.py</vh></v>
+</v>
+</v>
+<v t="sa.20080726124242.48"><vh>demo</vh>
+<v t="sa.20080726124242.49"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.50"><vh>leave</vh>
+<v t="sa.20080726124242.58"><vh>__init__.py</vh></v>
+<v t="sa.20080726124242.59"><vh>admin.py</vh></v>
+<v t="sa.20080726124242.60"><vh>auto.py</vh></v>
+<v t="sa.20080726124242.61"><vh>fixtures</vh></v>
+<v t="sa.20080726124242.62"><vh>forms.py</vh></v>
+<v t="sa.20080726124242.63"><vh>models.py</vh></v>
+<v t="sa.20080726124242.64"><vh>pushapplications.py</vh></v>
+<v t="sa.20080726124242.65"><vh>templates</vh></v>
+<v t="sa.20080726124242.66"><vh>tests.py</vh></v>
+<v t="sa.20080726124242.67"><vh>views.py</vh></v>
+</v>
+<v t="sa.20080726124242.51"><vh>manage.py</vh></v>
+<v t="sa.20080726124242.52"><vh>media</vh></v>
+<v t="sa.20080726124242.53"><vh>scripts</vh></v>
+<v t="sa.20080726124242.54"><vh>settings.py</vh></v>
+<v t="sa.20080726124242.55"><vh>test.py</vh></v>
+<v t="sa.20080726124242.56"><vh>urls.py</vh></v>
+</v>
+<v t="sa.20080726124242.57"><vh>scripts</vh></v>
+<v t="sa.20080726124242.68"><vh>README.TXT</vh></v>
+<v t="sa.20080726124242.69"><vh>LICENCE.TXT</vh></v>
+</v>
+</v>
+</v>
+<v t="sa.20080714235246.1" a="E"><vh>src</vh>
 <v t="sa.20080720215142.1"><vh>snippets</vh>
 <v t="sa.20080720215142.3"><vh>inserting RequestContext into templates</vh>
 <v t="sa.20080720215142.2"><vh>render_response</vh></v>
@@ -28,201 +105,6 @@
 <v t="sa.20080720215142.6"><vh>direct_to_template</vh></v>
 </v>
 <v t="sa.20080720215142.7"><vh>newforms</vh></v>
-</v>
-<v t="sa.20080714011136.2"><vh>docs</vh>
-<v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
-<v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
-<v t="sa.20080714081843.1"><vh>Preface</vh></v>
-<v t="sa.20080714081843.3"><vh>Summary</vh></v>
-<v t="sa.20080714081843.2"><vh>Overview</vh></v>
-<v t="sa.20080714081843.4"><vh>Benefits of using GoFlow</vh>
-<v t="sa.20080715122316.2"><vh>To User</vh>
-<v t="sa.20080714081843.5"><vh>Efficiency</vh></v>
-<v t="sa.20080714081843.6"><vh>Formalisation </vh></v>
-<v t="sa.20080715122316.3"><vh>Compliance</vh></v>
-</v>
-<v t="sa.20080715122316.4"><vh>To Developer</vh>
-<v t="sa.20080717192016.4"><vh>Extensibility</vh></v>
-<v t="sa.20080715122316.9"><vh>Simplicity</vh></v>
-<v t="sa.20080715122316.5"><vh>Django Integration</vh></v>
-<v t="sa.20080715122316.6"><vh>Python Language</vh></v>
-<v t="sa.20080715122316.7"><vh>Web configuration of Workflow</vh></v>
-<v t="sa.20080715122316.8"><vh>Speed of Development</vh></v>
-</v>
-</v>
-<v t="sa.20080714081843.7"><vh>The Process Definition</vh>
-<v t="sa.20080714081843.8"><vh>Activities (What)</vh></v>
-<v t="sa.20080714081843.9"><vh>Transitions (When)</vh></v>
-<v t="sa.20080714081843.10"><vh>Applications (How)</vh></v>
-<v t="sa.20080714081843.11"><vh>Users &amp; Roles (Who)</vh></v>
-</v>
-<v t="sa.20080714081843.12"><vh>The Process ProcessInstance</vh>
-<v t="sa.20080714081843.13"><vh>Workitems: tracking the history</vh></v>
-<v t="sa.20080714081843.14"><vh>Worklist and assigning work</vh></v>
-<v t="sa.20080714081843.16"><vh>Exception Handling</vh></v>
-<v t="sa.20080714081843.15"><vh>Focus on Flexibility</vh></v>
-<v t="sa.20080714081843.17"><vh>Dynamic Redesign</vh></v>
-</v>
-<v t="sa.20080714081843.18"><vh>Features</vh></v>
-<v t="sa.20080714081843.19"><vh>Requirements</vh></v>
-<v t="sa.20080714081843.20"><vh>Download</vh></v>
-</v>
-<v t="sa.20080714012008.42"><vh>@rst patterns.rst</vh>
-<v t="sa.20080717192016.13"><vh>Sequence Pattern</vh>
-<v t="sa.20080717192016.14"><vh>Description</vh></v>
-<v t="sa.20080717192016.15"><vh>Synonyms</vh></v>
-<v t="sa.20080717192016.16"><vh>Examples</vh></v>
-<v t="sa.20080717192016.17"><vh>Motivation</vh></v>
-</v>
-<v t="sa.20080717192016.18"><vh>XOR-Join Pattern</vh>
-<v t="sa.20080717192016.19"><vh>Description</vh></v>
-<v t="sa.20080717192016.20"><vh>Synonyms</vh></v>
-<v t="sa.20080717192016.21"><vh>Examples</vh></v>
-<v t="sa.20080717192016.22"><vh>Motivation</vh></v>
-</v>
-<v t="sa.20080717192016.23"><vh>XOR-Split Pattern</vh>
-<v t="sa.20080717192016.24"><vh>Description</vh></v>
-<v t="sa.20080717192016.25"><vh>Synonyms</vh></v>
-<v t="sa.20080717192016.26"><vh>Examples</vh></v>
-<v t="sa.20080717192016.27"><vh>Motivation</vh></v>
-</v>
-<v t="sa.20080714012008.44"><vh>AND-Join Pattern</vh>
-<v t="sa.20080717192016.5"><vh>Description</vh></v>
-<v t="sa.20080717192016.6"><vh>Synonyms</vh></v>
-<v t="sa.20080717192016.7"><vh>Examples</vh></v>
-<v t="sa.20080717192016.8"><vh>Motivation</vh></v>
-</v>
-<v t="sa.20080714012008.45"><vh>AND-Split Pattern</vh>
-<v t="sa.20080717192016.9"><vh>Description</vh></v>
-<v t="sa.20080717192016.10"><vh>Synonyms</vh></v>
-<v t="sa.20080717192016.11"><vh>Examples</vh></v>
-<v t="sa.20080717192016.12"><vh>Motivation</vh></v>
-</v>
-</v>
-<v t="sa.20080714012008.9"><vh>@rst install.rst</vh></v>
-<v t="sa.20080714012008.5"><vh>@rst tutorials.rst</vh>
-<v t="sa.20080714081843.28"><vh>Prerequisites</vh></v>
-<v t="sa.20080714081843.29"><vh>Project "Hello World"</vh>
-<v t="sa.20080714081843.30"><vh>Let's add an activity</vh></v>
-<v t="sa.20080714081843.31"><vh>Let's add our own models</vh></v>
-<v t="sa.20080714081843.32"><vh>And for some code</vh></v>
-</v>
-<v t="sa.20080714081843.33"><vh>Advanced Tutorial</vh>
-<v t="sa.20080714081843.34"><vh>Prerequisites</vh></v>
-<v t="sa.20080714081843.35"><vh>Application Unit Testing</vh></v>
-<v t="sa.20080714081843.36"><vh>Application Automation</vh></v>
-</v>
-</v>
-<v t="sa.20080714012008.3"><vh>@rst faq.rst</vh>
-<v t="sa.20080714081843.21"><vh>What is this all about?</vh></v>
-<v t="sa.20080714081843.22"><vh>When should I use PushApplication and when should I use Roles in Activity definition? What happens if I select both?</vh></v>
-<v t="sa.20080714081843.23"><vh>What are AutoStart and AutoFinish in Activity definition</vh></v>
-<v t="sa.20080714081843.25"><vh>How should I define a transition condition ?</vh></v>
-<v t="sa.20080714081843.24"><vh>Is it valid to reuse Activities?</vh></v>
-</v>
-<v t="sa.20080714012008.7"><vh>@rst history.rst</vh>
-<v t="sa.20080714081843.37"><vh>Origins</vh></v>
-<v t="sa.20080714081843.38"><vh>Roadmap</vh></v>
-<v t="sa.20080714081843.39"><vh>Current Status</vh></v>
-<v t="sa.20080714081843.40"><vh>Future Features</vh></v>
-</v>
-<v t="sa.20080714012008.8"><vh>@rst definitions.rst</vh>
-<v t="sa.20080715111354.1"><vh>Introduction &amp; Concepts</vh></v>
-<v t="sa.20080715111354.2"><vh>Definitions</vh>
-<v t="sa.20080715111354.3"><vh>Process</vh></v>
-<v t="sa.20080715111354.4"><vh>Activity</vh></v>
-<v t="sa.20080715111354.5"><vh>Transitions</vh></v>
-<v t="sa.20080715111354.6"><vh>Role</vh></v>
-<v t="sa.20080715111354.7"><vh>ProcessInstance</vh></v>
-<v t="sa.20080715111354.8"><vh>WorkItem</vh></v>
-</v>
-<v t="sa.20080715111354.9"><vh>Activity Types</vh>
-<v t="sa.20080715111354.10"><vh>Start Activity</vh></v>
-<v t="sa.20080715111354.11"><vh>End Activity</vh></v>
-<v t="sa.20080715111354.12"><vh>Normal Activity</vh></v>
-<v t="sa.20080715111354.13"><vh>Switch Activity</vh></v>
-<v t="sa.20080715111354.14"><vh>Split Activity</vh></v>
-<v t="sa.20080715111354.15"><vh>Join Activity</vh></v>
-<v t="sa.20080715111354.16"><vh>Standalone Activity</vh></v>
-</v>
-<v t="sa.20080715111354.17"><vh>AutoRouting &amp; Interactiveness</vh>
-<v t="sa.20080715111354.18"><vh>AutoRouting</vh></v>
-<v t="sa.20080715111354.19"><vh>Interactiveness</vh></v>
-</v>
-<v t="sa.20080715111354.20"><vh>Sample Process</vh></v>
-<v t="sa.20080715111354.21"><vh>Modules</vh>
-<v t="sa.20080715111354.22"><vh>Process Manager</vh></v>
-<v t="sa.20080715111354.23"><vh>User Interface</vh></v>
-<v t="sa.20080715111354.24"><vh>The Process Monitor</vh></v>
-</v>
-</v>
-<v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080714225902.6"><vh>New Features</vh></v>
-<v t="sa.20080714225902.7"><vh>Bug Fixes</vh></v>
-<v t="sa.20080714225902.8"><vh>Backwards Incompatible Changes</vh></v>
-</v>
-<v t="sa.20080720192331.1"><vh>Version 0.51</vh>
-<v t="sa.20080720192331.2"><vh>New Features</vh></v>
-<v t="sa.20080720192331.3"><vh>Bug Fixes</vh></v>
-<v t="sa.20080720192331.4"><vh>Backwards Incompatible Changes</vh></v>
-</v>
-</v>
-<v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
-<v t="sa.20080724074952.2" a="E"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
-<v t="sa.20080724074952.3"><vh>Improve API</vh></v>
-<v t="sa.20080724074952.10"><vh>Minimize / Manager Eval</vh></v>
-<v t="sa.20080724074952.11"><vh>Add docs</vh></v>
-</v>
-</v>
-<v t="sa.20080714012008.1"><vh>@rst glossary.rst</vh>
-<v t="sa.20080715122316.10"><vh>Application</vh></v>
-<v t="sa.20080715122316.11"><vh>PushApplication</vh></v>
-<v t="sa.20080715122316.12"><vh>User</vh></v>
-<v t="sa.20080715111354.4"><vh>Activity</vh></v>
-<v t="sa.20080715111354.6"><vh>Role</vh></v>
-<v t="sa.20080714081843.26"><vh>Activity-based Workflow</vh></v>
-<v t="sa.20080715111354.3"><vh>Process</vh></v>
-<v t="sa.20080715111354.5"><vh>Transitions</vh></v>
-<v t="sa.20080715111354.25"><vh>Workflow</vh></v>
-<v t="sa.20080715111354.7"><vh>ProcessInstance</vh></v>
-<v t="sa.20080715111354.8"><vh>WorkItem</vh></v>
-</v>
-<v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
-<v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
-<v t="sa.20080714012008.12"><vh>modules</vh>
-<v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
-<v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
-<v t="sa.20080714012008.15"><vh>main</vh></v>
-</v>
-<v t="sa.20080714012008.41"><vh>@rst index.rst</vh></v>
-<v t="sa.20080714012008.16"><vh>@rst goflow.graphics.models.rst</vh></v>
-<v t="sa.20080714012008.17"><vh>@rst goflow.graphics.rst</vh></v>
-<v t="sa.20080714012008.18"><vh>@rst goflow.graphics.urls_admin.rst</vh></v>
-<v t="sa.20080714012008.19"><vh>@rst goflow.graphics.views.rst</vh></v>
-<v t="sa.20080714012008.20"><vh>@rst goflow.graphics2.models.rst</vh></v>
-<v t="sa.20080714012008.21"><vh>@rst goflow.graphics2.rst</vh></v>
-<v t="sa.20080714012008.22"><vh>@rst goflow.graphics2.views.rst</vh></v>
-<v t="sa.20080714012008.23"><vh>@rst goflow.instances.api.rst</vh></v>
-<v t="sa.20080714012008.24"><vh>@rst goflow.instances.forms.rst</vh></v>
-<v t="sa.20080714012008.25"><vh>@rst goflow.instances.models.rst</vh></v>
-<v t="sa.20080714012008.26"><vh>@rst goflow.instances.rst</vh></v>
-<v t="sa.20080714012008.27"><vh>@rst goflow.instances.urls.rst</vh></v>
-<v t="sa.20080714012008.28"><vh>@rst goflow.instances.urls_admin.rst</vh></v>
-<v t="sa.20080714012008.29"><vh>@rst goflow.instances.views.rst</vh></v>
-<v t="sa.20080714012008.30"><vh>@rst goflow.rst</vh></v>
-<v t="sa.20080714012008.31"><vh>@rst goflow.workflow.api.rst</vh></v>
-<v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
-<v t="sa.20080714012008.33"><vh>@rst goflow.workflow.decorators.rst</vh></v>
-<v t="sa.20080714012008.34"><vh>@rst goflow.workflow.forms.rst</vh></v>
-<v t="sa.20080714012008.35"><vh>@rst goflow.workflow.logger.rst</vh></v>
-<v t="sa.20080714012008.36"><vh>@rst goflow.workflow.models.rst</vh></v>
-<v t="sa.20080714012008.37"><vh>@rst goflow.workflow.notification.rst</vh></v>
-<v t="sa.20080714012008.38"><vh>@rst goflow.workflow.pushapps.rst</vh></v>
-<v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
-<v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
-</v>
 </v>
 <v t="sa.20080724074952.13"><vh>other workflow engines</vh>
 <v t="sa.20080726124242.1"><vh>wfmc</vh>
@@ -423,81 +305,199 @@
 <v t="sa.20080724074952.178"><vh>@file xpdl.txt</vh></v>
 </v>
 </v>
+<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
+<v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
+<v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
+<v t="sa.20080714081843.1"><vh>Preface</vh></v>
+<v t="sa.20080714081843.3"><vh>Summary</vh></v>
+<v t="sa.20080714081843.2"><vh>Overview</vh></v>
+<v t="sa.20080714081843.4"><vh>Benefits of using GoFlow</vh>
+<v t="sa.20080715122316.2"><vh>To User</vh>
+<v t="sa.20080714081843.5"><vh>Efficiency</vh></v>
+<v t="sa.20080714081843.6"><vh>Formalisation </vh></v>
+<v t="sa.20080715122316.3"><vh>Compliance</vh></v>
 </v>
-<v t="sa.20080726124242.2" a="E"><vh>notes</vh>
-<v t="sa.20080726124242.3" a="E"><vh>new structure</vh>
-<v t="sa.20080726124242.4" a="E"><vh>goflow-refactored</vh>
-<v t="sa.20080726124242.5"><vh>docs</vh>
-<v t="sa.20080726124242.6"><vh>build</vh></v>
-<v t="sa.20080726124242.7"><vh>source</vh></v>
-<v t="sa.20080726124242.8"><vh>diagrams</vh></v>
-<v t="sa.20080726124242.9"><vh>presentations</vh></v>
-</v>
-<v t="sa.20080726124242.10"><vh>goflow</vh>
-<v t="sa.20080726124242.11"><vh>graphics</vh>
-<v t="sa.20080726124242.21"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.22"><vh>js</vh></v>
-<v t="sa.20080726124242.23"><vh>models.py</vh></v>
-<v t="sa.20080726124242.24"><vh>templates</vh></v>
-<v t="sa.20080726124242.25"><vh>templatetags</vh></v>
-<v t="sa.20080726124242.26"><vh>urls_admin.py</vh></v>
-<v t="sa.20080726124242.27"><vh>views.py</vh></v>
-</v>
-<v t="sa.20080726124242.13"><vh>instances</vh>
-<v t="sa.20080726124242.28"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.29"><vh>admin.py</vh></v>
-<v t="sa.20080726124242.30"><vh>api.py</vh></v>
-<v t="sa.20080726124242.31"><vh>forms.py</vh></v>
-<v t="sa.20080726124242.32"><vh>managers.py</vh></v>
-<v t="sa.20080726124242.33"><vh>models.py</vh></v>
-<v t="sa.20080726124242.34"><vh>views.py</vh></v>
-</v>
-<v t="sa.20080726124242.45"><vh>templates</vh></v>
-<v t="sa.20080726124242.14"><vh>utils</vh>
-<v t="sa.20080726124242.15"><vh>conf</vh></v>
-<v t="sa.20080726124242.16"><vh>management</vh></v>
-<v t="sa.20080726124242.17"><vh>middleware</vh></v>
-<v t="sa.20080726124242.43"><vh>notification.py</vh></v>
-<v t="sa.20080726124242.39"><vh>decorators.py</vh></v>
-<v t="sa.20080726124242.19"><vh>logger.py</vh></v>
-<v t="sa.20080726124242.20"><vh>__init__.py</vh></v>
-</v>
-<v t="sa.20080726124242.12"><vh>workflow</vh>
-<v t="sa.20080726124242.35"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.36"><vh>admin.py</vh></v>
-<v t="sa.20080726124242.38"><vh>applications.py</vh></v>
-<v t="sa.20080726124242.40"><vh>forms.py</vh></v>
-<v t="sa.20080726124242.41"><vh>managers.py</vh></v>
-<v t="sa.20080726124242.42"><vh>models.py</vh></v>
-<v t="sa.20080726124242.44"><vh>pushapps.py</vh></v>
-<v t="sa.20080726124242.46"><vh>templatetags</vh></v>
-<v t="sa.20080726124242.47"><vh>views.py</vh></v>
+<v t="sa.20080715122316.4"><vh>To Developer</vh>
+<v t="sa.20080717192016.4"><vh>Extensibility</vh></v>
+<v t="sa.20080715122316.9"><vh>Simplicity</vh></v>
+<v t="sa.20080715122316.5"><vh>Django Integration</vh></v>
+<v t="sa.20080715122316.6"><vh>Python Language</vh></v>
+<v t="sa.20080715122316.7"><vh>Web configuration of Workflow</vh></v>
+<v t="sa.20080715122316.8"><vh>Speed of Development</vh></v>
 </v>
 </v>
-<v t="sa.20080726124242.48"><vh>demo</vh>
-<v t="sa.20080726124242.49"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.50"><vh>leave</vh>
-<v t="sa.20080726124242.58"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.59"><vh>admin.py</vh></v>
-<v t="sa.20080726124242.60"><vh>auto.py</vh></v>
-<v t="sa.20080726124242.61"><vh>fixtures</vh></v>
-<v t="sa.20080726124242.62"><vh>forms.py</vh></v>
-<v t="sa.20080726124242.63"><vh>models.py</vh></v>
-<v t="sa.20080726124242.64"><vh>pushapplications.py</vh></v>
-<v t="sa.20080726124242.65"><vh>templates</vh></v>
-<v t="sa.20080726124242.66"><vh>tests.py</vh></v>
-<v t="sa.20080726124242.67"><vh>views.py</vh></v>
+<v t="sa.20080714081843.7"><vh>The Process Definition</vh>
+<v t="sa.20080714081843.8"><vh>Activities (What)</vh></v>
+<v t="sa.20080714081843.9"><vh>Transitions (When)</vh></v>
+<v t="sa.20080714081843.10"><vh>Applications (How)</vh></v>
+<v t="sa.20080714081843.11"><vh>Users &amp; Roles (Who)</vh></v>
 </v>
-<v t="sa.20080726124242.51"><vh>manage.py</vh></v>
-<v t="sa.20080726124242.52"><vh>media</vh></v>
-<v t="sa.20080726124242.53"><vh>scripts</vh></v>
-<v t="sa.20080726124242.54"><vh>settings.py</vh></v>
-<v t="sa.20080726124242.55"><vh>test.py</vh></v>
-<v t="sa.20080726124242.56"><vh>urls.py</vh></v>
+<v t="sa.20080714081843.12"><vh>The Process ProcessInstance</vh>
+<v t="sa.20080714081843.13"><vh>Workitems: tracking the history</vh></v>
+<v t="sa.20080714081843.14"><vh>Worklist and assigning work</vh></v>
+<v t="sa.20080714081843.16"><vh>Exception Handling</vh></v>
+<v t="sa.20080714081843.15"><vh>Focus on Flexibility</vh></v>
+<v t="sa.20080714081843.17"><vh>Dynamic Redesign</vh></v>
 </v>
-<v t="sa.20080726124242.57"><vh>scripts</vh></v>
-<v t="sa.20080726124242.68"><vh>README.TXT</vh></v>
-<v t="sa.20080726124242.69"><vh>LICENCE.TXT</vh></v>
+<v t="sa.20080714081843.18"><vh>Features</vh></v>
+<v t="sa.20080714081843.19"><vh>Requirements</vh></v>
+<v t="sa.20080714081843.20"><vh>Download</vh></v>
+</v>
+<v t="sa.20080714012008.42"><vh>@rst patterns.rst</vh>
+<v t="sa.20080717192016.13"><vh>Sequence Pattern</vh>
+<v t="sa.20080717192016.14"><vh>Description</vh></v>
+<v t="sa.20080717192016.15"><vh>Synonyms</vh></v>
+<v t="sa.20080717192016.16"><vh>Examples</vh></v>
+<v t="sa.20080717192016.17"><vh>Motivation</vh></v>
+</v>
+<v t="sa.20080717192016.18"><vh>XOR-Join Pattern</vh>
+<v t="sa.20080717192016.19"><vh>Description</vh></v>
+<v t="sa.20080717192016.20"><vh>Synonyms</vh></v>
+<v t="sa.20080717192016.21"><vh>Examples</vh></v>
+<v t="sa.20080717192016.22"><vh>Motivation</vh></v>
+</v>
+<v t="sa.20080717192016.23"><vh>XOR-Split Pattern</vh>
+<v t="sa.20080717192016.24"><vh>Description</vh></v>
+<v t="sa.20080717192016.25"><vh>Synonyms</vh></v>
+<v t="sa.20080717192016.26"><vh>Examples</vh></v>
+<v t="sa.20080717192016.27"><vh>Motivation</vh></v>
+</v>
+<v t="sa.20080714012008.44"><vh>AND-Join Pattern</vh>
+<v t="sa.20080717192016.5"><vh>Description</vh></v>
+<v t="sa.20080717192016.6"><vh>Synonyms</vh></v>
+<v t="sa.20080717192016.7"><vh>Examples</vh></v>
+<v t="sa.20080717192016.8"><vh>Motivation</vh></v>
+</v>
+<v t="sa.20080714012008.45"><vh>AND-Split Pattern</vh>
+<v t="sa.20080717192016.9"><vh>Description</vh></v>
+<v t="sa.20080717192016.10"><vh>Synonyms</vh></v>
+<v t="sa.20080717192016.11"><vh>Examples</vh></v>
+<v t="sa.20080717192016.12"><vh>Motivation</vh></v>
+</v>
+</v>
+<v t="sa.20080714012008.9"><vh>@rst install.rst</vh></v>
+<v t="sa.20080714012008.5"><vh>@rst tutorials.rst</vh>
+<v t="sa.20080714081843.28"><vh>Prerequisites</vh></v>
+<v t="sa.20080714081843.29"><vh>Project "Hello World"</vh>
+<v t="sa.20080714081843.30"><vh>Let's add an activity</vh></v>
+<v t="sa.20080714081843.31"><vh>Let's add our own models</vh></v>
+<v t="sa.20080714081843.32"><vh>And for some code</vh></v>
+</v>
+<v t="sa.20080714081843.33"><vh>Advanced Tutorial</vh>
+<v t="sa.20080714081843.34"><vh>Prerequisites</vh></v>
+<v t="sa.20080714081843.35"><vh>Application Unit Testing</vh></v>
+<v t="sa.20080714081843.36"><vh>Application Automation</vh></v>
+</v>
+</v>
+<v t="sa.20080714012008.3"><vh>@rst faq.rst</vh>
+<v t="sa.20080714081843.21"><vh>What is this all about?</vh></v>
+<v t="sa.20080714081843.22"><vh>When should I use PushApplication and when should I use Roles in Activity definition? What happens if I select both?</vh></v>
+<v t="sa.20080714081843.23"><vh>What are AutoStart and AutoFinish in Activity definition</vh></v>
+<v t="sa.20080714081843.25"><vh>How should I define a transition condition ?</vh></v>
+<v t="sa.20080714081843.24"><vh>Is it valid to reuse Activities?</vh></v>
+</v>
+<v t="sa.20080714012008.7"><vh>@rst history.rst</vh>
+<v t="sa.20080714081843.37"><vh>Origins</vh></v>
+<v t="sa.20080714081843.38"><vh>Roadmap</vh></v>
+<v t="sa.20080714081843.39"><vh>Current Status</vh></v>
+<v t="sa.20080714081843.40"><vh>Future Features</vh></v>
+</v>
+<v t="sa.20080714012008.8"><vh>@rst definitions.rst</vh>
+<v t="sa.20080715111354.1"><vh>Introduction &amp; Concepts</vh></v>
+<v t="sa.20080715111354.2"><vh>Definitions</vh>
+<v t="sa.20080715111354.3"><vh>Process</vh></v>
+<v t="sa.20080715111354.4"><vh>Activity</vh></v>
+<v t="sa.20080715111354.5"><vh>Transitions</vh></v>
+<v t="sa.20080715111354.6"><vh>Role</vh></v>
+<v t="sa.20080715111354.7"><vh>ProcessInstance</vh></v>
+<v t="sa.20080715111354.8"><vh>WorkItem</vh></v>
+</v>
+<v t="sa.20080715111354.9"><vh>Activity Types</vh>
+<v t="sa.20080715111354.10"><vh>Start Activity</vh></v>
+<v t="sa.20080715111354.11"><vh>End Activity</vh></v>
+<v t="sa.20080715111354.12"><vh>Normal Activity</vh></v>
+<v t="sa.20080715111354.13"><vh>Switch Activity</vh></v>
+<v t="sa.20080715111354.14"><vh>Split Activity</vh></v>
+<v t="sa.20080715111354.15"><vh>Join Activity</vh></v>
+<v t="sa.20080715111354.16"><vh>Standalone Activity</vh></v>
+</v>
+<v t="sa.20080715111354.17"><vh>AutoRouting &amp; Interactiveness</vh>
+<v t="sa.20080715111354.18"><vh>AutoRouting</vh></v>
+<v t="sa.20080715111354.19"><vh>Interactiveness</vh></v>
+</v>
+<v t="sa.20080715111354.20"><vh>Sample Process</vh></v>
+<v t="sa.20080715111354.21"><vh>Modules</vh>
+<v t="sa.20080715111354.22"><vh>Process Manager</vh></v>
+<v t="sa.20080715111354.23"><vh>User Interface</vh></v>
+<v t="sa.20080715111354.24"><vh>The Process Monitor</vh></v>
+</v>
+</v>
+<v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
+<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080714225902.6"><vh>New Features</vh></v>
+<v t="sa.20080714225902.7"><vh>Bug Fixes</vh></v>
+<v t="sa.20080714225902.8"><vh>Backwards Incompatible Changes</vh></v>
+</v>
+<v t="sa.20080720192331.1"><vh>Version 0.51</vh>
+<v t="sa.20080720192331.2"><vh>New Features</vh></v>
+<v t="sa.20080720192331.3"><vh>Bug Fixes</vh></v>
+<v t="sa.20080720192331.4"><vh>Backwards Incompatible Changes</vh></v>
+</v>
+</v>
+<v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
+<v t="sa.20080724074952.2"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080727142922.1"><vh>restructuring</vh></v>
+<v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
+<v t="sa.20080724074952.3"><vh>Improve API</vh></v>
+<v t="sa.20080724074952.10"><vh>Minimize / Manager Eval</vh></v>
+<v t="sa.20080724074952.11"><vh>Add docs</vh></v>
+</v>
+</v>
+<v t="sa.20080714012008.1"><vh>@rst glossary.rst</vh>
+<v t="sa.20080715122316.10"><vh>Application</vh></v>
+<v t="sa.20080715122316.11"><vh>PushApplication</vh></v>
+<v t="sa.20080715122316.12"><vh>User</vh></v>
+<v t="sa.20080715111354.4"><vh>Activity</vh></v>
+<v t="sa.20080715111354.6"><vh>Role</vh></v>
+<v t="sa.20080714081843.26"><vh>Activity-based Workflow</vh></v>
+<v t="sa.20080715111354.3"><vh>Process</vh></v>
+<v t="sa.20080715111354.5"><vh>Transitions</vh></v>
+<v t="sa.20080715111354.25"><vh>Workflow</vh></v>
+<v t="sa.20080715111354.7"><vh>ProcessInstance</vh></v>
+<v t="sa.20080715111354.8"><vh>WorkItem</vh></v>
+</v>
+<v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
+<v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
+<v t="sa.20080714012008.12" a="E"><vh>modules</vh>
+<v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
+<v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
+<v t="sa.20080714012008.15"><vh>main</vh></v>
+</v>
+<v t="sa.20080714012008.41"><vh>@rst index.rst</vh></v>
+<v t="sa.20080714012008.30"><vh>@rst goflow.rst</vh></v>
+<v t="sa.20080714012008.16"><vh>@rst goflow.graphics.models.rst</vh></v>
+<v t="sa.20080714012008.17"><vh>@rst goflow.graphics.rst</vh></v>
+<v t="sa.20080714012008.18"><vh>@rst goflow.graphics.urls_admin.rst</vh></v>
+<v t="sa.20080714012008.19"><vh>@rst goflow.graphics.views.rst</vh></v>
+<v t="sa.20080714012008.21"><vh>@rst goflow.utils.rst</vh></v>
+<v t="sa.20080714012008.20"><vh>@rst goflow.utils.logger.rst</vh></v>
+<v t="sa.20080714012008.33"><vh>@rst goflow.utils.decorators.rst</vh></v>
+<v t="sa.20080714012008.23"><vh>@rst goflow.instances.api.rst</vh></v>
+<v t="sa.20080714012008.24"><vh>@rst goflow.instances.forms.rst</vh></v>
+<v t="sa.20080714012008.25"><vh>@rst goflow.instances.models.rst</vh></v>
+<v t="sa.20080714012008.26"><vh>@rst goflow.instances.rst</vh></v>
+<v t="sa.20080727144116.1"><vh>@rst goflow.instances.managers.rst</vh></v>
+<v t="sa.20080714012008.27"><vh>@rst goflow.instances.urls.rst</vh></v>
+<v t="sa.20080714012008.28"><vh>@rst goflow.instances.urls_admin.rst</vh></v>
+<v t="sa.20080714012008.29"><vh>@rst goflow.instances.views.rst</vh></v>
+<v t="sa.20080714012008.31"><vh>@rst goflow.workflow.managers.rst</vh></v>
+<v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
+<v t="sa.20080714012008.34"><vh>@rst goflow.workflow.forms.rst</vh></v>
+<v t="sa.20080714012008.36"><vh>@rst goflow.workflow.models.rst</vh></v>
+<v t="sa.20080714012008.37"><vh>@rst goflow.workflow.notification.rst</vh></v>
+<v t="sa.20080714012008.38"><vh>@rst goflow.workflow.pushapps.rst</vh></v>
+<v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
+<v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
 </v>
 </v>
 </v>
@@ -723,7 +723,7 @@ lst = [
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.api.rst","key functions for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
-    ("goflow.workflow.decorators.rst","goflow decorator library"),
+    ("goflow.utils.decorators.rst","goflow decorator library"),
     ("goflow.workflow.forms.rst","goflow form utility functions"),
     ("goflow.workflow.logger.rst","logging capability"),
     ("goflow.workflow.models.rst","workflow models"),
@@ -810,17 +810,6 @@ lst = [
 
 .. module:: goflow.graphics2 
    :synopsis: latest goflow graphics module
-
-</t>
-<t tx="sa.20080714012008.22">
-
-.. _goflow.graphics2.views:
-
-:mod:`goflow.graphics2.views` -- view functions for graphics2 module 
-================================================================================
-
-.. module:: goflow.graphics2.views 
-   :synopsis: view functions for graphics2 module
 
 </t>
 <t tx="sa.20080714012008.23">
@@ -914,12 +903,12 @@ lst = [
 </t>
 <t tx="sa.20080714012008.31">
 
-.. _goflow.workflow.api:
+.. _goflow.workflow.managers:
 
-:mod:`goflow.workflow.api` -- key functions for workflow management 
+:mod:`goflow.workflow.managers` -- key functions for workflow management 
 ================================================================================
 
-.. module:: goflow.workflow.api 
+.. module:: goflow.workflow.managers 
    :synopsis: key functions for workflow management
 
 
@@ -947,12 +936,12 @@ lst = [
    :rtype: list of strings</t>
 <t tx="sa.20080714012008.33">
 
-.. _goflow.workflow.decorators:
+.. _goflow.utils.decorators:
 
-:mod:`goflow.workflow.decorators` -- goflow decorator library 
+:mod:`goflow.utils.decorators` -- goflow decorator library 
 ================================================================================
 
-.. module:: goflow.workflow.decorators 
+.. module:: goflow.utils.decorators 
    :synopsis: goflow decorator library
 
 </t>
@@ -965,17 +954,6 @@ lst = [
 
 .. module:: goflow.workflow.forms 
    :synopsis: goflow form utility functions
-
-</t>
-<t tx="sa.20080714012008.35">
-
-.. _goflow.workflow.logger:
-
-:mod:`goflow.workflow.logger` -- logging capability 
-================================================================================
-
-.. module:: goflow.workflow.logger 
-   :synopsis: logging capability
 
 </t>
 <t tx="sa.20080714012008.36">
@@ -1059,15 +1037,6 @@ goflow.graphics
    goflow.graphics.views.rst
    goflow.graphics.urls_admin.rst
 
-goflow.graphics2
------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   goflow.graphics2.rst
-   goflow.graphics2.models.rst
-   goflow.graphics2.views.rst
 
 goflow.instances
 -----------------
@@ -1090,9 +1059,8 @@ goflow.workflow
    :maxdepth: 2
 
    goflow.workflow.rst
-   goflow.workflow.api.rst
+   goflow.workflow.managers.rst
    goflow.workflow.applications.rst
-   goflow.workflow.decorators.rst
    goflow.workflow.forms.rst
    goflow.workflow.logger.rst
    goflow.workflow.models.rst
@@ -1100,6 +1068,14 @@ goflow.workflow
    goflow.workflow.pushapps.rst
    goflow.workflow.views.rst
 
+goflow.utils
+-----------------
+
+.. toctree::
+   :maxdepth: 2
+
+   goflow.utils.decorators.rst
+   goflow.utils.logger.rst
 
 Indices and tables
 ===================
@@ -1825,7 +1801,9 @@ now use this in the templates='''
 
 </t>
 <t tx="sa.20080724074952.2"></t>
-<t tx="sa.20080724074952.3">* make it more object oriented </t>
+<t tx="sa.20080724074952.3">* moved api into models and managers to make it more object oriented, still some way to go...
+
+</t>
 <t tx="sa.20080724074952.10"></t>
 <t tx="sa.20080724074952.11">* autodoc tests
 * add uml diagram of model (80%)</t>
@@ -5405,5 +5383,22 @@ combination of graphics and graphics2
 <t tx="sa.20080726124242.67"></t>
 <t tx="sa.20080726124242.68"></t>
 <t tx="sa.20080726124242.69"></t>
+<t tx="sa.20080727142922.1">- moved goflow.workflow.logger into goflow.utils.logger
+- moved goflow.workflow.decorators into goflow.utils.decorators
+
+
+</t>
+<t tx="sa.20080727144116.1">
+
+.. _goflow.instances.managers:
+
+:mod:`goflow.instances.managers` -- managers for process_instance management 
+================================================================================
+
+.. module:: goflow.instances.managers 
+   :synopsis: managers for process_instance management 
+
+
+</t>
 </tnodes>
 </leo_file>

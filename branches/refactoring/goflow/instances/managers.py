@@ -3,7 +3,7 @@
 from django.db import models
 from django.contrib.auth.models import Group, User
 
-from goflow.utils import Log; log = Log('goflow.instances.managers')
+from goflow.utils.logger import Log; log = Log('goflow.instances.managers')
 
 class ProcessInstanceManager(models.Manager):
     '''Custom model manager for ProcessInstance

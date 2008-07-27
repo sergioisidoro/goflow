@@ -11,7 +11,7 @@ from django.core.urlresolvers import resolve
 
 #from goflow.workflow.notification import notify_if_needed
 from goflow.instances.managers import ProcessInstanceManager, WorkItemManager
-from goflow.utils import Log; log = Log('goflow.instances.models')
+from goflow.utils.logger import Log; log = Log('goflow.instances.models')
 
 
 class ProcessInstance(models.Model):

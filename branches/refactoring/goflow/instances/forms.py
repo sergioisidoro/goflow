@@ -3,7 +3,7 @@
 from models import DefaultAppModel
 
 from django.newforms import ModelForm
-from django import newforms as forms
+from django import forms
 from datetime import datetime
 
 

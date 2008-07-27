@@ -20,7 +20,7 @@ Contents
    license.rst
    credits.rst
    definitions.rst
-   todo.rst
+
    modules/index.rst
    glossary.rst
    

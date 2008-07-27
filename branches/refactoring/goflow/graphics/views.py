@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from goflow.workflow.models import Process
+from goflow.workflow.models import Activity, Process
+from goflow.graphics.models import Graph, ProcessImage, ActivityPosition
 
 
-from models import Graph
 
 def graph(request, id, template='goflow/graphics/graph.html'):
     processes = Process.objects.all()
@@ -14,4 +14,18 @@ def graph(request, id, template='goflow/graphics/graph.html'):
 
 def graph_save(request, id):
     # save positions TODO
+    return HttpResponseRedirect('..')
+
+def pos_activity(request, process_id):
+    process = ProcessImage.objects.get(id=int(process_id))
+    activity = Activity.objects.get(id=int(request.GET['activity']))
+    activity_pos, created = ActivityPosition.objects.get_or_create(activity=activity, diagram=process)
+    x = int(request.GET['process.x'])
+    y = int(request.GET['process.y'])
+    activity_pos.x = x
+    activity_pos.y = y
+    activity_pos.save()
+    request.user.message_set.create(
+        message='activity %s is positioned in the diagram of process %s.' % (activity.title, process.process.title)
+    )
     return HttpResponseRedirect('..')

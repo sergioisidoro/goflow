@@ -3,7 +3,7 @@
 from django.contrib import admin
 from leavedemo.leave.models import LeaveRequest, Manager, Account
 
-#from goflow.utils import register_admin
+#from goflow.utils.logger import register_admin
 
 #_models = ['LeaveRequest', 'Manager', 'Account']
 
