@@ -43,7 +43,7 @@ lst = [
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.api.rst","key functions for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
-    ("goflow.workflow.decorators.rst","goflow decorator library"),
+    ("goflow.utils.decorators.rst","goflow decorator library"),
     ("goflow.workflow.forms.rst","goflow form utility functions"),
     ("goflow.workflow.logger.rst","logging capability"),
     ("goflow.workflow.models.rst","workflow models"),

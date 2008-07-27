@@ -49,8 +49,7 @@ urlpatterns = patterns('',
     
      # administration
     (r'^leave/admin/workflow/', include('goflow.urls_admin')),
-    (r'^leave/admin/graphics2/', include('goflow.graphics2.urls_admin')),
-    #(r'^leave/admin/', include('django.contrib.admin.urls')),
+    (r'^leave/admin/graphics/', include('goflow.graphics.urls_admin')),
     (r'^leave/admin/(.*)', leave_admin.site.root),
     (r'^leave/admin/(.*)', instances_admin.site.root),
     (r'^leave/admin/(.*)', workflow_admin.site.root),

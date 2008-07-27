@@ -2,17 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from goflow.workflow.models import UserProfile
+from goflow.instances.models import WorkItem
 from datetime import datetime, timedelta
-from goflow.utils import Log; log = Log('goflow.workflow.notification')
+from goflow.utils.logger import Log; log = Log('goflow.workflow.notification')
 
 def notify_if_needed(user=None, roles=None):
     ''' notify user if conditions are fullfilled
     '''
-    from api import get_workitems
     if user:
-        #TDODO: complete this
-        #workitems = WorkItem.objects.retrieve(user=user, notstatus='complete', noauto=True)
-        workitems = get_workitems(user=user, notstatus='c', noauto=True)
+        workitems = WorkItem.objects.retrieve(user=user, notstatus='complete', noauto=True)
         UserProfile.objects.get_or_create(user=user)
         profile = user.get_profile()
         if len(workitems) >= profile.nb_wi_notif:

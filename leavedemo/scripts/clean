@@ -1,0 +1,4 @@
+#!
+# remove .pyc & .log files
+find . -name "*.pyc" -exec rm '{}' ';'
+find . -name "*.log" -exec rm '{}' ';'

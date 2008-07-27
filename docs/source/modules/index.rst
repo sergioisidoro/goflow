@@ -25,15 +25,6 @@ goflow.graphics
    goflow.graphics.views.rst
    goflow.graphics.urls_admin.rst
 
-goflow.graphics2
------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   goflow.graphics2.rst
-   goflow.graphics2.models.rst
-   goflow.graphics2.views.rst
 
 goflow.instances
 -----------------
@@ -56,9 +47,8 @@ goflow.workflow
    :maxdepth: 2
 
    goflow.workflow.rst
-   goflow.workflow.api.rst
+   goflow.workflow.managers.rst
    goflow.workflow.applications.rst
-   goflow.workflow.decorators.rst
    goflow.workflow.forms.rst
    goflow.workflow.logger.rst
    goflow.workflow.models.rst
@@ -66,6 +56,14 @@ goflow.workflow
    goflow.workflow.pushapps.rst
    goflow.workflow.views.rst
 
+goflow.utils
+-----------------
+
+.. toctree::
+   :maxdepth: 2
+
+   goflow.utils.decorators.rst
+   goflow.utils.logger.rst
 
 Indices and tables
 ===================

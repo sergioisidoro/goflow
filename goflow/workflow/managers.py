@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from goflow.instances.models import ProcessInstance, WorkItem, Event
-from goflow.utils import Log; log = Log('goflow.workflow.managers')
+from goflow.utils.logger import Log; log = Log('goflow.workflow.managers')
 
 class ProcessManager(models.Manager):
     

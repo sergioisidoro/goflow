@@ -68,7 +68,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
-    'goflow.extensions.middleware.debug_middleware.DebugFooter' #optional
+    'goflow.utils.middleware.debug_middleware.DebugFooter' # (optional)
 )
 
 ROOT_URLCONF = 'leavedemo.urls'
@@ -79,17 +79,20 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'leavedemo.leave',
-    'goflow.extensions', #also optional
+    'goflow.utils', # (optional)
     'goflow.workflow',
-    'goflow.graphics2',
+    'goflow.graphics',
     'goflow.instances',
+    'leavedemo.leave',
 )
 
 # user profile model
 AUTH_PROFILE_MODULE = 'workflow.userprofile'
 
-TEST_USERS = (('primus','p'),('notarius','n'),('prefectus','p'),('socius','s'),('secundus','s'),('tertius','t'),('quartus','q'),)
+TEST_USERS = (
+            ('primus','p'),('notarius','n'),('prefectus','p'),
+            ('socius','s'),('secundus','s'),('tertius','t'),('quartus','q')
+)
 WF_USER_AUTO = 'auto'
 WF_APPS_PREFIX = '/leave'
 WF_PUSH_APPS_PREFIX = 'leavedemo.leave.pushapplications'

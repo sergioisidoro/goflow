@@ -5,9 +5,6 @@
 :mod:`goflow.instances.models` -- goflow runtime models 
 ================================================================================
 
-.. automodule:: goflow.instances.models 
+.. module:: goflow.instances.models 
    :synopsis: goflow runtime models
-   :members:
-   :undoc-members:
-   :inherited-members:
 

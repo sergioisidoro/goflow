@@ -7,13 +7,13 @@ GoFlow - A workflow engine for Django
 
 - leavedemo: goflow demo project
 
-- leave: fastcgi deployment (on alwaysdata.net)
+
 
 
 2. Requirements:
 
-- Python 2.4+
-- Django 0.97-pre (SVN)
+- Python 2.5
+- Django 1.0-Alpha (SVN)
 
 
 3. Install instructions:
@@ -32,15 +32,6 @@ GoFlow - A workflow engine for Django
 4. Test instructions:
 
 - run "python manage.py runserver" (with goflow in python path)
-
-- admin interface: http://localhost:8000/leave/admin
-
-- leave demo:      http://localhost:8000/leave/
-
-
-5. deployment instruction on a factcgi server online (like www.alwaysdata.net)
-
-- copy get_svn_leavdemo.sh on the server and run
 
 - admin interface: http://localhost:8000/leave/admin
 
