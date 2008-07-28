@@ -101,8 +101,6 @@ def default_app(request, id, template='goflow/default_app.html', redirect='home'
             
             workitem.instance.save()
             obj = form.save(workitem=workitem, submit_value=submit_value)
-            #obj.comment = data['comment']
-            #obj.save(workitem=workitem, submit_value=submit_value)
             
             workitem.complete(request.user)
             return HttpResponseRedirect(redirect)

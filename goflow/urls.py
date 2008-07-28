@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from instances.forms import DefaultAppStartForm
 
+
 urlpatterns = patterns('django.contrib.auth.views.',
     (r'^.*/logout/$', 'logout'),
     (r'^.*/accounts/login/$', 'login', {'template_name':'goflow/login.html'}),

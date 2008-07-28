@@ -45,7 +45,7 @@ admin.site.register(Transition, TransitionAdmin)
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'web_host', 'notified', 'last_notif',
-                    'nb_wi_notif', 'delai_notif')
+                    'nb_wi_notif', 'notif_delay')
     list_filter = ('web_host', 'notified')
 admin.site.register(UserProfile, UserProfileAdmin)
 

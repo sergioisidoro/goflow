@@ -11,6 +11,9 @@ TODOs
 Version 0.6 (refactored branch)
 +++++++++++++++++++++++++++++++
 
+Eliminate Generic Exceptions
+****************************
+
 Minimize / Manager Eval
 ***********************
 

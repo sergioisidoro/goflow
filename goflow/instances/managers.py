@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import Group, User
-
 from goflow.utils.logger import Log; log = Log('goflow.instances.managers')
 
 class ProcessInstanceManager(models.Manager):
@@ -13,14 +12,22 @@ class ProcessInstanceManager(models.Manager):
         '''
         Returns a newly saved ProcessInstance instance.
         
-        @type user: User
-        @param user: an instance of django.contrib.auth.models.User, typically retrieved through a request object.
-        @type title: string
-        @param title: the title of the new ProcessInstance instance.
-        @type obj_instance: ContentType
-        @param obj_instance: an instance of ContentType, which is typically associated with a django Model.
-        @rtype: ProcessInstance
-        @return: a newly saved ProcessInstance instance.
+        :type user: User
+        :param user: an instance of `django.contrib.auth.models.User`, 
+                     typically retrieved through a request object.
+        :type title: string
+        :param title: the title of the new ProcessInstance instance.
+        :type obj_instance: ContentType
+        :param obj_instance: an instance of ContentType, which is typically 
+                             associated with a django Model.
+        :rtype: ProcessInstance
+        :returns: a newly saved ProcessInstance instance.
+        
+        usage::
+            
+            instance = ProcessInstance.objects.add(user=admin, title="title", 
+                                                   content_object=leaverequest1)
+            
         '''
         instance = self.create(user=user, title=title, content_object=obj_instance)
         return instance
@@ -31,7 +38,22 @@ class WorkItemManager(models.Manager):
     '''
     def get_by(self, id, user=None, enabled_only=False, status=('inactive','active')):
         '''
-        get a WorkItem instance by 
+        Retrieves a single WorkItem instance given a set of parameters
+        
+        :type id: int
+        :param id: the id of the WorkItem instance
+        :type user: User
+        :param user: an instance of django.contrib.auth.models.User, 
+                     typically retrieved through a request object.
+        :type enabled_only: bool
+        :param enabled_only: implies that only enabled processes should be queried
+        :type status: tuple or string
+        :param status: ensure that workitem has one of the given set of statuses
+        
+        usage::
+        
+            workitem = WorkItem.objects.get_by(id, user=request.user)
+        
         '''
         if enabled_only:
             workitem = self.get(id=id, activity__process__enabled=True)
@@ -40,16 +62,28 @@ class WorkItemManager(models.Manager):
         workitem._check_all_for(user, status)
         return workitem
 
-    def retrieve(self, user=None, username=None, activity=None, status=None,
+    def get_all_by(self, user=None, username=None, activity=None, status=None,
                       notstatus=('blocked','suspended','fallout','complete'), noauto=True):
         """
-        get workitems (in order to display a task list for example).
+        Retrieve list of workitems (in order to display a task list for example).
         
-        user or username: filter on user (default=all)
-        activity: filter on activity (default=all)
-        status: filter on status (default=all)
-        notstatus: list of status to exclude (default: [blocked, suspended, fallout, complete])
-        noauto: if True (default) auto activities are excluded.
+        :type user: User
+        :param user: filter on instance of django.contrib.auth.models.User (default=all) 
+        :type username: string
+        :param username: filter on username of django.contrib.auth.models.User (default=all) 
+        :type activity: Activity
+        :param activity: filter on instance of goflow.workflow.models.Activity (default=all) 
+        :type status: string
+        :param status: filter on status (default=all) 
+        :type notstatus: string or tuple
+        :param notstatus: list of status to exclude (default: [blocked, suspended, fallout, complete])
+        :type noauto: bool
+        :param noauto: if True (default) auto activities are excluded.
+        
+        usage::
+        
+            workitems = WorkItem.objects.get_all_by(user=me, notstatus='complete', noauto=True)
+        
         """
         groups = Group.objects.all()
         if user:
