@@ -5,7 +5,7 @@
 :mod:`goflow.workflow.applications` -- key application function for workflow mgmt 
 ==================================================================================
 
-.. module:: goflow.workflow.applications 
+.. automodule:: goflow.workflow.applications 
    :synopsis: key application function for workflow mgmt
 
 

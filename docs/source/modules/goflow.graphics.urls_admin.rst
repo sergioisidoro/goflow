@@ -5,6 +5,7 @@
 :mod:`goflow.graphics.urls_admin` -- goflow graphics custom admin interface 
 ================================================================================
 
-.. module:: goflow.graphics.urls_admin 
+.. automodule:: goflow.graphics.urls_admin 
    :synopsis: goflow graphics custom admin interface
+   :members:
 

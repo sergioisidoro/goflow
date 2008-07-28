@@ -5,6 +5,7 @@
 :mod:`goflow.utils.decorators` -- goflow decorator library 
 ================================================================================
 
-.. module:: goflow.utils.decorators 
+.. automodule:: goflow.utils.decorators 
    :synopsis: goflow decorator library
+   :members:
 

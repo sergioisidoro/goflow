@@ -5,6 +5,7 @@
 :mod:`goflow.graphics.models` -- datamodels for graphics processing 
 ================================================================================
 
-.. module:: goflow.graphics.models 
+.. automodule:: goflow.graphics.models 
    :synopsis: datamodels for graphics processing
+   :members:
 

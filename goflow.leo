@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,1"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,1,9"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -220,7 +220,7 @@
 <v t="sa.20080724074952.178"><vh>@file xpdl.txt</vh></v>
 </v>
 </v>
-<v t="sa.20080714011136.2"><vh>docs</vh>
+<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -348,8 +348,13 @@
 </v>
 </v>
 <v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080714225902.6"><vh>New Features</vh></v>
+<v t="sa.20080714225902.5" a="E"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080714225902.6" a="E"><vh>New Features</vh>
+<v t="sa.20080724074952.3"><vh>Improved API</vh></v>
+<v t="sa.20080724074952.11"><vh>Improvement documentation system</vh></v>
+<v t="sa.20080727142922.1"><vh>restructuring</vh></v>
+<v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
+</v>
 <v t="sa.20080714225902.7"><vh>Bug Fixes</vh></v>
 <v t="sa.20080714225902.8"><vh>Backwards Incompatible Changes</vh></v>
 </v>
@@ -361,11 +366,7 @@
 </v>
 <v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
 <v t="sa.20080724074952.2" a="E"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080727142922.1"><vh>restructuring</vh></v>
-<v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
-<v t="sa.20080724074952.3"><vh>Improve API</vh></v>
 <v t="sa.20080724074952.10"><vh>Minimize / Manager Eval</vh></v>
-<v t="sa.20080724074952.11"><vh>Add docs</vh></v>
 </v>
 </v>
 <v t="sa.20080714012008.1"><vh>@rst glossary.rst</vh>
@@ -390,6 +391,8 @@
 </v>
 <v t="sa.20080714012008.41"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.30"><vh>@rst goflow.rst</vh></v>
+<v t="sa.20080714012008.27"><vh>@rst goflow.urls.rst</vh></v>
+<v t="sa.20080714012008.28"><vh>@rst goflow.urls_admin.rst</vh></v>
 <v t="sa.20080714012008.17"><vh>@rst goflow.graphics.rst</vh></v>
 <v t="sa.20080714012008.16"><vh>@rst goflow.graphics.models.rst</vh></v>
 <v t="sa.20080714012008.19"><vh>@rst goflow.graphics.views.rst</vh></v>
@@ -397,21 +400,19 @@
 <v t="sa.20080714012008.21"><vh>@rst goflow.utils.rst</vh></v>
 <v t="sa.20080714012008.20"><vh>@rst goflow.utils.logger.rst</vh></v>
 <v t="sa.20080714012008.33"><vh>@rst goflow.utils.decorators.rst</vh></v>
+<v t="sa.20080714012008.26"><vh>@rst goflow.instances.rst</vh></v>
 <v t="sa.20080714012008.23"><vh>@rst goflow.instances.api.rst</vh></v>
 <v t="sa.20080714012008.24"><vh>@rst goflow.instances.forms.rst</vh></v>
 <v t="sa.20080714012008.25"><vh>@rst goflow.instances.models.rst</vh></v>
-<v t="sa.20080714012008.26"><vh>@rst goflow.instances.rst</vh></v>
 <v t="sa.20080727144116.1"><vh>@rst goflow.instances.managers.rst</vh></v>
-<v t="sa.20080714012008.27"><vh>@rst goflow.instances.urls.rst</vh></v>
-<v t="sa.20080714012008.28"><vh>@rst goflow.instances.urls_admin.rst</vh></v>
 <v t="sa.20080714012008.29"><vh>@rst goflow.instances.views.rst</vh></v>
+<v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.31"><vh>@rst goflow.workflow.managers.rst</vh></v>
 <v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
 <v t="sa.20080714012008.34"><vh>@rst goflow.workflow.forms.rst</vh></v>
 <v t="sa.20080714012008.36"><vh>@rst goflow.workflow.models.rst</vh></v>
 <v t="sa.20080714012008.37"><vh>@rst goflow.workflow.notification.rst</vh></v>
 <v t="sa.20080714012008.38"><vh>@rst goflow.workflow.pushapps.rst</vh></v>
-<v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
 </v>
 </v>
@@ -607,7 +608,7 @@ template ='''
 :mod:`${mod.name}` -- ${mod.synopsis} 
 ================================================================================
 
-.. module:: ${mod.name} 
+.. automodule:: ${mod.name} 
    :synopsis: ${mod.synopsis}
 
 '''
@@ -670,9 +671,9 @@ lst = [
 :mod:`goflow.graphics.models` -- datamodels for graphics processing 
 ================================================================================
 
-.. module:: goflow.graphics.models 
+.. automodule:: goflow.graphics.models 
    :synopsis: datamodels for graphics processing
-
+   :members:
 </t>
 <t tx="sa.20080714012008.17">
 
@@ -681,9 +682,9 @@ lst = [
 :mod:`goflow.graphics` -- early goflow graphics module 
 ================================================================================
 
-.. module:: goflow.graphics 
+.. automodule:: goflow.graphics 
    :synopsis: early goflow graphics module
-
+   :members:
 </t>
 <t tx="sa.20080714012008.18">
 
@@ -692,9 +693,9 @@ lst = [
 :mod:`goflow.graphics.urls_admin` -- goflow graphics custom admin interface 
 ================================================================================
 
-.. module:: goflow.graphics.urls_admin 
+.. automodule:: goflow.graphics.urls_admin 
    :synopsis: goflow graphics custom admin interface
-
+   :members:
 </t>
 <t tx="sa.20080714012008.19">
 
@@ -703,31 +704,31 @@ lst = [
 :mod:`goflow.graphics.views` -- goflow graphics views 
 ================================================================================
 
-.. module:: goflow.graphics.views 
+.. automodule:: goflow.graphics.views 
    :synopsis: goflow graphics views
-
+   :members:
 </t>
 <t tx="sa.20080714012008.20">
 
-.. _goflow.graphics2.models:
+.. _goflow.utils.logger.:
 
-:mod:`goflow.graphics2.models` -- datamodels for graphics2 processing 
+:mod:`goflow.utils.logger.` -- manages sitewide logging  
 ================================================================================
 
-.. module:: goflow.graphics2.models 
-   :synopsis: datamodels for graphics2 processing
-
+.. automodule:: goflow.utils.logger 
+   :synopsis: manages sitewide logging  
+   :members:
 </t>
 <t tx="sa.20080714012008.21">
 
-.. _goflow.graphics2:
+.. _goflow.utils:
 
-:mod:`goflow.graphics2` -- latest goflow graphics module 
+:mod:`goflow.utils` -- package for common functionality
 ================================================================================
 
-.. module:: goflow.graphics2 
-   :synopsis: latest goflow graphics module
-
+.. automodule:: goflow.utils 
+   :synopsis: package for common functionality
+   :members:
 </t>
 <t tx="sa.20080714012008.23">
 
@@ -748,9 +749,9 @@ lst = [
 :mod:`goflow.instances.forms` -- goflow runtime forms 
 ================================================================================
 
-.. module:: goflow.instances.forms 
+.. automodule:: goflow.instances.forms 
    :synopsis: goflow runtime forms
-
+   :members:
 </t>
 <t tx="sa.20080714012008.25">
 
@@ -759,9 +760,9 @@ lst = [
 :mod:`goflow.instances.models` -- goflow runtime models 
 ================================================================================
 
-.. module:: goflow.instances.models 
+.. automodule:: goflow.instances.models 
    :synopsis: goflow runtime models
-
+   :members:
 </t>
 <t tx="sa.20080714012008.26">
 
@@ -770,31 +771,31 @@ lst = [
 :mod:`goflow.instances` -- goflow runtime 
 ================================================================================
 
-.. module:: goflow.instances 
+.. automodule:: goflow.instances 
    :synopsis: goflow runtime
-
+   :members:
 </t>
 <t tx="sa.20080714012008.27">
 
-.. _goflow.instances.urls:
+.. _goflow.urls:
 
-:mod:`goflow.instances.urls` -- goflow runtime urls 
+:mod:`goflow.urls` -- goflow runtime urls 
 ================================================================================
 
-.. module:: goflow.instances.urls 
+.. automodule:: goflow.urls 
    :synopsis: goflow runtime urls
-
+   :members:
 </t>
 <t tx="sa.20080714012008.28">
 
-.. _goflow.instances.urls_admin:
+.. _goflow.urls_admin:
 
-:mod:`goflow.instances.urls_admin` -- goflow runtime custom admin interface 
+:mod:`goflow.urls_admin` -- goflow runtime custom admin interface 
 ================================================================================
 
-.. module:: goflow.instances.urls_admin 
+.. automodule:: goflow.urls_admin 
    :synopsis: goflow runtime custom admin interface
-
+   :members:
 </t>
 <t tx="sa.20080714012008.29">
 
@@ -803,9 +804,9 @@ lst = [
 :mod:`goflow.instances.views` -- goflow runtime views 
 ================================================================================
 
-.. module:: goflow.instances.views 
+.. automodule:: goflow.instances.views 
    :synopsis: goflow runtime views
-
+   :members:
 </t>
 <t tx="sa.20080714012008.30">
 
@@ -814,8 +815,10 @@ lst = [
 :mod:`goflow` -- primary module containing other goflow submodules. 
 ================================================================================
 
-.. module:: goflow 
+.. automodule:: goflow 
    :synopsis: primary module containing other goflow submodules.
+   :members:
+   
 
 </t>
 <t tx="sa.20080714012008.31">
@@ -825,9 +828,9 @@ lst = [
 :mod:`goflow.workflow.managers` -- key functions for workflow management 
 ================================================================================
 
-.. module:: goflow.workflow.managers 
+.. automodule:: goflow.workflow.managers 
    :synopsis: key functions for workflow management
-
+   :members:
 
 </t>
 <t tx="sa.20080714012008.32">
@@ -837,7 +840,7 @@ lst = [
 :mod:`goflow.workflow.applications` -- key application function for workflow mgmt 
 ==================================================================================
 
-.. module:: goflow.workflow.applications 
+.. automodule:: goflow.workflow.applications 
    :synopsis: key application function for workflow mgmt
 
 
@@ -858,9 +861,9 @@ lst = [
 :mod:`goflow.utils.decorators` -- goflow decorator library 
 ================================================================================
 
-.. module:: goflow.utils.decorators 
+.. automodule:: goflow.utils.decorators 
    :synopsis: goflow decorator library
-
+   :members:
 </t>
 <t tx="sa.20080714012008.34">
 
@@ -869,9 +872,9 @@ lst = [
 :mod:`goflow.workflow.forms` -- goflow form utility functions 
 ================================================================================
 
-.. module:: goflow.workflow.forms 
+.. automodule:: goflow.workflow.forms 
    :synopsis: goflow form utility functions
-
+   :members:
 </t>
 <t tx="sa.20080714012008.36">
 
@@ -880,9 +883,9 @@ lst = [
 :mod:`goflow.workflow.models` -- workflow models 
 ================================================================================
 
-.. module:: goflow.workflow.models 
+.. automodule:: goflow.workflow.models 
    :synopsis: workflow models
-
+   :members:
 </t>
 <t tx="sa.20080714012008.37">
 
@@ -891,9 +894,9 @@ lst = [
 :mod:`goflow.workflow.notification` -- workflow notification library 
 ================================================================================
 
-.. module:: goflow.workflow.notification 
+.. automodule:: goflow.workflow.notification 
    :synopsis: workflow notification library
-
+   :members:
 </t>
 <t tx="sa.20080714012008.38">
 
@@ -902,9 +905,9 @@ lst = [
 :mod:`goflow.workflow.pushapps` -- example goflow pushapps 
 ================================================================================
 
-.. module:: goflow.workflow.pushapps 
+.. automodule:: goflow.workflow.pushapps 
    :synopsis: example goflow pushapps
-
+   :members:
 </t>
 <t tx="sa.20080714012008.39">
 
@@ -913,9 +916,9 @@ lst = [
 :mod:`goflow.workflow` -- goflow core workflow functionality 
 ================================================================================
 
-.. module:: goflow.workflow 
+.. automodule:: goflow.workflow 
    :synopsis: goflow core workflow functionality
-
+   :members:
 </t>
 <t tx="sa.20080714012008.40">
 
@@ -924,9 +927,9 @@ lst = [
 :mod:`goflow.workflow.views` -- views for goflow worklow module 
 ================================================================================
 
-.. module:: goflow.workflow.views 
+.. automodule:: goflow.workflow.views 
    :synopsis: views for goflow worklow module
-
+   :members:
 </t>
 <t tx="sa.20080714012008.41">
 =====================
@@ -942,6 +945,8 @@ goflow
    :maxdepth: 2
 
    goflow.rst
+   goflow.urls.rst
+   goflow.urls_admin.rst
 
 goflow.graphics
 -----------------
@@ -967,8 +972,7 @@ goflow.instances
    goflow.instances.forms.rst
    goflow.instances.models.rst
    goflow.instances.views.rst
-   goflow.instances.urls.rst
-   goflow.instances.urls_admin.rst
+
 
 goflow.workflow
 -----------------
@@ -1384,12 +1388,11 @@ TODO</t>
 <t tx="sa.20080714081843.39"></t>
 <t tx="sa.20080714081843.40"></t>
 <t tx="sa.20080714225902.5"></t>
-<t tx="sa.20080714225902.6">* new more 'object-oriented' api using models classes and model managers
+<t tx="sa.20080714225902.6">* new more 'object-oriented' api using model classes and managers
 
-    * note: the new api has not been activated and is still not functional pending 
-      further testing (and the writing of further tests) 
+* addition of goflow.utils for custom management commands, decorators, logger, etc...
 
-* addition of goflow.extensions for custom management commands
+* better documentation..
 
 </t>
 <t tx="sa.20080714225902.7">* fixes here...</t>
@@ -1652,9 +1655,10 @@ TODOs
 
 </t>
 <t tx="sa.20080724074952.10"></t>
-<t tx="sa.20080724074952.11">* autodoc tests
+<t tx="sa.20080724074952.11">* sphinx autodoc now working 
 * add uml diagram of model (80%)</t>
-<t tx="sa.20080724074952.12"></t>
+<t tx="sa.20080724074952.12">- use custom log class for all logging (including event logging)
+</t>
 <t tx="sa.20080724074952.13">@ignore</t>
 <t tx="sa.20080724074952.15">@language python
 @tabwidth -4
@@ -5174,9 +5178,9 @@ Most process elements can have names and descriptions.
 :mod:`goflow.instances.managers` -- managers for process_instance management 
 ================================================================================
 
-.. module:: goflow.instances.managers 
+.. automodule:: goflow.instances.managers 
    :synopsis: managers for process_instance management 
-
+   :members:
 
 </t>
 </tnodes>

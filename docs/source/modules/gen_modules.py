@@ -7,7 +7,7 @@ template ='''
 :mod:`${mod.name}` -- ${mod.synopsis} 
 ================================================================================
 
-.. module:: ${mod.name} 
+.. automodule:: ${mod.name} 
    :synopsis: ${mod.synopsis}
 
 '''

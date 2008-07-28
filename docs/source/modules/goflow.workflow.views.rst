@@ -5,6 +5,7 @@
 :mod:`goflow.workflow.views` -- views for goflow worklow module 
 ================================================================================
 
-.. module:: goflow.workflow.views 
+.. automodule:: goflow.workflow.views 
    :synopsis: views for goflow worklow module
+   :members:
 

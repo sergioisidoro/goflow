@@ -5,6 +5,7 @@
 :mod:`goflow.instances.views` -- goflow runtime views 
 ================================================================================
 
-.. module:: goflow.instances.views 
+.. automodule:: goflow.instances.views 
    :synopsis: goflow runtime views
+   :members:
 

@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
 from django.contrib.auth.models import User
-from django.newforms import form_for_model
+from django.forms import form_for_model
 from django.contrib.auth.decorators import permission_required
 
 from goflow.instances.models import DefaultAppModel, WorkItem

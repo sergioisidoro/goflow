@@ -5,6 +5,7 @@
 :mod:`goflow` -- primary module containing other goflow submodules. 
 ================================================================================
 
-.. module:: goflow 
+.. automodule:: goflow 
    :synopsis: primary module containing other goflow submodules.
+   :members:
 

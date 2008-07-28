@@ -14,22 +14,21 @@ class ProcessInstanceManager(models.Manager):
         Returns a newly saved ProcessInstance instance.
         
         @type user: User
-        @param user: an instance of django.contrib.auth.models.User, 
-                     typically retrieved through a request object.
+        @param user: an instance of django.contrib.auth.models.User, typically retrieved through a request object.
         @type title: string
         @param title: the title of the new ProcessInstance instance.
         @type obj_instance: ContentType
-        @param obj_instance: an instance of ContentType, which is typically
-                            associated with a django Model.
+        @param obj_instance: an instance of ContentType, which is typically associated with a django Model.
         @rtype: ProcessInstance
         @return: a newly saved ProcessInstance instance.
-        
         '''
         instance = self.create(user=user, title=title, content_object=obj_instance)
         return instance
 
 
 class WorkItemManager(models.Manager):
+    '''Custom model manager for WorkItem
+    '''
     def get_by(self, id, user=None, enabled_only=False, status=('inactive','active')):
         '''
         get a WorkItem instance by 
@@ -49,8 +48,7 @@ class WorkItemManager(models.Manager):
         user or username: filter on user (default=all)
         activity: filter on activity (default=all)
         status: filter on status (default=all)
-        notstatus: list of status to exclude
-                   (default: [blocked, suspended, fallout, complete])
+        notstatus: list of status to exclude (default: [blocked, suspended, fallout, complete])
         noauto: if True (default) auto activities are excluded.
         """
         groups = Group.objects.all()

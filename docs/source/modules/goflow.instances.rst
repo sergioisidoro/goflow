@@ -5,6 +5,7 @@
 :mod:`goflow.instances` -- goflow runtime 
 ================================================================================
 
-.. module:: goflow.instances 
+.. automodule:: goflow.instances 
    :synopsis: goflow runtime
+   :members:
 
