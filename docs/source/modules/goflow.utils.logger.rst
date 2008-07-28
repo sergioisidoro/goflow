@@ -1,4 +1,4 @@
-.. rst3: filename: goflow.graphics2.models.rst
+.. rst3: filename: goflow.utils.logger.rst
 
 .. _goflow.graphics2.models:
 
