@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,1,9"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,1,9,0,0"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -364,8 +364,10 @@
 <v t="sa.20080720192331.4"><vh>Backwards Incompatible Changes</vh></v>
 </v>
 </v>
-<v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
+<v t="sa.20080724074952.1" a="E"><vh>@rst todo.rst</vh>
 <v t="sa.20080724074952.2" a="E"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080728200234.2"><vh>Further Api Improvements</vh></v>
+<v t="sa.20080728200234.1"><vh>Eliminate Generic Exceptions</vh></v>
 <v t="sa.20080724074952.10"><vh>Minimize / Manager Eval</vh></v>
 </v>
 </v>
@@ -5183,5 +5185,9 @@ Most process elements can have names and descriptions.
    :members:
 
 </t>
+<t tx="sa.20080728200234.1"></t>
+<t tx="sa.20080728200234.2">- change goflow.instances to goflow.runtime
+
+- </t>
 </tnodes>
 </leo_file>

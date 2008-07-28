@@ -1,4 +1,4 @@
-epydoc --parse-only -o docs/api --name GoFlow --graph all ./goflow
+#epydoc --parse-only -o docs/api --name GoFlow --graph all ./goflow
 rm -rf ./docs/build/html 
 rm -rf ./docs/build/doctrees
 cd docs

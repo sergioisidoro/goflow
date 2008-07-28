@@ -138,10 +138,10 @@ class WorkItem(models.Model):
         '''
         Forward this workitem to all valid destination activities.
         
-        @type timeout_forwarding: bool
-        @param timeout_forwarding: TODO: explain this better
-        @type: subflow_workitem: WorkItem
-        @param subflow_workitem: a workitem associated with a subflow   
+        :type timeout_forwarding: bool
+        :param timeout_forwarding: TODO: explain this better
+        :type: subflow_workitem: WorkItem
+        :param subflow_workitem: a workitem associated with a subflow   
         '''
         log.info(self)
         if not timeout_forwarding:
@@ -162,10 +162,10 @@ class WorkItem(models.Model):
         Return list of destination activities that meet the 
         conditions of each transition
         
-        @type timeout_forwarding: bool
-        @param timeout_forwarding: a workitem with a time-delay??
-        @rtype: [Activity]
-        @return: list of destination activities.
+        :type timeout_forwarding: bool
+        :param timeout_forwarding: a workitem with a time-delay??
+        :rtype: [Activity]
+        :return: list of destination activities.
         '''
         transitions = models.get_model('workflow', 'Transition'
                                       ).objects.filter(input=self.activity)
@@ -182,11 +182,11 @@ class WorkItem(models.Model):
         Passes the process instance embedded in this workitem 
         to a new workitem that is associated with the destination activity.
         
-        @type target_activity: Activity
-        @param target_activity: the activity instance to this workitem 
+        :type target_activity: Activity
+        :param target_activity: the activity instance to this workitem 
                                 should be forwarded
-        @rtype: WorkItem
-        @return: a workitem that has been passed on to the next 
+        :rtype: WorkItem
+        :return: a workitem that has been passed on to the next 
                  activity (and next user)
         '''
         instance = self.instance
@@ -310,8 +310,8 @@ class WorkItem(models.Model):
     def exec_auto_application(self):
         '''
         creates a test auto application for activities that don't yet have applications
-        @type workitem: WorkItem
-        @rtype: bool
+        :type workitem: WorkItem
+        :rtype: bool
         '''
         try:
             if not self.activity.process.enabled:
@@ -336,8 +336,8 @@ class WorkItem(models.Model):
         '''
         retrieves content_object, logs info to it, saves
         
-        @rtype: bool
-        @return: always returns True
+        :rtype: bool
+        :return: always returns True
         '''
         obj = self.instance.content_object
         obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title

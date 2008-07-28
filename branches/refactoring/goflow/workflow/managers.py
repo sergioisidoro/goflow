@@ -7,6 +7,8 @@ from goflow.instances.models import ProcessInstance, WorkItem, Event
 from goflow.utils.logger import Log; log = Log('goflow.workflow.managers')
 
 class ProcessManager(models.Manager):
+    '''Custom model manager for Process
+    '''
     
     def start(self, process_name, user, item, title=None):
         '''
@@ -14,30 +16,36 @@ class ProcessManager(models.Manager):
         instance, while passing in the id of the user, the contenttype 
         object and the title.
         
-        @type process_name: string
-        @param process_name: a name of a process. e.g. 'leave'
-        @type user: User
-        @param user: an instance of django.contrib.auth.models.User, 
+        :type process_name: string
+        :param process_name: a name of a process. e.g. 'leave'
+        :type user: User
+        :param user: an instance of django.contrib.auth.models.User, 
                      typically retrieved through a request object.
-        @type item: ContentType
-        @param item: a content_type object e.g. an instance of LeaveRequest
-        @type: title: string
-        @param title: title of new ProcessInstance instance (optional)
-        @rtype: WorkItem
-        @return: a newly configured workitem sent to auto_user, 
+        :type item: ContentType
+        :param item: a content_type object e.g. an instance of LeaveRequest
+        :type: title: string
+        :param title: title of new ProcessInstance instance (optional)
+        :rtype: WorkItem
+        :return: a newly configured workitem sent to auto_user, 
                  a target_user, or ?? (roles).
+        
+        usage::
+            
+            wi = Process.objects.start(process_name='leave', 
+                                       user=admin, item=leaverequest1)
+
         '''
         process = self.get(title=process_name, enabled=True)
         if not title or (title=='instance'):
             title = '%s %s' % (process_name, str(item))
         instance = ProcessInstance.objects.add(user, title, item)
-        #instance = add_instance(user, title, item)
         instance.process = process
         # instance running
         instance.set_status('running')
         instance.save()
         
-        workitem = WorkItem.objects.create(instance=instance, user=user, activity=process.begin)
+        workitem = WorkItem.objects.create(instance=instance, user=user, 
+                                           activity=process.begin)
         log.event('created by ' + user.username, workitem)
         log('process:', process_name, 'user:', user.username, 'item:', item)
     
@@ -45,17 +53,13 @@ class ProcessManager(models.Manager):
             log('run auto activity', process.begin.title, 'workitem:', workitem)
             auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             workitem.activate(actor=auto_user)
-            
-            #activate_workitem(workitem, actor=auto_user)
-            #if exec_auto_application(workitem):
+    
             if workitem.exec_auto_application():
                 log('workitem.exec_auto_application:', workitem)
                 workitem.complete(actor=auto_user)
-                #complete_workitem(workitem, actor=auto_user)
             return workitem
 
         if process.begin.push_application:
-            #target_user = exec_push_application(workitem)
             target_user = workitem.exec_push_application()
             log('application pushed to user', target_user.username)
             workitem.user = target_user
@@ -74,21 +78,32 @@ class ProcessManager(models.Manager):
     def process_is_enabled(self, title):
         '''
         Determines given a title if a process is enabled or otherwise
-        @rtype: bool
+        
+        :rtype: bool
+        
+        usage::
+        
+            if Process.objects.process_is_enabled('leave1'):
+                # do something
+        
         '''
         return self.get(title=title).enabled
 
-    def add(self, title, description=None):
+    def add(self, title, description=''):
         '''
         Creates, saves, and returns a Process instance
         and adds an intital activity to it.
 
-        @type title: string
-        @param title: the title of the new Process instance.
-        @type description: string
-        @param description: an optional description of the new Process instance.
-        @rtype: Process
-        @return: a new (saved) Process instance.
+        :type title: string
+        :param title: the title of the new Process instance.
+        :type description: string
+        :param description: an optional description of the new Process instance.
+        :rtype: Process
+        :return: a new (saved) Process instance.
+        
+        usage::
+            
+            process1 = Process.objects.add(title='process1')
         '''
         process = self.create(title=title, description=description)
         process.begin = models.get_model('workflow', 'Activity').objects.create(
@@ -103,14 +118,19 @@ class ProcessManager(models.Manager):
         Checks whether a process is enabled and whether the user has permission
         to instantiate it; raises exceptions if not the case, returns None otherwise.
 
-        @type process_name: string
-        @param process_name: a name of a process. e.g. 'leave'
-        @type user: User
-        @param user: an instance of django.contrib.auth.models.User, 
+        :type process_name: string
+        :param process_name: a name of a process. e.g. 'leave'
+        :type user: User
+        :param user: an instance of django.contrib.auth.models.User, 
                      typically retrieved through a request object.
-        @rtype:
-        @return: passes silently if checks are met, 
+        :rtype:
+        :return: passes silently if checks are met, 
                  raises exceptions otherwise.
+        
+        usage::
+        
+            Process.objects.check_start_instance_perm(process_name='leave1', user=admin)
+    
         '''
         if not self.process_is_enabled(process_name):
             raise Exception('process %s disabled.' % process_name)

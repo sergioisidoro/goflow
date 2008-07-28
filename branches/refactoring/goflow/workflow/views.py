@@ -7,7 +7,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect, HttpResponse
 
-#from goflow.workflow.api import forward_workitem, start_instance
 from goflow.workflow.models import Process, Activity, Transition, Application
 from goflow.instances.models import DefaultAppModel, ProcessInstance
 from goflow.workflow.forms import ContentTypeForm
@@ -53,7 +52,8 @@ def userlist(request, template):
 
 
 def process_dot(request, id, template='goflow/process.dot'):
-    """graphviz generator (WIP).
+    """graphviz generator (**Work In Progress**).
+    
     
     id process id
     template graphviz template
@@ -69,14 +69,13 @@ def process_dot(request, id, template='goflow/process.dot'):
     return render_to_response(template, context)
 
 def cron(request=None):
-    """WIP
+    """(**Work In Progress**)
     """
     for t in Transition.objects.filter(condition__contains='workitem.timeout'):
         workitems = WorkItem.objects.filter(
             activity=t.input).exclude(status='complete')
         for wi in workitems:
-            #forward_workitem(wi, timeoutForwarding=True)
-            wi.forward(timeoutForwarding=True)
+            wi.forward(timeout_forwarding=True)
     
     if request:
         request.user.message_set.create(message="cron has run.")
@@ -110,7 +109,7 @@ def test_start(request, id, template='goflow/test_start.html'):
     
     for a given application, with its unit test environment, the user
     choose a content-type then generates unit test process instances
-    by cloning existing content-type objects WIP.
+    by cloning existing content-type objects (**Work In Progress**).
     """
     app = Application.objects.get(id=int(id))
     context = {}

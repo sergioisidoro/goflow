@@ -135,8 +135,8 @@ class Process(models.Model):
 class Application(models.Model):
     """ An application is a python view that can be called by URL.
     
-    Activities can call applications.
-    A commmon prefix may be defined: see settings.WF_APPS_PREFIX
+        Activities can call applications.
+        A commmon prefix may be defined: see settings.WF_APPS_PREFIX
     """
     url = models.CharField(max_length=255, unique=True, help_text='relative to prefix in settings.WF_APPS_PREFIX')
     # TODO: drop abbreviations (perhaps here not so necessary to ??
@@ -170,7 +170,8 @@ class Application(models.Model):
         return False
     
     def create_test_env(self, user=None):
-        if self.has_test_env(): return
+        if self.has_test_env(): 
+            return
         
         g = Group.objects.create(name='test_%s' % self.url)
         ptype = ContentType.objects.get_for_model(Process)
@@ -211,10 +212,10 @@ class Application(models.Model):
 class PushApplication(models.Model):
     """A push application routes a workitem to a specific user.
     It is a python function with the same prototype as the built-in
-    one below:
+    one below::
     
-    def route_to_requester(workitem):
-        return workitem.instance.user
+        def route_to_requester(workitem):
+            return workitem.instance.user
     
     Other parameters may be added (see Activity.pushapp_param field).
     Built-in push applications are implemented in pushapps module.
@@ -248,7 +249,6 @@ class Transition(models.Model):
     be the transition choosen for the forwarding of the instance.
     """
     name = models.CharField(max_length=50, null=True, blank=True)
-    #process = models.ForeignKey(Process, related_name='transitions', edit_inline=True, num_in_admin=0)
     process = models.ForeignKey(Process, related_name='transitions')
     input = models.ForeignKey(Activity, core=True, related_name='transition_inputs')
     condition = models.CharField(max_length=200, null=True, blank=True,
@@ -281,12 +281,12 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True, edit_inline=True, 
                                    max_num_in_admin=1, num_in_admin=1)
     web_host = models.CharField(max_length=100, default='localhost:8000')
-    notified = models.BooleanField(default=True, verbose_name='notification par mail')
+    notified = models.BooleanField(default=True, verbose_name='notification by email')
     last_notif = models.DateTimeField(default=datetime.now())
-    nb_wi_notif = models.IntegerField(default=1, core=True, verbose_name='nombre items avant notification', 
-                                      help_text='notification envoyée si le nombre d''item en attente est atteint')
-                                    # TODO: translate this 
-    delai_notif = models.IntegerField(default=1, verbose_name='Notification delay', help_text='in days')
+    nb_wi_notif = models.IntegerField(default=1, core=True, verbose_name='items before notification', 
+                                      help_text='notification if the number of items waiting is reached')
+
+    notif_delay = models.IntegerField(default=1, verbose_name='Notification delay', help_text='in days')
     
     def save(self):
         if not self.last_notif: self.last_notif = datetime.now()
@@ -294,7 +294,7 @@ class UserProfile(models.Model):
     
     def check_notif_to_send(self):
         now = datetime.now()
-        if now > self.last_notif + timedelta(days=self.delai_notif or 1):
+        if now > self.last_notif + timedelta(days=self.notif_delay or 1):
             return True
         return False
     
