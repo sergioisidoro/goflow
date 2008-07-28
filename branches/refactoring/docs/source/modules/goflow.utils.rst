@@ -1,4 +1,4 @@
-.. rst3: filename: goflow.graphics2.rst
+.. rst3: filename: goflow.utils.rst
 
 .. _goflow.graphics2:
 
