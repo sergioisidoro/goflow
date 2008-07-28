@@ -74,6 +74,7 @@ class Process(models.Model):
     
     # add new ProcessManager
     objects = ProcessManager()
+    
     class Meta:
         verbose_name_plural = 'Processes'
         permissions = (
@@ -84,11 +85,11 @@ class Process(models.Model):
         return self.title
     
     @allow_tags
-    def description_disp(self):
+    def summary(self):
         return '<pre>%s</pre>' % self.description
     
     @allow_tags
-    def wizzard(self):
+    def action(self):
         return 'add <a href=../activity/add/>a new activity</a> or <a href=../activity/>copy</a> an activity from another process'
 
     
@@ -101,7 +102,7 @@ class Process(models.Model):
         return a 
     
     def add_transition(self, name, activity_out, activity_in):
-        t = Transition.objects.get_or_create(name=name, process=self,
+        t, created = Transition.objects.get_or_create(name=name, process=self,
                                              output=activity_out,
                                              defaults={'input':activity_in})
         return t
