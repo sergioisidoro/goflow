@@ -5,6 +5,7 @@
 :mod:`goflow.workflow.notification` -- workflow notification library 
 ================================================================================
 
-.. module:: goflow.workflow.notification 
+.. automodule:: goflow.workflow.notification 
    :synopsis: workflow notification library
+   :members:
 

@@ -5,6 +5,7 @@
 :mod:`goflow.workflow.forms` -- goflow form utility functions 
 ================================================================================
 
-.. module:: goflow.workflow.forms 
+.. automodule:: goflow.workflow.forms 
    :synopsis: goflow form utility functions
+   :members:
 

@@ -1,10 +1,11 @@
 .. rst3: filename: goflow.utils.logger.rst
 
-.. _goflow.graphics2.models:
+.. _goflow.utils.logger.:
 
-:mod:`goflow.graphics2.models` -- datamodels for graphics2 processing 
+:mod:`goflow.utils.logger.` -- manages sitewide logging  
 ================================================================================
 
-.. module:: goflow.graphics2.models 
-   :synopsis: datamodels for graphics2 processing
+.. automodule:: goflow.utils.logger 
+   :synopsis: manages sitewide logging  
+   :members:
 

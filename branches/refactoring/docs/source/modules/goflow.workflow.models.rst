@@ -5,6 +5,7 @@
 :mod:`goflow.workflow.models` -- workflow models 
 ================================================================================
 
-.. module:: goflow.workflow.models 
+.. automodule:: goflow.workflow.models 
    :synopsis: workflow models
+   :members:
 

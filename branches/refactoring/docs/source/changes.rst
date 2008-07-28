@@ -15,12 +15,33 @@ Version 0.6 (refactored branch)
 New Features
 ************
 
-* new more 'object-oriented' api using models classes and model managers
+* new more 'object-oriented' api using model classes and managers
 
-    * note: the new api has not been activated and is still not functional pending 
-      further testing (and the writing of further tests) 
+* addition of goflow.utils for custom management commands, decorators, logger, etc...
 
-* addition of goflow.extensions for custom management commands
+* better documentation..
+
+Improved API
+^^^^^^^^^^^^
+
+* moved api into models and managers to make it more object oriented, still some way to go...
+
+Improvement documentation system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* sphinx autodoc now working 
+* add uml diagram of model (80%)
+
+restructuring
+^^^^^^^^^^^^^
+
+- moved goflow.workflow.logger into goflow.utils.logger
+- moved goflow.workflow.decorators into goflow.utils.decorators
+
+Improved Logging Machinery
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- use custom log class for all logging (including event logging)
 
 Bug Fixes
 *********

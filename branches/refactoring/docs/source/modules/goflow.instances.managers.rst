@@ -5,6 +5,7 @@
 :mod:`goflow.instances.managers` -- managers for process_instance management 
 ================================================================================
 
-.. module:: goflow.instances.managers 
-   :synopsis: managers for process_instance management
+.. automodule:: goflow.instances.managers 
+   :synopsis: managers for process_instance management 
+   :members:
 

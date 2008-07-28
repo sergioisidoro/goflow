@@ -1,10 +1,11 @@
 .. rst3: filename: goflow.utils.rst
 
-.. _goflow.graphics2:
+.. _goflow.utils:
 
-:mod:`goflow.graphics2` -- latest goflow graphics module 
+:mod:`goflow.utils` -- package for common functionality
 ================================================================================
 
-.. module:: goflow.graphics2 
-   :synopsis: latest goflow graphics module
+.. automodule:: goflow.utils 
+   :synopsis: package for common functionality
+   :members:
 

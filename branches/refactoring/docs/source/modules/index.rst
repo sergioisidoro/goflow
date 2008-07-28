@@ -13,6 +13,8 @@ goflow
    :maxdepth: 2
 
    goflow.rst
+   goflow.urls.rst
+   goflow.urls_admin.rst
 
 goflow.graphics
 -----------------
@@ -38,8 +40,7 @@ goflow.instances
    goflow.instances.forms.rst
    goflow.instances.models.rst
    goflow.instances.views.rst
-   goflow.instances.urls.rst
-   goflow.instances.urls_admin.rst
+
 
 goflow.workflow
 -----------------

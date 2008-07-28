@@ -5,6 +5,7 @@
 :mod:`goflow.workflow.pushapps` -- example goflow pushapps 
 ================================================================================
 
-.. module:: goflow.workflow.pushapps 
+.. automodule:: goflow.workflow.pushapps 
    :synopsis: example goflow pushapps
+   :members:
 

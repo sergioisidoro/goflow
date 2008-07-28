@@ -5,6 +5,7 @@
 :mod:`goflow.instances.forms` -- goflow runtime forms 
 ================================================================================
 
-.. module:: goflow.instances.forms 
+.. automodule:: goflow.instances.forms 
    :synopsis: goflow runtime forms
+   :members:
 

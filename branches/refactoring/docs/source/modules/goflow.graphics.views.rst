@@ -5,6 +5,7 @@
 :mod:`goflow.graphics.views` -- goflow graphics views 
 ================================================================================
 
-.. module:: goflow.graphics.views 
+.. automodule:: goflow.graphics.views 
    :synopsis: goflow graphics views
+   :members:
 

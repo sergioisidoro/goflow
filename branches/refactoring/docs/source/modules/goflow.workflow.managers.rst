@@ -5,6 +5,7 @@
 :mod:`goflow.workflow.managers` -- key functions for workflow management 
 ================================================================================
 
-.. module:: goflow.workflow.managers 
+.. automodule:: goflow.workflow.managers 
    :synopsis: key functions for workflow management
+   :members:
 

@@ -5,6 +5,7 @@
 :mod:`goflow.workflow` -- goflow core workflow functionality 
 ================================================================================
 
-.. module:: goflow.workflow 
+.. automodule:: goflow.workflow 
    :synopsis: goflow core workflow functionality
+   :members:
 
