@@ -11,10 +11,12 @@ Contents
    :maxdepth: 2
 
    overview.rst
-   patterns.rst
    tutorials.rst
+   patterns.rst
+
    install.rst
    faq.rst
+   todo.rst
    changes.rst
    history.rst
    license.rst

@@ -34,6 +34,7 @@ goflow.instances
       
    goflow.instances.rst
    goflow.instances.api.rst
+   goflow.instances.managers.rst   
    goflow.instances.forms.rst
    goflow.instances.models.rst
    goflow.instances.views.rst
@@ -50,7 +51,6 @@ goflow.workflow
    goflow.workflow.managers.rst
    goflow.workflow.applications.rst
    goflow.workflow.forms.rst
-   goflow.workflow.logger.rst
    goflow.workflow.models.rst
    goflow.workflow.notification.rst
    goflow.workflow.pushapps.rst
@@ -62,6 +62,7 @@ goflow.utils
 .. toctree::
    :maxdepth: 2
 
+   goflow.utils.rst
    goflow.utils.decorators.rst
    goflow.utils.logger.rst
 

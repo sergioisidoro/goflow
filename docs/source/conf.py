@@ -12,13 +12,14 @@
 # serve to show the default value.
 
 import sys, os
-
+dirname, abspath = os.path.dirname, os.path.abspath
 # If your extensions are in another directory, add it here. If the directory
 # is relative to the documentation root, use os.path.abspath to make it
 # absolute, like shown here.
-sys.path.insert(0, '/Users/sa/Code/workspace/goflow-src')
+
+sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'leavedemo.settings'
-# sys.path.append(os.path.abspath('/Users/sa/Code/workspace/goflow-src'))
+
 
 # General configuration
 # ---------------------
