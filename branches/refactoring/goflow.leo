@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="97" left="178" height="518" width="1172"/>
+	<global_window_position top="36" left="128" height="781" width="1183"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,2,13,14"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,1"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -19,94 +19,9 @@
 <v t="sa.20080720191846.1"><vh>@strings[vertical,horizontal] initial_splitter_orientation = horizontal</vh></v>
 </v>
 </v>
-<v t="sa.20080726124242.2"><vh>notes</vh>
-<v t="sa.20080726124242.3" a="E"><vh>new structure</vh>
-<v t="sa.20080726124242.4"><vh>goflow-refactored</vh>
-<v t="sa.20080726124242.5"><vh>docs</vh>
-<v t="sa.20080726124242.6"><vh>build</vh></v>
-<v t="sa.20080726124242.7"><vh>source</vh></v>
-<v t="sa.20080726124242.8"><vh>diagrams</vh></v>
-<v t="sa.20080726124242.9"><vh>presentations</vh></v>
-</v>
-<v t="sa.20080726124242.10"><vh>goflow</vh>
-<v t="sa.20080726124242.11"><vh>graphics</vh>
-<v t="sa.20080726124242.21"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.22"><vh>js</vh></v>
-<v t="sa.20080726124242.23"><vh>models.py</vh></v>
-<v t="sa.20080726124242.24"><vh>templates</vh></v>
-<v t="sa.20080726124242.25"><vh>templatetags</vh></v>
-<v t="sa.20080726124242.26"><vh>urls_admin.py</vh></v>
-<v t="sa.20080726124242.27"><vh>views.py</vh></v>
-</v>
-<v t="sa.20080726124242.13"><vh>instances</vh>
-<v t="sa.20080726124242.28"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.29"><vh>admin.py</vh></v>
-<v t="sa.20080726124242.30"><vh>api.py</vh></v>
-<v t="sa.20080726124242.31"><vh>forms.py</vh></v>
-<v t="sa.20080726124242.32"><vh>managers.py</vh></v>
-<v t="sa.20080726124242.33"><vh>models.py</vh></v>
-<v t="sa.20080726124242.34"><vh>views.py</vh></v>
-</v>
-<v t="sa.20080726124242.45"><vh>templates</vh></v>
-<v t="sa.20080726124242.14" a="E"><vh>utils</vh>
-<v t="sa.20080726124242.15"><vh>conf</vh></v>
-<v t="sa.20080726124242.16"><vh>management</vh></v>
-<v t="sa.20080726124242.17"><vh>middleware</vh></v>
-<v t="sa.20080726124242.43"><vh>notification.py</vh></v>
-<v t="sa.20080726124242.39"><vh>decorators.py</vh></v>
-<v t="sa.20080726124242.19"><vh>logger.py</vh></v>
-<v t="sa.20080726124242.20"><vh>__init__.py</vh></v>
-</v>
-<v t="sa.20080726124242.12"><vh>workflow</vh>
-<v t="sa.20080726124242.35"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.36"><vh>admin.py</vh></v>
-<v t="sa.20080726124242.38"><vh>applications.py</vh></v>
-<v t="sa.20080726124242.40"><vh>forms.py</vh></v>
-<v t="sa.20080726124242.41"><vh>managers.py</vh></v>
-<v t="sa.20080726124242.42"><vh>models.py</vh></v>
-<v t="sa.20080726124242.44"><vh>pushapps.py</vh></v>
-<v t="sa.20080726124242.46"><vh>templatetags</vh></v>
-<v t="sa.20080726124242.47"><vh>views.py</vh></v>
-</v>
-</v>
-<v t="sa.20080726124242.48"><vh>demo</vh>
-<v t="sa.20080726124242.49"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.50"><vh>leave</vh>
-<v t="sa.20080726124242.58"><vh>__init__.py</vh></v>
-<v t="sa.20080726124242.59"><vh>admin.py</vh></v>
-<v t="sa.20080726124242.60"><vh>auto.py</vh></v>
-<v t="sa.20080726124242.61"><vh>fixtures</vh></v>
-<v t="sa.20080726124242.62"><vh>forms.py</vh></v>
-<v t="sa.20080726124242.63"><vh>models.py</vh></v>
-<v t="sa.20080726124242.64"><vh>pushapplications.py</vh></v>
-<v t="sa.20080726124242.65"><vh>templates</vh></v>
-<v t="sa.20080726124242.66"><vh>tests.py</vh></v>
-<v t="sa.20080726124242.67"><vh>views.py</vh></v>
-</v>
-<v t="sa.20080726124242.51"><vh>manage.py</vh></v>
-<v t="sa.20080726124242.52"><vh>media</vh></v>
-<v t="sa.20080726124242.53"><vh>scripts</vh></v>
-<v t="sa.20080726124242.54"><vh>settings.py</vh></v>
-<v t="sa.20080726124242.55"><vh>test.py</vh></v>
-<v t="sa.20080726124242.56"><vh>urls.py</vh></v>
-</v>
-<v t="sa.20080726124242.57"><vh>scripts</vh></v>
-<v t="sa.20080726124242.68"><vh>README.TXT</vh></v>
-<v t="sa.20080726124242.69"><vh>LICENCE.TXT</vh></v>
-</v>
-</v>
-</v>
+<v t="sa.20080726124242.2"><vh>notes</vh></v>
 <v t="sa.20080714235246.1" a="E"><vh>src</vh>
-<v t="sa.20080720215142.1"><vh>snippets</vh>
-<v t="sa.20080720215142.3"><vh>inserting RequestContext into templates</vh>
-<v t="sa.20080720215142.2"><vh>render_response</vh></v>
-<v t="sa.20080720215142.4"><vh>render_to decorator</vh></v>
-<v t="sa.20080720215142.5"><vh>generic views</vh></v>
-<v t="sa.20080720215142.6"><vh>direct_to_template</vh></v>
-</v>
-<v t="sa.20080720215142.7"><vh>newforms</vh></v>
-</v>
-<v t="sa.20080724074952.13"><vh>other workflow engines</vh>
+<v t="sa.20080724074952.13" a="E"><vh>other workflow engines</vh>
 <v t="sa.20080726124242.1"><vh>wfmc</vh>
 <v t="sa.20080724074952.15" tnodeList="sa.20080724074952.15,sa.20080724074952.16,sa.20080724074952.17,sa.20080724074952.18,sa.20080724074952.19"><vh>@file attributeintegration.py</vh>
 <v t="sa.20080724074952.16"><vh>attributeintegration declarations</vh></v>
@@ -305,7 +220,7 @@
 <v t="sa.20080724074952.178"><vh>@file xpdl.txt</vh></v>
 </v>
 </v>
-<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
+<v t="sa.20080714011136.2"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -343,6 +258,20 @@
 <v t="sa.20080714081843.19"><vh>Requirements</vh></v>
 <v t="sa.20080714081843.20"><vh>Download</vh></v>
 </v>
+<v t="sa.20080714012008.9"><vh>@rst install.rst</vh></v>
+<v t="sa.20080714012008.5"><vh>@rst tutorials.rst</vh>
+<v t="sa.20080714081843.28"><vh>Prerequisites</vh></v>
+<v t="sa.20080714081843.29"><vh>Project "Hello World"</vh>
+<v t="sa.20080714081843.30"><vh>Let's add an activity</vh></v>
+<v t="sa.20080714081843.31"><vh>Let's add our own models</vh></v>
+<v t="sa.20080714081843.32"><vh>And for some code</vh></v>
+</v>
+<v t="sa.20080714081843.33"><vh>Advanced Tutorial</vh>
+<v t="sa.20080714081843.34"><vh>Prerequisites</vh></v>
+<v t="sa.20080714081843.35"><vh>Application Unit Testing</vh></v>
+<v t="sa.20080714081843.36"><vh>Application Automation</vh></v>
+</v>
+</v>
 <v t="sa.20080714012008.42"><vh>@rst patterns.rst</vh>
 <v t="sa.20080717192016.13"><vh>Sequence Pattern</vh>
 <v t="sa.20080717192016.14"><vh>Description</vh></v>
@@ -373,20 +302,6 @@
 <v t="sa.20080717192016.10"><vh>Synonyms</vh></v>
 <v t="sa.20080717192016.11"><vh>Examples</vh></v>
 <v t="sa.20080717192016.12"><vh>Motivation</vh></v>
-</v>
-</v>
-<v t="sa.20080714012008.9"><vh>@rst install.rst</vh></v>
-<v t="sa.20080714012008.5"><vh>@rst tutorials.rst</vh>
-<v t="sa.20080714081843.28"><vh>Prerequisites</vh></v>
-<v t="sa.20080714081843.29"><vh>Project "Hello World"</vh>
-<v t="sa.20080714081843.30"><vh>Let's add an activity</vh></v>
-<v t="sa.20080714081843.31"><vh>Let's add our own models</vh></v>
-<v t="sa.20080714081843.32"><vh>And for some code</vh></v>
-</v>
-<v t="sa.20080714081843.33"><vh>Advanced Tutorial</vh>
-<v t="sa.20080714081843.34"><vh>Prerequisites</vh></v>
-<v t="sa.20080714081843.35"><vh>Application Unit Testing</vh></v>
-<v t="sa.20080714081843.36"><vh>Application Automation</vh></v>
 </v>
 </v>
 <v t="sa.20080714012008.3"><vh>@rst faq.rst</vh>
@@ -445,7 +360,7 @@
 </v>
 </v>
 <v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
-<v t="sa.20080724074952.2"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080724074952.2" a="E"><vh>Version 0.6 (refactored branch)</vh>
 <v t="sa.20080727142922.1"><vh>restructuring</vh></v>
 <v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
 <v t="sa.20080724074952.3"><vh>Improve API</vh></v>
@@ -468,17 +383,17 @@
 </v>
 <v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
 <v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
-<v t="sa.20080714012008.12" a="E"><vh>modules</vh>
+<v t="sa.20080714012008.12"><vh>modules</vh>
 <v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
 <v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
 <v t="sa.20080714012008.15"><vh>main</vh></v>
 </v>
 <v t="sa.20080714012008.41"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.30"><vh>@rst goflow.rst</vh></v>
-<v t="sa.20080714012008.16"><vh>@rst goflow.graphics.models.rst</vh></v>
 <v t="sa.20080714012008.17"><vh>@rst goflow.graphics.rst</vh></v>
-<v t="sa.20080714012008.18"><vh>@rst goflow.graphics.urls_admin.rst</vh></v>
+<v t="sa.20080714012008.16"><vh>@rst goflow.graphics.models.rst</vh></v>
 <v t="sa.20080714012008.19"><vh>@rst goflow.graphics.views.rst</vh></v>
+<v t="sa.20080714012008.18"><vh>@rst goflow.graphics.urls_admin.rst</vh></v>
 <v t="sa.20080714012008.21"><vh>@rst goflow.utils.rst</vh></v>
 <v t="sa.20080714012008.20"><vh>@rst goflow.utils.logger.rst</vh></v>
 <v t="sa.20080714012008.33"><vh>@rst goflow.utils.decorators.rst</vh></v>
@@ -566,10 +481,12 @@ Contents
    :maxdepth: 2
 
    overview.rst
-   patterns.rst
    tutorials.rst
+   patterns.rst
+
    install.rst
    faq.rst
+   todo.rst
    changes.rst
    history.rst
    license.rst
@@ -590,9 +507,9 @@ Indices and tables
 <t tx="sa.20080714012008.7">
 .. _history:
 
-=======
+========
 History
-=======
+========
 
 
 
@@ -660,6 +577,9 @@ Optional (but useful) Modules
 </t>
 <t tx="sa.20080714012008.11">.. _changes:
 
+==========================
+Changes
+==========================
 
 
 .. contents::
@@ -710,9 +630,6 @@ lst = [
     ("goflow.graphics.models.rst","datamodels for graphics processing"),
     ("goflow.graphics.views.rst","goflow graphics views"),
     ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
-    ("goflow.graphics2.rst","latest goflow graphics module"),
-    ("goflow.graphics2.models.rst","datamodels for graphics2 processing"),
-    ("goflow.graphics2.views.rst","view functions for graphics2 module"),
     ("goflow.instances.rst","goflow runtime"),
     ("goflow.instances.api.rst","goflow runtime api"),
     ("goflow.instances.forms.rst","goflow runtime forms"),
@@ -721,7 +638,7 @@ lst = [
     ("goflow.instances.urls.rst","goflow runtime urls"),
     ("goflow.instances.urls_admin.rst","goflow runtime custom admin interface"),
     ("goflow.workflow.rst","goflow core workflow functionality"),
-    ("goflow.workflow.api.rst","key functions for workflow management"),
+    ("goflow.workflow.managers.rst","key model managers for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
     ("goflow.utils.decorators.rst","goflow decorator library"),
     ("goflow.workflow.forms.rst","goflow form utility functions"),
@@ -1046,6 +963,7 @@ goflow.instances
       
    goflow.instances.rst
    goflow.instances.api.rst
+   goflow.instances.managers.rst   
    goflow.instances.forms.rst
    goflow.instances.models.rst
    goflow.instances.views.rst
@@ -1062,7 +980,6 @@ goflow.workflow
    goflow.workflow.managers.rst
    goflow.workflow.applications.rst
    goflow.workflow.forms.rst
-   goflow.workflow.logger.rst
    goflow.workflow.models.rst
    goflow.workflow.notification.rst
    goflow.workflow.pushapps.rst
@@ -1074,6 +991,7 @@ goflow.utils
 .. toctree::
    :maxdepth: 2
 
+   goflow.utils.rst
    goflow.utils.decorators.rst
    goflow.utils.logger.rst
 
@@ -1482,6 +1400,13 @@ TODO</t>
 <t tx="sa.20080714235246.1"></t>
 <t tx="sa.20080715012904.1">.. _credits:
 
+==============================
+Credits and Acknowledgements
+==============================
+
+
+
+
 We are grateful to x, y and z for support of this project.
 
     * GoFlow is based on OpenFlow
@@ -1489,6 +1414,11 @@ We are grateful to x, y and z for support of this project.
     * etc..
 </t>
 <t tx="sa.20080715012904.2">.. _license:
+
+==========================
+License
+==========================
+
 
 insert license here.</t>
 <t tx="sa.20080715111354.1">GoFlow is an "activity based" workflow. Workflow processes are implemented as a set of activities that must be completed to achieve some result. In GoFlow, the logic of activities lies in python view scripts. The presentation consists of a django (or any other kind of) template. GoFlow provides three main modules: 
@@ -1705,94 +1635,11 @@ for entry in ['html', 'doctrees']:
 # clean *.pycs and .log files
 cmd('scripts/clean')
 </t>
-<t tx="sa.20080720215142.1">@language python
-@tabwidth -4
-</t>
-<t tx="sa.20080720215142.2">@
-
-
-@c
-
-from django.shortcuts import render_to_response
-from django.template import RequestContext
-
-def render_response(req, *args, **kwargs):
-    kwargs['context_instance'] = RequestContext(req)
-    return render_to_response(*args, **kwargs)
-
-</t>
-<t tx="sa.20080720215142.3"></t>
-<t tx="sa.20080720215142.4">def render_to(template_name):
-    def renderer(func):
-        def wrapper(request, *args, **kw):
-            output = func(request, *args, **kw)
-            if not isinstance(output, dict):
-                return output
-            return render_to_response(request, template_name, output)
-        return wrapper
-    return renderer
-
-@render_to('my_template.html')
-def my_view(request):
-    # View code here...
-    return some_dict
-</t>
-<t tx="sa.20080720215142.5">from django.views.generic import list_detail
-
-def my_view(request):
-    # View code here...
-    return list_detail.object_list_(request,
-                                    queryset=Foo.objects.all(),
-                                    extra_context=some_dict)
-
-</t>
-<t tx="sa.20080720215142.6">from django.views.generic.simple import direct_to_template
-
-def my_view(request):
-    # View code here...
-    return direct_to_template(request, params,
-                              extra_context=some_dict)
-
-</t>
-<t tx="sa.20080720215142.7">@register.inclusion_tag('_display_field.html')
-def display_field(field, alt_label=''):
-    """
-    Print HTML for a newform field. 
-    Optionally, a label can be supplied that overrides the default label generated for the form.
-    
-    Example:
-    {% display_field form.my_field "My New Label" %}
-    """
-
-    if alt_label:
-        field.label = alt_label
-    return { 'field': field }
-
-_display_field.html='''
-{% if field.errors %}
-&lt;p class="error"&gt;{{ field.errors|join:"&lt;br /&gt;" }}&lt;/p&gt;
-{% endif %}
-&lt;label for="{{ field.auto_id }}"&gt;
-    {{ field.label }}
-    {% if field.field.required %}&lt;br /&gt;
-&lt;span class="required"&gt;required&lt;/span&gt;
-    {% endif %}
-&lt;/label&gt; 
-{{ field }} &lt;br /&gt;
-'''
-
-now use this in the templates='''
-{% display_field form.first_name %}
-{% display_field form.last_name %}
-{% display_field form.email %}
-'''
-
-
-
-</t>
 <t tx="sa.20080724074952.1">.. _todo:
 
-
+==========================
+TODOs
+==========================
 
 .. contents::
 
@@ -1808,7 +1655,7 @@ now use this in the templates='''
 <t tx="sa.20080724074952.11">* autodoc tests
 * add uml diagram of model (80%)</t>
 <t tx="sa.20080724074952.12"></t>
-<t tx="sa.20080724074952.13">@ignores</t>
+<t tx="sa.20080724074952.13">@ignore</t>
 <t tx="sa.20080724074952.15">@language python
 @tabwidth -4
 @ignore
@@ -5315,74 +5162,6 @@ Most process elements can have names and descriptions.
 </t>
 <t tx="sa.20080726124242.1"></t>
 <t tx="sa.20080726124242.2"></t>
-<t tx="sa.20080726124242.3"></t>
-<t tx="sa.20080726124242.4"></t>
-<t tx="sa.20080726124242.5"></t>
-<t tx="sa.20080726124242.6"></t>
-<t tx="sa.20080726124242.7"></t>
-<t tx="sa.20080726124242.8"></t>
-<t tx="sa.20080726124242.9"></t>
-<t tx="sa.20080726124242.10"></t>
-<t tx="sa.20080726124242.11">@
-combination of graphics and graphics2
-@c
-</t>
-<t tx="sa.20080726124242.12"></t>
-<t tx="sa.20080726124242.13"></t>
-<t tx="sa.20080726124242.14"></t>
-<t tx="sa.20080726124242.15"></t>
-<t tx="sa.20080726124242.16"></t>
-<t tx="sa.20080726124242.17"></t>
-<t tx="sa.20080726124242.19"></t>
-<t tx="sa.20080726124242.20"></t>
-<t tx="sa.20080726124242.21"></t>
-<t tx="sa.20080726124242.22"></t>
-<t tx="sa.20080726124242.23"></t>
-<t tx="sa.20080726124242.24"></t>
-<t tx="sa.20080726124242.25"></t>
-<t tx="sa.20080726124242.26"></t>
-<t tx="sa.20080726124242.27"></t>
-<t tx="sa.20080726124242.28"></t>
-<t tx="sa.20080726124242.29"></t>
-<t tx="sa.20080726124242.30"></t>
-<t tx="sa.20080726124242.31"></t>
-<t tx="sa.20080726124242.32"></t>
-<t tx="sa.20080726124242.33"></t>
-<t tx="sa.20080726124242.34"></t>
-<t tx="sa.20080726124242.35"></t>
-<t tx="sa.20080726124242.36"></t>
-<t tx="sa.20080726124242.38"></t>
-<t tx="sa.20080726124242.39"></t>
-<t tx="sa.20080726124242.40"></t>
-<t tx="sa.20080726124242.41"></t>
-<t tx="sa.20080726124242.42"></t>
-<t tx="sa.20080726124242.43"></t>
-<t tx="sa.20080726124242.44"></t>
-<t tx="sa.20080726124242.45"></t>
-<t tx="sa.20080726124242.46"></t>
-<t tx="sa.20080726124242.47"></t>
-<t tx="sa.20080726124242.48"></t>
-<t tx="sa.20080726124242.49"></t>
-<t tx="sa.20080726124242.50"></t>
-<t tx="sa.20080726124242.51"></t>
-<t tx="sa.20080726124242.52"></t>
-<t tx="sa.20080726124242.53"></t>
-<t tx="sa.20080726124242.54"></t>
-<t tx="sa.20080726124242.55"></t>
-<t tx="sa.20080726124242.56"></t>
-<t tx="sa.20080726124242.57"></t>
-<t tx="sa.20080726124242.58"></t>
-<t tx="sa.20080726124242.59"></t>
-<t tx="sa.20080726124242.60"></t>
-<t tx="sa.20080726124242.61"></t>
-<t tx="sa.20080726124242.62"></t>
-<t tx="sa.20080726124242.63"></t>
-<t tx="sa.20080726124242.64"></t>
-<t tx="sa.20080726124242.65"></t>
-<t tx="sa.20080726124242.66"></t>
-<t tx="sa.20080726124242.67"></t>
-<t tx="sa.20080726124242.68"></t>
-<t tx="sa.20080726124242.69"></t>
 <t tx="sa.20080727142922.1">- moved goflow.workflow.logger into goflow.utils.logger
 - moved goflow.workflow.decorators into goflow.utils.decorators
 

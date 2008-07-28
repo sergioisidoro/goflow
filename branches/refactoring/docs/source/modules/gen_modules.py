@@ -30,9 +30,6 @@ lst = [
     ("goflow.graphics.models.rst","datamodels for graphics processing"),
     ("goflow.graphics.views.rst","goflow graphics views"),
     ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
-    ("goflow.graphics2.rst","latest goflow graphics module"),
-    ("goflow.graphics2.models.rst","datamodels for graphics2 processing"),
-    ("goflow.graphics2.views.rst","view functions for graphics2 module"),
     ("goflow.instances.rst","goflow runtime"),
     ("goflow.instances.api.rst","goflow runtime api"),
     ("goflow.instances.forms.rst","goflow runtime forms"),
@@ -44,6 +41,7 @@ lst = [
     ("goflow.workflow.api.rst","key functions for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
     ("goflow.utils.decorators.rst","goflow decorator library"),
+
     ("goflow.workflow.forms.rst","goflow form utility functions"),
     ("goflow.workflow.logger.rst","logging capability"),
     ("goflow.workflow.models.rst","workflow models"),

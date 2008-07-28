@@ -442,7 +442,8 @@ class WorkItem(models.Model):
         """
         if self.check_user(user):
             self.user = user
-            if commit: self.save()
+            if commit: 
+                self.save()
             return True
         self.fallout()
         return False
