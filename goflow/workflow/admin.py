@@ -19,7 +19,7 @@ class TransitionInline(admin.TabularInline):
 #    max_num = 4
 
 class ProcessAdmin(admin.ModelAdmin):
-    list_display = ('title', 'wizzard', 'enabled', 'description_disp')
+    list_display = ('title', 'action', 'enabled', 'summary')
     inlines = [
         TransitionInline,
     ]
