@@ -1,0 +1,10 @@
+#!
+# remove .pyc & .log files
+find . -name "*.pyc" -exec rm '{}' ';'
+find . -name "*.log" -exec rm '{}' ';'
+echo 'deleting sqlite.db3'
+rm leavedemo/sqlite.db3
+cd leavedemo
+python manage.py syncdb
+python manage.py shell_plus
+

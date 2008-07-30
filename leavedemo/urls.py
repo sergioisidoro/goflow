@@ -4,7 +4,7 @@ from django.contrib import admin
 from leave.admin import admin as leave_admin
 from goflow.instances.admin import admin as instances_admin
 from goflow.workflow.admin import admin as workflow_admin
-#admin.autodiscover()
+
 
 from leave.forms import StartRequestForm, RequesterForm, CheckRequestForm
 

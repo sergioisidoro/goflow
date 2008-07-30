@@ -7,6 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from django import forms
 from goflow.utils.decorators import allow_tags
 from goflow.workflow.managers import ProcessManager
+#from goflow.utils import error
 
 from datetime import datetime, timedelta
 
@@ -28,15 +29,19 @@ class Activity(models.Model):
                     )
     title = models.CharField(max_length=100, core=True)
     kind =  models.CharField(max_length=10, choices=KIND_CHOICES, verbose_name='type', default='standard')
-    process = models.ForeignKey('Process', related_name='activities')
-    push_application = models.ForeignKey('PushApplication', related_name='push_activities', null=True, blank=True)
-    pushapp_param = models.CharField(max_length=100, null=True, blank=True, 
-                                help_text="parameters dictionary; example: {'username':'john'}")
+    process = models.ForeignKey('Process', related_name='activities', verbose_name='process')
+    push_application = models.ForeignKey('PushApplication', verbose_name='push application',
+                                         related_name='push_activities', null=True, blank=True)
+    pushapp_param = models.TextField(null=True, blank=True, 
+                                verbose_name='push application parameters',
+                                help_text="parameters in yaml will safely be converted to dictionary ; example: username:john")
     application = models.ForeignKey('Application', related_name='activities', null=True, blank=True,
+                                verbose_name='application url',
                                 help_text='leave it blank for prototyping the process without coding')
-    app_param = models.CharField(max_length=100, verbose_name='parameters', 
-                                 help_text='parameters dictionary', null=True, blank=True)
-    subflow = models.ForeignKey('Process', related_name='parent_activities', null=True, blank=True)
+    app_param = models.TextField(verbose_name='application parameters', 
+                                 help_text='parameters in yaml will safely converted to dictionary', null=True, blank=True)
+    subflow = models.ForeignKey('Process', verbose_name='subflow process',
+                                related_name='parent_activities', null=True, blank=True)
     roles = models.ManyToManyField(Group, related_name='activities', null=True, blank=True)
     description = models.CharField(max_length=100, null=True, blank=True)
     autostart = models.BooleanField(default=False)
@@ -61,14 +66,35 @@ class Process(models.Model):
     the configured begin activity. Instances can be moved
     forward from activity to activity, going through transitions,
     until they reach the End activity.
+    
+    There are three ways to create a process instance::
+        
+        >>> # (1) using the manager
+        >>> process = Process.objects.create(title="request_vacation", 
+        ... description="description", enabled=True, priority=0)
+        >>> process
+        <Process: request_vacation>
+        
+        >>> # (2) using the model class
+        >>> process = Process(title='request_holiday', description='desc2')
+        >>> process.save()
+        >>> process
+        <Process: request_holiday>
+        
+        >>> # (3) using the manager class add method
+        >>> process = Process.objects.add(title='request_report', description='desc2')
+        >>> process
+        <Process: request_report>
+        
     """
     enabled = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    description.allow_tags=True
-    begin = models.ForeignKey('Activity', related_name='bprocess', verbose_name='initial activity', null=True, blank=True)
-    end = models.ForeignKey('Activity', related_name='eprocess', verbose_name='final activity', null=True, blank=True,
+    begin = models.ForeignKey('Activity', related_name='bprocess', 
+                              verbose_name='initial activity', null=True, blank=True)
+    end = models.ForeignKey('Activity', related_name='eprocess', 
+                            verbose_name='final activity', null=True, blank=True,
                             help_text='a default end activity will be created if blank')
     priority = models.IntegerField(default=0)
     
@@ -81,33 +107,48 @@ class Process(models.Model):
             ("can_instantiate", "Can instantiate"),
             ("can_browse", "Can browse"),
         )
+    
     def __unicode__(self):
         return self.title
     
     @allow_tags
-    def summary(self):
-        return '<pre>%s</pre>' % self.description
-    
-    @allow_tags
     def action(self):
-        return 'add <a href=../activity/add/>a new activity</a> or <a href=../activity/>copy</a> an activity from another process'
+        return ('add <a href=../activity/add/>a new activity</a> or '
+                '<a href=../activity/>copy</a> an activity from another process')
 
     
     def add_activity(self, name):
-        '''
-        name: name of activity (get or created)
+        '''Add an activity to the process
+        
+        :type name: string
+        :param name: name of activity (get or created)
         '''
         a, created = Activity.objects.get_or_create(title=name, process=self, 
                                                     defaults={'description':'(add description)'})
         return a 
     
     def add_transition(self, name, activity_out, activity_in):
+        '''Add an transition to the process
+        
+        :type name: string
+        :param name: name of activity (get or created)
+        :type activity_out: Activity
+        :param activity_out: the to or output Activity
+        :type activity_in: Activity
+        :param activity_in: the from or input Activity
+        '''
+        
         t, created = Transition.objects.get_or_create(name=name, process=self,
                                              output=activity_out,
                                              defaults={'input':activity_in})
         return t
     
     def save(self, no_end=False):
+        '''save process and provide automatic 'end' activity
+        
+        :type no_end: bool
+        :param no_end: without specified 'end' activity
+        '''
         models.Model.save(self)
         if not no_end and not self.end:
             self.end = Activity.objects.create(title='End', process=self, kind='dummy', autostart=True)
@@ -132,14 +173,16 @@ class Process(models.Model):
             pass
         
 
-
 class Application(models.Model):
     """ An application is a python view that can be called by URL.
     
         Activities can call applications.
         A commmon prefix may be defined: see settings.WF_APPS_PREFIX
+        
+        
     """
-    url = models.CharField(max_length=255, unique=True, help_text='relative to prefix in settings.WF_APPS_PREFIX')
+    url = models.CharField(max_length=255, unique=True, 
+                           help_text='relative to prefix in settings.WF_APPS_PREFIX')
     # TODO: drop abbreviations (perhaps here not so necessary to ??
     SUFF_CHOICES = (
                     ('w', 'workitem.id'),
@@ -186,7 +229,7 @@ class Application(models.Model):
         p.begin = p.end
         p.begin.autostart = False
         p.begin.title = "test_activity"
-        p.begin.kind = 's'
+        p.begin.kind = 'standard'
         p.begin.application = self
         p.begin.description = 'test activity for application %s' % self.url
         p.begin.save()
@@ -209,6 +252,22 @@ class Application(models.Model):
             return '<a href=testenv/create/%d/>create unit test env</a>' % self.id
 
 
+class Parameter(models.Model):
+    """A parameter is a definition of what goes into workflow application or routing
+    function
+    """
+    PARAMETER_TYPES = (
+                    ('string', 'string'),
+                    ('integer', 'integer'),
+                    ('decimal', 'decimal'),
+                    ('datetime', 'datatime')
+    )
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=10, choices=PARAMETER_TYPES)
+    direction = models.CharField(max_length=2, choices=[('in','in'),('out','out')])
+    def __unicode__(self):
+        return self.name
+
 
 class PushApplication(models.Model):
     """A push application routes a workitem to a specific user.
@@ -223,6 +282,7 @@ class PushApplication(models.Model):
     A commmon prefix may be defined: see settings.WF_PUSH_APPS_PREFIX
     
     """
+#    name = models.CharField(max_length=50, unique=True)
     url = models.CharField(max_length=255, unique=True)
     def __unicode__(self):
         return self.url
@@ -232,10 +292,6 @@ class PushApplication(models.Model):
         return '<a href=#>test (not yet implemented)</a>'
     
 
-
-
-
-   
 class Transition(models.Model):
     """ A Transition connects two Activities: a From and a To activity.
     
