@@ -132,7 +132,7 @@ def test():
         #((input,       output),        transition_name,       transition_condition)
         (('begin',      'approval'),   'send_to_approval',    'OK: Forward to supervisor'),
         (('begin',      'refinement'), 'send_to_refinement',  'Denied: Back to requester'),
-        (('approval',   'updatehr'), 'request_approved',    'OK: Forward to secretary'),
+        (('approval',   'updatehr'),   'request_approved',    'OK: Forward to secretary'),
         (('approval',   'refinement'), 'not_approved',        'Denied: Back to requester'),
         (('refinement', 'begin'),      're_request',          'Re-request'),
         (('refinement', 'end'),        'cancel_request',      'Withdraw request'),

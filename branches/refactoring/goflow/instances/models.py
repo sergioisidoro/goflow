@@ -12,6 +12,8 @@ from django.core.urlresolvers import resolve
 #from goflow.workflow.notification import notify_if_needed
 from goflow.instances.managers import ProcessInstanceManager, WorkItemManager
 from goflow.utils.logger import Log; log = Log('goflow.instances.models')
+from goflow.utils.errors import error
+import yaml
 
 
 class ProcessInstance(models.Model):
@@ -45,30 +47,30 @@ class ProcessInstance(models.Model):
     can be very useful for the ProcessInstance monitoring.
     
     When a process instance starts, the instance has to carry an
-    implementation object that contains the application data. The
-    specifications for the implementation class is:
+    implementation object that contains the application data.
     
-    (nothing: now managed by generic relation)
+    From the instance, the implementation object is reached as follows::
     
-    From the instance, the implementation object is reached as following:
-      obj = instance.content_object
-    In a template, a field date1 will be displayed like this:
-      {{ instance.content_object.date1 }}
-      
-    From the object, instances may be reached with the reverse generic relation:
-    the following can be added to the model:
-    wfinstances = generic.GenericRelation(ProcessInstance)
-  
+        obj = instance.content_object
 
+    In a template, a field date1 will be displayed like this::
+      
+        {{ instance.content_object.date1 }}
+      
+    From the object, instances may be reached with the reverse generic relation,
+    the following can be added to the model::
+    
+        wfinstances = generic.GenericRelation(ProcessInstance)
+  
     """
     STATUS_CHOICES = (
-                      ('initiated', 'initiated'),
-                      ('running', 'running'),
-                      ('active', 'active'),
-                      ('complete', 'complete'),
-                      ('terminated', 'terminated'),
-                      ('suspended', 'suspended'),
-                      )
+          ('initiated', 'initiated'),
+          ('running', 'running'),
+          ('active', 'active'),
+          ('complete', 'complete'),
+          ('terminated', 'terminated'),
+          ('suspended', 'suspended'),
+    )
     title = models.CharField(max_length=100)
     process = models.ForeignKey('workflow.Process', related_name='instances', 
                                 null=True, blank=True)
@@ -93,13 +95,12 @@ class ProcessInstance(models.Model):
     
     def set_status(self, status):
         if not status in [x for (x, y) in ProcessInstance.STATUS_CHOICES]:
-            raise Exception('instance status incorrect :%s' % status)
+            raise error('incorrect_status', status=status)            
+            #raise Exception('instance status incorrect :%s' % status)
         self.old_status = self.status
         self.status = status
         self.save()
     
-
-
 class WorkItem(models.Model):
     """A workitem object represents an activity you are performing.
     
@@ -200,9 +201,8 @@ class WorkItem(models.Model):
             try:
                 auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             except Exception:
-                error = ('a user named %s (settings.WF_USER_AUTO) must'
-                         'be defined for auto activities')
-                raise Exception(error % settings.WF_USER_AUTO)
+#                raise Exception("user: %s (settings.WF_USER_AUTO) must be defined for auto " % settings.WF_USER_AUTO)
+                raise error('auto_user')
             wi.activate(actor=auto_user)
             if wi.exec_auto_application():
                 wi.complete(actor=auto_user)
@@ -220,6 +220,7 @@ class WorkItem(models.Model):
             wi.save()
             #notify_if_needed(roles=wi.pull_roles)
         return wi
+
 
 
     def exec_push_application(self):
@@ -315,7 +316,8 @@ class WorkItem(models.Model):
         '''
         try:
             if not self.activity.process.enabled:
-                raise Exception('process %s disabled.' % self.activity.process.title)
+                raise error('process_disabled', workitem=self)
+#                raise Exception('process %s disabled.' % self.activity.process.title)
             # no application: default auto app
             if not self.activity.application:
                 return self.default_auto_app()
@@ -394,21 +396,25 @@ class WorkItem(models.Model):
             status = (status,)
             
         if not self.activity.process.enabled:
-            error = 'process %s disabled.' % self.activity.process.title
-            log.error(error)
-            raise Exception(error)
+            raise error('process_disabled', log=log, workitem=self)
+#            error = 'process %s disabled.' % self.activity.process.title
+#            log.error(error)
+#            raise Exception(error)
             
         if not self.check_user(user):
-            error = 'user %s cannot take workitem %d.' % (user.username, self.id)
-            log.error(error)
             self.fallout()
-            raise Exception(error)
+            raise error('invalid_user_for_workitem', log=log, user=user, workitem=self)
+#            error = 'user %s cannot take workitem %d.' % (user.username, self.id)
+#            log.error(error)
+#            self.fallout()
+#            raise Exception(error)
             
         if not self.status in status:
-            error = 'workitem %d has not a correct status (%s/%s).' % (
-                self.id, self.status, str(status))
-            log.error(error)
-            raise Exception(error)
+            raise error('incorrect_workitem_status', log=log, workitem=self)
+#            error = 'workitem %d has not a correct status (%s/%s).' % (
+#                self.id, self.status, str(status))
+#            log.error(error)
+#            raise Exception(error)
     
         return
      

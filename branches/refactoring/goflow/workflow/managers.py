@@ -54,13 +54,14 @@ class ProcessManager(models.Manager):
             auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             workitem.activate(actor=auto_user)
     
-            if workitem.exec_auto_application():
-                log('workitem.exec_auto_application:', workitem)
+            if workitem.run_activity_app():
+                log('workitem.run_activity_app:', workitem)
                 workitem.complete(actor=auto_user)
             return workitem
 
         if process.begin.push_application:
             target_user = workitem.exec_push_application()
+            #target_user = workitem.push_to_next_user()
             log('application pushed to user', target_user.username)
             workitem.user = target_user
             workitem.save()

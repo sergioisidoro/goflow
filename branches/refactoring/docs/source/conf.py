@@ -29,7 +29,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'leavedemo.settings'
 extensions = ['sphinx.ext.autodoc']#, 'sphinx.ext.doctest']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['.templates']
+templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -45,9 +45,9 @@ copyright = '2008, Eric Simorre'
 # other places throughout the built documents.
 #
 # The short X.Y version.
-version = '0.51'
+version = '0.6'
 # The full version, including alpha/beta/rc tags.
-release = '0.51'
+release = '0.6'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -97,7 +97,7 @@ html_style = 'default.css'
 
 # The name of an image file (within the static path) to place at the top of
 # the sidebar.
-#html_logo = None
+html_logo = 'images/logo.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

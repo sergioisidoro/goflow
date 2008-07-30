@@ -29,12 +29,10 @@
 {% endif %}{% endif %}
 {% endblock %}
 
-
 Hints:
 <ul>
-<li>End activity: type=dummy, auto_start=true, default for others
+<li>End activity: type=dummy, auto_start=true, default for others.
 </ul>
-
 
 <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form">{% block form_top %}{% endblock %}
 <div>
@@ -84,6 +82,7 @@ Hints:
 </div>
 </form></div>
 {% endblock %}
+
 
 
 

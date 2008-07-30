@@ -33,4 +33,33 @@ def to_current_superuser(workitem, user_pushed):
     '''
     return None
 
-
+# 
+# class route_to_requester(object):
+#     def __init__(self, workitem):
+#         self.workitem = workitem
+#     def __call__(self):
+#         return self.workitem.instance.user
+# 
+# 
+# class route_to_user(object):
+#     '''Route to user given a username
+#     '''
+#     def __init__(self, workitem, username):
+#         self.workitem = workitem
+#         self.username = username
+#     def __call__(self):
+#         return User.objects.get(username=username)
+# 
+# 
+# class route_to_superuser(object):
+#     '''Route to the superuser
+#     '''
+#     def __init__(self, workitem, username='admin'):
+#         self.workitem = workitem
+#         self.username = username
+#     def __call__(self):
+#         if user.is_superuser:
+#             return user
+#         log.warning('this user is not a super-user:', username)
+#         return None
+# 
