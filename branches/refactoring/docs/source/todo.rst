@@ -11,9 +11,8 @@ TODOs
 Version 0.6 (refactored branch)
 +++++++++++++++++++++++++++++++
 
-Eliminate Generic Exceptions
-****************************
-
 Minimize / Manager Eval
 ***********************
+
+- modify runtime.models for new api with minimal eval
 

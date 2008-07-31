@@ -23,7 +23,7 @@ logging.basicConfig(
     format=log_format,
     datefmt="%Y-%m-%d %H:%M:%S"
 )
-log = logging.getLogger('goflow.utils')
+log = logging.getLogger('goflow.common')
 if _LOG_FILE_NOTSET:
      log.warning('settings.LOGGING_FILE not set; default is workflow.log')
 
@@ -31,7 +31,7 @@ if _LOG_FILE_NOTSET:
 class Log(object):
     def __init__(self, module):
         self.log = logging.getLogger(module)
-        # self._event = get_model('instances', 'Event').objects
+        # self._event = get_model('runtime', 'Event').objects
 
     def __getattr__(self, name):
         try:

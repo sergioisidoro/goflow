@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from models import ProcessInstance, WorkItem
 
-from goflow.utils.decorators import login_required
+from goflow.common.decorators import login_required
 
 @login_required
 def mywork(request, template='goflow/mywork.html'):

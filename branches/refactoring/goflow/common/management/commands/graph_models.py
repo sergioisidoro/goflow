@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from optparse import make_option
-from goflow.utils.management.modelviz import generate_dot
+from goflow.common.management.modelviz import generate_dot
 
 class Command(BaseCommand):
     option_list = BaseCommand.option_list + (

@@ -3,8 +3,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from goflow.instances.models import ProcessInstance, WorkItem, Event
-from goflow.utils.logger import Log; log = Log('goflow.workflow.managers')
+from goflow.runtime.models import ProcessInstance, WorkItem, Event
+from goflow.common.logger import Log; log = Log('goflow.workflow.managers')
 
 class ProcessManager(models.Manager):
     '''Custom model manager for Process

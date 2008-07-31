@@ -10,9 +10,10 @@ from django.conf import settings
 from django.core.urlresolvers import resolve
 
 #from goflow.workflow.notification import notify_if_needed
-from goflow.instances.managers import ProcessInstanceManager, WorkItemManager
-from goflow.utils.logger import Log; log = Log('goflow.instances.models')
-from goflow.utils.errors import error
+from goflow.runtime.managers import ProcessInstanceManager, WorkItemManager
+from goflow.common.logger import Log; log = Log('goflow.runtime.models')
+from goflow.common.errors import error
+from goflow.common import get_class
 import yaml
 
 
@@ -107,6 +108,7 @@ class WorkItem(models.Model):
     An Activity object defines the activity, while the workitem object
     represents that you are performing this activity. A workitem is therfore
     an "instance" of the activity.
+
     """
     STATUS_CHOICES = (
                       ('blocked', 'blocked'),
@@ -135,42 +137,22 @@ class WorkItem(models.Model):
     # set to the new WorkItemManager
     objects = WorkItemManager()
 
-    def forward(self, timeout_forwarding=False, subflow_workitem=None):
-        '''
-        Forward this workitem to all valid destination activities.
-        
-        :type timeout_forwarding: bool
-        :param timeout_forwarding: TODO: explain this better
-        :type: subflow_workitem: WorkItem
-        :param subflow_workitem: a workitem associated with a subflow   
-        '''
-        log.info(self)
-        if not timeout_forwarding:
-            if self.status != 'complete':
-                return
-        if self.has_workitems_to() and not subflow_workitem:
-            log.debug('forwarding canceled for'+ str(self))
-            return
-        
-        if timeout_forwarding:
-            log.event('timout forwarding', self)
-        
-        for target in self.get_destinations(timeout_forwarding):
-            self._forward_self_to_activity(target)
+    def __unicode__(self):
+        return '%s-%s-%s' % (unicode(self.instance), self.activity, str(self.id))
 
-    def get_destinations(self, timeout_forwarding=False):
+    def get_destinations(self, with_timeout=False):
         '''
         Return list of destination activities that meet the 
         conditions of each transition
         
-        :type timeout_forwarding: bool
-        :param timeout_forwarding: a workitem with a time-delay??
+        :type with_timeout: bool
+        :param with_timeout: only retrieve activities with_timeout delays
         :rtype: [Activity]
         :return: list of destination activities.
         '''
         transitions = models.get_model('workflow', 'Transition'
                                       ).objects.filter(input=self.activity)
-        if timeout_forwarding:
+        if with_timeout:
             transitions = transitions.filter(condition__contains='workitem.timeout')
         destinations = []
         for transition in transitions:
@@ -178,93 +160,187 @@ class WorkItem(models.Model):
                 destinations.append(transition.output)
         return destinations
 
-    def _forward_self_to_activity(self, target_activity):
+    def forward_to_activities(self, with_timeout=False, subflow_workitem=None):
+        '''
+        Forward this workitem to all valid destination activities.
+        
+        :type with_timeout: bool
+        :param with_timeout: forward to all desinations with timeout
+        :type: subflow_workitem: WorkItem
+        :param subflow_workitem: a workitem associated with a subflow   
+        '''
+        
+        if self.has_workitems_to() and not subflow_workitem:
+            log.debug('forwarding canceled for'+ str(self))
+            return
+        
+        if not with_timeout:
+            if self.status != 'complete':
+                return
+        else:
+            log.event('with timout forwarding', self)
+                
+        for activity in self.get_destinations(with_timeout):
+            self.forward_to_activity(activity)
+
+    def run_activity_app(self, **kwds):
+        '''
+        Runs the current activity application or creates a test auto application for activities 
+        that don't yet have applications. Returns True or False based upon success.
+        
+        :type workitem: WorkItem
+        :rtype: bool
+        '''
+        try:
+            if not self.activity.process.enabled:
+                raise error('process_disabled', workitem=self)
+
+            # no application: default auto app
+            if not self.activity.application:
+                obj = self.instance.content_object
+                obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title
+                obj.save()
+                return True
+            
+            func, args, kwargs = resolve(self.activity.application.get_app_url())
+            params = self.activity.app_param
+            # params values defined in activity override those defined in urls.py
+            if params:
+                params = yaml.load(params)
+                #params = eval('{'+params.lstrip('{').rstrip('}')+'}')
+                kwargs.update(params)
+            if kwds:
+                kwargs.update(kwds)
+            
+            # what kind of function is this?
+            func(workitem=self , **kwargs)
+            return True
+        except Exception, v:
+            log.error('execution wi %s:%s', self, v)
+        return False
+
+    def forward_to_activity(self, activity):
         '''
         Passes the process instance embedded in this workitem 
         to a new workitem that is associated with the destination activity.
         
-        :type target_activity: Activity
-        :param target_activity: the activity instance to this workitem 
+        :type activity: Activity
+        :param activity: the activity instance to this workitem 
                                 should be forwarded
         :rtype: WorkItem
         :return: a workitem that has been passed on to the next 
                  activity (and next user)
         '''
-        instance = self.instance
-        wi = WorkItem.objects.create(instance=instance, user=None, 
-                                     activity=target_activity)
-        log.event('creation by %s' % self.user.username, wi)
-        log.event('forwarded to %s' % target_activity.title, self)
-        wi.workitem_from = self
-        if target_activity.autostart:
-            log.info('run auto activity %s workitem %s', target_activity.title, str(wi))
+        # create a new workitem
+        workitem = WorkItem.objects.create(instance=self.instance, user=None, 
+                                     activity=activity)
+        log.event('created by %s' % self.user.username, self)
+        log.event('forwarded to %s' % activity.title, workitem)
+        
+        # it's been sent from here
+        workitem.workitem_from = self
+        
+        if activity.autostart:
+            log('run auto activity: %s workitem: %s', activity.title, workitem)
             try:
                 auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             except Exception:
-#                raise Exception("user: %s (settings.WF_USER_AUTO) must be defined for auto " % settings.WF_USER_AUTO)
-                raise error('auto_user')
-            wi.activate(actor=auto_user)
-            if wi.exec_auto_application():
-                wi.complete(actor=auto_user)
-            return wi
+                raise error('no_auto_user')
+            # activate it
+            workitem.activate(actor=auto_user)
+            
+            if workitem.run_activity_app():
+                workitem.complete(actor=auto_user)
+#            else:
+                # autotest not run correctly
+#                return
+            return workitem
         
-        if target_activity.push_application:
-            target_user = wi.exec_push_application()
-            log.info('application pushed to user %s', target_user.username)
-            wi.user = target_user
-            wi.save()
-            log.event('assigned to %s' % target_user.username, wi)
-            #notify_if_needed(user=target_user)
+        if activity.push_application:
+            user = workitem.push_to_next_user()
+            log('application pushed to user %s', user.username)
+            workitem.user = user
+            workitem.save()
+            log.event('assigned to %s' % user.username, workitem)
+            #notify_if_needed(user=user)
         else:
-            wi.pull_roles = wi.activity.roles.all()
-            wi.save()
-            #notify_if_needed(roles=wi.pull_roles)
-        return wi
+            workitem.pull_roles = workitem.activity.roles.all()
+            workitem.save()
+            #notify_if_needed(roles=workitem.pull_roles)
+        return workitem
 
+    def push_to_next_user(self):
+        '''run pushappplication on self (workitem)
+        
+        This replaces exec_push_application and provides
+        the same functionality without eval
+        
+        examples are::
 
-
-    def exec_push_application(self):
+            class route_to_requester(PushApp):
+                def __init__(self, workitem):
+                    self.workitem = workitem
+                def __call__(self):
+                    return self.workitem.instance.user
+            
+            class route_to_user(PushApp):
+                def __init__(self, workitem, username):
+                    self.workitem = workitem
+                    self.username = username
+                def __call__(self):
+                    return self.workitem.instance.user
+                    
+            
+        a parameter would look like this is yaml notation::
+                        
+            username: admin
+            delay: 10    
+            
         '''
-        Execute push application in workitem
-        '''
-        # TODO: another horrible eval HACK:
-        workitem = self        
-        if not workitem.activity.process.enabled:
-            raise Exception('process %s disabled.' % workitem.activity.process.title)
-        appname = workitem.activity.push_application.url
-        params = workitem.activity.pushapp_param
-        # try std pushapps:
-        from goflow.workflow import pushapps
-        if appname in dir(pushapps):
-            try:
-                kwargs = ''
-                if params:
-                    kwargs = ',**%s' % params
-                result = eval('pushapps.%s(workitem%s)' % (appname, kwargs))
-            except Exception, v:
-                log.error('exec_push_application %s', v)
-                result = None
-                workitem.fallout()
-            return result
+        if not self.activity.process.enabled:
+            raise error('process_disabled', name=self.activity.process.title)
+        #TODO: this should be by pushapp.name not by pushapp.url
+        # e.g: appname = self.activity.pushapp.name
+        
+        appname = self.activity.push_application.url
+        params_yaml = self.activity.pushapp_param
+        
+        # first try standard pushapps in goflow.workflow.pushapps        
+        modpath = 'goflow.workflow.pushapps'
+        try:
+            Router = get_class(modpath, appname)
+            # everything is ok, so return user
+            if params_yaml:
+                params = yaml.load(params)
+                user = Router(workitem=self, **params)()
+                return user
+            else:
+                user = Router(workitem=self)()
+                return user
+        except (ImportError, AttributeError):
+            pass
         
         try:
-            prefix = settings.WF_PUSH_APPS_PREFIX
-            # dyn import
-            exec 'import %s' % prefix
-            
-            appname = '%s.%s' % (prefix, appname)
-            result = eval('%s(workitem)' % appname)
-        except Exception, v:
-            log.error('exec_push_application %s', v)
-            result = None
-            workitem.fallout()
-        return result
+            modpath = settings.WF_PUSH_APPS_PREFIX+'.'+appname
+            Router = get_class(modpath, appname)
+            # everything is ok, so return user
+            if params_yaml:
+                params = yaml.load(params)
+                user = Router(workitem=self, **params)()
+                return user
+            else:
+                user = Router(workitem=self)()
+                return user
+        except (ImportError, AttributeError), e:
+            self.fallout()
+            log.error(e)
+        
 
     def activate(self, actor):
         '''
         changes this workitem's status to 'active' and logs event & activator
         '''        
-        self._check_all_for(actor, status=('inactive', 'active'))
+        self._check_conditions_for_user(actor, status=('inactive', 'active'))
         if self.status == 'active':
             log.warning('actor:%s workitem:%s already active', actor.username, str(self))
             return
@@ -273,12 +349,11 @@ class WorkItem(models.Model):
         self.save()
         log.event('activated by '+actor.username, workitem=self)
 
-
     def complete(self, actor):
         '''
         changes status of this workitem to 'complete' and logs event & activator
         '''
-        self._check_all_for(actor, status='active')
+        self._check_conditions_for_user(actor, status='active')
         self.status = 'complete'
         self.user = actor
         self.save()
@@ -286,7 +361,7 @@ class WorkItem(models.Model):
         
         if self.activity.autofinish:
             log.debug('activity autofinish: forward')
-            self.forward()
+            self.forward_to_activities()
         
         # if end activity, instance is complete
         if self.instance.process.end == self.activity:
@@ -303,48 +378,9 @@ class WorkItem(models.Model):
                 log.info('process change for instance %s' % workitem0.instance.title)
                 workitem0.status = 'complete'
                 workitem0.save()
-                workitem0.forward(subflow_workitem=self)
+                workitem0.forward_to_activities(subflow_workitem=self)
             else:
                 self.instance.set_status('complete')
-
-
-    def exec_auto_application(self):
-        '''
-        creates a test auto application for activities that don't yet have applications
-        :type workitem: WorkItem
-        :rtype: bool
-        '''
-        try:
-            if not self.activity.process.enabled:
-                raise error('process_disabled', workitem=self)
-#                raise Exception('process %s disabled.' % self.activity.process.title)
-            # no application: default auto app
-            if not self.activity.application:
-                return self.default_auto_app()
-            
-            func, args, kwargs = resolve(self.activity.application.get_app_url())
-            params = self.activity.app_param
-            # params values defined in activity override those defined in urls.py
-            if params:
-                params = eval('{'+params.lstrip('{').rstrip('}')+'}')
-                kwargs.update(params)
-            func(workitem=self , **kwargs)
-            return True
-        except Exception, v:
-            log.error('execution wi %s:%s', self, v)
-        return False
-
-    def default_auto_app(self):
-        '''
-        retrieves content_object, logs info to it, saves
-        
-        :rtype: bool
-        :return: always returns True
-        '''
-        obj = self.instance.content_object
-        obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title
-        obj.save()
-        return True
 
     def start_subflow(self, actor):
         '''
@@ -358,7 +394,7 @@ class WorkItem(models.Model):
         self.blocked = True
         self.save()
         
-        sub_workitem = self._forward_self_to_activity(subflow_begin_activity)
+        sub_workitem = self.forward_to_activity(subflow_begin_activity)
         return sub_workitem
 
     def eval_transition_condition(self, transition):
@@ -383,8 +419,8 @@ class WorkItem(models.Model):
 
         return False
 
-    def _check_all_for(self, user, status=('inactive','active')):
-        # may be renamed to _check_conditions_for(user)
+    def _check_conditions_for_user(self, user, status=('inactive','active')):
+        # may be renamed to _check_conditions_for_user(user)
         '''
         helper function to check for a given user that:
             - process is enabled
@@ -397,30 +433,16 @@ class WorkItem(models.Model):
             
         if not self.activity.process.enabled:
             raise error('process_disabled', log=log, workitem=self)
-#            error = 'process %s disabled.' % self.activity.process.title
-#            log.error(error)
-#            raise Exception(error)
             
         if not self.check_user(user):
             self.fallout()
             raise error('invalid_user_for_workitem', log=log, user=user, workitem=self)
-#            error = 'user %s cannot take workitem %d.' % (user.username, self.id)
-#            log.error(error)
-#            self.fallout()
-#            raise Exception(error)
             
         if not self.status in status:
             raise error('incorrect_workitem_status', log=log, workitem=self)
-#            error = 'workitem %d has not a correct status (%s/%s).' % (
-#                self.id, self.status, str(status))
-#            log.error(error)
-#            raise Exception(error)
     
         return
-     
-    def __unicode__(self):
-        return '%s-%s-%s' % (unicode(self.instance), self.activity, str(self.id))
-    
+         
     def has_workitems_to(self):
         return ( self.workitems_to.count() > 0 )
 
@@ -492,9 +514,6 @@ class WorkItem(models.Model):
         tdelta = timedelta(**{unit:delay})
         now = datetime.now()
         return (now > (self.date + tdelta))
-        
-    
-
 
 class Event(models.Model):
     """Events are changes that happen to workitems.
@@ -503,8 +522,6 @@ class Event(models.Model):
     name = models.CharField(max_length=50, core=True)
     workitem = models.ForeignKey('WorkItem', 
         related_name='events', edit_inline=True)
-
-
 
 class DefaultAppModel(models.Model):
     """Default implementation object class for process instances.

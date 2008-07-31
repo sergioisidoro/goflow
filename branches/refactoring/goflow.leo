@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,1,9,0,0"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,1,9"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -347,12 +347,11 @@
 <v t="sa.20080715111354.24"><vh>The Process Monitor</vh></v>
 </v>
 </v>
-<v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5" a="E"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080714225902.6" a="E"><vh>New Features</vh>
+<v t="sa.20080714012008.11" a="E"><vh>@rst changes.rst</vh>
+<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080714225902.6"><vh>New Features</vh>
 <v t="sa.20080724074952.3"><vh>Improved API</vh></v>
-<v t="sa.20080724074952.11"><vh>Improvement documentation system</vh></v>
-<v t="sa.20080727142922.1"><vh>restructuring</vh></v>
+<v t="sa.20080724074952.11"><vh>Improved documentation system</vh></v>
 <v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
 </v>
 <v t="sa.20080714225902.7"><vh>Bug Fixes</vh></v>
@@ -364,10 +363,8 @@
 <v t="sa.20080720192331.4"><vh>Backwards Incompatible Changes</vh></v>
 </v>
 </v>
-<v t="sa.20080724074952.1" a="E"><vh>@rst todo.rst</vh>
+<v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
 <v t="sa.20080724074952.2" a="E"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080728200234.2"><vh>Further Api Improvements</vh></v>
-<v t="sa.20080728200234.1"><vh>Eliminate Generic Exceptions</vh></v>
 <v t="sa.20080724074952.10"><vh>Minimize / Manager Eval</vh></v>
 </v>
 </v>
@@ -399,15 +396,15 @@
 <v t="sa.20080714012008.16"><vh>@rst goflow.graphics.models.rst</vh></v>
 <v t="sa.20080714012008.19"><vh>@rst goflow.graphics.views.rst</vh></v>
 <v t="sa.20080714012008.18"><vh>@rst goflow.graphics.urls_admin.rst</vh></v>
-<v t="sa.20080714012008.21"><vh>@rst goflow.utils.rst</vh></v>
-<v t="sa.20080714012008.20"><vh>@rst goflow.utils.logger.rst</vh></v>
-<v t="sa.20080714012008.33"><vh>@rst goflow.utils.decorators.rst</vh></v>
-<v t="sa.20080714012008.26"><vh>@rst goflow.instances.rst</vh></v>
-<v t="sa.20080714012008.23"><vh>@rst goflow.instances.api.rst</vh></v>
-<v t="sa.20080714012008.24"><vh>@rst goflow.instances.forms.rst</vh></v>
-<v t="sa.20080714012008.25"><vh>@rst goflow.instances.models.rst</vh></v>
-<v t="sa.20080727144116.1"><vh>@rst goflow.instances.managers.rst</vh></v>
-<v t="sa.20080714012008.29"><vh>@rst goflow.instances.views.rst</vh></v>
+<v t="sa.20080714012008.21"><vh>@rst goflow.common.rst</vh></v>
+<v t="sa.20080714012008.20"><vh>@rst goflow.common.logger.rst</vh></v>
+<v t="sa.20080714012008.33"><vh>@rst goflow.common.decorators.rst</vh></v>
+<v t="sa.20080714012008.26"><vh>@rst goflow.runtime.rst</vh></v>
+<v t="sa.20080714012008.23"><vh>@rst goflow.runtime.api.rst</vh></v>
+<v t="sa.20080714012008.24"><vh>@rst goflow.runtime.forms.rst</vh></v>
+<v t="sa.20080714012008.25"><vh>@rst goflow.runtime.models.rst</vh></v>
+<v t="sa.20080727144116.1"><vh>@rst goflow.runtime.managers.rst</vh></v>
+<v t="sa.20080714012008.29"><vh>@rst goflow.runtime.views.rst</vh></v>
 <v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.31"><vh>@rst goflow.workflow.managers.rst</vh></v>
 <v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
@@ -633,17 +630,17 @@ lst = [
     ("goflow.graphics.models.rst","datamodels for graphics processing"),
     ("goflow.graphics.views.rst","goflow graphics views"),
     ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
-    ("goflow.instances.rst","goflow runtime"),
-    ("goflow.instances.api.rst","goflow runtime api"),
-    ("goflow.instances.forms.rst","goflow runtime forms"),
-    ("goflow.instances.models.rst","goflow runtime models"),
-    ("goflow.instances.views.rst","goflow runtime views"),
-    ("goflow.instances.urls.rst","goflow runtime urls"),
-    ("goflow.instances.urls_admin.rst","goflow runtime custom admin interface"),
+    ("goflow.runtime.rst","goflow runtime"),
+    ("goflow.runtime.api.rst","goflow runtime api"),
+    ("goflow.runtime.forms.rst","goflow runtime forms"),
+    ("goflow.runtime.models.rst","goflow runtime models"),
+    ("goflow.runtime.views.rst","goflow runtime views"),
+    ("goflow.runtime.urls.rst","goflow runtime urls"),
+    ("goflow.runtime.urls_admin.rst","goflow runtime custom admin interface"),
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.managers.rst","key model managers for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
-    ("goflow.utils.decorators.rst","goflow decorator library"),
+    ("goflow.common.decorators.rst","goflow decorator library"),
     ("goflow.workflow.forms.rst","goflow form utility functions"),
     ("goflow.workflow.logger.rst","logging capability"),
     ("goflow.workflow.models.rst","workflow models"),
@@ -712,68 +709,68 @@ lst = [
 </t>
 <t tx="sa.20080714012008.20">
 
-.. _goflow.utils.logger.:
+.. _goflow.common.logger.:
 
-:mod:`goflow.utils.logger.` -- manages sitewide logging  
+:mod:`goflow.common.logger.` -- manages sitewide logging  
 ================================================================================
 
-.. automodule:: goflow.utils.logger 
+.. automodule:: goflow.common.logger 
    :synopsis: manages sitewide logging  
    :members:
 </t>
 <t tx="sa.20080714012008.21">
 
-.. _goflow.utils:
+.. _goflow.common:
 
-:mod:`goflow.utils` -- package for common functionality
+:mod:`goflow.common` -- package for common functionality
 ================================================================================
 
-.. automodule:: goflow.utils 
+.. automodule:: goflow.common 
    :synopsis: package for common functionality
    :members:
 </t>
 <t tx="sa.20080714012008.23">
 
-.. _goflow.instances.api:
+.. _goflow.runtime.api:
 
-:mod:`goflow.instances.api` -- goflow runtime api 
+:mod:`goflow.runtime.api` -- goflow runtime api 
 ================================================================================
 
-.. automodule:: goflow.instances.api 
+.. automodule:: goflow.runtime.api 
    :synopsis: goflow runtime api
    :members:
 
 </t>
 <t tx="sa.20080714012008.24">
 
-.. _goflow.instances.forms:
+.. _goflow.runtime.forms:
 
-:mod:`goflow.instances.forms` -- goflow runtime forms 
+:mod:`goflow.runtime.forms` -- goflow runtime forms 
 ================================================================================
 
-.. automodule:: goflow.instances.forms 
+.. automodule:: goflow.runtime.forms 
    :synopsis: goflow runtime forms
    :members:
 </t>
 <t tx="sa.20080714012008.25">
 
-.. _goflow.instances.models:
+.. _goflow.runtime.models:
 
-:mod:`goflow.instances.models` -- goflow runtime models 
+:mod:`goflow.runtime.models` -- goflow runtime models 
 ================================================================================
 
-.. automodule:: goflow.instances.models 
+.. automodule:: goflow.runtime.models 
    :synopsis: goflow runtime models
    :members:
 </t>
 <t tx="sa.20080714012008.26">
 
-.. _goflow.instances:
+.. _goflow.runtime:
 
-:mod:`goflow.instances` -- goflow runtime 
+:mod:`goflow.runtime` -- goflow runtime 
 ================================================================================
 
-.. automodule:: goflow.instances 
+.. automodule:: goflow.runtime 
    :synopsis: goflow runtime
    :members:
 </t>
@@ -801,12 +798,12 @@ lst = [
 </t>
 <t tx="sa.20080714012008.29">
 
-.. _goflow.instances.views:
+.. _goflow.runtime.views:
 
-:mod:`goflow.instances.views` -- goflow runtime views 
+:mod:`goflow.runtime.views` -- goflow runtime views 
 ================================================================================
 
-.. automodule:: goflow.instances.views 
+.. automodule:: goflow.runtime.views 
    :synopsis: goflow runtime views
    :members:
 </t>
@@ -858,12 +855,12 @@ lst = [
    :rtype: list of strings</t>
 <t tx="sa.20080714012008.33">
 
-.. _goflow.utils.decorators:
+.. _goflow.common.decorators:
 
-:mod:`goflow.utils.decorators` -- goflow decorator library 
+:mod:`goflow.common.decorators` -- goflow decorator library 
 ================================================================================
 
-.. automodule:: goflow.utils.decorators 
+.. automodule:: goflow.common.decorators 
    :synopsis: goflow decorator library
    :members:
 </t>
@@ -962,18 +959,18 @@ goflow.graphics
    goflow.graphics.urls_admin.rst
 
 
-goflow.instances
+goflow.runtime
 -----------------
 
 .. toctree::
    :maxdepth: 2
       
-   goflow.instances.rst
-   goflow.instances.api.rst
-   goflow.instances.managers.rst   
-   goflow.instances.forms.rst
-   goflow.instances.models.rst
-   goflow.instances.views.rst
+   goflow.runtime.rst
+   goflow.runtime.api.rst
+   goflow.runtime.managers.rst   
+   goflow.runtime.forms.rst
+   goflow.runtime.models.rst
+   goflow.runtime.views.rst
 
 
 goflow.workflow
@@ -991,15 +988,15 @@ goflow.workflow
    goflow.workflow.pushapps.rst
    goflow.workflow.views.rst
 
-goflow.utils
+goflow.common
 -----------------
 
 .. toctree::
    :maxdepth: 2
 
-   goflow.utils.rst
-   goflow.utils.decorators.rst
-   goflow.utils.logger.rst
+   goflow.common.rst
+   goflow.common.decorators.rst
+   goflow.common.logger.rst
 
 Indices and tables
 ===================
@@ -1255,7 +1252,7 @@ We will discover the workflow engine with a very simple application based on a p
          ...
          'django.contrib.admin'
          'goflow.workflow'
-         'goflow.instances'
+         'goflow.runtime'
         )
 
 The `workflow` application contains the "static" model data (modeling
@@ -1392,13 +1389,14 @@ TODO</t>
 <t tx="sa.20080714225902.5"></t>
 <t tx="sa.20080714225902.6">* new more 'object-oriented' api using model classes and managers
 
-* addition of goflow.utils for custom management commands, decorators, logger, etc...
+* addition of goflow.common for custom management commands, decorators, logger, etc...
 
 * better documentation..
 
 </t>
 <t tx="sa.20080714225902.7">* fixes here...</t>
-<t tx="sa.20080714225902.8">* new api...
+<t tx="sa.20080714225902.8">* given the completely new api this branched version is not backwards compatible at all...
+
 
 
 </t>
@@ -1655,10 +1653,25 @@ TODOs
 <t tx="sa.20080724074952.2"></t>
 <t tx="sa.20080724074952.3">* moved api into models and managers to make it more object oriented, still some way to go...
 
+* added goflow.common.errors module for goflow related exceptions / msgs
+
+* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt instances was too generic
+
+* moved goflow.workflow.logger into goflow.common.logger
+
+* moved goflow.workflow.decorators into goflow.common.decorators
+
+
+
 </t>
-<t tx="sa.20080724074952.10"></t>
+<t tx="sa.20080724074952.10">- modify runtime.models for new api with minimal eval</t>
 <t tx="sa.20080724074952.11">* sphinx autodoc now working 
-* add uml diagram of model (80%)</t>
+
+* add uml diagram of model (80%)
+
+* more autodoc compatible doctests / doctrings
+
+</t>
 <t tx="sa.20080724074952.12">- use custom log class for all logging (including event logging)
 </t>
 <t tx="sa.20080724074952.13">@ignore</t>
@@ -5168,26 +5181,17 @@ Most process elements can have names and descriptions.
 </t>
 <t tx="sa.20080726124242.1"></t>
 <t tx="sa.20080726124242.2"></t>
-<t tx="sa.20080727142922.1">- moved goflow.workflow.logger into goflow.utils.logger
-- moved goflow.workflow.decorators into goflow.utils.decorators
-
-
-</t>
 <t tx="sa.20080727144116.1">
 
-.. _goflow.instances.managers:
+.. _goflow.runtime.managers:
 
-:mod:`goflow.instances.managers` -- managers for process_instance management 
+:mod:`goflow.runtime.managers` -- managers for process_instance management 
 ================================================================================
 
-.. automodule:: goflow.instances.managers 
+.. automodule:: goflow.runtime.managers 
    :synopsis: managers for process_instance management 
    :members:
 
 </t>
-<t tx="sa.20080728200234.1"></t>
-<t tx="sa.20080728200234.2">- change goflow.instances to goflow.runtime
-
-- </t>
 </tnodes>
 </leo_file>

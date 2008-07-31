@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from instances.forms import DefaultAppStartForm
+from runtime.forms import DefaultAppStartForm
 
 
 urlpatterns = patterns('django.contrib.auth.views.',
@@ -21,7 +21,7 @@ urlpatterns += patterns('goflow.workflow.applications',
         {'form_class':DefaultAppStartForm, 'template':'goflow/start_proto.html'}),
 )
 
-urlpatterns += patterns('goflow.instances.views',
+urlpatterns += patterns('goflow.runtime.views',
     (r'^otherswork/$',                 'otherswork'),
     (r'^otherswork/instancehistory/$', 'instancehistory'),
     (r'^myrequests/$',                 'myrequests'),

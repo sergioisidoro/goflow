@@ -7,12 +7,12 @@ from django.contrib.auth.models import User
 from django.forms import form_for_model
 from django.contrib.auth.decorators import permission_required
 
-from goflow.instances.models import DefaultAppModel, WorkItem
-from goflow.instances.forms import DefaultAppForm
+from goflow.runtime.models import DefaultAppModel, WorkItem
+from goflow.runtime.forms import DefaultAppForm
 from goflow.workflow.models import Process
 
-from goflow.utils.decorators import login_required
-from goflow.utils.logger import Log; log = Log('goflow.workflow.applications')
+from goflow.common.decorators import login_required
+from goflow.common.logger import Log; log = Log('goflow.workflow.applications')
 
 #TODO: which template to use 'goflow/(start_application.html|start_proto.html)' ?
 @login_required
