@@ -1,11 +1,11 @@
-.. rst3: filename: goflow.utils.rst
+.. rst3: filename: goflow.common.rst
 
-.. _goflow.utils:
+.. _goflow.common:
 
-:mod:`goflow.utils` -- package for common functionality
+:mod:`goflow.common` -- package for common functionality
 ================================================================================
 
-.. automodule:: goflow.utils 
+.. automodule:: goflow.common 
    :synopsis: package for common functionality
    :members:
 

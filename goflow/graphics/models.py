@@ -3,7 +3,7 @@
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
-from goflow.utils.decorators import allow_tags
+from goflow.common.decorators import allow_tags
 from goflow.workflow.models import Process, Activity
 
 

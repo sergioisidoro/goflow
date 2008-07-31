@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import Group, User
-from goflow.utils.logger import Log; log = Log('goflow.instances.managers')
+from goflow.common.logger import Log; log = Log('goflow.runtime.managers')
 
 class ProcessInstanceManager(models.Manager):
     '''Custom model manager for ProcessInstance

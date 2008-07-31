@@ -8,7 +8,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect, HttpResponse
 
 from goflow.workflow.models import Process, Activity, Transition, Application
-from goflow.instances.models import DefaultAppModel, ProcessInstance
+from goflow.runtime.models import DefaultAppModel, ProcessInstance
 from goflow.workflow.forms import ContentTypeForm
 
 

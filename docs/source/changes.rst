@@ -17,7 +17,7 @@ New Features
 
 * new more 'object-oriented' api using model classes and managers
 
-* addition of goflow.utils for custom management commands, decorators, logger, etc...
+* addition of goflow.common for custom management commands, decorators, logger, etc...
 
 * better documentation..
 
@@ -26,17 +26,22 @@ Improved API
 
 * moved api into models and managers to make it more object oriented, still some way to go...
 
-Improvement documentation system
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* added goflow.common.errors module for goflow related exceptions / msgs
+
+* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt instances was too generic
+
+* moved goflow.workflow.logger into goflow.common.logger
+
+* moved goflow.workflow.decorators into goflow.common.decorators
+
+Improved documentation system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * sphinx autodoc now working 
+
 * add uml diagram of model (80%)
 
-restructuring
-^^^^^^^^^^^^^
-
-- moved goflow.workflow.logger into goflow.utils.logger
-- moved goflow.workflow.decorators into goflow.utils.decorators
+* more autodoc compatible doctests / doctrings
 
 Improved Logging Machinery
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -51,7 +56,7 @@ Bug Fixes
 Backwards Incompatible Changes
 ******************************
 
-* new api...
+* given the completely new api this branched version is not backwards compatible at all...
 
 Version 0.51
 ++++++++++++

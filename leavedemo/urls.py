@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
 from leave.admin import admin as leave_admin
-from goflow.instances.admin import admin as instances_admin
+from goflow.runtime.admin import admin as runtime_admin
 from goflow.workflow.admin import admin as workflow_admin
 
 
@@ -51,7 +51,7 @@ urlpatterns = patterns('',
     (r'^leave/admin/workflow/', include('goflow.urls_admin')),
     (r'^leave/admin/graphics/', include('goflow.graphics.urls_admin')),
     (r'^leave/admin/(.*)', leave_admin.site.root),
-    (r'^leave/admin/(.*)', instances_admin.site.root),
+    (r'^leave/admin/(.*)', runtime_admin.site.root),
     (r'^leave/admin/(.*)', workflow_admin.site.root),
     
     # Goflow pages

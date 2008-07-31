@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from django.contrib import admin
-from goflow.instances.models import (ProcessInstance, WorkItem, Event,
+from goflow.runtime.models import (ProcessInstance, WorkItem, Event,
                                     DefaultAppModel)
 
 

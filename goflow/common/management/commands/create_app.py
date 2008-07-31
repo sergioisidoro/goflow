@@ -1,6 +1,6 @@
 import os
 import re
-import goflow.utils as extensions
+import goflow.common as extensions
 from django.core.management.base import CommandError, LabelCommand, _make_writeable
 from optparse import make_option
 
