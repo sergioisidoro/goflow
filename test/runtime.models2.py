@@ -16,6 +16,7 @@ from goflow.common.errors import error
 from goflow.common import get_class
 import yaml
 
+# end imports
 
 class ProcessInstance(models.Model):
     """ This is a process instance.
@@ -64,6 +65,8 @@ class ProcessInstance(models.Model):
         wfinstances = generic.GenericRelation(ProcessInstance)
   
     """
+    objects = ProcessInstanceManager()
+    
     STATUS_CHOICES = (
           ('initiated', 'initiated'),
           ('running', 'running'),
@@ -83,17 +86,15 @@ class ProcessInstance(models.Model):
                                   null=True, blank=True)
     condition = models.CharField(max_length=50, null=True, blank=True)
     
-    # refactoring
+    # external generic content objects
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     
-    # add Manager
-    objects = ProcessInstanceManager()
-
+    # end fields
     def __unicode__(self):
         return self.title
-    
+
     def set_status(self, status):
         if not status in [x for (x, y) in ProcessInstance.STATUS_CHOICES]:
             raise error('incorrect_status', status=status)            
@@ -101,7 +102,7 @@ class ProcessInstance(models.Model):
         self.old_status = self.status
         self.status = status
         self.save()
-    
+
 class WorkItem(models.Model):
     """A workitem object represents an activity you are performing.
     
@@ -132,11 +133,11 @@ class WorkItem(models.Model):
     blocked = models.BooleanField(default=False)
     priority = models.IntegerField(default=0)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, 
-                              default='inactive')
-
-    # set to the new WorkItemManager
+                            default='inactive')
+    # set to the new WorkItemManager       
     objects = WorkItemManager()
-
+    
+    # end fields    
     def __unicode__(self):
         return '%s-%s-%s' % (unicode(self.instance), self.activity, str(self.id))
 
@@ -144,7 +145,7 @@ class WorkItem(models.Model):
         '''
         Return list of destination activities that meet the 
         conditions of each transition
-        
+
         :type with_timeout: bool
         :param with_timeout: only retrieve activities with_timeout delays
         :rtype: [Activity]
@@ -160,70 +161,11 @@ class WorkItem(models.Model):
                 destinations.append(transition.output)
         return destinations
 
-    def forward_to_activities(self, with_timeout=False, subflow_workitem=None):
-        '''
-        Forward this workitem to all valid destination activities.
-        
-        :type with_timeout: bool
-        :param with_timeout: forward to all desinations with timeout
-        :type: subflow_workitem: WorkItem
-        :param subflow_workitem: a workitem associated with a subflow   
-        '''
-        
-        if self.has_workitems_to() and not subflow_workitem:
-            log.debug('forwarding canceled for'+ str(self))
-            return
-        
-        if not with_timeout:
-            if self.status != 'complete':
-                return
-        else:
-            log.event('with timout forwarding', self)
-                
-        for activity in self.get_destinations(with_timeout):
-            self.forward_to_activity(activity)
-
-    def run_activity_app(self, **kwds):
-        '''
-        Runs the current activity application or creates a test auto application for activities 
-        that don't yet have applications. Returns True or False based upon success.
-        
-        :type workitem: WorkItem
-        :rtype: bool
-        '''
-        try:
-            if not self.activity.process.enabled:
-                raise error('process_disabled', workitem=self)
-
-            # no application: default auto app
-            if not self.activity.application:
-                obj = self.instance.content_object
-                obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title
-                obj.save()
-                return True
-            
-            func, args, kwargs = resolve(self.activity.application.get_app_url())
-            params = self.activity.app_param
-            # params values defined in activity override those defined in urls.py
-            if params:
-                params = yaml.load(params)
-                #params = eval('{'+params.lstrip('{').rstrip('}')+'}')
-                kwargs.update(params)
-            if kwds:
-                kwargs.update(kwds)
-            
-            # what kind of function is this?
-            func(workitem=self , **kwargs)
-            return True
-        except Exception, v:
-            log.error('execution wi %s:%s', self, v)
-        return False
-
     def forward_to_activity(self, activity):
         '''
         Passes the process instance embedded in this workitem 
         to a new workitem that is associated with the destination activity.
-        
+
         :type activity: Activity
         :param activity: the activity instance to this workitem 
                                 should be forwarded
@@ -236,10 +178,10 @@ class WorkItem(models.Model):
                                      activity=activity)
         log.event('created by %s' % self.user.username, self)
         log.event('forwarded to %s' % activity.title, workitem)
-        
+
         # it's been sent from here
         workitem.workitem_from = self
-        
+
         if activity.autostart:
             log('run auto activity: %s workitem: %s', activity.title, workitem)
             try:
@@ -248,14 +190,14 @@ class WorkItem(models.Model):
                 raise error('no_auto_user')
             # activate it
             workitem.activate(actor=auto_user)
-            
+
             if workitem.run_activity_app():
                 workitem.complete(actor=auto_user)
-#            else:
+    #            else:
                 # autotest not run correctly
-#                return
+    #                return
             return workitem
-        
+
         if activity.push_application:
             user = workitem.push_to_next_user()
             log('application pushed to user %s', user.username)
@@ -269,12 +211,73 @@ class WorkItem(models.Model):
             #notify_if_needed(roles=workitem.pull_roles)
         return workitem
 
+    def forward_to_activities(self, with_timeout=False, subflow_workitem=None):
+        '''
+        Forward this workitem to all valid destination activities.
+
+        :type with_timeout: bool
+        :param with_timeout: forward to all desinations with timeout
+        :type: subflow_workitem: WorkItem
+        :param subflow_workitem: a workitem associated with a subflow   
+        '''
+
+        if self.has_workitems_to() and not subflow_workitem:
+            log.debug('forwarding canceled for'+ str(self))
+            return
+
+        if not with_timeout:
+            if self.status != 'complete':
+                return
+        else:
+            log.event('with timout forwarding', self)
+
+        for activity in self.get_destinations(with_timeout):
+            self.forward_to_activity(activity)
+
+    def run_activity_app(self, **kwds):
+        '''
+        Runs the current activity application or creates a test auto application for activities 
+        that don't yet have applications. Returns True or False based upon success.
+
+        :type workitem: WorkItem
+        :rtype: bool
+        '''
+        try:
+            if not self.activity.process.enabled:
+                raise error('process_disabled', workitem=self)
+
+            # no application: default auto app
+            if not self.activity.application:
+                obj = self.instance.content_object
+                obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title
+                obj.save()
+                return True
+
+            func, args, kwargs = resolve(self.activity.application.get_app_url())
+            params = self.activity.app_param
+            # params values defined in activity override those defined in urls.py
+            if params:
+                params = yaml.load(params)
+                #params = eval('{'+params.lstrip('{').rstrip('}')+'}')
+                kwargs.update(params)
+            if kwds:
+                kwargs.update(kwds)
+
+            # what kind of function is this?
+            func(workitem=self , **kwargs)
+            return True
+        except Exception, v:
+            log.error('execution wi %s:%s', self, v)
+        return False
+
     def push_to_next_user(self):
         '''run pushappplication on self (workitem)
-        
+        :rtype: User
+        :return: an instance of django.contrib.auth.models.User
+
         This replaces exec_push_application and provides
         the same functionality without eval
-        
+
         examples are::
 
             class route_to_requester(PushApp):
@@ -282,29 +285,29 @@ class WorkItem(models.Model):
                     self.workitem = workitem
                 def __call__(self):
                     return self.workitem.instance.user
-            
+
             class route_to_user(PushApp):
                 def __init__(self, workitem, username):
                     self.workitem = workitem
                     self.username = username
                 def __call__(self):
                     return self.workitem.instance.user
-                    
-            
+    
+
         a parameter would look like this is yaml notation::
-                        
+        
             username: admin
             delay: 10    
-            
+
         '''
         if not self.activity.process.enabled:
             raise error('process_disabled', name=self.activity.process.title)
         #TODO: this should be by pushapp.name not by pushapp.url
         # e.g: appname = self.activity.pushapp.name
-        
+
         appname = self.activity.push_application.url
         params_yaml = self.activity.pushapp_param
-        
+
         # first try standard pushapps in goflow.workflow.pushapps        
         modpath = 'goflow.workflow.pushapps'
         try:
@@ -319,7 +322,7 @@ class WorkItem(models.Model):
                 return user
         except (ImportError, AttributeError):
             pass
-        
+
         try:
             modpath = settings.WF_PUSH_APPS_PREFIX+'.'+appname
             Router = get_class(modpath, appname)
@@ -334,7 +337,6 @@ class WorkItem(models.Model):
         except (ImportError, AttributeError), e:
             self.fallout()
             log.error(e)
-        
 
     def activate(self, actor):
         '''
@@ -358,11 +360,11 @@ class WorkItem(models.Model):
         self.user = actor
         self.save()
         log.event('completed by %s' % actor.username, self)
-        
+
         if self.activity.autofinish:
             log.debug('activity autofinish: forward')
             self.forward_to_activities()
-        
+
         # if end activity, instance is complete
         if self.instance.process.end == self.activity:
             log.info('activity end process %s' % self.instance.process.title)
@@ -393,7 +395,7 @@ class WorkItem(models.Model):
         self.status = 'blocked'
         self.blocked = True
         self.save()
-        
+
         sub_workitem = self.forward_to_activity(subflow_begin_activity)
         return sub_workitem
 
@@ -408,7 +410,7 @@ class WorkItem(models.Model):
         instance = self.instance
         try:
             result = eval(transition.condition)
-            
+
             # boolean expr
             if type(result) == type(True):
                 return result
@@ -426,23 +428,23 @@ class WorkItem(models.Model):
             - process is enabled
             - user can take workitem
             - workitem status is correct
-        
+
         '''
         if type(status)==type(''):
             status = (status,)
-            
+
         if not self.activity.process.enabled:
             raise error('process_disabled', log=log, workitem=self)
-            
+
         if not self.check_user(user):
             self.fallout()
             raise error('invalid_user_for_workitem', log=log, user=user, workitem=self)
-            
+
         if not self.status in status:
             raise error('incorrect_workitem_status', log=log, workitem=self)
-    
+
         return
-         
+
     def has_workitems_to(self):
         return ( self.workitems_to.count() > 0 )
 
@@ -462,10 +464,10 @@ class WorkItem(models.Model):
         else:
             authorized = True
         return authorized
-            
+
     def set_user(self, user, commit=True):
         """affect user if he has a role authorized for activity.
-        
+
         return True if authorized, False if not (workitem then falls out)
         """
         if self.check_user(user):
@@ -475,12 +477,12 @@ class WorkItem(models.Model):
             return True
         self.fallout()
         return False
-    
+
     def fallout(self):
         self.status = 'fallout'
         self.save()
         log.event('fallout', self)
-    
+
     def html_action(self):
         label = 'action'
         if self.status == 'inactive':
@@ -492,7 +494,7 @@ class WorkItem(models.Model):
         if self.status == 'complete':
             return 'completed'
         return '<a href=%s>%s</a>' % (url, label)
-    
+
     def html_action_link(self):
         #label = 'action'
         if self.status == 'inactive':
@@ -504,7 +506,7 @@ class WorkItem(models.Model):
         if self.status == 'complete':
             raise Exception('no action for completed workitems')
         return '<a href=%s>' % (url)
-    
+
     def timeout(self, delay, unit='days'):
         '''
         return True if timeout reached
@@ -535,8 +537,10 @@ class DefaultAppModel(models.Model):
     """
     history = models.TextField(editable=False, null=True, blank=True)
     comment = models.TextField(null=True, blank=True)
+
+        def __unicode__(self):
+            return 'simulation model %s' % str(self.id)
     
-    def __unicode__(self):
-        return 'simulation model %s' % str(self.id)
     class Meta:
         verbose_name='Simulation object'
+

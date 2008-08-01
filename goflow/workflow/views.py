@@ -75,7 +75,7 @@ def cron(request=None):
         workitems = WorkItem.objects.filter(
             activity=t.input).exclude(status='complete')
         for wi in workitems:
-            wi.forward(timeout_forwarding=True)
+            wi.forward_to_activities(with_timeout=True)
     
     if request:
         request.user.message_set.create(message="cron has run.")
@@ -127,9 +127,8 @@ def test_start(request, id, template='goflow/test_start.html'):
                     continue
                 inst.id = None
                 inst.save()
-                #TODO: convert this to method
+                # start the process
                 Process.objects.start(
-                #start_instance(
                             process_name='test_%s' % app.url,
                             user=request.user, item=inst, 
                             title="%s test instance for app %s" % (

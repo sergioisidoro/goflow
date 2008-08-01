@@ -135,50 +135,11 @@ class WorkItem(models.Model):
     # set to the new WorkItemManager
     objects = WorkItemManager()
 
-    def forward(self, timeout_forwarding=False, subflow_workitem=None):
-        '''
-        Forward this workitem to all valid destination activities.
-        
-        :type timeout_forwarding: bool
-        :param timeout_forwarding: TODO: explain this better
-        :type: subflow_workitem: WorkItem
-        :param subflow_workitem: a workitem associated with a subflow   
-        '''
-        log.info(self)
-        if not timeout_forwarding:
-            if self.status != 'complete':
-                return
-        if self.has_workitems_to() and not subflow_workitem:
-            log.debug('forwarding canceled for'+ str(self))
-            return
-        
-        if timeout_forwarding:
-            log.event('timout forwarding', self)
-        
-        for target in self.get_destinations(timeout_forwarding):
-            self._forward_self_to_activity(target)
+    def __unicode__(self):
+        return '%s-%s-%s' % (unicode(self.instance), self.activity, str(self.id))
 
-    def get_destinations(self, timeout_forwarding=False):
-        '''
-        Return list of destination activities that meet the 
-        conditions of each transition
-        
-        :type timeout_forwarding: bool
-        :param timeout_forwarding: a workitem with a time-delay??
-        :rtype: [Activity]
-        :return: list of destination activities.
-        '''
-        transitions = models.get_model('workflow', 'Transition'
-                                      ).objects.filter(input=self.activity)
-        if timeout_forwarding:
-            transitions = transitions.filter(condition__contains='workitem.timeout')
-        destinations = []
-        for transition in transitions:
-            if self.eval_transition_condition(transition):
-                destinations.append(transition.output)
-        return destinations
 
-    def _forward_self_to_activity(self, target_activity):
+    def forward_to_activity(self, target_activity):
         '''
         Passes the process instance embedded in this workitem 
         to a new workitem that is associated with the destination activity.
@@ -193,7 +154,7 @@ class WorkItem(models.Model):
         instance = self.instance
         wi = WorkItem.objects.create(instance=instance, user=None, 
                                      activity=target_activity)
-        log.event('creation by %s' % self.user.username, wi)
+        log.event('created by %s' % self.user.username, wi)
         log.event('forwarded to %s' % target_activity.title, self)
         wi.workitem_from = self
         if target_activity.autostart:
@@ -204,7 +165,7 @@ class WorkItem(models.Model):
 #                raise Exception("user: %s (settings.WF_USER_AUTO) must be defined for auto " % settings.WF_USER_AUTO)
                 raise error('auto_user')
             wi.activate(actor=auto_user)
-            if wi.exec_auto_application():
+            if wi.exec_application():
                 wi.complete(actor=auto_user)
             return wi
         
@@ -220,6 +181,51 @@ class WorkItem(models.Model):
             wi.save()
             #notify_if_needed(roles=wi.pull_roles)
         return wi
+
+
+    def forward_to_activities(self, with_timeout=False, subflow_workitem=None):
+        '''
+        Forward this workitem to all valid destination activities.
+        
+        :type with_timeout: bool
+        :param with_timeout: TODO: explain this better
+        :type: subflow_workitem: WorkItem
+        :param subflow_workitem: a workitem associated with a subflow   
+        '''
+        log.info(self)
+        if not with_timeout:
+            if self.status != 'complete':
+                return
+        if self.has_workitems_to() and not subflow_workitem:
+            log.debug('forwarding canceled for'+ str(self))
+            return
+        
+        if with_timeout:
+            log.event('timout forwarding', self)
+        
+        for target in self.get_target_activities(with_timeout):
+            self.forward_to_activity(target)
+
+    def get_target_activities(self, with_timeout=False):
+        '''
+        Return list of destination activities that meet the 
+        conditions of each transition
+        
+        :type with_timeout: bool
+        :param with_timeout: a workitem with a time-delay??
+        :rtype: [Activity]
+        :return: list of destination activities.
+        '''
+        transitions = models.get_model('workflow', 'Transition'
+                                      ).objects.filter(input=self.activity)
+        if with_timeout:
+            transitions = transitions.filter(condition__contains='workitem.timeout')
+        target_activities = []
+        for transition in transitions:
+            if self.eval_transition_condition(transition):
+                target_activities.append(transition.output)
+        return target_activities
+
 
 
 
@@ -264,7 +270,7 @@ class WorkItem(models.Model):
         '''
         changes this workitem's status to 'active' and logs event & activator
         '''        
-        self._check_all_for(actor, status=('inactive', 'active'))
+        self.check_conditions_for_user(actor, status=('inactive', 'active'))
         if self.status == 'active':
             log.warning('actor:%s workitem:%s already active', actor.username, str(self))
             return
@@ -278,7 +284,7 @@ class WorkItem(models.Model):
         '''
         changes status of this workitem to 'complete' and logs event & activator
         '''
-        self._check_all_for(actor, status='active')
+        self.check_conditions_for_user(actor, status='active')
         self.status = 'complete'
         self.user = actor
         self.save()
@@ -286,7 +292,7 @@ class WorkItem(models.Model):
         
         if self.activity.autofinish:
             log.debug('activity autofinish: forward')
-            self.forward()
+            self.forward_to_activities()
         
         # if end activity, instance is complete
         if self.instance.process.end == self.activity:
@@ -303,12 +309,12 @@ class WorkItem(models.Model):
                 log.info('process change for instance %s' % workitem0.instance.title)
                 workitem0.status = 'complete'
                 workitem0.save()
-                workitem0.forward(subflow_workitem=self)
+                workitem0.forward_to_activities(subflow_workitem=self)
             else:
                 self.instance.set_status('complete')
 
 
-    def exec_auto_application(self):
+    def exec_application(self):
         '''
         creates a test auto application for activities that don't yet have applications
         :type workitem: WorkItem
@@ -320,7 +326,10 @@ class WorkItem(models.Model):
 #                raise Exception('process %s disabled.' % self.activity.process.title)
             # no application: default auto app
             if not self.activity.application:
-                return self.default_auto_app()
+                obj = self.instance.content_object
+                obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title
+                obj.save()
+                return True
             
             func, args, kwargs = resolve(self.activity.application.get_app_url())
             params = self.activity.app_param
@@ -334,17 +343,6 @@ class WorkItem(models.Model):
             log.error('execution wi %s:%s', self, v)
         return False
 
-    def default_auto_app(self):
-        '''
-        retrieves content_object, logs info to it, saves
-        
-        :rtype: bool
-        :return: always returns True
-        '''
-        obj = self.instance.content_object
-        obj.history += '\n>>> execute auto activity: [%s]' % self.activity.title
-        obj.save()
-        return True
 
     def start_subflow(self, actor):
         '''
@@ -358,7 +356,7 @@ class WorkItem(models.Model):
         self.blocked = True
         self.save()
         
-        sub_workitem = self._forward_self_to_activity(subflow_begin_activity)
+        sub_workitem = self.forward_to_activity(subflow_begin_activity)
         return sub_workitem
 
     def eval_transition_condition(self, transition):
@@ -383,8 +381,8 @@ class WorkItem(models.Model):
 
         return False
 
-    def _check_all_for(self, user, status=('inactive','active')):
-        # may be renamed to _check_conditions_for(user)
+    def check_conditions_for_user(self, user, status=('inactive','active')):
+        # was be renamed to check_conditions_for_user(user)
         '''
         helper function to check for a given user that:
             - process is enabled
@@ -397,29 +395,15 @@ class WorkItem(models.Model):
             
         if not self.activity.process.enabled:
             raise error('process_disabled', log=log, workitem=self)
-#            error = 'process %s disabled.' % self.activity.process.title
-#            log.error(error)
-#            raise Exception(error)
             
         if not self.check_user(user):
             self.fallout()
             raise error('invalid_user_for_workitem', log=log, user=user, workitem=self)
-#            error = 'user %s cannot take workitem %d.' % (user.username, self.id)
-#            log.error(error)
-#            self.fallout()
-#            raise Exception(error)
             
         if not self.status in status:
             raise error('incorrect_workitem_status', log=log, workitem=self)
-#            error = 'workitem %d has not a correct status (%s/%s).' % (
-#                self.id, self.status, str(status))
-#            log.error(error)
-#            raise Exception(error)
     
         return
-     
-    def __unicode__(self):
-        return '%s-%s-%s' % (unicode(self.instance), self.activity, str(self.id))
     
     def has_workitems_to(self):
         return ( self.workitems_to.count() > 0 )

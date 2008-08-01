@@ -59,7 +59,7 @@ class WorkItemManager(models.Manager):
             workitem = self.get(id=id, activity__process__enabled=True)
         else:
             workitem = self.get(id=id)
-        workitem._check_all_for(user, status)
+        workitem.check_conditions_for_user(user, status)
         return workitem
 
     def get_all_by(self, user=None, username=None, activity=None, status=None,
