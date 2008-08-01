@@ -95,7 +95,7 @@ TEST_USERS = (
 )
 WF_USER_AUTO = 'auto'
 WF_APPS_PREFIX = '/leave'
-WF_PUSH_APPS_PREFIX = 'leavedemo.leave.pushapplications'
+WF_PUSH_APPS_PREFIX = 'leavedemo.leave.pushapps'
 
 # mail notification settings
 DEFAULT_FROM_EMAIL = 'goflow <goflow@alwaysdata.net>'
