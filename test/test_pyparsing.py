@@ -53,6 +53,7 @@ import math
 _locals = {}
 for name in safe_builtins:
     _locals[name] = getattr(__builtins__, name)
+    #_locals[name] = __builtins__.get(name) # for external imports
 for name in [func for func in dir(math) if not func.startswith('_')]:
     _locals[name] = getattr(math, name)
 
