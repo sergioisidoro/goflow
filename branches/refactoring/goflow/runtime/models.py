@@ -230,9 +230,11 @@ class WorkItem(models.Model):
     def exec_push_application(self):
         '''
         Execute push application on workitem
+        
         :rtype: User
         :returns: an instance of User that is obtained from
                   the push_application function or class.
+        
         '''
         if not self.activity.process.enabled:
             raise error('process_disabled', workitem=self)

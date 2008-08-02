@@ -35,11 +35,11 @@ goflow.runtime
    :maxdepth: 2
       
    goflow.runtime.rst
-   goflow.runtime.api.rst
+   goflow.runtime.models.rst
    goflow.runtime.managers.rst   
    goflow.runtime.forms.rst
-   goflow.runtime.models.rst
    goflow.runtime.views.rst
+   goflow.runtime.reporting.rst
 
 
 goflow.workflow
