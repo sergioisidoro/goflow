@@ -1,5 +1,8 @@
 #!/usr/bin/env python
+'''
+provides admin functionality to runtime model
 
+'''
 from django.contrib import admin
 from goflow.workflow.models import (Activity, Process, Application,
                                     PushApplication, Transition, UserProfile)

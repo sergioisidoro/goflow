@@ -46,8 +46,8 @@ def _app_response(workitem):
     if not activity.process.enabled:
         return HttpResponse('process %s disabled.' % activity.process.title)
         
-    if activity.kind == 'subflow':
-        sub_workitem = workitem.start_subflow(workitem.user)
+    if activity.kind == 'subprocess':
+        sub_workitem = workitem.start_subprocess(workitem.user)
         return _app_response(sub_workitem)
     
     # no application: default_app

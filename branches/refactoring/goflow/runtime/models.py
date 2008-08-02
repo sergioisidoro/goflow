@@ -13,7 +13,8 @@ from django.core.urlresolvers import resolve
 from goflow.runtime.managers import ProcessInstanceManager, WorkItemManager
 from goflow.common.logger import Log; log = Log('goflow.runtime.models')
 from goflow.common.errors import error
-import yaml
+from goflow.common import get_obj, safe_eval
+#import yaml
 
 
 class ProcessInstance(models.Model):
@@ -82,7 +83,7 @@ class ProcessInstance(models.Model):
                                   null=True, blank=True)
     condition = models.CharField(max_length=50, null=True, blank=True)
     
-    # refactoring
+    # application date object (accessed as obj.content_object)
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
@@ -95,7 +96,7 @@ class ProcessInstance(models.Model):
     
     def set_status(self, status):
         if not status in [x for (x, y) in ProcessInstance.STATUS_CHOICES]:
-            raise error('incorrect_status', status=status)            
+            raise error('incorrect_process_instance_status', status=status)            
             #raise Exception('instance status incorrect :%s' % status)
         self.old_status = self.status
         self.status = status
@@ -162,8 +163,7 @@ class WorkItem(models.Model):
             try:
                 auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             except Exception:
-#                raise Exception("user: %s (settings.WF_USER_AUTO) must be defined for auto " % settings.WF_USER_AUTO)
-                raise error('auto_user')
+                raise error('no_auto_user')
             wi.activate(actor=auto_user)
             if wi.exec_application():
                 wi.complete(actor=auto_user)
@@ -183,20 +183,20 @@ class WorkItem(models.Model):
         return wi
 
 
-    def forward_to_activities(self, with_timeout=False, subflow_workitem=None):
+    def forward_to_activities(self, with_timeout=False, subprocess_workitem=None):
         '''
         Forward this workitem to all valid destination activities.
         
         :type with_timeout: bool
-        :param with_timeout: TODO: explain this better
-        :type: subflow_workitem: WorkItem
-        :param subflow_workitem: a workitem associated with a subflow   
+        :param with_timeout: apply time_out during forwarding
+        :type: subprocess_workitem: WorkItem
+        :param subprocess_workitem: a workitem associated with a subprocess   
         '''
         log.info(self)
         if not with_timeout:
             if self.status != 'complete':
                 return
-        if self.has_workitems_to() and not subflow_workitem:
+        if self.has_workitems_to() and not subprocess_workitem:
             log.debug('forwarding canceled for'+ str(self))
             return
         
@@ -212,7 +212,7 @@ class WorkItem(models.Model):
         conditions of each transition
         
         :type with_timeout: bool
-        :param with_timeout: a workitem with a time-delay??
+        :param with_timeout: apply timout during forwarding
         :rtype: [Activity]
         :return: list of destination activities.
         '''
@@ -227,48 +227,49 @@ class WorkItem(models.Model):
         return target_activities
 
 
-
-
     def exec_push_application(self):
         '''
-        Execute push application in workitem
+        Execute push application on workitem
+        :rtype: User
+        :returns: an instance of User that is obtained from
+                  the push_application function or class.
         '''
-        # TODO: another horrible eval HACK:
-        workitem = self        
-        if not workitem.activity.process.enabled:
-            raise Exception('process %s disabled.' % workitem.activity.process.title)
-        appname = workitem.activity.push_application.url
-        params = workitem.activity.pushapp_param
-        # try std pushapps:
-        from goflow.workflow import pushapps
-        if appname in dir(pushapps):
-            try:
-                kwargs = ''
-                if params:
-                    kwargs = ',**%s' % params
-                result = eval('pushapps.%s(workitem%s)' % (appname, kwargs))
-            except Exception, v:
-                log.error('exec_push_application %s', v)
-                result = None
-                workitem.fallout()
-            return result
-        
+        if not self.activity.process.enabled:
+            raise error('process_disabled', workitem=self)
+        appname = self.activity.push_application.url
+        params = self.activity.pushapp_param
+       
         try:
-            prefix = settings.WF_PUSH_APPS_PREFIX
-            # dyn import
-            exec 'import %s' % prefix
-            
-            appname = '%s.%s' % (prefix, appname)
-            result = eval('%s(workitem)' % appname)
-        except Exception, v:
-            log.error('exec_push_application %s', v)
+            # 1st try std pushapps:
+            modpath = 'goflow.workflow.pushapps'
+            routing_func = get_obj(modpath, appname)
+        except (ImportError, AttributeError), e:
+            # prefix specified in settings 
+            modpath = settings.WF_PUSH_APPS_PREFIX
+            routing_func = get_obj(modpath, appname)
+        try:
+            if params:
+                # safe_eval return a functor
+                params = safe_eval(params)()
+
+                result = routing_func(self, **params)
+            else:
+                result = routing_func(self)
+        except Exception, e:
+            log.error(e)
             result = None
-            workitem.fallout()
+            self.fallout()
         return result
+    
+
+
 
     def activate(self, actor):
         '''
         changes this workitem's status to 'active' and logs event & activator
+        
+        :type actor: User
+        :param actor: a valid User instance
         '''        
         self.check_conditions_for_user(actor, status=('inactive', 'active'))
         if self.status == 'active':
@@ -283,6 +284,9 @@ class WorkItem(models.Model):
     def complete(self, actor):
         '''
         changes status of this workitem to 'complete' and logs event & activator
+        
+        :type actor: User
+        :param actor: a valid User instance
         '''
         self.check_conditions_for_user(actor, status='active')
         self.status = 'complete'
@@ -297,19 +301,19 @@ class WorkItem(models.Model):
         # if end activity, instance is complete
         if self.instance.process.end == self.activity:
             log.info('activity end process %s' % self.instance.process.title)
-            # first test subflow
-            lwi = WorkItem.objects.filter(activity__subflow=self.instance.process,
+            # first test subprocess
+            lwi = WorkItem.objects.filter(activity__subprocess=self.instance.process,
                                           status='blocked',
                                           instance=self.instance)
             if lwi.count() > 0:
-                log.info('parent process for subflow %s' % self.instance.process.title)
+                log.info('parent process for subprocess %s' % self.instance.process.title)
                 workitem0 = lwi[0]
                 workitem0.instance.process = workitem0.activity.process
                 workitem0.instance.save()
                 log.info('process change for instance %s' % workitem0.instance.title)
                 workitem0.status = 'complete'
                 workitem0.save()
-                workitem0.forward_to_activities(subflow_workitem=self)
+                workitem0.forward_to_activities(subprocess_workitem=self)
             else:
                 self.instance.set_status('complete')
 
@@ -317,13 +321,13 @@ class WorkItem(models.Model):
     def exec_application(self):
         '''
         creates a test auto application for activities that don't yet have applications
-        :type workitem: WorkItem
         :rtype: bool
+        :return: True if application is successfully executed
+        :raises: Exception otherwise
         '''
         try:
             if not self.activity.process.enabled:
                 raise error('process_disabled', workitem=self)
-#                raise Exception('process %s disabled.' % self.activity.process.title)
             # no application: default auto app
             if not self.activity.application:
                 obj = self.instance.content_object
@@ -344,24 +348,33 @@ class WorkItem(models.Model):
         return False
 
 
-    def start_subflow(self, actor):
+    def start_subprocess(self, actor):
         '''
-        starts subflow and blocks passed in workitem
+        starts subprocess and blocks passed in workitem
+        
+        :type actor: User
+        :param actor: a valid User instance
         '''
-        subflow_begin_activity = self.activity.subflow.begin
+        subprocess_begin_activity = self.activity.subprocess.begin
         instance = self.instance
-        instance.process = self.activity.subflow
+        instance.process = self.activity.subprocess
         instance.save()
         self.status = 'blocked'
         self.blocked = True
         self.save()
         
-        sub_workitem = self.forward_to_activity(subflow_begin_activity)
+        sub_workitem = self.forward_to_activity(subprocess_begin_activity)
         return sub_workitem
 
     def eval_transition_condition(self, transition):
         '''
         evaluate the condition of a transition
+        
+        :type transition: Transition
+        :param transition: evaluates transition.condition
+        :rtype: bool
+        :returns: True or False depending on the evaluation
+        :raises: Exception otherwise
         '''
         if not transition.condition:
             return True
@@ -382,12 +395,14 @@ class WorkItem(models.Model):
         return False
 
     def check_conditions_for_user(self, user, status=('inactive','active')):
-        # was be renamed to check_conditions_for_user(user)
         '''
         helper function to check for a given user that:
             - process is enabled
             - user can take workitem
             - workitem status is correct
+            
+        :type user: User
+        :param user: a valid User instance
         
         '''
         if type(status)==type(''):
@@ -406,10 +421,15 @@ class WorkItem(models.Model):
         return
     
     def has_workitems_to(self):
+        '''checks that workitems_to.count > 0
+        '''
         return ( self.workitems_to.count() > 0 )
 
     def check_user(self, user):
         """return True if authorized, False if not.
+        :type user: User
+        :param User: a valid User instance
+        
         """
         if user and self.user and self.user != user:
             return False
@@ -429,6 +449,10 @@ class WorkItem(models.Model):
         """affect user if he has a role authorized for activity.
         
         return True if authorized, False if not (workitem then falls out)
+        
+        :type user: User
+        :param User: a valid User instance
+        
         """
         if self.check_user(user):
             self.user = user
@@ -439,6 +463,8 @@ class WorkItem(models.Model):
         return False
     
     def fallout(self):
+        '''changes status of workitem to 'fallout'
+        '''
         self.status = 'fallout'
         self.save()
         log.event('fallout', self)

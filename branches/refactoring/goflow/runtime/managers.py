@@ -21,13 +21,16 @@ class ProcessInstanceManager(models.Manager):
         :param obj_instance: an instance of ContentType, which is typically 
                              associated with a django Model.
         :rtype: ProcessInstance
-        :returns: a newly saved ProcessInstance instance.
+        :returns: a new (saved) ProcessInstance instance.
         
         usage::
-            
-            instance = ProcessInstance.objects.add(user=admin, title="title", 
-                                                   content_object=leaverequest1)
-            
+        
+            >>> # get a user
+            >>> user = User.objects.get(username='primus')
+            >>> # obj_instance can be any instance of a Model (we will reuse user here)
+            >>> ProcessInstance.objects.add(user, "test title", user)
+            <ProcessInstance: test title>
+
         '''
         instance = self.create(user=user, title=title, content_object=obj_instance)
         return instance
@@ -38,7 +41,7 @@ class WorkItemManager(models.Manager):
     '''
     def get_by(self, id, user=None, enabled_only=False, status=('inactive','active')):
         '''
-        Retrieves a single WorkItem instance given a set of parameters
+        Safely retrieves a single WorkItem instance for a user given its id
         
         :type id: int
         :param id: the id of the WorkItem instance
@@ -49,6 +52,7 @@ class WorkItemManager(models.Manager):
         :param enabled_only: implies that only enabled processes should be queried
         :type status: tuple or string
         :param status: ensure that workitem has one of the given set of statuses
+        :raises: AssignmentError if user is not authorized to get the workitem instance
         
         usage::
         

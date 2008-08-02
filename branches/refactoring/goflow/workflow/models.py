@@ -21,7 +21,7 @@ class Activity(models.Model):
     KIND_CHOICES = (
                     ('standard', 'standard'),
                     ('dummy', 'dummy'),
-                    ('subflow', 'subflow'),
+                    ('subprocess', 'subprocess'),
                     )
     COMP_CHOICES = (
                     ('and', 'and'),
@@ -40,7 +40,7 @@ class Activity(models.Model):
                                 help_text='leave it blank for prototyping the process without coding')
     app_param = models.TextField(verbose_name='application parameters', 
                                  help_text='parameters in yaml will safely converted to dictionary', null=True, blank=True)
-    subflow = models.ForeignKey('Process', verbose_name='subflow process',
+    subprocess = models.ForeignKey('Process', verbose_name='subprocess process',
                                 related_name='parent_activities', null=True, blank=True)
     roles = models.ManyToManyField(Group, related_name='activities', null=True, blank=True)
     description = models.CharField(max_length=100, null=True, blank=True)

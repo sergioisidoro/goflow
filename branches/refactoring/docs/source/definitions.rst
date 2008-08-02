@@ -89,7 +89,7 @@ A switch activity represents a point of decision in a process. Instances reachin
 Split Activity
 **************
 
-Sometimes two or more activities in a process can be done independently in parallel. A split activity is used to split an instance and route it to many activities. This way an instance can be in many activities at the same time. Split activities represent subflows in a workflow. A split activity can receive many inbound transitions and can have many outbound transitions. Split activities are represented by a triangle.
+Sometimes two or more activities in a process can be done independently in parallel. A split activity is used to split an instance and route it to many activities. This way an instance can be in many activities at the same time. Split activities represent subprocesss in a workflow. A split activity can receive many inbound transitions and can have many outbound transitions. Split activities are represented by a triangle.
 
 Join Activity
 *************
