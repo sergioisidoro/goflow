@@ -48,6 +48,11 @@ Improved Logging Machinery
 
 - use custom log class for all logging (including event logging)
 
+Safe Evaluation of Expressions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* introduced safe_eval and dynamic object imports in goflow.common
+
 Bug Fixes
 *********
 

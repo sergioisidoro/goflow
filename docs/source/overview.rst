@@ -178,8 +178,8 @@ Actually each role will keep three different lists:
     * assignable activities: list of process activities that users listed in this 
       role can assign to other users
 
-The Process ProcessInstance
-+++++++++++++++++++++++++++
+The Process Runtime
++++++++++++++++++++
 
 A process definition gives the instructions for completing some work. A process instance, in turn, is an actual execution of a process definition.
 
@@ -245,6 +245,230 @@ Features
 Requirements
 ++++++++++++
 
-Download
-++++++++
+Structure
++++++++++
+
+The directory structure of the goflow-refactored branch::
+    
+
+    .
+    |-- README.TXT
+    |-- docs
+    |   |-- Makefile
+    |   |-- build
+    |   |-- diagrams
+    |   |   |-- goflow uml instance.graffle
+    |   |   |-- goflow uml workflow.graffle
+    |   |   |-- instances.dot
+    |   |   `-- leave.dot
+    |   |-- presentations
+    |   |   |-- goflow.odp
+    |   |   `-- goflow.ppt
+    |   `-- source
+    |       |-- _static
+    |       |-- _templates
+    |       |-- conf.py
+    |       |-- images
+    |       |   |-- admin1.png
+    |       |   |-- admin2.png
+    |       |   |-- admin3.png
+    |       |   |-- admin4.png
+    |       |   |-- admin5.png
+    |       |   |-- and-join.png
+    |       |   |-- and-split.png
+    |       |   |-- auto1.png
+    |       |   |-- auto2.png
+    |       |   |-- auto3.png
+    |       |   |-- auto4.png
+    |       |   |-- bubblesarrows.gif
+    |       |   |-- image1.png
+    |       |   |-- joinsplitmode.gif
+    |       |   |-- logo.png
+    |       |   |-- unittest1.png
+    |       |   |-- unittest2.png
+    |       |   |-- unittest3.png
+    |       |   |-- unittest4.png
+    |       |   |-- unittest5.png
+    |       |   |-- unittest6.png
+    |       |   |-- whowhatwhenhow.gif
+    |       |   |-- xor-join.png
+    |       |   `-- xor-split.png
+    |       `-- modules
+    |           `-- gen_modules.py
+    |-- goflow
+    |   |-- __init__.py
+    |   |-- common
+    |   |   |-- __init__.py
+    |   |   |-- conf
+    |   |   |   |-- app_template
+    |   |   |   |   |-- __init__.py.tmpl
+    |   |   |   |   |-- forms.py.tmpl
+    |   |   |   |   |-- models.py.tmpl
+    |   |   |   |   |-- urls.py.tmpl
+    |   |   |   |   `-- views.py.tmpl
+    |   |   |   `-- command_template
+    |   |   |       `-- management
+    |   |   |           |-- __init__.py.tmpl
+    |   |   |           `-- commands
+    |   |   |               |-- __init__.py.tmpl
+    |   |   |               `-- sample.py.tmpl
+    |   |   |-- decorators.py
+    |   |   |-- errors.py
+    |   |   |-- logger.py
+    |   |   |-- management
+    |   |   |   |-- __init__.py
+    |   |   |   |-- color.py
+    |   |   |   |-- commands
+    |   |   |   |   |-- __init__.py
+    |   |   |   |   |-- create_app.py
+    |   |   |   |   |-- create_command.py
+    |   |   |   |   |-- create_superuser.py
+    |   |   |   |   |-- describe_form.py
+    |   |   |   |   |-- dumpscript.py
+    |   |   |   |   |-- graph_models.py
+    |   |   |   |   |-- passwd.py
+    |   |   |   |   |-- reset_db.py
+    |   |   |   |   |-- runscript.py
+    |   |   |   |   |-- runserver_plus.py
+    |   |   |   |   |-- set_fake_passwords.py
+    |   |   |   |   |-- shell_plus.py
+    |   |   |   |   `-- show_urls.py
+    |   |   |   `-- modelviz.py
+    |   |   `-- middleware
+    |   |       |-- __init__.py
+    |   |       `-- debug_middleware.py
+    |   |-- graphics
+    |   |   |-- __init__.py
+    |   |   |-- js
+    |   |   |   |-- external.txt
+    |   |   |   |-- tip_centerwindow.js
+    |   |   |   |-- tip_followscroll.js
+    |   |   |   |-- transparentpixel.gif
+    |   |   |   |-- wz_dragdrop.js
+    |   |   |   `-- wz_tooltip.js
+    |   |   |-- models.py
+    |   |   |-- templates
+    |   |   |   |-- admin
+    |   |   |   |   `-- graphics
+    |   |   |   |       `-- processimage
+    |   |   |   |           `-- change_form.html
+    |   |   |   `-- goflow
+    |   |   |       `-- graphics
+    |   |   |           `-- graph.html
+    |   |   |-- templatetags
+    |   |   |   |-- __init__.py
+    |   |   |   `-- libjs.py
+    |   |   |-- urls_admin.py
+    |   |   `-- views.py
+    |   |-- runtime
+    |   |   |-- __init__.py
+    |   |   |-- admin.py
+    |   |   |-- forms.py
+    |   |   |-- managers.py
+    |   |   |-- models.py
+    |   |   |-- reporting.py
+    |   |   `-- views.py
+    |   |-- urls.py
+    |   |-- urls_admin.py
+    |   `-- workflow
+    |       |-- __init__.py
+    |       |-- admin.py
+    |       |-- applications.py
+    |       |-- forms.py
+    |       |-- managers.py
+    |       |-- models.py
+    |       |-- notification.py
+    |       |-- pushapps.py
+    |       |-- templates
+    |       |   |-- admin
+    |       |   |   |-- runtime
+    |       |   |   |   `-- defaultappmodel
+    |       |   |   |       `-- change_form.html
+    |       |   |   `-- workflow
+    |       |   |       |-- activity
+    |       |   |       |   `-- change_form.html
+    |       |   |       |-- application
+    |       |   |       |   |-- change_form.html
+    |       |   |       |   `-- change_list.html
+    |       |   |       |-- process
+    |       |   |       |   `-- change_form.html
+    |       |   |       `-- pushapplication
+    |       |   |           `-- change_form.html
+    |       |   |-- goflow
+    |       |   |   |-- base.html
+    |       |   |   |-- base_site.html
+    |       |   |   |-- default_app.html
+    |       |   |   |-- edit_model.html
+    |       |   |   |-- instancehistory.html
+    |       |   |   |-- login.html
+    |       |   |   |-- mail.txt
+    |       |   |   |-- myrequests.html
+    |       |   |   |-- mywork.html
+    |       |   |   |-- otherswork.html
+    |       |   |   |-- process.dot
+    |       |   |   |-- start_application.html
+    |       |   |   |-- start_proto.html
+    |       |   |   |-- test_start.html
+    |       |   |   `-- view_application.html
+    |       |   `-- workflow
+    |       |       |-- index.html
+    |       |       `-- start_form.html
+    |       |-- templatetags
+    |       |   |-- __init__.py
+    |       |   `-- debug_goflow.py
+    |       `-- views.py
+    |-- goflow.leo
+    |-- leavedemo
+    |   |-- __init__.py
+    |   |-- leave
+    |   |   |-- __init__.py
+    |   |   |-- admin.py
+    |   |   |-- auto.py
+    |   |   |-- fixtures
+    |   |   |   `-- initial_data.json
+    |   |   |-- forms.py
+    |   |   |-- models.py
+    |   |   |-- pushapps.py
+    |   |   |-- readme.txt
+    |   |   |-- templates
+    |   |   |   |-- approval.html
+    |   |   |   |-- checkstatus.html
+    |   |   |   |-- finalinfo.html
+    |   |   |   |-- hrform.html
+    |   |   |   |-- leave.html
+    |   |   |   |-- leaverequest.html
+    |   |   |   |-- refine.html
+    |   |   |   `-- start_leave.html
+    |   |   |-- tests.py
+    |   |   `-- views.py
+    |   |-- manage.py
+    |   |-- media
+    |   |   |-- files
+    |   |   |   `-- images
+    |   |   |       `-- leave_workflow.png
+    |   |   `-- img
+    |   |       |-- instances.png
+    |   |       |-- leave.png
+    |   |       |-- leave_models.png
+    |   |       |-- leaveactivities.png
+    |   |       `-- workflow.png
+    |   |-- scripts
+    |   |   |-- clean
+    |   |   |-- dump_data.bat
+    |   |   |-- kill
+    |   |   |-- leave_process_builder.py
+    |   |   |-- process_builder.py
+    |   |   `-- reset
+    |   |-- settings.py
+    |   |-- test.py
+    |   `-- urls.py
+    |-- licence.txt
+    |-- pavement.py
+    |-- scripts
+    |   |-- build_docs
+    |   |-- clean
+    |   |-- get_svn_leavedemo.sh
+    |   `-- reset
+    `-- test
+        `-- test_pyparsing.py
 
