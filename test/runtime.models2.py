@@ -211,17 +211,17 @@ class WorkItem(models.Model):
             #notify_if_needed(roles=workitem.pull_roles)
         return workitem
 
-    def forward_to_activities(self, with_timeout=False, subflow_workitem=None):
+    def forward_to_activities(self, with_timeout=False, subprocess_workitem=None):
         '''
         Forward this workitem to all valid destination activities.
 
         :type with_timeout: bool
         :param with_timeout: forward to all desinations with timeout
-        :type: subflow_workitem: WorkItem
-        :param subflow_workitem: a workitem associated with a subflow   
+        :type: subprocess_workitem: WorkItem
+        :param subprocess_workitem: a workitem associated with a subprocess   
         '''
 
-        if self.has_workitems_to() and not subflow_workitem:
+        if self.has_workitems_to() and not subprocess_workitem:
             log.debug('forwarding canceled for'+ str(self))
             return
 
@@ -368,35 +368,35 @@ class WorkItem(models.Model):
         # if end activity, instance is complete
         if self.instance.process.end == self.activity:
             log.info('activity end process %s' % self.instance.process.title)
-            # first test subflow
-            lwi = WorkItem.objects.filter(activity__subflow=self.instance.process,
+            # first test subprocess
+            lwi = WorkItem.objects.filter(activity__subprocess=self.instance.process,
                                           status='blocked',
                                           instance=self.instance)
             if lwi.count() > 0:
-                log.info('parent process for subflow %s' % self.instance.process.title)
+                log.info('parent process for subprocess %s' % self.instance.process.title)
                 workitem0 = lwi[0]
                 workitem0.instance.process = workitem0.activity.process
                 workitem0.instance.save()
                 log.info('process change for instance %s' % workitem0.instance.title)
                 workitem0.status = 'complete'
                 workitem0.save()
-                workitem0.forward_to_activities(subflow_workitem=self)
+                workitem0.forward_to_activities(subprocess_workitem=self)
             else:
                 self.instance.set_status('complete')
 
-    def start_subflow(self, actor):
+    def start_subprocess(self, actor):
         '''
-        starts subflow and blocks passed in workitem
+        starts subprocess and blocks passed in workitem
         '''
-        subflow_begin_activity = self.activity.subflow.begin
+        subprocess_begin_activity = self.activity.subprocess.begin
         instance = self.instance
-        instance.process = self.activity.subflow
+        instance.process = self.activity.subprocess
         instance.save()
         self.status = 'blocked'
         self.blocked = True
         self.save()
 
-        sub_workitem = self.forward_to_activity(subflow_begin_activity)
+        sub_workitem = self.forward_to_activity(subprocess_begin_activity)
         return sub_workitem
 
     def eval_transition_condition(self, transition):
@@ -538,7 +538,8 @@ class DefaultAppModel(models.Model):
     history = models.TextField(editable=False, null=True, blank=True)
     comment = models.TextField(null=True, blank=True)
 
-        def __unicode__(self):
+    
+    def __unicode__(self):
             return 'simulation model %s' % str(self.id)
     
     class Meta:

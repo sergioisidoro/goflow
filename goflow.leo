@@ -431,7 +431,7 @@
 <v t="sa.20080801011423.13"><vh>push_to_next_user</vh></v>
 <v t="sa.20080801011423.14"><vh>activate</vh></v>
 <v t="sa.20080801011423.15"><vh>complete</vh></v>
-<v t="sa.20080801011423.16"><vh>start_subflow</vh></v>
+<v t="sa.20080801011423.16"><vh>start_subprocess</vh></v>
 <v t="sa.20080801011423.17"><vh>eval_transition_condition</vh></v>
 <v t="sa.20080801011423.18"><vh>_check_conditions_for_user</vh></v>
 <v t="sa.20080801011423.19"><vh>has_workitems_to</vh></v>
@@ -1503,7 +1503,7 @@ Rules: Valid processes must have at least one begin activity and exactly one end
 <t tx="sa.20080715111354.12">Normal activities don√¢‚Ç¨‚Ñ¢t have a special meaning so they are used to represent tasks that should be done as a part of a process. A rectangle is used to represent these activities. Normal activities can receive many inbound transitions but can only have one outbound transition.</t>
 <t tx="sa.20080715111354.13">A switch activity represents a point of decision in a process. Instances reaching a switch activity are evaluated and depending on some conditions the instance can be routed to different activities. Switch activities can have many inbound transitions and many outbound transitions. Switch activities are represented using a diamond.
 </t>
-<t tx="sa.20080715111354.14">Sometimes two or more activities in a process can be done independently in parallel. A split activity is used to split an instance and route it to many activities. This way an instance can be in many activities at the same time. Split activities represent subflows in a workflow. A split activity can receive many inbound transitions and can have many outbound transitions. Split activities are represented by a triangle.</t>
+<t tx="sa.20080715111354.14">Sometimes two or more activities in a process can be done independently in parallel. A split activity is used to split an instance and route it to many activities. This way an instance can be in many activities at the same time. Split activities represent subprocesss in a workflow. A split activity can receive many inbound transitions and can have many outbound transitions. Split activities are represented by a triangle.</t>
 <t tx="sa.20080715111354.15">A join activity is used to regroup instances splitted from a split activity. When an instance reaches a join activity the engine verifies that the instance is present also in some other activity. If so, the instance must wait in the join activity until all activities leading to the join activity are completed. Once all activities reach the join activity the instance can be directed to the next activity. Join activities can have many inbound transitions (more than one is expected) and can only have one outbound activity. Join activities are represented using an inverted triangle.</t>
 <t tx="sa.20080715111354.16">	Standalone activities are represented by hexagons. A standalone activity is not part of the normal flow of the process so they are not related to instances. A standalone activity can be executed any time by an user with the required permissions. These activities are ideal for data management related to the process, listings, adding items, removing items, etc. Many processes can be designed as a set of standalone activities if there's no order relationship between the different activities in the process. Other processes consist of a main process flow and a set of auxiliary standalone activities. Standalone activities can√¢‚Ç¨‚Ñ¢t have inbound nor outbound transitions.</t>
 <t tx="sa.20080715111354.17"></t>
@@ -5404,17 +5404,17 @@ class ProcessInstance(models.Model):
     return destinations
 
 </t>
-<t tx="sa.20080801011423.10">def forward_to_activities(self, with_timeout=False, subflow_workitem=None):
+<t tx="sa.20080801011423.10">def forward_to_activities(self, with_timeout=False, subprocess_workitem=None):
     '''
     Forward this workitem to all valid destination activities.
 
     :type with_timeout: bool
     :param with_timeout: forward to all desinations with timeout
-    :type: subflow_workitem: WorkItem
-    :param subflow_workitem: a workitem associated with a subflow   
+    :type: subprocess_workitem: WorkItem
+    :param subprocess_workitem: a workitem associated with a subprocess   
     '''
 
-    if self.has_workitems_to() and not subflow_workitem:
+    if self.has_workitems_to() and not subprocess_workitem:
         log.debug('forwarding canceled for'+ str(self))
         return
 
@@ -5617,36 +5617,36 @@ class ProcessInstance(models.Model):
     # if end activity, instance is complete
     if self.instance.process.end == self.activity:
         log.info('activity end process %s' % self.instance.process.title)
-        # first test subflow
-        lwi = WorkItem.objects.filter(activity__subflow=self.instance.process,
+        # first test subprocess
+        lwi = WorkItem.objects.filter(activity__subprocess=self.instance.process,
                                       status='blocked',
                                       instance=self.instance)
         if lwi.count() &gt; 0:
-            log.info('parent process for subflow %s' % self.instance.process.title)
+            log.info('parent process for subprocess %s' % self.instance.process.title)
             workitem0 = lwi[0]
             workitem0.instance.process = workitem0.activity.process
             workitem0.instance.save()
             log.info('process change for instance %s' % workitem0.instance.title)
             workitem0.status = 'complete'
             workitem0.save()
-            workitem0.forward_to_activities(subflow_workitem=self)
+            workitem0.forward_to_activities(subprocess_workitem=self)
         else:
             self.instance.set_status('complete')
 
 </t>
-<t tx="sa.20080801011423.16">def start_subflow(self, actor):
+<t tx="sa.20080801011423.16">def start_subprocess(self, actor):
     '''
-    starts subflow and blocks passed in workitem
+    starts subprocess and blocks passed in workitem
     '''
-    subflow_begin_activity = self.activity.subflow.begin
+    subprocess_begin_activity = self.activity.subprocess.begin
     instance = self.instance
-    instance.process = self.activity.subflow
+    instance.process = self.activity.subprocess
     instance.save()
     self.status = 'blocked'
     self.blocked = True
     self.save()
 
-    sub_workitem = self.forward_to_activity(subflow_begin_activity)
+    sub_workitem = self.forward_to_activity(subprocess_begin_activity)
     return sub_workitem
 
 </t>
@@ -5801,7 +5801,8 @@ class ProcessInstance(models.Model):
 
     @others
 </t>
-<t tx="sa.20080801011423.31">def __unicode__(self):
+<t tx="sa.20080801011423.31">
+def __unicode__(self):
     return 'simulation model %s' % str(self.id)
 </t>
 <t tx="sa.20080801011423.32">class Meta:
