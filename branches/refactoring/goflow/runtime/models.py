@@ -251,7 +251,6 @@ class WorkItem(models.Model):
             if params:
                 # safe_eval return a functor
                 params = safe_eval(params)()
-
                 result = routing_func(self, **params)
             else:
                 result = routing_func(self)
@@ -320,7 +319,10 @@ class WorkItem(models.Model):
 
     def exec_application(self):
         '''
-        creates a test auto application for activities that don't yet have applications
+        executes the activity application or if one doesn't exist
+        creates a test auto application for activities that don't 
+        yet have applications
+        
         :rtype: bool
         :return: True if application is successfully executed
         :raises: Exception otherwise
@@ -339,8 +341,9 @@ class WorkItem(models.Model):
             params = self.activity.app_param
             # params values defined in activity override those defined in urls.py
             if params:
-                params = eval('{'+params.lstrip('{').rstrip('}')+'}')
-                kwargs.update(params)
+                params_dict = safe_eval(params)()
+#                params = eval('{'+params.lstrip('{').rstrip('}')+'}')
+                kwargs.update(params_dict)
             func(workitem=self , **kwargs)
             return True
         except Exception, v:
@@ -367,31 +370,31 @@ class WorkItem(models.Model):
         return sub_workitem
 
     def eval_transition_condition(self, transition):
-        '''
-        evaluate the condition of a transition
+        '''safely evaluate the condition of a transition
         
         :type transition: Transition
         :param transition: evaluates transition.condition
         :rtype: bool
         :returns: True or False depending on the evaluation
-        :raises: Exception otherwise
+        :raises: Exception which then compares current 
+                 instance.condition and transition.condition
         '''
+        # the absence of a condition implies a True value
         if not transition.condition:
             return True
-        workitem = self # HACK!!! there's a dependency on 'workitem' in eval
-                        # created a really perplexing bug for me )-:
-        instance = self.instance
         try:
-            result = eval(transition.condition)
-            
-            # boolean expr
+            # boolean expression evaluation
+            result = safe_eval(transition.condition, 
+                          workitem=self, instance=self.instance)()
+            #if bool type:
             if type(result) == type(True):
                 return result
-            if type(result) == type(''):
-                return (instance.condition==result)
+            #elif string type:
+            elif type(result) == type(''):
+                return (self.instance.condition==result)
         except Exception, v:
-            return (instance.condition==transition.condition)
-
+            return (self.instance.condition==transition.condition)
+        # otherwise
         return False
 
     def check_conditions_for_user(self, user, status=('inactive','active')):
@@ -422,6 +425,7 @@ class WorkItem(models.Model):
     
     def has_workitems_to(self):
         '''checks that workitems_to.count > 0
+        :rtype: bool
         '''
         return ( self.workitems_to.count() > 0 )
 
@@ -446,21 +450,27 @@ class WorkItem(models.Model):
         return authorized
             
     def set_user(self, user, commit=True):
-        """affect user if he has a role authorized for activity.
+        '''affect user if he has a role authorized for activity.
+        Has an important side-effect of saving the workitem is user
+        is authorized 
         
+        (TODO: this may have to change, as it is not atomic enough)
+                
         return True if authorized, False if not (workitem then falls out)
         
         :type user: User
         :param User: a valid User instance
-        
-        """
+        :type commit: bool
+        :param commit: save (workitem) self if true (default)
+        '''
         if self.check_user(user):
             self.user = user
             if commit: 
                 self.save()
             return True
-        self.fallout()
-        return False
+        else:
+            self.fallout()
+            return False
     
     def fallout(self):
         '''changes status of workitem to 'fallout'
@@ -494,10 +504,13 @@ class WorkItem(models.Model):
         return '<a href=%s>' % (url)
     
     def timeout(self, delay, unit='days'):
-        '''
-        return True if timeout reached
-          delay:    nb units
-          unit: 'weeks' | 'days' | 'hours' ... (see timedelta)
+        '''return True if timeout reached
+        
+          :param delay: number of units
+          :type delay: string
+          :param unit: 'weeks' | 'days' | 'hours' ... (see timedelta)
+          :type unit: string
+          :rtype: bool
         '''
         tdelta = timedelta(**{unit:delay})
         now = datetime.now()
