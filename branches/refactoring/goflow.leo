@@ -9,9 +9,9 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" a="E" str_leo_pos="2,1,1,8"><vh>startup</vh>
+<v t="sa.20080716081317.2" a="E" str_leo_pos="2,1,7,1,4"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
-<v t="sa.20080716081317.3" a="E"><vh>Buttons</vh>
+<v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
 <v t="sa.20080720195210.1"><vh>@button clean</vh></v>
 </v>
@@ -222,25 +222,11 @@
 </v>
 <v t="sa.20080714011136.2" a="E"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
-<v t="sa.20080714012008.2" a="E"><vh>@rst overview.rst</vh>
+<v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
 <v t="sa.20080714081843.3"><vh>Summary</vh></v>
 <v t="sa.20080714081843.2"><vh>Overview</vh></v>
-<v t="sa.20080714081843.4"><vh>Benefits of using GoFlow</vh>
-<v t="sa.20080715122316.2"><vh>To User</vh>
-<v t="sa.20080714081843.5"><vh>Efficiency</vh></v>
-<v t="sa.20080714081843.6"><vh>Formalisation </vh></v>
-<v t="sa.20080715122316.3"><vh>Compliance</vh></v>
-</v>
-<v t="sa.20080715122316.4"><vh>To Developer</vh>
-<v t="sa.20080717192016.4"><vh>Extensibility</vh></v>
-<v t="sa.20080715122316.9"><vh>Simplicity</vh></v>
-<v t="sa.20080715122316.5"><vh>Django Integration</vh></v>
-<v t="sa.20080715122316.6"><vh>Python Language</vh></v>
-<v t="sa.20080715122316.7"><vh>Web configuration of Workflow</vh></v>
-<v t="sa.20080715122316.8"><vh>Speed of Development</vh></v>
-</v>
-</v>
+<v t="sa.20080714081843.4"><vh>Benefits of using GoFlow</vh></v>
 <v t="sa.20080714081843.7"><vh>The Process Definition</vh>
 <v t="sa.20080714081843.8"><vh>Activities (What)</vh></v>
 <v t="sa.20080714081843.9"><vh>Transitions (When)</vh></v>
@@ -317,9 +303,9 @@
 <v t="sa.20080714081843.39"><vh>Current Status</vh></v>
 <v t="sa.20080714081843.40"><vh>Future Features</vh></v>
 </v>
-<v t="sa.20080714012008.8"><vh>@rst definitions.rst</vh>
+<v t="sa.20080714012008.8" a="E"><vh>@rst definitions.rst</vh>
 <v t="sa.20080715111354.1"><vh>Introduction &amp; Concepts</vh></v>
-<v t="sa.20080715111354.2"><vh>Definitions</vh>
+<v t="sa.20080715111354.2" a="E"><vh>Definitions</vh>
 <v t="sa.20080715111354.3"><vh>Process</vh></v>
 <v t="sa.20080715111354.4"><vh>Activity</vh></v>
 <v t="sa.20080715111354.5"><vh>Transitions</vh></v>
@@ -1083,9 +1069,27 @@ To this end, GoFlow provides a number of key functional elements:
     * The *who* part is generally the **User** assigned to carry out the activity, through its application. Usually activity applications will be used by someone, a person, but in many cases the entity assigned to an activity might be an automatic system. Afterall, why should you have a person waste time updating a database if it can be done in software directly?
 
 </t>
-<t tx="sa.20080714081843.4"></t>
-<t tx="sa.20080714081843.5">One reason to use a workflow management system is to improve the efficiency and performance of the processes you usually handle. A lot of activities you usually do can actually be carried out by an automatic system. Database update, e-mail sending, research, document archiving and so on are activities that a computer can carry out with no need for human intervention. This means that the activity job will be completed much faster and the human resources can be used in some more valuable way (and they will be grateful for that).</t>
-<t tx="sa.20080714081843.6">Another reason to use a workflow management system is to always have the answer to the question "who must do what, when and how". Formalizing your process means wasting no time in deciding what to do, having each person performing the right job and being sure that your process can be completed appropriately.</t>
+<t tx="sa.20080714081843.4">* To User
+
+    * **Efficiency.** One reason to use a workflow management system is to improve the efficiency and performance of the processes you usually handle. A lot of activities you usually do can actually be carried out by an automatic system. Database update, e-mail sending, research, document archiving and so on are activities that a computer can carry out with no need for human intervention. This means that the activity job will be completed much faster and the human resources can be used in some more valuable way (and they will be grateful for that).
+
+    * **Formalisation.** Another reason to use a workflow management system is to always have the answer to the question "who must do what, when and how". Formalizing your process means wasting no time in deciding what to do, having each person performing the right job and being sure that your process can be completed appropriately.
+    
+    * Compliance
+
+* To Developer
+
+    * Extensibility
+    
+    * Simplicity
+    
+    * Django Integration
+    
+    * Python Language
+    
+    * Web configuration of Workflow
+    
+    * Speed of Development</t>
 <t tx="sa.20080714081843.7">The goal of a process definition is to give answer the question "who must do what, when and how".
 
 Activities and transitions describe the process you want to model (the what and when part). You can see them as the "bubbles and arrows" description of what has to be done and when. 
@@ -1100,8 +1104,7 @@ Each activity has one incoming guard for collecting incoming transitions that le
     * and: means that all the activities that lead to this activity have to be
       completed in order to enable this activity to work.
 
-    * xor: means that just one of the activities that lead to this activity has to be 
-      completed in order to enable this activity to work.
+    * xor: means that just one of the activities that lead to this activity has to be completed in order to enable this activity to work.
 
 Each activity also has one outgoing guard for collecting outgoing transitions getting out of it. Again, the activity outgoing guard can be either set to and or xor for two different behaviours:
 
@@ -1152,11 +1155,9 @@ Actually each role will keep three different lists:
 
     * users list: list of users assigned to the role
     
-    * enabled activities: list of process activities that users listed in this role can 
-      work on
+    * enabled activities: list of process activities that users listed in this role can work on
     
-    * assignable activities: list of process activities that users listed in this 
-      role can assign to other users</t>
+    * assignable activities: list of process activities that users listed in this role can assign to other users</t>
 <t tx="sa.20080714081843.12">A process definition gives the instructions for completing some work. A process instance, in turn, is an actual execution of a process definition.
 
 For example, if the process definition describes what should be done for submitting a fund request, a process instance of that process definition is an actual submission for funding.</t>
@@ -1201,7 +1202,7 @@ As soon as the process is changed all the current process instances will read th
 Dynamic redesign and exception handling are related to each other. Exception handling allows for dealing with unforeseen events: it should suggest changes in the process definition to handle that situation in the future. On the other hand dynamic redesign will probably put some (or all) process instances into an invalid state: exception handling should be used to recover from these situations.</t>
 <t tx="sa.20080714081843.18"></t>
 <t tx="sa.20080714081843.19"></t>
-<t tx="sa.20080714081843.20">    
+<t tx="sa.20080714081843.20">
 The directory structure of the goflow-refactored branch::
     
 
@@ -1667,7 +1668,7 @@ insert license here.</t>
 <t tx="sa.20080715111354.6">Roles define who can perform an associated activity. Roles are defined at a per-process level.
 
 </t>
-<t tx="sa.20080715111354.7">An instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
+<t tx="sa.20080715111354.7">An process instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
 
 </t>
 <t tx="sa.20080715111354.8">A workitem is added to the instance when an activity is completed. Workitems thus represent completed activities.
@@ -1762,14 +1763,6 @@ related concepts:
 
     * Petri-Nets: http://en.wikipedia.org/wiki/Petri_net
     </t>
-<t tx="sa.20080715122316.2"></t>
-<t tx="sa.20080715122316.3"></t>
-<t tx="sa.20080715122316.4"></t>
-<t tx="sa.20080715122316.5"></t>
-<t tx="sa.20080715122316.6"></t>
-<t tx="sa.20080715122316.7"></t>
-<t tx="sa.20080715122316.8"></t>
-<t tx="sa.20080715122316.9"></t>
 <t tx="sa.20080715122316.10"></t>
 <t tx="sa.20080715122316.11"></t>
 <t tx="sa.20080715122316.12"></t>
@@ -1779,7 +1772,6 @@ related concepts:
 os.system('./scripts/build_docs')
 </t>
 <t tx="sa.20080716081317.5"></t>
-<t tx="sa.20080717192016.4"></t>
 <t tx="sa.20080717192016.5">The convergence of two or more branches into a single subsequent branch such that the thread of control is passed to the subsequent branch when all input branches have been enabled.</t>
 <t tx="sa.20080717192016.6">synchronization, rendezvous, synchronizer.</t>
 <t tx="sa.20080717192016.7">The dispatch-goods task runs immediately after both the check-invoice and produce-invoice tasks are completed.

@@ -96,8 +96,7 @@ class ProcessInstance(models.Model):
     
     def set_status(self, status):
         if not status in [x for (x, y) in ProcessInstance.STATUS_CHOICES]:
-            raise error('incorrect_process_instance_status', status=status)            
-            #raise Exception('instance status incorrect :%s' % status)
+            raise error('incorrect_pinstance_status', status=status)            
         self.old_status = self.status
         self.status = status
         self.save()
@@ -400,8 +399,9 @@ class WorkItem(models.Model):
         return False
 
     def check_conditions_for_user(self, user, status=('inactive','active')):
-        '''
-        helper function to check for a given user that:
+        '''function to check for a given user that conditions are met
+            
+        checks for the following:
             - process is enabled
             - user can take workitem
             - workitem status is correct

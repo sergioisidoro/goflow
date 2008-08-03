@@ -20,8 +20,8 @@ class BaseForm(ModelForm):
     def pre_check(self, obj_context=None, user=None):
         """may be overriden to do some check before.
         
-        obj_context    object instance (if cmp_attr is set, this is the root object)
-        an exception should be risen if pre-conditions are not fullfilled
+        :param obj_context: object instance (if cmp_attr is set, this is the root object)
+                            an exception should be risen if pre-conditions are not fullfilled
         """
         pass
 
@@ -34,8 +34,8 @@ class StartForm(ModelForm):
     '''
     
     def save(self, user=None, data=None, commit=True):
-        ob = super(StartForm, self).save(commit=commit)
-        return ob
+        obj = super(StartForm, self).save(commit=commit)
+        return obj
     
     def pre_check(self, user=None):
         """may be overriden to do some check before.
@@ -47,20 +47,20 @@ class StartForm(ModelForm):
 
 class DefaultAppForm(BaseForm):
     def save(self, workitem=None, submit_value=None, commit=True):
-        ob = super(DefaultAppForm, self).save(commit=False)
-        if ob.comment:
-            if not ob.history:
-                ob.history = 'Init'
-            ob.history += '\n---------'
+        obj = super(DefaultAppForm, self).save(commit=False)
+        if obj.comment:
+            if not obj.history:
+                obj.history = 'Init'
+            obj.history += '\n---------'
             if workitem:
-                ob.history += '\nActivity: [%s]' % workitem.activity.title
-            ob.history += '\n%s\n%s' % (datetime.now().isoformat(' '), ob.comment)
-            ob.comment = None
+                obj.history += '\nActivity: [%s]' % workitem.activity.title
+            obj.history += '\n%s\n%s' % (datetime.now().isoformat(' '), obj.comment)
+            obj.comment = None
         if submit_value:
-            if ob.history:
-                ob.history += '\n button clicked: [%s]' % submit_value
-        ob.save()
-        return ob
+            if obj.history:
+                obj.history += '\n button clicked: [%s]' % submit_value
+        obj.save()
+        return obj
 
     class Meta:
          model = DefaultAppModel
@@ -69,16 +69,16 @@ class DefaultAppForm(BaseForm):
 
 class DefaultAppStartForm(StartForm):
     def save(self,  user=None, data=None, commit=True):
-        ob = super(DefaultAppStartForm, self).save(commit=False)
-        if not ob.history:
-            ob.history = 'Init'
-        ob.history += '\n%s start instance' % datetime.now().isoformat(' ')
-        if ob.comment:
-            ob.history += '\n---------'
-            ob.history += '\n%s' % ob.comment
-            ob.comment = None
-        ob.save()
-        return ob
+        obj = super(DefaultAppStartForm, self).save(commit=False)
+        if not obj.history:
+            obj.history = 'Init'
+        obj.history += '\n%s start instance' % datetime.now().isoformat(' ')
+        if obj.comment:
+            obj.history += '\n---------'
+            obj.history += '\n%s' % obj.comment
+            obj.comment = None
+        obj.save()
+        return obj
 
     class Meta:
          model = DefaultAppModel
