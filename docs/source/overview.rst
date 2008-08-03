@@ -51,42 +51,27 @@ On the other hand simpler processes do not require the complex structure of an a
 Benefits of using GoFlow
 ++++++++++++++++++++++++
 
-To User
-*******
+* To User
 
-Efficiency
-^^^^^^^^^^
+    * **Efficiency.** One reason to use a workflow management system is to improve the efficiency and performance of the processes you usually handle. A lot of activities you usually do can actually be carried out by an automatic system. Database update, e-mail sending, research, document archiving and so on are activities that a computer can carry out with no need for human intervention. This means that the activity job will be completed much faster and the human resources can be used in some more valuable way (and they will be grateful for that).
 
-One reason to use a workflow management system is to improve the efficiency and performance of the processes you usually handle. A lot of activities you usually do can actually be carried out by an automatic system. Database update, e-mail sending, research, document archiving and so on are activities that a computer can carry out with no need for human intervention. This means that the activity job will be completed much faster and the human resources can be used in some more valuable way (and they will be grateful for that).
+    * **Formalisation.** Another reason to use a workflow management system is to always have the answer to the question "who must do what, when and how". Formalizing your process means wasting no time in deciding what to do, having each person performing the right job and being sure that your process can be completed appropriately.
+    
+    * Compliance
 
-Formalisation
-^^^^^^^^^^^^^
+* To Developer
 
-Another reason to use a workflow management system is to always have the answer to the question "who must do what, when and how". Formalizing your process means wasting no time in deciding what to do, having each person performing the right job and being sure that your process can be completed appropriately.
-
-Compliance
-^^^^^^^^^^
-
-To Developer
-************
-
-Extensibility
-^^^^^^^^^^^^^
-
-Simplicity
-^^^^^^^^^^
-
-Django Integration
-^^^^^^^^^^^^^^^^^^
-
-Python Language
-^^^^^^^^^^^^^^^
-
-Web configuration of Workflow
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Speed of Development
-^^^^^^^^^^^^^^^^^^^^
+    * Extensibility
+    
+    * Simplicity
+    
+    * Django Integration
+    
+    * Python Language
+    
+    * Web configuration of Workflow
+    
+    * Speed of Development
 
 The Process Definition
 ++++++++++++++++++++++
@@ -109,8 +94,7 @@ Each activity has one incoming guard for collecting incoming transitions that le
     * and: means that all the activities that lead to this activity have to be
       completed in order to enable this activity to work.
 
-    * xor: means that just one of the activities that lead to this activity has to be 
-      completed in order to enable this activity to work.
+    * xor: means that just one of the activities that lead to this activity has to be completed in order to enable this activity to work.
 
 Each activity also has one outgoing guard for collecting outgoing transitions getting out of it. Again, the activity outgoing guard can be either set to and or xor for two different behaviours:
 
@@ -172,11 +156,9 @@ Actually each role will keep three different lists:
 
     * users list: list of users assigned to the role
     
-    * enabled activities: list of process activities that users listed in this role can 
-      work on
+    * enabled activities: list of process activities that users listed in this role can work on
     
-    * assignable activities: list of process activities that users listed in this 
-      role can assign to other users
+    * assignable activities: list of process activities that users listed in this role can assign to other users
 
 The Process Runtime
 +++++++++++++++++++
