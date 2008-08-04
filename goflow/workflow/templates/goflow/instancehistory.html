@@ -1,25 +1,27 @@
+
 {% extends "goflow/base_site.html" %}
 {% block content %}
-<h1>ProcessInstance history {{instance}}</h1>
-datetime created: {{instance.creation_time}}
+<h1>ProcessInstance history: {{instance}}</h1>
+datetime created: {{ instance.creation_time|date:"r" }}
 
-<h2>Work items</h2>
-{% for wi in instance.workitems.all %}
-<h3>{{wi}}</h3>
+<br>
+<br>
+
 <table border=1>
-
 <tr>
- <th>Activity</th><th>Step</th><th>Status</th><th>Actor</th>
+ <th>Step</th><th>Workitem ID</th><th>Activity</th><th>Status</th><th>Actor</th>
 </tr>
+{% for wi in instance.workitems.all %}
 <tr>
-<td>{{ wi.activity }}</td>
-<td>{{ forloop.counter }}</td>
-<td>{{ wi.get_status_display }}</td>
-<td>{{ wi.user }}</td>
+    <td align="center">{{ forloop.counter }}</td>
+    <td>{{wi}}</td>
+    <td>{{ wi.activity }}</td>
+    <td>{{ wi.status }}</td>
+    <td>{{ wi.user }}</td>
 </tr>
-
-</table>
 {% endfor %}
+</table>
+
 
 </table>
 <p>

@@ -14,7 +14,6 @@ from goflow.runtime.managers import ProcessInstanceManager, WorkItemManager
 from goflow.common.logger import Log; log = Log('goflow.runtime.models')
 from goflow.common.errors import error
 from goflow.common import get_obj, safe_eval
-#import yaml
 
 
 class ProcessInstance(models.Model):
@@ -233,7 +232,6 @@ class WorkItem(models.Model):
         :rtype: User
         :returns: an instance of User that is obtained from
                   the push_application function or class.
-        
         '''
         if not self.activity.process.enabled:
             raise error('process_disabled', workitem=self)
@@ -384,16 +382,16 @@ class WorkItem(models.Model):
         if not transition.condition:
             return True
         try:
-            # boolean expression evaluation
+            # safe boolean expression evaluation
             result = safe_eval(transition.condition, 
                           workitem=self, instance=self.instance)()
             #if bool type:
             if type(result) == type(True):
                 return result
-            #elif string type:
-            elif type(result) == type(''):
+            #if string type:
+            if type(result) == type(''):
                 return (self.instance.condition==result)
-        except Exception, v:
+        except (NameError, SyntaxError), e:
             return (self.instance.condition==transition.condition)
         # otherwise
         return False
