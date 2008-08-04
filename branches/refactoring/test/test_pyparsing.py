@@ -76,53 +76,6 @@ def test_parsing():
     print condition() # False
     assert not condition()
 
-
-def eval_transition_condition(transition):
-    # the absence of a condition implies a True value
-    if not transition.condition:
-        return True
-    try:
-        # boolean expression evaluation
-        result = safe_eval(transition.condition, 
-                      workitem=self, instance=self.instance)()
-        #if bool type:
-        if type(result) == type(True):
-            return result
-        #elif string type:
-        elif type(result) == type(''):
-            return (self.instance.condition==result)
-    except Exception, v:
-        return (self.instance.condition==transition.condition)
-    # otherwise
-    return False
-
-
-def eval_tc(transition, instance_condition=None):
-    if not transition.condition:
-        print 'transition.condition'
-        return True
-    try:
-        result = safe_eval(transition.condition)()
-        if type(result) == type(True):
-            print 'type(result) == type(True)'
-            return result
-        if type(result) == type(''):
-            print 'type(result) == type('')'
-            return (instance_condition==transition.condition)
-    except NameError, e:
-        return (instance_condition==transition.condition)
-    return
-
-def test_eval_transition_condition():
-    class Transition:
-        def __init__(self, condition):
-            self.condition = condition
-    t1 = Transition('OK')
-    t2 = Transition('instance.condition == "OK"')
-    t3 = Transition("workitem.timeout(delay=5, unit='days')")
-    print eval_tc(t1, instance_condition="OK")
-    print eval_tc(t2, instance_condition="OK")
-    
-    
+ 
 if __name__ == '__main__':
-    test_eval_transition_condition()
+    test_parsing()

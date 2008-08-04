@@ -14,8 +14,8 @@ if settings.DEBUG:
 else:
     level=logging.INFO
 
-log_format='%(asctime)s %(levelname)s %(module)s.%(funcName)s: %(message)s'
-# log_format='%(asctime)s %(levelname)s %(name)s.%(funcName)s: %(message)s'
+#log_format='%(asctime)s %(levelname)s %(module)s.%(funcName)s: %(message)s'
+log_format='%(asctime)s %(levelname)s %(name)s.%(funcName)s: %(message)s'
 
 logging.basicConfig(
     filename=_file_log,
@@ -31,7 +31,7 @@ if _LOG_FILE_NOTSET:
 class Log(object):
     def __init__(self, module):
         self.log = logging.getLogger(module)
-        # self._event = get_model('runtime', 'Event').objects
+        #self._event = get_model('runtime', 'Event').objects
 
     def __getattr__(self, name):
         try:
@@ -48,5 +48,5 @@ class Log(object):
             self.log.info(" ".join([str(i) for i in args]))
 
     def event(self, msg, workitem):
-        # self._event.create(name=msg, workitem=workitem)
+        #self._event.create(name=msg, workitem=workitem)
         self.log.info('EVENT: [%s] %s' % (workitem, msg))
