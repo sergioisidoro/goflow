@@ -10,10 +10,10 @@ This is also an opportunity to experiment with API changes without touching the 
 
 = Details =
 
-    * moved goflow.workflow.logger into goflow.utils.logger
-    * moved goflow.workflow.decorators into goflow.utils.decorators
+    * moved goflow.workflow.logger into goflow.common.logger
+    * moved goflow.workflow.decorators into goflow.common.decorators
     * improved Logging Machinery
     * moved api into models and managers to make it more object oriented, still some way to go...
-    * try to minimize eval use
+    * try to minimize eval use or at least render it safe.
     * Add documentation system based on sphinx to collect source and non-source docs
     * add uml diagram of model (80%)
