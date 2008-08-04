@@ -1,8 +1,5 @@
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.http import HttpResponseRedirect
-from urllib import quote
-
-# modif % django.contrib.auth: LOGIN_URL from settings
 from django.conf import settings
 
 
@@ -23,7 +20,6 @@ def user_passes_test(test_func, login_url=settings.LOGIN_URL):
         def _checklogin(request, *args, **kwargs):
             if test_func(request.user):
                 return view_func(request, *args, **kwargs)
-            #return HttpResponseRedirect('%s?%s=%s' % (login_url, REDIRECT_FIELD_NAME, quote(request.get_full_path())))
             return HttpResponseRedirect('%s?%s=%s' % (login_url, REDIRECT_FIELD_NAME, request.path))
         _checklogin.__doc__ = view_func.__doc__
         _checklogin.__dict__ = view_func.__dict__

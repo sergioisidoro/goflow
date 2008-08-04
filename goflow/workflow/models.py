@@ -4,10 +4,9 @@ from django.db import models
 from django.contrib.auth.models import Group, User, Permission
 from django.contrib.contenttypes.models import ContentType
 
-from django import forms
 from goflow.common.decorators import allow_tags
 from goflow.workflow.managers import ProcessManager
-#from goflow.common import error
+
 
 from datetime import datetime, timedelta
 

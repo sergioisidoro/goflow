@@ -1,5 +1,9 @@
 import django.db.models
-from goflow.workflow.models import *
+from goflow.workflow.models import (Process, Activity, Transition, Application,
+                                    PushApplication, ContentType,
+                                    Permission, User, Group)
+                
+                                   
 
 DEBUG = True
 

@@ -1,4 +1,3 @@
-import sys, os
 from Cheetah.Template import Template
 
 template ='''

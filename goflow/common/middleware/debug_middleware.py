@@ -112,28 +112,28 @@ Template.__init__ = new_template_init
 
 if FRAME_INSPECT:
     class SqlLoggingList(list):
-            def append(self, object):
-                # Try to find the meaningful frame, rather than just using one from
-                # the innards of the Django DB code.
-                frame = inspect.currentframe().f_back
-                while frame.f_back and frame.f_code.co_filename.startswith(_django_path):
-                    if frame.f_code.co_filename.startswith(_admin_path):
-                        break
-                    frame = frame.f_back
-                object['filename'] = frame.f_code.co_filename
-                object['lineno'] = frame.f_lineno
-                object['function'] = frame.f_code.co_name
-                try:
-                    object['module'] = inspect.getmodule(frame).__name__
-                except:
-                    object['module'] = "unknown"
-                try:
-                    source_lines = inspect.getsourcelines(frame)
-                    object['source'] = highlight_python(source_lines[0][object['lineno']-source_lines[1]])
-                except:
-                    object['source'] = "N/A"
-                list.append(self, object)
-            
+        def append(self, object):
+            # Try to find the meaningful frame, rather than just using one from
+            # the innards of the Django DB code.
+            frame = inspect.currentframe().f_back
+            while frame.f_back and frame.f_code.co_filename.startswith(_django_path):
+                if frame.f_code.co_filename.startswith(_admin_path):
+                    break
+                frame = frame.f_back
+            object['filename'] = frame.f_code.co_filename
+            object['lineno'] = frame.f_lineno
+            object['function'] = frame.f_code.co_name
+            try:
+                object['module'] = inspect.getmodule(frame).__name__
+            except:
+                object['module'] = "unknown"
+            try:
+                source_lines = inspect.getsourcelines(frame)
+                object['source'] = highlight_python(source_lines[0][object['lineno']-source_lines[1]])
+            except:
+                object['source'] = "N/A"
+            list.append(self, object)
+        
 class DebugFooter(object):
     
     def process_request(self, request):

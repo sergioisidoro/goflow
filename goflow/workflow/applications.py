@@ -3,11 +3,11 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.forms import form_for_model
-from django.contrib.auth.decorators import permission_required
+# from django.contrib.auth.decorators import permission_required
 
-from goflow.runtime.models import DefaultAppModel, WorkItem
+from goflow.runtime.models import WorkItem #, DefaultAppModel
 from goflow.runtime.forms import DefaultAppForm
 from goflow.workflow.models import Process
 
@@ -108,7 +108,7 @@ def default_app(request, id, template='goflow/default_app.html', redirect='home'
         workitem = WorkItem.objects.get_by(id, user=request.user)
         inst = workitem.instance
         obj = inst.content_object
-        form = DefaultAppForm(instance=ob)
+        form = DefaultAppForm(instance=obj)
         # add header with activity description, submit buttons dynamically
         if workitem.activity.split_mode == 'xor':
             tlist = workitem.activity.transition_inputs.all()

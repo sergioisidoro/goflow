@@ -1,5 +1,11 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
+"""
+models for goflow.runtime which hold primary classes
+
+ProcessInstance, WorkItem, Event, DefaultAppModel
+
+"""
 from django.db import models
 from django.contrib.auth.models import Group, User
 from datetime import datetime, timedelta
@@ -135,7 +141,8 @@ class WorkItem(models.Model):
     objects = WorkItemManager()
 
     def __unicode__(self):
-        return '%s-%s-%s' % (unicode(self.instance), self.activity, str(self.id))
+        return '%s-%s-%s' % (
+            unicode(self.instance), self.activity, str(self.id))
 
 
     def forward_to_activity(self, target_activity):
@@ -157,7 +164,8 @@ class WorkItem(models.Model):
         log.event('forwarded to %s' % target_activity.title, self)
         wi.workitem_from = self
         if target_activity.autostart:
-            log.info('run auto activity %s workitem %s', target_activity.title, str(wi))
+            log.info('run auto activity %s workitem %s', 
+                target_activity.title, str(wi))
             try:
                 auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             except Exception:
@@ -271,7 +279,8 @@ class WorkItem(models.Model):
         '''        
         self.check_conditions_for_user(actor, status=('inactive', 'active'))
         if self.status == 'active':
-            log.warning('actor:%s workitem:%s already active', actor.username, str(self))
+            log.warning('actor:%s workitem:%s already active', 
+                actor.username, str(self))
             return
         self.status = 'active'
         self.user = actor
@@ -329,6 +338,7 @@ class WorkItem(models.Model):
         try:
             if not self.activity.process.enabled:
                 raise error('process_disabled', workitem=self)
+            
             # no application: default auto app
             if not self.activity.application:
                 obj = self.instance.content_object
@@ -341,12 +351,11 @@ class WorkItem(models.Model):
             # params values defined in activity override those defined in urls.py
             if params:
                 params_dict = safe_eval(params)()
-#                params = eval('{'+params.lstrip('{').rstrip('}')+'}')
                 kwargs.update(params_dict)
             func(workitem=self , **kwargs)
             return True
-        except Exception, v:
-            log.error('execution wi %s:%s', self, v)
+        except Exception, e:
+            log.error('execution wi %s:%s', self, e)
         return False
 
 
@@ -416,7 +425,8 @@ class WorkItem(models.Model):
             
         if not self.check_user(user):
             self.fallout()
-            raise error('invalid_user_for_workitem', log=log, user=user, workitem=self)
+            raise error('invalid_user_for_workitem', log=log, 
+                user=user, workitem=self)
             
         if not self.status in status:
             raise error('incorrect_workitem_status', log=log, workitem=self)
@@ -454,8 +464,7 @@ class WorkItem(models.Model):
         Has an important side-effect of saving the workitem is user
         is authorized 
         
-        (TODO: this may have to change, as it is not atomic enough)
-                
+        (TODO: this may have to change, as it is not atomic enough)     
         return True if authorized, False if not (workitem then falls out)
         
         :type user: User
@@ -517,8 +526,6 @@ class WorkItem(models.Model):
         return (now > (self.date + tdelta))
         
     
-
-
 class Event(models.Model):
     """Events are changes that happen to workitems.
     """
@@ -526,7 +533,6 @@ class Event(models.Model):
     name = models.CharField(max_length=50, core=True)
     workitem = models.ForeignKey('WorkItem', 
         related_name='events', edit_inline=True)
-
 
 
 class DefaultAppModel(models.Model):

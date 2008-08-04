@@ -42,7 +42,7 @@ Examples:
 
 '''
 
-from pyparsing import *
+from pyparsing import Word, alphas, alphanums, QuotedString, Literal
 from goflow.common import safe_eval
 
 identifier      = Word( alphas+"_", alphanums+"_" )

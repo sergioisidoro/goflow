@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('goflow.workflow.views',
     (r'^application/testenv/(?P<action>create|remove)/(?P<id>.*)/$', 'app_env'),
