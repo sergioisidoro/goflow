@@ -1,14 +1,14 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
-from django.conf import settings
+# from django.conf import settings
 from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect, HttpResponse
 
 from goflow.workflow.models import Process, Activity, Transition, Application
-from goflow.runtime.models import DefaultAppModel, ProcessInstance
+from goflow.runtime.models import DefaultAppModel, ProcessInstance, WorkItem
 from goflow.workflow.forms import ContentTypeForm
 
 

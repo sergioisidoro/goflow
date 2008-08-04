@@ -1,6 +1,6 @@
 import logging
 from django.conf import settings
-from django.db.models import get_model
+# from django.db.models import get_model
 
 try:
     _file_log = settings.LOGGING_FILE
@@ -25,7 +25,7 @@ logging.basicConfig(
 )
 log = logging.getLogger('goflow.common')
 if _LOG_FILE_NOTSET:
-     log.warning('settings.LOGGING_FILE not set; default is workflow.log')
+    log.warning('settings.LOGGING_FILE not set; default is workflow.log')
 
 
 class Log(object):

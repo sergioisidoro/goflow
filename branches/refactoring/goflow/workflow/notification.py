@@ -1,9 +1,10 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from goflow.workflow.models import UserProfile
 from goflow.runtime.models import WorkItem
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
 from goflow.common.logger import Log; log = Log('goflow.workflow.notification')
 
 def notify_if_needed(user=None, roles=None):

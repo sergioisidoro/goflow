@@ -1,5 +1,11 @@
-from django.conf.urls.defaults import *
-from django.conf import settings
+'''
+meant to be linked to a django app as follows::
+
+    (r'^leave/', include('goflow.urls')),
+
+'''
+
+from django.conf.urls.defaults import patterns
 from runtime.forms import DefaultAppStartForm
 
 

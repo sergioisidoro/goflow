@@ -11,7 +11,7 @@ class ActivityState:
     complete = 0
     total = 0
     def __init__(self, activity):
-        wis = WorkItems.objects.filter(activity=activity)
+        wis = WorkItem.objects.filter(activity=activity)
         self.total = wis.count()
         self.blocked = wis.filter(status='blocked').count()
         self.inactive = wis.filter(status='inactive').count()

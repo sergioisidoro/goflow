@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" a="E" str_leo_pos="2,1,7,1,4"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,2"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
@@ -25,7 +25,7 @@
 <v t="sa.20080726124242.1"><vh>wfmc</vh>
 <v t="sa.20080724074952.15" tnodeList="sa.20080724074952.15,sa.20080724074952.16,sa.20080724074952.17,sa.20080724074952.18,sa.20080724074952.19"><vh>@file attributeintegration.py</vh>
 <v t="sa.20080724074952.16"><vh>attributeintegration declarations</vh></v>
-<v t="sa.20080724074952.17" a="E"><vh>class AttributeIntegration</vh>
+<v t="sa.20080724074952.17"><vh>class AttributeIntegration</vh>
 <v t="sa.20080724074952.18"><vh>createParticipant</vh></v>
 <v t="sa.20080724074952.19"><vh>createWorkItem</vh></v>
 </v>
@@ -54,7 +54,7 @@
 <v t="sa.20080724074952.38"><vh>class IProcessContext</vh>
 <v t="sa.20080724074952.39"><vh>processFinished</vh></v>
 </v>
-<v t="sa.20080724074952.40" a="E"><vh>class IActivity</vh>
+<v t="sa.20080724074952.40"><vh>class IActivity</vh>
 <v t="sa.20080724074952.41"><vh>workItemFinished</vh></v>
 </v>
 <v t="sa.20080724074952.42"><vh>class IApplicationDefinition</vh></v>
@@ -220,7 +220,7 @@
 <v t="sa.20080724074952.178"><vh>@file xpdl.txt</vh></v>
 </v>
 </v>
-<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
+<v t="sa.20080714011136.2"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -303,7 +303,7 @@
 <v t="sa.20080714081843.39"><vh>Current Status</vh></v>
 <v t="sa.20080714081843.40"><vh>Future Features</vh></v>
 </v>
-<v t="sa.20080714012008.8" a="E"><vh>@rst definitions.rst</vh>
+<v t="sa.20080714012008.8"><vh>@rst definitions.rst</vh>
 <v t="sa.20080715111354.1"><vh>Introduction &amp; Concepts</vh></v>
 <v t="sa.20080715111354.2" a="E"><vh>Definitions</vh>
 <v t="sa.20080715111354.3"><vh>Process</vh></v>
@@ -1668,7 +1668,7 @@ insert license here.</t>
 <t tx="sa.20080715111354.6">Roles define who can perform an associated activity. Roles are defined at a per-process level.
 
 </t>
-<t tx="sa.20080715111354.7">An process instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
+<t tx="sa.20080715111354.7">A process instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
 
 </t>
 <t tx="sa.20080715111354.8">A workitem is added to the instance when an activity is completed. Workitems thus represent completed activities.
