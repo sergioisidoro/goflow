@@ -32,7 +32,7 @@ def safe_eval(cond, **kwds):
     return lambda: eval(cond, globals, locals)
 
 def get_obj(modpath, obj=None):
-    '''dynamic module importer
+    '''dynamic module/class/object importer
     '''
     module = __import__(modpath, globals(), locals(), fromlist=['*'])
     if obj:
