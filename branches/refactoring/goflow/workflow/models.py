@@ -16,6 +16,14 @@ class Activity(models.Model):
     The action might want to change the object instance, or simply
     route the instance on a given path. Activities are the places
     where any of these action are resolved by employees.
+    
+    usage::
+    
+        >>> # first get or create a process
+        >>> p1 = Process.objects.add(title="test process", description="desc")
+        >>> activity = Activity(title="myactivity", process=p1)
+        >>> activity.save()
+    
     """
     KIND_CHOICES = (
                     ('standard', 'standard'),
@@ -178,6 +186,10 @@ class Application(models.Model):
         Activities can call applications.
         A commmon prefix may be defined: see settings.WF_APPS_PREFIX
         
+        usage::
+        
+            >>> app = Application(url="check_validity", suffix="w")
+            >>> app.save()
         
     """
     url = models.CharField(max_length=255, unique=True, 
@@ -254,6 +266,12 @@ class Application(models.Model):
 class Parameter(models.Model):
     """A parameter is a definition of what goes into workflow application or routing
     function
+    
+    usage::
+    
+        >>> param = Parameter(name="age", type="integer", direction="in")
+        >>> param.save()
+        
     """
     PARAMETER_TYPES = (
                     ('string', 'string'),
@@ -280,6 +298,11 @@ class PushApplication(models.Model):
     Built-in push applications are implemented in pushapps module.
     A commmon prefix may be defined: see settings.WF_PUSH_APPS_PREFIX
     
+    usage::
+    
+        >>> pushapp = PushApplication(url="route_to_finance")
+        >>> pushapp.save()
+    
     """
 #    name = models.CharField(max_length=50, unique=True)
     url = models.CharField(max_length=255, unique=True)
@@ -303,6 +326,16 @@ class Transition(models.Model):
     each time an instance has to choose which path to follow.
     If the only transition whose condition is evaluated to true will
     be the transition choosen for the forwarding of the instance.
+    
+    usage::
+        
+        >>> # first get or create process
+        >>> p = Process.objects.add(title='test proc1', description="desc")
+        >>> a1 = Activity.objects.create(title="activity_in", process=p)
+        >>> a2 = Activity.objects.create(title="activity_out", process=p)
+        >>> t = Transition(name='send_to_employee', process=p, input=a1, output=a2,
+        ...                condition="OK")
+        >>> t.save()
     """
     name = models.CharField(max_length=50, null=True, blank=True)
     process = models.ForeignKey(Process, related_name='transitions')
