@@ -67,6 +67,15 @@ class ProcessInstance(models.Model):
     the following can be added to the model::
     
         wfinstances = generic.GenericRelation(ProcessInstance)
+    
+    usage::
+
+        >>> # first get or create a user
+        >>> user = User.objects.get(username='primus')
+        >>> ctype = ContentType.objects.get_for_model(User)
+        >>> pi = ProcessInstance(title='proc_instance1', user=user, 
+        ...                      content_type=ctype, object_id=user.id)
+        >>> pi.save()
   
     """
     STATUS_CHOICES = (
@@ -112,6 +121,16 @@ class WorkItem(models.Model):
     An Activity object defines the activity, while the workitem object
     represents that you are performing this activity. A workitem is therfore
     an "instance" of the activity.
+    
+    usage::
+    
+        >>> from goflow.workflow.models import *
+        >>> proc = Process.objects.create(title="myprocess", description="desc")
+        >>> a1 = Activity.objects.create(title='activity1', process=proc)
+        >>> user = User.objects.get(username='primus')
+        >>> pi = ProcessInstance.objects.add(user, 'test proc_instance', user)
+        >>> WorkItem.objects.create(user=user, instance=pi, activity=a1)
+        <WorkItem: test proc_instance-activity1 (myprocess)-1>
     """
     STATUS_CHOICES = (
                       ('blocked', 'blocked'),
@@ -544,6 +563,13 @@ class DefaultAppModel(models.Model):
     This model is used in process simulations: you don't have to define
     application in activities for this; the DefaultAppModel is used
     to keep workflow history for displaying to users.
+    
+    usage::
+    
+        >>> test = DefaultAppModel.objects.create(history="my history", comment='...')
+        >>> test
+        <DefaultAppModel: simulation model 1>
+
     """
     history = models.TextField(editable=False, null=True, blank=True)
     comment = models.TextField(null=True, blank=True)
