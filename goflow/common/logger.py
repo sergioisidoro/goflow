@@ -29,7 +29,7 @@ if _LOG_FILE_NOTSET:
 
 
 class MockLog:
-    ''' a dummy logger
+    ''' a dummy logger (for testing)
     '''
     def info(self, *args, **kwds):
         pass

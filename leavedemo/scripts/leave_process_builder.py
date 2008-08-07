@@ -1,17 +1,15 @@
-import sys, os; dirname = os.path.dirname
-# sys.path.insert(0, dirname(dirname(__file__)))
-sys.path.insert(0, dirname(__file__))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'leavedemo.settings'
+from goflow.common import djangopath; djangopath(up=3, settings='leavedemo.settings')
 
 from process_builder import ProcessBuilder, User, log
 from leavedemo.leave.models import Manager
 
-# Note:
-# To use this file, you must disable fixtures 
+# ====================================================================================
+# Note: to use this file you must first disable fixtures
 # just rename root/leavedemo/leave/fixtures/initial_data.json to something else
-# then from root, do the following:
+# then from the leavedemo directory, do the following:
 # ./scripts/reset
 # say no to create the users/passwords as this is done automatically in this script
+# ====================================================================================
 
 # ------------------------------------------------------------------------------------
 # Leave Process Builder for goflow.leavedemo.leave
@@ -61,33 +59,34 @@ def test():
         ('leave', [('workflow', 'Process', 'can_instantiate')]),
 
         ('manager', [
-                ('workflow', 'Activity', 'add_activity'),
-                ('workflow', 'Activity', 'change_activity'),
-                ('workflow', 'Activity', 'delete_activity'),
-                ('workflow', 'UserProfile', 'add_userprofile'),
-                ('workflow', 'UserProfile', 'change_userprofile'),
-                ('workflow', 'UserProfile', 'delete_userprofile'),
+
                 ('leave', 'Account', 'add_account'),
                 ('leave', 'Account', 'change_account'),
                 ('leave', 'Account', 'delete_account'),
-                ('graphics2', 'ActivityPosition', 'add_activityposition'),
-                ('workflow', 'Application', 'add_application'),
-                ('workflow', 'Application', 'change_application'),
-                ('workflow', 'Application', 'delete_application'),
                 ('leave', 'LeaveRequest', 'add_leaverequest'),
                 ('leave', 'LeaveRequest', 'change_leaverequest'),
                 ('leave', 'LeaveRequest', 'delete_leaverequest'),
                 ('leave', 'Manager', 'add_manager'),
                 ('leave', 'Manager', 'change_manager'),
                 ('leave', 'Manager', 'delete_manager'),
+                ('graphics', 'ActivityPosition', 'add_activityposition'),
+                ('graphics', 'ProcessImage', 'add_processimage'),
+                ('graphics', 'ProcessImage', 'change_processimage'),
+                ('graphics', 'ProcessImage', 'delete_processimage'),
+                ('workflow', 'Activity', 'add_activity'),
+                ('workflow', 'Activity', 'change_activity'),
+                ('workflow', 'Activity', 'delete_activity'),
+                ('workflow', 'UserProfile', 'add_userprofile'),
+                ('workflow', 'UserProfile', 'change_userprofile'),
+                ('workflow', 'UserProfile', 'delete_userprofile'),
+                ('workflow', 'Application', 'add_application'),
+                ('workflow', 'Application', 'change_application'),
+                ('workflow', 'Application', 'delete_application'),
                 ('workflow', 'Process', 'add_process'),
                 ('workflow', 'Process', 'can_browse'),
                 ('workflow', 'Process', 'can_instantiate'),
                 ('workflow', 'Process', 'change_process'),
                 ('workflow', 'Process', 'delete_process'),
-                ('graphics2', 'ProcessImage', 'add_processimage'),
-                ('graphics2', 'ProcessImage', 'change_processimage'),
-                ('graphics2', 'ProcessImage', 'delete_processimage'),
                 ('workflow', 'PushApplication', 'add_pushapplication'),
                 ('workflow', 'PushApplication', 'change_pushapplication'),
                 ('workflow', 'PushApplication', 'delete_pushapplication'),
