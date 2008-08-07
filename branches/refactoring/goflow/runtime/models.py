@@ -576,5 +576,6 @@ class DefaultAppModel(models.Model):
     
     def __unicode__(self):
         return 'simulation model %s' % str(self.id)
+
     class Meta:
         verbose_name='Simulation object'

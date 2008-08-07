@@ -3,7 +3,7 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="36" left="128" height="781" width="1183"/>
+	<global_window_position top="46" left="64" height="781" width="1183"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
@@ -305,7 +305,7 @@
 </v>
 <v t="sa.20080714012008.8"><vh>@rst definitions.rst</vh>
 <v t="sa.20080715111354.1"><vh>Introduction &amp; Concepts</vh></v>
-<v t="sa.20080715111354.2" a="E"><vh>Definitions</vh>
+<v t="sa.20080715111354.2"><vh>Definitions</vh>
 <v t="sa.20080715111354.3"><vh>Process</vh></v>
 <v t="sa.20080715111354.4"><vh>Activity</vh></v>
 <v t="sa.20080715111354.5"><vh>Transitions</vh></v>
@@ -334,11 +334,12 @@
 </v>
 </v>
 <v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5" a="E"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080714225902.6" a="E"><vh>New Features</vh>
+<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080714225902.6"><vh>New Features</vh>
 <v t="sa.20080724074952.3"><vh>Improved API</vh></v>
 <v t="sa.20080724074952.11"><vh>Improved documentation system</vh></v>
 <v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
+<v t="sa.20080806030604.1"><vh>More tests</vh></v>
 <v t="sa.20080802224603.1"><vh>Safe Evaluation of Expressions</vh></v>
 </v>
 <v t="sa.20080714225902.7"><vh>Bug Fixes</vh></v>
@@ -351,8 +352,8 @@
 </v>
 </v>
 <v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
-<v t="sa.20080724074952.2" a="E"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080724074952.10"><vh>Minimize / Manager Eval</vh></v>
+<v t="sa.20080724074952.2"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080806030604.2"><vh>more tests</vh></v>
 </v>
 </v>
 <v t="sa.20080714012008.1"><vh>@rst glossary.rst</vh>
@@ -546,7 +547,7 @@ GoFlow
 
 Latest Release: 
     
-    * All releases are available here: http://code.google.com/p/goflow/downloads/list
+    * All releases are available `here`_.
     
 Subversion trunk code::
     
@@ -557,12 +558,21 @@ Subversion trunk code::
 Optional (but useful) Modules      
 -------------------------------
 
-    * Graphviz
-    * PIL  
-    * Pyyaml
-    * Pygraphviz
+    * `Graphviz`_
+    
+    * `PIL`_  
+    
+    * `Pyyaml`_
+    
+    * `Pygraphviz`_
 
-</t>
+
+
+.. _`here` :  http://code.google.com/p/goflow/downloads/list
+.. _`Graphviz` : http://www.graphviz.org/
+.. _`PIL` : http://www.pythonware.com/products/pil/
+.. _`Pyyaml` : http://pyyaml.org/
+.. _`Pygraphviz` : https://networkx.lanl.gov/wiki/pygraphviz</t>
 <t tx="sa.20080714012008.11">.. _changes:
 
 ==========================
@@ -1037,12 +1047,14 @@ Workflow Patterns
 </t>
 <t tx="sa.20080714081843.1">This document presents an introduction to "GoFlow", a workflow engine for django. 
 
-The manual has been generated from reStructuredText source markup with
-Sphinx, which should make it much easier to keep it up-to-date in the
-future.
+The manual has been generated from reStructuredText source markup using a combination of `leo-editor`_ and `Sphinx`_, which should make it much easier to keep it up-to-date in the future.
+
+
+.. _`leo-editor`: http://webpages.charter.net/edreamleo/front.html
+.. _`Sphinx`: http://sphinx.pocoo.org/ 
 
 </t>
-<t tx="sa.20080714081843.2">GoFlow is an activity based workflow management system that is designed as django component.
+<t tx="sa.20080714081843.2">GoFlow is an activity based workflow management system that is designed as a django component.
 
 Being activity based means that the processes, the workflows, are made of activities to be completed in order to get something done. This differs from entity based workflows where the focus is set on a given document and the states it has to go through in order to be completed.
 
@@ -1069,7 +1081,7 @@ To this end, GoFlow provides a number of key functional elements:
     * The *who* part is generally the **User** assigned to carry out the activity, through its application. Usually activity applications will be used by someone, a person, but in many cases the entity assigned to an activity might be an automatic system. Afterall, why should you have a person waste time updating a database if it can be done in software directly?
 
 </t>
-<t tx="sa.20080714081843.4">* To User
+<t tx="sa.20080714081843.4">* To the User
 
     * **Efficiency.** One reason to use a workflow management system is to improve the efficiency and performance of the processes you usually handle. A lot of activities you usually do can actually be carried out by an automatic system. Database update, e-mail sending, research, document archiving and so on are activities that a computer can carry out with no need for human intervention. This means that the activity job will be completed much faster and the human resources can be used in some more valuable way (and they will be grateful for that).
 
@@ -1077,7 +1089,7 @@ To this end, GoFlow provides a number of key functional elements:
     
     * Compliance
 
-* To Developer
+* To the Developer
 
     * Extensibility
     
@@ -1711,20 +1723,28 @@ Rules: Valid processes must have at least one begin activity and exactly one end
 <t tx="sa.20080715111354.21">GoFlow defines three modules:
 
     * The Process Manager
-    * The User Interafce
+    * The User Interface
     * The Process Monitor 
 </t>
 <t tx="sa.20080715111354.22">The process manager is the module used to create and modify processes. This module is normally used by an administrator and process designers to create processes. The process manager covers the following functionality:
 
     * Create process and process versions
+    
     * Create, rename, edit and delete activities
+    
     * View a graph of the process activities
+    
     * Check if a process is valid
+    
     * Activate/de-activate a process
+    
     * Edit the source code of activities (python scripts) and templates (Smarty templates)
+    
     * Define roles and define what roles are allowed to execute what activities
     * Map users to roles
+    
     * Export processes to XML files (backup)
+    
     * Load processes from XML files (restore) 
 
 </t>
@@ -1734,11 +1754,17 @@ Rules: Valid processes must have at least one begin activity and exactly one end
 <t tx="sa.20080715111354.24">The process monitor is used to monitor and control the execution of processes. The following list shows some features of the process monitor API.
 
     * List processes, process activities and number of instances per activity
+    
     * List active instances and exceptions
+    
     * Browse instances and modify instance properties
+    
     * Send instances to some activity
+    
     * Assign or reassign an instance to some user
+    
     * Abort instances
+    
     * View statistics about completed processes, execution time, and time spent per activity 
 
 </t>
@@ -1882,7 +1908,6 @@ TODOs
 
 
 </t>
-<t tx="sa.20080724074952.10">- modify runtime.models for new api with minimal eval</t>
 <t tx="sa.20080724074952.11">* sphinx autodoc now working 
 
 * add uml diagram of model (80%)
@@ -5414,5 +5439,7 @@ Most process elements can have names and descriptions.
 <t tx="sa.20080801011423.1"></t>
 <t tx="sa.20080802224603.1">* introduced safe_eval and dynamic object imports in goflow.common
 </t>
+<t tx="sa.20080806030604.1">* we are trying to provide extensive tests of all goflow functionality, with a preference for doctests.</t>
+<t tx="sa.20080806030604.2"></t>
 </tnodes>
 </leo_file>

@@ -39,22 +39,25 @@ class Activity(models.Model):
     process = models.ForeignKey('Process', related_name='activities', verbose_name='process')
     push_application = models.ForeignKey('PushApplication', verbose_name='push application',
                                          related_name='push_activities', null=True, blank=True)
-    pushapp_param = models.TextField(null=True, blank=True, 
+    pushapp_param = models.CharField(max_length=100, null=True, blank=True, 
                                 verbose_name='push application parameters',
-                                help_text="parameters in yaml will safely be converted to dictionary ; example: username:john")
-    application = models.ForeignKey('Application', related_name='activities', null=True, blank=True,
-                                verbose_name='application url',
-                                help_text='leave it blank for prototyping the process without coding')
-    app_param = models.TextField(verbose_name='application parameters', 
-                                 help_text='parameters in yaml will safely converted to dictionary', null=True, blank=True)
+                                help_text="parameters as python dictionary will be safely evaluated")
+    application = models.ForeignKey('Application', related_name='activities', 
+                                    verbose_name='application url', null=True, blank=True,
+                                    help_text='leave it blank for prototyping the process without coding')
+    app_param = models.CharField(max_length=100, verbose_name='application parameters', null=True, 
+                                 blank=True,
+                                 help_text='parameters as python dictionary will be safely evaluated')
     subprocess = models.ForeignKey('Process', verbose_name='subprocess process',
                                 related_name='parent_activities', null=True, blank=True)
     roles = models.ManyToManyField(Group, related_name='activities', null=True, blank=True)
     description = models.CharField(max_length=100, null=True, blank=True)
     autostart = models.BooleanField(default=False)
     autofinish = models.BooleanField(default=True)
-    join_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, verbose_name='join mode', default='xor')
-    split_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, verbose_name='split mode', default='and')
+    join_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, 
+                                  verbose_name='join mode', default='xor')
+    split_mode =  models.CharField(max_length=3, choices=COMP_CHOICES, 
+                                   verbose_name='split mode', default='and')
     
     def __unicode__(self):
         return '%s (%s)' % (self.title, self.process.title)
@@ -140,9 +143,9 @@ class Process(models.Model):
         :type name: string
         :param name: name of activity (get or created)
         :type activity_out: Activity
-        :param activity_out: the to or output Activity
+        :param activity_out: the 'to' or output Activity
         :type activity_in: Activity
-        :param activity_in: the from or input Activity
+        :param activity_in: the 'from' or input Activity
         '''
         
         t, created = Transition.objects.get_or_create(name=name, process=self,

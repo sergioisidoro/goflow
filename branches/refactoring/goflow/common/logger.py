@@ -1,6 +1,6 @@
 import logging
 from django.conf import settings
-# from django.db.models import get_model
+from django.db.models import get_model
 
 try:
     _file_log = settings.LOGGING_FILE
@@ -28,9 +28,18 @@ if _LOG_FILE_NOTSET:
     log.warning('settings.LOGGING_FILE not set; default is workflow.log')
 
 
+class MockLog:
+    ''' a dummy logger
+    '''
+    def info(self, *args, **kwds):
+        pass
+    error = debug = info
+
+
 class Log(object):
     def __init__(self, module):
         self.log = logging.getLogger(module)
+        # self.log = MockLog()
         #self._event = get_model('runtime', 'Event').objects
 
     def __getattr__(self, name):

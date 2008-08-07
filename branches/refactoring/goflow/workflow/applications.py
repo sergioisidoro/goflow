@@ -3,9 +3,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
-# from django.contrib.auth.models import User
 from django.forms import form_for_model
-# from django.contrib.auth.decorators import permission_required
 
 from goflow.runtime.models import WorkItem #, DefaultAppModel
 from goflow.runtime.forms import DefaultAppForm
@@ -36,7 +34,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
     if not process_name:
         process_name = app_label
     try:
-        Process.objects.check_start_instance_perm(process_name,request.user)
+        Process.objects.check_start_instance_perm(process_name, request.user)
     except Exception, v:
         return HttpResponse(str(v))
     

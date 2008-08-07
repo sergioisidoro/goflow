@@ -24,6 +24,8 @@ help:
 
 clean:
 	-rm -rf build/*
+	-rm -rf source/*.rst
+	-rm -rf source/modules/*.rst
 
 html:
 	mkdir -p build/html build/doctrees

@@ -11,9 +11,11 @@ Preface
 
 This document presents an introduction to "GoFlow", a workflow engine for django. 
 
-The manual has been generated from reStructuredText source markup with
-Sphinx, which should make it much easier to keep it up-to-date in the
-future.
+The manual has been generated from reStructuredText source markup using a combination of `leo-editor`_ and `Sphinx`_, which should make it much easier to keep it up-to-date in the future.
+
+
+.. _`leo-editor`: http://webpages.charter.net/edreamleo/front.html
+.. _`Sphinx`: http://sphinx.pocoo.org/
 
 Summary
 +++++++
@@ -37,7 +39,7 @@ To this end, GoFlow provides a number of key functional elements:
 Overview
 ++++++++
 
-GoFlow is an activity based workflow management system that is designed as django component.
+GoFlow is an activity based workflow management system that is designed as a django component.
 
 Being activity based means that the processes, the workflows, are made of activities to be completed in order to get something done. This differs from entity based workflows where the focus is set on a given document and the states it has to go through in order to be completed.
 
@@ -51,7 +53,7 @@ On the other hand simpler processes do not require the complex structure of an a
 Benefits of using GoFlow
 ++++++++++++++++++++++++
 
-* To User
+* To the User
 
     * **Efficiency.** One reason to use a workflow management system is to improve the efficiency and performance of the processes you usually handle. A lot of activities you usually do can actually be carried out by an automatic system. Database update, e-mail sending, research, document archiving and so on are activities that a computer can carry out with no need for human intervention. This means that the activity job will be completed much faster and the human resources can be used in some more valuable way (and they will be grateful for that).
 
@@ -59,7 +61,7 @@ Benefits of using GoFlow
     
     * Compliance
 
-* To Developer
+* To the Developer
 
     * Extensibility
     

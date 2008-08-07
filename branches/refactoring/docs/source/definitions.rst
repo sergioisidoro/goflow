@@ -41,7 +41,7 @@ Roles define who can perform an associated activity. Roles are defined at a per-
 ProcessInstance
 ***************
 
-An process instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
+A process instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
 
 WorkItem
 ********
@@ -130,7 +130,7 @@ Modules
 GoFlow defines three modules:
 
     * The Process Manager
-    * The User Interafce
+    * The User Interface
     * The Process Monitor
 
 Process Manager
@@ -139,14 +139,22 @@ Process Manager
 The process manager is the module used to create and modify processes. This module is normally used by an administrator and process designers to create processes. The process manager covers the following functionality:
 
     * Create process and process versions
+    
     * Create, rename, edit and delete activities
+    
     * View a graph of the process activities
+    
     * Check if a process is valid
+    
     * Activate/de-activate a process
+    
     * Edit the source code of activities (python scripts) and templates (Smarty templates)
+    
     * Define roles and define what roles are allowed to execute what activities
     * Map users to roles
+    
     * Export processes to XML files (backup)
+    
     * Load processes from XML files (restore)
 
 User Interface
@@ -160,10 +168,16 @@ The Process Monitor
 The process monitor is used to monitor and control the execution of processes. The following list shows some features of the process monitor API.
 
     * List processes, process activities and number of instances per activity
+    
     * List active instances and exceptions
+    
     * Browse instances and modify instance properties
+    
     * Send instances to some activity
+    
     * Assign or reassign an instance to some user
+    
     * Abort instances
+    
     * View statistics about completed processes, execution time, and time spent per activity
 
