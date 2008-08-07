@@ -1,4 +1,5 @@
-
+import os, sys
+from os.path import dirname, abspath
 
 def get_safe_builtins():
     '''returns a safe for eval local dict of functions from __builtins__
@@ -63,4 +64,32 @@ def get_obj(modpath, obj=None):
         return getattr(module, obj)
     else:
         return module
+
+
+
+def djangopath(up=1, settings=None):
+    '''easily sets the sys.path and django_settings
+    
+    :param up: how many directories up from current __file__ where the
+               djangopath function is called.
+    :type up: integer
+    :param settings: <djangoapp>.settings
+    :type: settings: string
+    
+    usage::
+    
+        djangopath(up=3, settings='leavedemo.settings')
+        
+    '''
+    # here's the magic
+    path = abspath(sys._getframe(1).f_code.co_filename)
+    for i in range(up):
+        path = dirname(path)
+    sys.path.insert(0, path)
+    os.environ['DJANGO_SETTINGS_MODULE'] = settings
+
+
+
+    
+
 
