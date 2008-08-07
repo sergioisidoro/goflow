@@ -11,8 +11,6 @@ TODOs
 Version 0.6 (refactored branch)
 +++++++++++++++++++++++++++++++
 
-Minimize / Manager Eval
-***********************
-
-- modify runtime.models for new api with minimal eval
+more tests
+**********
 

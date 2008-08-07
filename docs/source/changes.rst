@@ -48,6 +48,11 @@ Improved Logging Machinery
 
 - use custom log class for all logging (including event logging)
 
+More tests
+^^^^^^^^^^
+
+* we are trying to provide extensive tests of all goflow functionality, with a preference for doctests.
+
 Safe Evaluation of Expressions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

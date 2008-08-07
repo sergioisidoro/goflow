@@ -78,7 +78,7 @@ related concepts:
 ProcessInstance
 +++++++++++++++
 
-An process instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
+A process instance is an occurrence of a process being executed. An instance is created when a process is started. The instance passes through the process activities until the process is terminated.
 
 WorkItem
 ++++++++

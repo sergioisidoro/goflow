@@ -14,23 +14,3 @@ def route_to_supervisor(workitem):
     mgr_supervisor = Manager.objects.get(category='supervisor', users=user)
     log.debug('user:%s supervisor:%s', user, mgr_supervisor.user)
     return mgr_supervisor.user
-
-
-
-# class route_to_secretary(object):
-#     def __init__(self, workitem):
-#         user = workitem.instance.user
-#         self.mgr_secretary = Manager.objects.get(category='secretary', users=user)
-#     def __call__(self):
-#         return self.mgr_secretary.user
-# 
-# class route_to_supervisor(object):
-#     def __init__(self, workitem):
-#         user = workitem.instance.user
-#         self.mgr_supervisor = Manager.objects.get(category='supervisor', users=user)
-#         log.debug('user:%s supervisor:%s', user, self.mgr_supervisor.user)
-#     def __call__(self):
-#         return self.mgr_supervisor.user
-
-
-

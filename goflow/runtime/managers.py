@@ -43,6 +43,8 @@ class WorkItemManager(models.Manager):
         '''
         Safely retrieves a single WorkItem instance for a user given its id
         
+        Valid workitems must be either activate or inactive to be retrieved.
+        
         :type id: int
         :param id: the id of the WorkItem instance
         :type user: User

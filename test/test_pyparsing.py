@@ -70,6 +70,9 @@ def test_parsing():
     condition = safe_eval(result.condition, var=5)
     print condition() # True
     assert condition()
+    assert result.from_activity == 'activity1'
+    assert result.transition_name == 'transition_name'
+    assert result.to_activity == 'activity2'
     target = "activity1 --- transition_name [10 > var] --> activity2"
     result = sentence.parseString(target)
     condition = safe_eval(result.condition, var=15)

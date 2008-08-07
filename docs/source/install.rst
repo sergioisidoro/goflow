@@ -24,7 +24,7 @@ GoFlow
 
 Latest Release: 
     
-    * All releases are available here: http://code.google.com/p/goflow/downloads/list
+    * All releases are available `here`_.
     
 Subversion trunk code::
     
@@ -35,8 +35,19 @@ Subversion trunk code::
 Optional (but useful) Modules      
 -------------------------------
 
-    * Graphviz
-    * PIL  
-    * Pyyaml
-    * Pygraphviz
+    * `Graphviz`_
+    
+    * `PIL`_  
+    
+    * `Pyyaml`_
+    
+    * `Pygraphviz`_
+
+
+
+.. _`here` :  http://code.google.com/p/goflow/downloads/list
+.. _`Graphviz` : http://www.graphviz.org/
+.. _`PIL` : http://www.pythonware.com/products/pil/
+.. _`Pyyaml` : http://pyyaml.org/
+.. _`Pygraphviz` : https://networkx.lanl.gov/wiki/pygraphviz
 
