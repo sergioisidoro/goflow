@@ -41,7 +41,6 @@ Examples:
     * workitem.timeout(delay=5, unit='days'): the task is waiting for 5 days or more (NYI but soon)
 
 '''
-
 from pyparsing import Word, alphas, alphanums, QuotedString, Literal
 from goflow.common import safe_eval
 
@@ -80,5 +79,6 @@ def test_parsing():
     assert not condition()
 
  
+
 if __name__ == '__main__':
     test_parsing()
