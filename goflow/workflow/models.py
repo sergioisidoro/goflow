@@ -307,7 +307,7 @@ class PushApplication(models.Model):
         >>> pushapp.save()
 
     """
-#    name = models.CharField(max_length=50, unique=True)
+    # name = models.CharField(max_length=50, unique=True)
     url = models.CharField(max_length=255, unique=True)
     def __unicode__(self):
         return self.url

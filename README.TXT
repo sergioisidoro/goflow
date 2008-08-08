@@ -1,3 +1,4 @@
+
 GoFlow - A workflow engine for Django
 -------------------------------------
 
@@ -6,7 +7,6 @@ GoFlow - A workflow engine for Django
 - goflow: workflow django contrib
 
 - leavedemo: goflow demo project
-
 
 
 
@@ -30,6 +30,8 @@ GoFlow - A workflow engine for Django
 
 
 4. Test instructions:
+
+- run "python manage.py test" (with goflow in python path)
 
 - run "python manage.py runserver" (with goflow in python path)
 
