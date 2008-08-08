@@ -40,5 +40,5 @@ def send_mail(workitems=None, user=None, subject='message', template='mail.txt')
                                           'user':user,
                                           'url_prefix':'http://%s/' % profile.web_host
                                           })
-    
+
     user.email_user(subject, message)

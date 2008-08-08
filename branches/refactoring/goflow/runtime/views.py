@@ -45,16 +45,16 @@ def _app_response(workitem):
     activity = workitem.activity
     if not activity.process.enabled:
         return HttpResponse('process %s disabled.' % activity.process.title)
-        
+
     if activity.kind == 'subprocess':
         sub_workitem = workitem.start_subprocess(workitem.user)
         return _app_response(sub_workitem)
-    
+
     # no application: default_app
     if not activity.application:
         url = '../../../default_app'
         return HttpResponseRedirect('%s/%d/' % (url, id))
-    
+
     if activity.kind == 'standard':
         # standard activity
         return HttpResponseRedirect(activity.application.get_app_url(workitem))

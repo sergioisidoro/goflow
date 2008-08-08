@@ -9,7 +9,7 @@ class Command(AppCommand):
         make_option('--base', '-b', action='store', dest='base_command', default='Base',
             help='The base class used for implementation of this command. Should be one of Base, App, Label, or NoArgs'),
     )
-    
+
     help = ("Creates a Django management command directory structure for the given app name"
             " in the current directory.")
     args = "[appname]"
@@ -29,15 +29,15 @@ class Command(AppCommand):
                 os.mkdir(project_dir)
             except OSError, e:
                 raise CommandError(e)
-        
+
         copy_template('command_template', project_dir, options.get('command_name'), '%sCommand' % options.get('base_command'))
-            
+
 def copy_template(template_name, copy_to, command_name, base_command):
     """copies the specified template directory to the copy_to location"""
     import extensions
     import re
     import shutil
-    
+
     template_dir = os.path.join(extensions.__path__[0], 'conf', template_name)
 
     handle_method = "handle(self, *args, **options)"
@@ -47,7 +47,7 @@ def copy_template(template_name, copy_to, command_name, base_command):
         handle_method = "handle_label(self, label, **options)"
     elif base_command == 'NoArgsCommand':
         handle_method = "handle_noargs(self, **options)"
-    
+
     # walks the template structure and copies it
     for d, subdirs, files in os.walk(template_dir):
         relative_dir = d[len(template_dir)+1:]

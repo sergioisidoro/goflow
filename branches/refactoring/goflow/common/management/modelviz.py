@@ -256,7 +256,7 @@ def main():
     except getopt.GetoptError, error:
         print __doc__
         sys.exit(error)
-    
+
     kwargs = {}
     for opt, arg in opts:
         if opt in ("-h", "--help"):

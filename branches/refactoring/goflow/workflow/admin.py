@@ -9,7 +9,7 @@ from goflow.workflow.models import (Activity, Process, Application,
 
 class ActivityAdmin(admin.ModelAdmin):
     save_as = True
-    list_display = ('title', 'description', 'kind', 'application', 'join_mode', 
+    list_display = ('title', 'description', 'kind', 'application', 'join_mode',
                     'split_mode', 'autostart', 'autofinish', 'process')
     list_filter = ('process', 'kind')
 admin.site.register(Activity, ActivityAdmin)

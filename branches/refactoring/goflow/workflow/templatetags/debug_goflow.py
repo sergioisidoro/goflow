@@ -16,7 +16,7 @@ def switch_users():
             pass
     except Exception:
         return ''
-    
+
     content = 'switch user:'
     for item in settings.TEST_USERS:
         u, p = item

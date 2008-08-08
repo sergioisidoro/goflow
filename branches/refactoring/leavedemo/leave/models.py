@@ -25,25 +25,25 @@ class LeaveRequest(models.Model):
     reason = models.TextField(null=True, blank=True)
     reason_denial = models.TextField(null=True, blank=True, verbose_name='reason of denial')
     requester = models.ForeignKey(User, null=True, blank=True)
-    
+
     def __unicode__(self):
         return 'leaverequest-%s' % str(self.pk)
 
 class Manager(models.Model):
-    user = models.ForeignKey(User, related_name='manager_set', edit_inline=True, 
+    user = models.ForeignKey(User, related_name='manager_set', edit_inline=True,
                              num_in_admin=3, min_num_in_admin=1, num_extra_on_change=1)
     category = models.CharField(max_length=50, core=True, help_text='secretary, supervisor, ...')
     users = models.ManyToManyField(User, related_name='managers')
     def __unicode__(self):
         return '%s as %s' % (self.user.username, self.category)
-    
+
 class Account(models.Model):
-    user = models.ForeignKey(User, related_name='accounts', edit_inline=True, num_in_admin=1, 
+    user = models.ForeignKey(User, related_name='accounts', edit_inline=True, num_in_admin=1,
                              min_num_in_admin=1, num_extra_on_change=1)
     category = models.CharField(max_length=50, core=True, help_text='vacations, rtt, ..')
     days = models.IntegerField(default=0)
-    
+
     def __unicode__(self):
         return '%s-%s' % (self.user.username, self.category)
 
-        
+

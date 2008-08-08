@@ -19,7 +19,7 @@ log_format='%(asctime)s %(levelname)s %(name)s.%(funcName)s: %(message)s'
 
 logging.basicConfig(
     filename=_file_log,
-    level=level, 
+    level=level,
     format=log_format,
     datefmt="%Y-%m-%d %H:%M:%S"
 )
@@ -49,7 +49,7 @@ class Log(object):
             return getattr(self, name)
 
     def __call__(self, *args):
-        if len(args) == 0: 
+        if len(args) == 0:
             return
         elif len(args) == 1:
             self.log.info(args[0] )

@@ -8,7 +8,7 @@ class ProcessError(Base): pass
 class AssignmentError(Base): pass
 
 errors = {
-    #code                   exception        error_msg    
+    #code                   exception        error_msg
     'authentication': (AuthenticationError, '{{user}} is not authorized'),
     'incorrect_pinstance_status': (NotImplementedError, 'process instance status:{{status}} not implemented'),
     'no_auto_user': (SettingsError, 'settings.WF_USER_AUTO (e.g auto) must be defined ',

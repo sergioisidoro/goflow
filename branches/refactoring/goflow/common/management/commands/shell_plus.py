@@ -65,11 +65,11 @@ class Command(NoArgsCommand):
             # We want to honor both $PYTHONSTARTUP and .pythonrc.py, so follow system
             # conventions and get $PYTHONSTARTUP first then import user.
             if use_pythonrc:
-                pythonrc = os.environ.get("PYTHONSTARTUP") 
-                if pythonrc and os.path.isfile(pythonrc): 
-                    try: 
-                        execfile(pythonrc) 
-                    except NameError: 
+                pythonrc = os.environ.get("PYTHONSTARTUP")
+                if pythonrc and os.path.isfile(pythonrc):
+                    try:
+                        execfile(pythonrc)
+                    except NameError:
                         pass
                 # This will import .pythonrc.py as a side-effect
                 import user
