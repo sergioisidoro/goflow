@@ -9,20 +9,20 @@ from django.core.management.base import CommandError
 import logging
 from django.core.management.base import BaseCommand
 from django.db import connection
-        
+
 class Command(BaseCommand):
     help = "Resets a database."
 
     def handle(self, *args, **options):
         """
         Resets a database.
-    
+
         Note: Transaction wrappers are in reverse as a work around for
         autocommit, anybody know how to do this the right way?
         """
-    
+
         engine = settings.DATABASE_ENGINE
-    
+
         if engine == 'sqlite3':
             import os
             try:
@@ -54,7 +54,7 @@ class Command(BaseCommand):
                 import psycopg as Database
             elif engine == 'postgresql_psycopg2':
                 import psycopg2 as Database
-    
+
             if settings.DATABASE_NAME == '':
                 from django.core.exceptions import ImproperlyConfigured
                 raise ImproperlyConfigured, "You need to specify DATABASE_NAME in your Django settings file."
@@ -71,12 +71,12 @@ class Command(BaseCommand):
             cursor = connection.cursor()
             drop_query = 'DROP DATABASE %s' % settings.DATABASE_NAME
             logging.info('Executing... "' + drop_query + '"')
-    
+
             try:
                 cursor.execute(drop_query)
             except Database.ProgrammingError, e:
                 logging.info("Error: "+str(e))
-    
+
             # Encoding should be SQL_ASCII (7-bit postgres default) or prefered UTF8 (8-bit)
             create_query = ("""
 CREATE DATABASE %s
@@ -86,8 +86,8 @@ CREATE DATABASE %s
 """ % (settings.DATABASE_NAME, settings.DATABASE_USER))
             logging.info('Executing... "' + create_query + '"')
             cursor.execute(create_query)
-    
+
         else:
             raise CommandError, "Unknown database engine %s", engine
-    
+
         logging.info("Reset success")

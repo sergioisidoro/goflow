@@ -64,7 +64,7 @@ class Command(BaseCommand):
                 else:
                     if verbosity > 1:
                         print "no run() function found."
-                    
+
             except ImportError:
                 pass
 

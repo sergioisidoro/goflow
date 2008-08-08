@@ -12,14 +12,14 @@ class BaseForm(ModelForm):
     base class for edition forms
     '''
     workitem_id = forms.IntegerField(widget=forms.HiddenInput, required=False)
-    
+
     def save(self, workitem=None, submit_value=None, commit=True):
         obj = super(BaseForm, self).save(commit=commit)
         return obj
-    
+
     def pre_check(self, obj_context=None, user=None):
         """may be overriden to do some check before.
-        
+
         :param obj_context: object instance (if cmp_attr is set, this is the root object)
                             an exception should be risen if pre-conditions are not fullfilled
         """
@@ -32,14 +32,14 @@ class StartForm(ModelForm):
     '''
     base class for starting a workflow
     '''
-    
+
     def save(self, user=None, data=None, commit=True):
         obj = super(StartForm, self).save(commit=commit)
         return obj
-    
+
     def pre_check(self, user=None):
         """may be overriden to do some check before.
-        
+
         an exception should be risen if pre-conditions are not fullfilled
         """
         pass

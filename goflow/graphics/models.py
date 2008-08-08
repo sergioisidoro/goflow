@@ -10,7 +10,7 @@ from goflow.workflow.models import Process, Activity
 class Image(models.Model):
     file = models.ImageField(upload_to='images')
     info = models.CharField(max_length=100, null=True, blank=True)
-    
+
     @allow_tags
     def graphic(self):
         return '<img name=image%d src=%s>' % (self.id, self.get_file_url())
@@ -45,11 +45,11 @@ class Visual(models.Model):
     visible = models.BooleanField(default=True)
     z = models.PositiveSmallIntegerField(default=0)
     image = models.ForeignKey(Image, null=True, blank=True)
-    
+
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
-    
+
     graph = models.ForeignKey(Graph)
 
     @allow_tags
@@ -60,7 +60,7 @@ class Visual(models.Model):
 class ProcessImage(models.Model):
     process = models.ForeignKey(Process)
     file = models.ImageField(upload_to='images')
-    
+
     @allow_tags
     def graphic(self):
         return '<img name=image%d src=%s>' % (self.id, self.get_file_url())
@@ -68,13 +68,13 @@ class ProcessImage(models.Model):
     @allow_tags
     def graphic_input(self):
         return '<input type=image name=process src=%s>' % self.get_file_url()
-    
+
     def list_activities(self):
         return self.process.activities.all()
-    
+
     def list_activity_positions(self):
         return ActivityPosition.objects.filter(diagram=self)
-    
+
     def __unicode__(self):
         return self.process.title
 

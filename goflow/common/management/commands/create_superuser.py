@@ -10,7 +10,7 @@ class Command(NoArgsCommand):
             help='Specifies the email address for the superuser.'),
     )
     help = 'Used to create a superuser.'
-    
+
     def handle_noargs(self, **options):
         username = options.get('username', None)
         email = options.get('email', None)

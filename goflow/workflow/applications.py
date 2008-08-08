@@ -21,9 +21,9 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
                        ok_value='OK', cancel_value='Cancel'):
     '''
     generic handler for application that enters a workflow.
-    
+
     parameters:
-    
+
     app_label, model_name    model linked to workflow instance
     process_name             default: same name as app_label
     instance_label           default: process_name + str(object)
@@ -37,7 +37,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
         Process.objects.check_start_instance_perm(process_name, request.user)
     except Exception, v:
         return HttpResponse(str(v))
-    
+
     if not template:
         template = 'start_%s.html' % app_label
     if not form_class:
@@ -46,13 +46,13 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
         is_form_used = False
     else:
         is_form_used = True
-    
+
     if request.method == 'POST':
         form = form_class(request.POST, request.FILES)
         submit_value = request.POST[submit_name]
         if submit_value == cancel_value:
             return HttpResponseRedirect(redirect)
-        
+
         if submit_value == ok_value and form.is_valid():
             try:
                 if is_form_used:
@@ -65,7 +65,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
                     log.error("save method of form must accept user & data params")
                 else:
                     log.error("form save error: "+str(v))
-            
+
             if obj:
                 Process.objects.start(process_name, request.user, obj, instance_label)
             return HttpResponseRedirect(redirect)
@@ -94,12 +94,12 @@ def default_app(request, id, template='goflow/default_app.html', redirect='home'
         if form.is_valid():
             #data = form.cleaned_data
             submit_value = request.POST[submit_name]
-            
+
             workitem.instance.condition = submit_value
-            
+
             workitem.instance.save()
             obj = form.save(workitem=workitem, submit_value=submit_value)
-            
+
             workitem.complete(request.user)
             return HttpResponseRedirect(redirect)
     else:
@@ -114,7 +114,7 @@ def default_app(request, id, template='goflow/default_app.html', redirect='home'
                 submit_values = []
                 for t in tlist:
                     submit_values.append( _cond_to_button_value(t.condition) )
-    
+
     return render_to_response(template, {'form': form,
                                          'activity':workitem.activity,
                                          'workitem':workitem,
@@ -140,9 +140,9 @@ def _cond_to_button_value(cond):
 
 
 @login_required
-def edit_model(request, id, form_class, cmp_attr=None,template=None, 
+def edit_model(request, id, form_class, cmp_attr=None,template=None,
                template_def='goflow/edit_model.html', title="",
-               redirect='home', submit_name='action', ok_values=('OK',), 
+               redirect='home', submit_name='action', ok_values=('OK',),
                save_value='Save', cancel_value='Cancel'):
     '''
     generic handler for editing a model
@@ -154,12 +154,12 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None,
     workitem = WorkItem.objects.get_by(id, user=request.user)
     instance = workitem.instance
     activity = workitem.activity
-    
+
     obj = instance.content_object
     obj_context = obj
     if cmp_attr:
         obj = getattr(obj, cmp_attr)
-    
+
     template = override_app_params(activity, 'template', template)
     redirect = override_app_params(activity, 'redirect', redirect)
     submit_name = override_app_params(activity, 'submit_name', submit_name)
@@ -171,7 +171,7 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None,
         submit_value = request.POST[submit_name]
         if submit_value == cancel_value:
             return HttpResponseRedirect(redirect)
-        
+
         if form.is_valid():
             if (submit_value == save_value):
                 # just save
@@ -180,7 +180,7 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None,
                 except Exception, v:
                     raise Exception(str(v))
                 return HttpResponseRedirect(redirect)
-            
+
             if submit_value in ok_values:
                 # save and complete activity
                 try:
@@ -196,7 +196,7 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None,
         form = form_class(instance=obj)
         # precheck
         form.pre_check(obj_context, user=request.user)
-    return render_to_response((template, template_def), 
+    return render_to_response((template, template_def),
                 {'form': form,
                  'object':obj,
                  'object_context':obj_context,
@@ -209,20 +209,20 @@ def edit_model(request, id, form_class, cmp_attr=None,template=None,
 
 
 @login_required
-def view_application(request, id, template='goflow/view_application.html', 
-                     redirect='home', title="", submit_name='action', 
+def view_application(request, id, template='goflow/view_application.html',
+                     redirect='home', title="", submit_name='action',
                      ok_values=('OK',), cancel_value='Cancel'):
     '''
     generic handler for a view.
-    
+
     useful for a simple view or a complex object edition.
     '''
     workitem = WorkItem.objects.get_by(id, user=request.user)
     instance = workitem.instance
     activity = workitem.activity
-    
+
     obj = instance.content_object
-    
+
     template = override_app_params(activity, 'template', template)
     redirect = override_app_params(activity, 'redirect', redirect)
     submit_name = override_app_params(activity, 'submit_name', submit_name)
@@ -233,7 +233,7 @@ def view_application(request, id, template='goflow/view_application.html',
         submit_value = request.POST[submit_name]
         if submit_value == cancel_value:
             return HttpResponseRedirect(redirect)
-        
+
         if submit_value in ok_values:
             instance.condition = submit_value
             instance.save()

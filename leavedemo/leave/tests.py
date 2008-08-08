@@ -9,7 +9,7 @@ class Test(TestCase):
         client = Client()
         response = client.get('/leave/')
         self.failUnlessEqual(response.status_code, 200)
-        
+
     def test_otherswork_anonymous(self):
         "TODO: should be also be tested with proper authentication!"
         client = Client()
@@ -19,14 +19,14 @@ class Test(TestCase):
         self.failUnlessEqual(response.status_code, 302)
         response = client.get('/leave/otherswork/', {'worker':'tertius'})
         self.failUnlessEqual(response.status_code, 302)
- 
+
     def test_details(self):
         client = Client()
         ok = client.login(username='primus', password='bad_passwd')
         self.assertFalse(ok, 'authentication not ok')
         ok = client.login(username='primus', password='p')
         self.assertTrue(ok, 'authentication ok')
-        
+
         ok = client.login(username='admin', password='open')
         self.assertTrue(ok, 'authentication ok')
         response = client.get('/leave/admin/')
@@ -172,6 +172,6 @@ class Test(TestCase):
         self.assertEqual(r.status_code, 200)
         self.assertEqual(unicode(r.context[-1]['title']), 'Logged out')
 
-    
-    
-  
+
+
+

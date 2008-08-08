@@ -24,20 +24,20 @@ def route_to_superuser(workitem, username='admin'):
 
 def to_current_superuser(workitem, user_pushed):
     '''Should be used in all push applications for testing purposes.
-    
+
         (**NOT IMPLEMENTED**)
-      
+
         usage::
-        
+
             return to_current_superuser(workitem, user_pushed)
     '''
     return None
 
-# 
+#
 # class route_to_requester(object):
 #     def __init__(self, workitem):
 #         self.workitem = workitem
 #     def __call__(self):
 #         return self.workitem.instance.user
-# 
-# 
+#
+#

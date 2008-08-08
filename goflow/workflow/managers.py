@@ -10,29 +10,29 @@ from goflow.common.logger import Log; log = Log('goflow.workflow.managers')
 class ProcessManager(models.Manager):
     '''Custom model manager for Process
     '''
-    
+
     def start(self, process_name, user, item, title=None):
         '''
-        Returns a workitem given the name of a preexisting enabled Process 
-        instance, while passing in the id of the user, the contenttype 
+        Returns a workitem given the name of a preexisting enabled Process
+        instance, while passing in the id of the user, the contenttype
         object and the title.
-        
+
         :type process_name: string
         :param process_name: a name of a process. e.g. 'leave'
         :type user: User
-        :param user: an instance of django.contrib.auth.models.User, 
+        :param user: an instance of django.contrib.auth.models.User,
                      typically retrieved through a request object.
         :type item: ContentType
         :param item: a content_type object e.g. an instance of LeaveRequest
         :type: title: string
         :param title: title of new ProcessInstance instance (optional)
         :rtype: WorkItem
-        :return: a newly configured workitem sent to auto_user, 
+        :return: a newly configured workitem sent to auto_user,
                  a target_user, or ?? (roles).
-        
+
         usage::
-            
-            wi = Process.objects.start(process_name='leave', 
+
+            wi = Process.objects.start(process_name='leave',
                                        user=admin, item=leaverequest1)
 
         '''
@@ -44,17 +44,17 @@ class ProcessManager(models.Manager):
         # instance running
         instance.set_status('running')
         instance.save()
-        
-        workitem = WorkItem.objects.create(instance=instance, user=user, 
+
+        workitem = WorkItem.objects.create(instance=instance, user=user,
                                            activity=process.begin)
         log.event('created by ' + user.username, workitem)
         log('process:', process_name, 'user:', user.username, 'item:', item)
-    
+
         if process.begin.autostart:
             log('run auto activity', process.begin.title, 'workitem:', workitem)
             auto_user = User.objects.get(username=settings.WF_USER_AUTO)
             workitem.activate(actor=auto_user)
-    
+
             if workitem.run_activity_app():
                 log('workitem.run_activity_app:', workitem)
                 workitem.complete(actor=auto_user)
@@ -73,21 +73,21 @@ class ProcessManager(models.Manager):
             workitem.pull_roles = workitem.activity.roles.all()
             workitem.save()
             #notify_if_needed(roles=workitem.pull_roles)
-        
+
         return workitem
-    
+
     #TODO: also not too happy about this one.
     def process_is_enabled(self, title):
         '''
         Determines given a title if a process is enabled or otherwise
-        
+
         :rtype: bool
-        
+
         usage::
-        
+
             if Process.objects.process_is_enabled('leave1'):
                 # do something
-        
+
         '''
         return self.get(title=title).enabled
 
@@ -102,9 +102,9 @@ class ProcessManager(models.Manager):
         :param description: an optional description of the new Process instance.
         :rtype: Process
         :return: a new (saved) Process instance.
-        
+
         usage::
-            
+
             process1 = Process.objects.add(title='process1')
         '''
         process = self.create(title=title, description=description)
@@ -123,16 +123,16 @@ class ProcessManager(models.Manager):
         :type process_name: string
         :param process_name: a name of a process. e.g. 'leave'
         :type user: User
-        :param user: an instance of django.contrib.auth.models.User, 
+        :param user: an instance of django.contrib.auth.models.User,
                      typically retrieved through a request object.
         :rtype:
-        :return: passes silently if checks are met, 
+        :return: passes silently if checks are met,
                  raises exceptions otherwise.
-        
+
         usage::
-        
+
             Process.objects.check_start_instance_perm(process_name='leave1', user=admin)
-    
+
         '''
         if not self.process_is_enabled(process_name):
             raise Exception('process %s disabled.' % process_name)

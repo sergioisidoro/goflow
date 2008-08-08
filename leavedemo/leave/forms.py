@@ -10,7 +10,7 @@ from django import forms
 class StartRequestForm(StartForm):
     day_start = forms.DateField(widget=forms.TextInput(attrs={'class': 'vDateField'}))
     day_end = forms.DateField(widget=forms.TextInput(attrs={'class': 'vDateField'}))
-    
+
     def save(self, user, data=None, commit=True):
         ''' overriden for adding the requester
         '''
@@ -18,7 +18,7 @@ class StartRequestForm(StartForm):
         obj.requester = user
         obj.save()
         return obj
-    
+
     class Meta:
          model = LeaveRequest
          exclude = ('reason_denial', 'requester')

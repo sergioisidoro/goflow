@@ -14,7 +14,7 @@ from goflow.workflow.forms import ContentTypeForm
 
 def index(request, template='workflow/index.html'):
     """workflow dashboard handler.
-    
+
     template context contains following objects:
     user, processes, roles, obinstances.
     """
@@ -30,7 +30,7 @@ def index(request, template='workflow/index.html'):
 
 def debug_switch_user(request, username, password, redirect=None):
     """fast user switch for test purpose.
-    
+
     see template tag switch_users.
     """
     logout(request)
@@ -53,11 +53,11 @@ def userlist(request, template):
 
 def process_dot(request, id, template='goflow/process.dot'):
     """graphviz generator (**Work In Progress**).
-    
-    
+
+
     id process id
     template graphviz template
-    
+
     context provides: process, roles, activities
     """
     process = Process.objects.get(id=int(id))
@@ -76,7 +76,7 @@ def cron(request=None):
             activity=t.input).exclude(status='complete')
         for wi in workitems:
             wi.forward_to_activities(with_timeout=True)
-    
+
     if request:
         request.user.message_set.create(message="cron has run.")
         if request.META.has_key('HTTP_REFERER'):
@@ -88,7 +88,7 @@ def cron(request=None):
 
 def app_env(request, action, id, template=None):
     """creates/removes unit test environment for applications.
-    
+
     a process named "test_[app]" with one activity
     a group with appropriate permission
     """
@@ -100,13 +100,13 @@ def app_env(request, action, id, template=None):
     if action == 'remove':
         app.remove_test_env()
         rep = 'test env removed for app %s' % app.url
-    
+
     rep += '<hr><p><b><a href=../../../>return</a></b>'
     return HttpResponse(rep)
 
 def test_start(request, id, template='goflow/test_start.html'):
     """starts test instances.
-    
+
     for a given application, with its unit test environment, the user
     choose a content-type then generates unit test process instances
     by cloning existing content-type objects (**Work In Progress**).
@@ -130,7 +130,7 @@ def test_start(request, id, template='goflow/test_start.html'):
                 # start the process
                 Process.objects.start(
                             process_name='test_%s' % app.url,
-                            user=request.user, item=inst, 
+                            user=request.user, item=inst,
                             title="%s test instance for app %s" % (
                                 ctype.name, app.url
                             ))

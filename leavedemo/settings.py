@@ -1,5 +1,5 @@
 # Django settings for openflow project.
-from os.path import dirname, join 
+from os.path import dirname, join
 _dir = dirname(__file__)
 
 LIB_PATH = join(_dir,'..')

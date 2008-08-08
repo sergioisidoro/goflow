@@ -30,7 +30,7 @@ class LeaveProcessBuilder(ProcessBuilder):
                 mgr.save()
 
 
-def test():    
+def test():
     USERS = [
         #username,      email,                  password,   [role,...]
         ('admin',       'admin@company.com',    'open',     []), #TODO: add staff, superuser status
@@ -43,7 +43,7 @@ def test():
         ('tertius',     'tertius@company.com',  't',        ['employee', 'leave']),
         ('quartus',     'quartus@company.com',  'q',        ['employee', 'leave']),
     ]
-    
+
     #RELATIONSHIP
     MANAGERS = {
         # user        category     [user, ...]
@@ -99,18 +99,18 @@ def test():
         ('secretary', [
             ('workflow','Process', 'can_instantiate'),
             # ('LeaveRequest', 'can_add'),
-            ]    
+            ]
         ),
     ]
 
     APPLICATIONS = {
-        'checkstatus' : {'url': 'checkstatus', 
+        'checkstatus' : {'url': 'checkstatus',
                         'parameters': {'ok_values':('OK: Forward to supervisor', 'Denied: Back to requester')}},
 
-        'approvalform': {'url':'approvalform', 
+        'approvalform': {'url':'approvalform',
                         'parameters': {'ok_values':('OK: Forward to secretary', 'Denied: Back to requester')}},
 
-        'refine': {'url':'refine', 
+        'refine': {'url':'refine',
                    'parameters': {'ok_values':('Re-request', 'Withdraw request')}},
 
         'hrform': {'url':'hrform', 'parameters': None},

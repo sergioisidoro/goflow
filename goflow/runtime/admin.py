@@ -17,7 +17,7 @@ class WorkItemAdmin(admin.ModelAdmin):
     list_filter = ('user', 'activity', 'status')
 admin.site.register(WorkItem, WorkItemAdmin)
 
-class EventAdmin(admin.ModelAdmin):    
+class EventAdmin(admin.ModelAdmin):
     date_hierarchy = 'date'
     list_display = ('date', 'name', 'workitem')
 admin.site.register(Event, EventAdmin)

@@ -1,7 +1,7 @@
 class Event:
 
     def __init__(self):
-        self.callbacks = set() 
+        self.callbacks = set()
 
     def __iadd__(self, callback):
         self.callbacks.add(callback)
@@ -18,7 +18,7 @@ class Event:
 
 
 if __name__ == '__main__':
-    
+
     def handler1(msg):
     	print("1: %s" % msg)
 

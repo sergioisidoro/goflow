@@ -26,7 +26,7 @@ try:
     from pygments.formatters import HtmlFormatter
     from pygments.lexers import SqlLexer
     from pygments.lexers import PythonLexer
-    from pygments.styles import get_style_by_name    
+    from pygments.styles import get_style_by_name
     USE_PYGMENTS = True
 except ImportError:
     pass
@@ -41,7 +41,7 @@ HEIGHT = '240px' # or '100%' if full height is wished
 TEMPLATE = """
 <div id="debug" style="clear:both;">
 <a href="#debugbox"
-    onclick="this.style.display = 'none';   
+    onclick="this.style.display = 'none';
         document.getElementById('debugbox').style.display = 'block';
         return false;"
     style="font-size: small; color: red; text-decoration: none; display: block; margin: 12px;"
@@ -61,7 +61,7 @@ TEMPLATE = """
 {% else %}
     None
 {% endif %}
-<p>Template path:</p> 
+<p>Template path:</p>
 {% if template_dirs %}
     <ol>
     {% for template in template_dirs %}
@@ -81,7 +81,7 @@ TEMPLATE = """
                            file: <samp>{{ query.filename }}</samp><br/>
                            line: <code>{{ query.lineno }}</code><br/>
                            function: <code>{{ query.function }}</code>
-                           
+
                            <pre>{{ query.source|linebreaksbr }}</pre>{% endif %}</p>
     </li>
 {% endfor %}
@@ -133,9 +133,9 @@ if FRAME_INSPECT:
             except:
                 object['source'] = "N/A"
             list.append(self, object)
-        
+
 class DebugFooter(object):
-    
+
     def process_request(self, request):
         self.time_started = time.time()
         self.templates_used = []
@@ -146,7 +146,7 @@ class DebugFooter(object):
         dispatcher.connect(
             self._storeRenderedTemplates, signal=template_rendered
         )
-        
+
     def process_response(self, request, response):
         # Only include debug info for text/html pages not accessed via Ajax
         if 'text/html' not in response['Content-Type']:
@@ -157,23 +157,23 @@ class DebugFooter(object):
             return response
         if response.status_code != 200:
             return response
-        
+
         templates = [
             (t.name, t.origin and t.origin.name or 'No origin')
             for t in self.templates_used
         ]
         sql_queries = connection.queries[self.sql_offset_start:]
-        
+
         # Reformat sql queries a bit
         sql_total = 0.0
-        
+
         for query in sql_queries:
             query['sql'] = highlight_sql(query['sql'])
             sql_total += float(query['time'])
-        
+
         #import pdb; pdb.set_trace()
-        
-        
+
+
         debug_content = Template(TEMPLATE).render(Context({
             'server_time': time.time() - self.time_started,
             'templates': templates,
@@ -183,13 +183,13 @@ class DebugFooter(object):
             'height': 'height: %s;' % (HEIGHT),
             'inspect': FRAME_INSPECT,
         }))
-        
+
         content = response.content
         response.content = force_unicode(content).replace('</body>', debug_content)
-        
+
         #import pdb; pdb.set_trace()
         return response
-    
+
     def _storeRenderedTemplates(self, signal, sender, template, context):
         self.templates_used.append(template)
         self.contexts_used.append(context)
@@ -206,7 +206,7 @@ def highlight_sql(sql):
     else:
         sql = reformat_sql(sql)
     return sql
-    
+
 def reformat_sql(sql):
     sql = sql.replace('`,`', '`, `')
     sql = sql.replace('` FROM `', '` \n  FROM `')

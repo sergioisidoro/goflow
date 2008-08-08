@@ -63,6 +63,6 @@ class Command(BaseCommand):
             print "Quit the server with %s." % quit_command
             path = admin_media_path or django.__path__[0] + '/contrib/admin/media'
             handler = AdminMediaHandler(WSGIHandler(), path)
-            run_simple(addr, int(port), DebuggedApplication(handler, True), 
-                       use_reloader=use_reloader, use_debugger=True)            
+            run_simple(addr, int(port), DebuggedApplication(handler, True),
+                       use_reloader=use_reloader, use_debugger=True)
         inner_run()
