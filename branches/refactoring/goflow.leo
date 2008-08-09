@@ -3,23 +3,29 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="47" left="94" height="785" width="1211"/>
+	<global_window_position top="35" left="116" height="830" width="1224"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,1"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
+<v t="sa.20080809030150.7"><vh>@button recursive_walk</vh></v>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
 <v t="sa.20080720195210.1"><vh>@button clean</vh></v>
+<v t="sa.20080809030150.8"><vh>@button create_shadows</vh></v>
+<v t="sa.20080809054857.4"><vh>@button create_shadows2</vh></v>
 </v>
-<v t="sa.20080716081317.5"><vh>@settings</vh>
+<v t="sa.20080716081317.5" a="E"><vh>@settings</vh>
 <v t="sa.20080720191846.1"><vh>@strings[vertical,horizontal] initial_splitter_orientation = horizontal</vh></v>
 </v>
+<v t="sa.20080808233935.1"><vh>scripts</vh>
+<v t="sa.20080808233935.3"><vh>old</vh></v>
 </v>
-<v t="sa.20080726124242.2" a="E"><vh>notes</vh>
+</v>
+<v t="sa.20080726124242.2"><vh>notes</vh>
 <v t="sa.20080724074952.13"><vh>other workflow engines</vh>
 <v t="sa.20080726124242.1"><vh>wfmc</vh>
 <v t="sa.20080724074952.15" tnodeList="sa.20080724074952.15,sa.20080724074952.16,sa.20080724074952.17,sa.20080724074952.18,sa.20080724074952.19"><vh>@file attributeintegration.py</vh>
@@ -445,7 +451,7 @@
 <v t="sa.20080808185203.7"><vh>@shadow __init__.py</vh></v>
 <v t="sa.20080808185203.8"><vh>@shadow settings.py</vh></v>
 <v t="sa.20080808185203.9"><vh>@shadow urls.py</vh></v>
-<v t="sa.20080808185554.3" a="E"><vh>leave</vh>
+<v t="sa.20080808185554.3"><vh>leave</vh>
 <v t="sa.20080808185554.4"><vh>@shadow __init__.py</vh></v>
 <v t="sa.20080808185824.21"><vh>@shadow admin.py</vh></v>
 <v t="sa.20080808185824.22"><vh>@shadow auto.py</vh></v>
@@ -456,8 +462,19 @@
 <v t="sa.20080808185824.20"><vh>@shadow tests.py</vh></v>
 <v t="sa.20080808185554.6"><vh>@shadow views.py</vh></v>
 </v>
+<v t="sa.20080808233021.1"><vh>scripts</vh>
+<v t="sa.20080808233021.2"><vh>@auto clean</vh></v>
+<v t="sa.20080808233021.3"><vh>@auto kill</vh></v>
+<v t="sa.20080808233021.4"><vh>@auto reset</vh></v>
+<v t="sa.20080808233021.5"><vh>@shadow leave_process_builder.py</vh></v>
+<v t="sa.20080808233021.6"><vh>@shadow process_builder.py</vh></v>
 </v>
-<v t="sa.20080808172354.3"><vh>scripts</vh></v>
+</v>
+<v t="sa.20080808172354.3"><vh>scripts</vh>
+<v t="sa.20080808232426.1"><vh>@auto clean</vh></v>
+<v t="sa.20080808233021.7"><vh>@auto build_docs</vh></v>
+<v t="sa.20080808233021.8"><vh>@auto reset</vh></v>
+</v>
 </v>
 </v>
 </vnodes>
@@ -1852,7 +1869,9 @@ related concepts:
 <t tx="sa.20080716081317.4">import os
 os.system('./scripts/build_docs')
 </t>
-<t tx="sa.20080716081317.5"></t>
+<t tx="sa.20080716081317.5">import os
+
+rootdir = '</t>
 <t tx="sa.20080717192016.5">The convergence of two or more branches into a single subsequent branch such that the thread of control is passed to the subsequent branch when all input branches have been enabled.</t>
 <t tx="sa.20080717192016.6">synchronization, rendezvous, synchronizer.</t>
 <t tx="sa.20080717192016.7">The dispatch-goods task runs immediately after both the check-invoice and produce-invoice tasks are completed.
@@ -5504,5 +5523,189 @@ Most process elements can have names and descriptions.
 <t tx="sa.20080808175628.6">@path goflow/common/</t>
 <t tx="sa.20080808185203.6">@path leavedemo/</t>
 <t tx="sa.20080808185554.3">@path leavedemo/leave</t>
+<t tx="sa.20080808233021.1">@path leavedemo/scripts</t>
+<t tx="sa.20080808233935.1"></t>
+<t tx="sa.20080808233935.3">#!/usr/bin/env python
+# encoding: utf-8
+"""
+test_shadow_recurse.py
+
+A script to recursively create @directives nodes from different files in a directory.
+"""
+import sys, os, glob
+from os.path import join, abspath, basename, normpath
+
+ignore_dirs = ['.svn', '.leo_shadow', '.doctrees', '.project', 
+               '.pydevproject', '.settings']
+               
+ignore_files = ['.DS_Store']
+
+reallyCreate = False
+
+def func():
+    reallyCreate = False
+    baseDir = r'/Users/sa/Code/src/goflow-refactored'
+    dirs = ('docs',) #'Extensions','UserConfig',)
+    g.pr('-----')
+
+    c.beginUpdate()
+    try:
+        for theDir in dirs:
+            pattern = g.os_path_join(baseDir,theDir,'*.py')
+            files = glob.glob(pattern)
+            g.pr(pattern)
+            # g.pr(g.listToString(files))
+            for name in files:
+                h = '@auto %s' % (name[len(baseDir) + 1:].strip())
+                g.pr('creating', h)
+                if reallyCreate:
+                    child = p.insertAsLastChild()
+                    child.initHeadString(h)
+    finally:
+        c.endUpdate()
+
+def main():
+    c.beginUpdate()
+    try:
+        for root, dirs, files in os.walk('.'):
+            if any(ignorable in root for ignorable in ignore_dirs):
+                continue
+            if files:
+                dirnode = basename(root)
+                body = "(@path %s)" % normpath(root)
+                print dirnode, body#, files
+                #print 'root:', root, files
+                for name in files:
+                    if not name.endswith('.py'):
+                        continue
+                    f = normpath(join(root, name))
+                    headline = '@shadow %s' % basename(f)
+                    g.pr('creating', headline)
+                    if reallyCreate:
+                        child = p.insertAsLastChild()
+                        child.initHeadString(h)
+    finally:
+        c.endUpdate()
+                    </t>
+<t tx="sa.20080809030150.7">import os
+from os.path import join, abspath, basename, normpath
+
+ignore_dirs = ['.svn', '.leo_shadow', '.doctrees', '.project', 
+               '.pydevproject', '.settings']
+
+ignore_files = ['.DS_Store']
+
+
+
+rootdir = '/Users/sa/Code/src/goflow-refactored'
+
+
+def recurse(directory):
+    directory = abspath(directory)
+    for name in os.listdir(directory):
+        if name.startswith('.'):
+            continue
+        path = join(directory, name)
+        if os.path.isfile(path):
+            print 'file:', path
+        else:
+            print 'dir:', path
+            recurse(path)
+
+
+
+</t>
+<t tx="sa.20080809030150.8">from os import listdir
+from os.path import join, abspath, basename, normpath, isfile
+
+
+is_ignorable = lambda s: any([s.startswith('.'), s.endswith('.pyc')])
+
+def shadow_walk(directory, parent=None):
+    directory = abspath(directory)
+    for name in listdir(directory):
+        if is_ignorable(name):
+            continue
+        path = join(directory, name)
+        if isfile(path):
+            g.es('file:', path)
+            headline = '@shadow %s' % basename(path)
+            g.es('creating', headline)
+            if parent:
+                node = parent
+            else:
+                node = p
+            child = node.insertAsLastChild()
+            child.initHeadString(headline)
+        else:
+            g.es('dir:', path)
+            headline = basename(path)
+            body = "@path %s" % normpath(path)
+            if parent:
+                node = parent
+            else:
+                node = p
+            child = node.insertAsLastChild()
+            child.initHeadString(headline)
+            child.initBodyString(body)               
+            shadow_walk(path, child)
+
+
+def main():
+    try:
+        shadow_walk('.')
+    finally:
+        c.redraw()
+
+main()
+</t>
+<t tx="sa.20080809054857.4">from os import listdir
+from os.path import join, abspath, basename, normpath, isfile
+
+
+is_ignorable = lambda s: any([s.startswith('.'), s.endswith('.pyc')])
+
+def shadow_walk(directory, parent=None, isroot=True):
+    directory = abspath(directory)
+    if isroot:
+        headline = basename(directory)
+        body = "@path %s" % normpath(directory)
+        c.setBodyString(p, body)
+        c.setHeadString(p, headline)
+    for name in listdir(directory):
+        if is_ignorable(name):
+            continue
+        path = join(directory, name)
+        if isfile(path):
+            g.es('file:', path)
+            headline = '@shadow %s' % basename(path)
+            if parent:
+                node = parent
+            else:
+                node = p
+            child = node.insertAsLastChild()
+            child.initHeadString(headline)
+        else:
+            g.es('dir:', path)
+            headline = basename(path)
+            body = "@path %s" % normpath(path)
+            if parent:
+                node = parent
+            else:
+                node = p
+            child = node.insertAsLastChild()
+            child.initHeadString(headline)
+            child.initBodyString(body)               
+            shadow_walk(path, parent=child, isroot=False)
+
+
+def main():
+    try:
+        shadow_walk('.')
+    finally:
+        c.redraw()
+
+main()
+</t>
 </tnodes>
 </leo_file>
