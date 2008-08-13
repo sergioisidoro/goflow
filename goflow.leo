@@ -9,20 +9,19 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,1"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,0,8,0,1"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
-<v t="sa.20080809030150.7"><vh>@button recursive_walk</vh></v>
+<v t="sa.20080809030150.7"><vh>@button remove_docs</vh></v>
 <v t="sa.20080716081317.4"><vh>@button gendocs</vh></v>
-<v t="sa.20080720195210.1"><vh>@button clean</vh></v>
-<v t="sa.20080809030150.8"><vh>@button create_shadows</vh></v>
-<v t="sa.20080809054857.4"><vh>@button create_shadows2</vh></v>
+<v t="sa.20080809054857.4"><vh>@button create_shadows</vh></v>
+<v t="sa.20080810165613.224"><vh>@button remove_shadows</vh></v>
 </v>
-<v t="sa.20080716081317.5" a="E"><vh>@settings</vh>
+<v t="sa.20080716081317.5"><vh>@settings</vh>
 <v t="sa.20080720191846.1"><vh>@strings[vertical,horizontal] initial_splitter_orientation = horizontal</vh></v>
 </v>
 <v t="sa.20080808233935.1"><vh>scripts</vh>
-<v t="sa.20080808233935.3"><vh>old</vh></v>
+<v t="sa.20080808233935.3"><vh>recursive walk</vh></v>
 </v>
 </v>
 <v t="sa.20080726124242.2"><vh>notes</vh>
@@ -227,7 +226,7 @@
 </v>
 </v>
 <v t="sa.20080714235246.1" a="E"><vh>goflow-refactored</vh>
-<v t="sa.20080714011136.2"><vh>docs</vh>
+<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -340,8 +339,8 @@
 <v t="sa.20080715111354.24"><vh>The Process Monitor</vh></v>
 </v>
 </v>
-<v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080714012008.11" a="E"><vh>@rst changes.rst</vh>
+<v t="sa.20080714225902.5" a="E"><vh>Version 0.6 (refactored branch)</vh>
 <v t="sa.20080714225902.6"><vh>New Features</vh>
 <v t="sa.20080724074952.3"><vh>Improved API</vh></v>
 <v t="sa.20080724074952.11"><vh>Improved documentation system</vh></v>
@@ -408,72 +407,6 @@
 <v t="sa.20080714012008.37"><vh>@rst goflow.workflow.notification.rst</vh></v>
 <v t="sa.20080714012008.38"><vh>@rst goflow.workflow.pushapps.rst</vh></v>
 <v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
-</v>
-</v>
-<v t="sa.20080801011423.1"><vh>code</vh>
-<v t="sa.20080808170508.1"><vh>@auto README.TXT</vh></v>
-<v t="sa.20080808170508.2"><vh>@shadow pavement.py</vh></v>
-<v t="sa.20080808172354.1"><vh>test</vh>
-<v t="sa.20080808172354.4"><vh>@shadow test_pyparsing.py</vh></v>
-</v>
-<v t="sa.20080808172354.2"><vh>goflow</vh>
-<v t="sa.20080808173543.4"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080808173543.5"><vh>@shadow urls.py</vh></v>
-<v t="sa.20080808173543.6"><vh>@shadow urls_admin.py</vh></v>
-<v t="sa.20080808175628.4"><vh>runtime</vh>
-<v t="sa.20080808175628.7"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080808175628.8"><vh>@shadow admin.py</vh></v>
-<v t="sa.20080808175628.9"><vh>@shadow forms.py</vh></v>
-<v t="sa.20080808175628.10"><vh>@shadow managers.py</vh></v>
-<v t="sa.20080808175628.11"><vh>@shadow models.py</vh></v>
-<v t="sa.20080808175628.12"><vh>@shadow reporting.py</vh></v>
-<v t="sa.20080808175628.13"><vh>@shadow views.py</vh></v>
-</v>
-<v t="sa.20080808175628.5"><vh>workflow</vh>
-<v t="sa.20080808183852.68"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080808183852.74"><vh>@shadow applications.py</vh></v>
-<v t="sa.20080808183852.75"><vh>@shadow forms.py</vh></v>
-<v t="sa.20080808183852.69"><vh>@shadow managers.py</vh></v>
-<v t="sa.20080808183852.70"><vh>@shadow models.py</vh></v>
-<v t="sa.20080808183852.73"><vh>@shadow notification.py</vh></v>
-<v t="sa.20080808183852.72"><vh>@shadow pushapps.py</vh></v>
-<v t="sa.20080808183852.71"><vh>@shadow views.py</vh></v>
-</v>
-<v t="sa.20080808175628.6"><vh>common</vh>
-<v t="sa.20080808184515.64"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080808184515.65"><vh>@shadow logger.py</vh></v>
-<v t="sa.20080808184515.66"><vh>@shadow decorators.py</vh></v>
-<v t="sa.20080808184515.67"><vh>@shadow event.py</vh></v>
-<v t="sa.20080808184515.68"><vh>@shadow errors.py</vh></v>
-</v>
-</v>
-<v t="sa.20080808185203.6"><vh>leavedemo</vh>
-<v t="sa.20080808185203.7"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080808185203.8"><vh>@shadow settings.py</vh></v>
-<v t="sa.20080808185203.9"><vh>@shadow urls.py</vh></v>
-<v t="sa.20080808185554.3"><vh>leave</vh>
-<v t="sa.20080808185554.4"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080808185824.21"><vh>@shadow admin.py</vh></v>
-<v t="sa.20080808185824.22"><vh>@shadow auto.py</vh></v>
-<v t="sa.20080808185554.7"><vh>@shadow forms.py</vh></v>
-<v t="sa.20080808185554.5"><vh>@shadow models.py</vh></v>
-<v t="sa.20080808185554.8"><vh>@shadow pushapps.py</vh></v>
-<v t="sa.20080808190031.13"><vh>@auto readme.txt</vh></v>
-<v t="sa.20080808185824.20"><vh>@shadow tests.py</vh></v>
-<v t="sa.20080808185554.6"><vh>@shadow views.py</vh></v>
-</v>
-<v t="sa.20080808233021.1"><vh>scripts</vh>
-<v t="sa.20080808233021.2"><vh>@auto clean</vh></v>
-<v t="sa.20080808233021.3"><vh>@auto kill</vh></v>
-<v t="sa.20080808233021.4"><vh>@auto reset</vh></v>
-<v t="sa.20080808233021.5"><vh>@shadow leave_process_builder.py</vh></v>
-<v t="sa.20080808233021.6"><vh>@shadow process_builder.py</vh></v>
-</v>
-</v>
-<v t="sa.20080808172354.3"><vh>scripts</vh>
-<v t="sa.20080808232426.1"><vh>@auto clean</vh></v>
-<v t="sa.20080808233021.7"><vh>@auto build_docs</vh></v>
-<v t="sa.20080808233021.8"><vh>@auto reset</vh></v>
 </v>
 </v>
 </v>
@@ -1705,7 +1638,8 @@ TODO</t>
 * better documentation..
 
 </t>
-<t tx="sa.20080714225902.7">* fixes here...</t>
+<t tx="sa.20080714225902.7">* synchronization with trunk 1.0
+</t>
 <t tx="sa.20080714225902.8">* given the completely new api this branched version is not backwards compatible at all...
 
 
@@ -1938,23 +1872,6 @@ After the review election task is completed, either the declare results or the r
 </t>
 <t tx="sa.20080720192331.4">	* api was cleaned up to make it more consistent.
 
-</t>
-<t tx="sa.20080720195210.1">import os
-join = os.path.join
-
-def cmd(command):
-    print '--&gt;', command
-    os.system(command)
-
-print "CLEANING Goflow environment..."
-
-# clean generated docs
-root = 'docs/build'
-for entry in ['html', 'doctrees']:
-    cmd('rm -rf %s' % join(root, entry))
-
-# clean *.pycs and .log files
-cmd('scripts/clean')
 </t>
 <t tx="sa.20080724074952.1">.. _todo:
 
@@ -5510,84 +5427,12 @@ Most process elements can have names and descriptions.
    :members:
 
 </t>
-<t tx="sa.20080801011423.1"></t>
 <t tx="sa.20080802224603.1">* introduced safe_eval and dynamic object imports in goflow.common
 </t>
 <t tx="sa.20080806030604.1">* we are trying to provide extensive tests of all goflow functionality, with a preference for doctests.</t>
 <t tx="sa.20080806030604.2"></t>
-<t tx="sa.20080808172354.1">@path test/</t>
-<t tx="sa.20080808172354.2">@path goflow/</t>
-<t tx="sa.20080808172354.3">@path scripts/</t>
-<t tx="sa.20080808175628.4">@path goflow/runtime/</t>
-<t tx="sa.20080808175628.5">@path goflow/workflow/</t>
-<t tx="sa.20080808175628.6">@path goflow/common/</t>
-<t tx="sa.20080808185203.6">@path leavedemo/</t>
-<t tx="sa.20080808185554.3">@path leavedemo/leave</t>
-<t tx="sa.20080808233021.1">@path leavedemo/scripts</t>
 <t tx="sa.20080808233935.1"></t>
-<t tx="sa.20080808233935.3">#!/usr/bin/env python
-# encoding: utf-8
-"""
-test_shadow_recurse.py
-
-A script to recursively create @directives nodes from different files in a directory.
-"""
-import sys, os, glob
-from os.path import join, abspath, basename, normpath
-
-ignore_dirs = ['.svn', '.leo_shadow', '.doctrees', '.project', 
-               '.pydevproject', '.settings']
-               
-ignore_files = ['.DS_Store']
-
-reallyCreate = False
-
-def func():
-    reallyCreate = False
-    baseDir = r'/Users/sa/Code/src/goflow-refactored'
-    dirs = ('docs',) #'Extensions','UserConfig',)
-    g.pr('-----')
-
-    c.beginUpdate()
-    try:
-        for theDir in dirs:
-            pattern = g.os_path_join(baseDir,theDir,'*.py')
-            files = glob.glob(pattern)
-            g.pr(pattern)
-            # g.pr(g.listToString(files))
-            for name in files:
-                h = '@auto %s' % (name[len(baseDir) + 1:].strip())
-                g.pr('creating', h)
-                if reallyCreate:
-                    child = p.insertAsLastChild()
-                    child.initHeadString(h)
-    finally:
-        c.endUpdate()
-
-def main():
-    c.beginUpdate()
-    try:
-        for root, dirs, files in os.walk('.'):
-            if any(ignorable in root for ignorable in ignore_dirs):
-                continue
-            if files:
-                dirnode = basename(root)
-                body = "(@path %s)" % normpath(root)
-                print dirnode, body#, files
-                #print 'root:', root, files
-                for name in files:
-                    if not name.endswith('.py'):
-                        continue
-                    f = normpath(join(root, name))
-                    headline = '@shadow %s' % basename(f)
-                    g.pr('creating', headline)
-                    if reallyCreate:
-                        child = p.insertAsLastChild()
-                        child.initHeadString(h)
-    finally:
-        c.endUpdate()
-                    </t>
-<t tx="sa.20080809030150.7">import os
+<t tx="sa.20080808233935.3">import os
 from os.path import join, abspath, basename, normpath
 
 ignore_dirs = ['.svn', '.leo_shadow', '.doctrees', '.project', 
@@ -5612,66 +5457,25 @@ def recurse(directory):
             print 'dir:', path
             recurse(path)
 
-
-
 </t>
-<t tx="sa.20080809030150.8">from os import listdir
-from os.path import join, abspath, basename, normpath, isfile
-
-
-is_ignorable = lambda s: any([s.startswith('.'), s.endswith('.pyc')])
-
-def shadow_walk(directory, parent=None):
-    directory = abspath(directory)
-    for name in listdir(directory):
-        if is_ignorable(name):
-            continue
-        path = join(directory, name)
-        if isfile(path):
-            g.es('file:', path)
-            headline = '@shadow %s' % basename(path)
-            g.es('creating', headline)
-            if parent:
-                node = parent
-            else:
-                node = p
-            child = node.insertAsLastChild()
-            child.initHeadString(headline)
-        else:
-            g.es('dir:', path)
-            headline = basename(path)
-            body = "@path %s" % normpath(path)
-            if parent:
-                node = parent
-            else:
-                node = p
-            child = node.insertAsLastChild()
-            child.initHeadString(headline)
-            child.initBodyString(body)               
-            shadow_walk(path, child)
-
-
-def main():
-    try:
-        shadow_walk('.')
-    finally:
-        c.redraw()
-
-main()
-</t>
+<t tx="sa.20080809030150.7"></t>
 <t tx="sa.20080809054857.4">from os import listdir
 from os.path import join, abspath, basename, normpath, isfile
+from fnmatch import fnmatch
 
+RELATIVE_PATHS = True
 
-is_ignorable = lambda s: any([s.startswith('.'), s.endswith('.pyc')])
+patterns_to_ignore = ['*.pyc', '*.leo', '*.gif', '*.png', '*.jpg', '*.json']
+
+match = lambda s: any(fnmatch(s, p) for p in patterns_to_ignore)
+
+is_ignorable = lambda s: any([ s.startswith('.'), match(s) ])
 
 def shadow_walk(directory, parent=None, isroot=True):
-    directory = abspath(directory)
+    if not RELATIVE_PATHS: directory = abspath(directory)
     if isroot:
-        headline = basename(directory)
         body = "@path %s" % normpath(directory)
         c.setBodyString(p, body)
-        c.setHeadString(p, headline)
     for name in listdir(directory):
         if is_ignorable(name):
             continue
@@ -5695,9 +5499,8 @@ def shadow_walk(directory, parent=None, isroot=True):
                 node = p
             child = node.insertAsLastChild()
             child.initHeadString(headline)
-            child.initBodyString(body)               
+            child.initBodyString(body)
             shadow_walk(path, parent=child, isroot=False)
-
 
 def main():
     try:
@@ -5706,6 +5509,9 @@ def main():
         c.redraw()
 
 main()
+</t>
+<t tx="sa.20080810165613.224">import os
+os.system('rm -rf `find . -type d -name .leo_shadow`')
 </t>
 </tnodes>
 </leo_file>

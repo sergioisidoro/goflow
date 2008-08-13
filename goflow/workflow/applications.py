@@ -3,7 +3,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
-from django.forms import form_for_model
+from django.forms.models import modelform_factory
 
 from goflow.runtime.models import WorkItem #, DefaultAppModel
 from goflow.runtime.forms import DefaultAppForm
@@ -29,7 +29,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
     instance_label           default: process_name + str(object)
     template                 default: 'start_%s.html' % app_label
     template_def             used if template not found; default: 'start_application.html'
-    form_class               default: old form_for_model
+    form_class               default: feeds into modelform_factory
     '''
     if not process_name:
         process_name = app_label
@@ -42,7 +42,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
         template = 'start_%s.html' % app_label
     if not form_class:
         model = models.get_model(app_label, model_name)
-        form_class = form_for_model(model)
+        form_class = modelform_factory(model)
         is_form_used = False
     else:
         is_form_used = True
