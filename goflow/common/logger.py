@@ -40,7 +40,7 @@ class Log(object):
     def __init__(self, module):
         self.log = logging.getLogger(module)
         # self.log = MockLog()
-        #self._event = get_model('runtime', 'Event').objects
+        #self._event = get_model('instances', 'Event').objects
 
     def __getattr__(self, name):
         try:

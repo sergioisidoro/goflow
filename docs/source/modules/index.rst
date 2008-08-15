@@ -16,30 +16,19 @@ goflow
    goflow.urls.rst
    goflow.urls_admin.rst
 
-goflow.graphics
------------------
 
-.. toctree::
-   :maxdepth: 2
-
-   goflow.graphics.rst
-   goflow.graphics.models.rst
-   goflow.graphics.views.rst
-   goflow.graphics.urls_admin.rst
-
-
-goflow.runtime
+goflow.instances
 -----------------
 
 .. toctree::
    :maxdepth: 2
       
-   goflow.runtime.rst
-   goflow.runtime.models.rst
-   goflow.runtime.managers.rst   
-   goflow.runtime.forms.rst
-   goflow.runtime.views.rst
-   goflow.runtime.reporting.rst
+   goflow.instances.rst
+   goflow.instances.models.rst
+   goflow.instances.managers.rst   
+   goflow.instances.forms.rst
+   goflow.instances.views.rst
+   goflow.instances.reporting.rst
 
 
 goflow.workflow
