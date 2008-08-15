@@ -2,10 +2,10 @@
 
 .. _goflow.urls_admin:
 
-:mod:`goflow.urls_admin` -- goflow runtime custom admin interface 
+:mod:`goflow.urls_admin` -- goflow instances custom admin interface 
 ================================================================================
 
 .. automodule:: goflow.urls_admin 
-   :synopsis: goflow runtime custom admin interface
+   :synopsis: goflow instances custom admin interface
    :members:
 

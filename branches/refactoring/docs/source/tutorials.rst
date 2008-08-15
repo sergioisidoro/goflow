@@ -39,11 +39,11 @@ We will discover the workflow engine with a very simple application based on a p
          ...
          'django.contrib.admin'
          'goflow.workflow'
-         'goflow.runtime'
+         'goflow.instances'
         )
 
 The `workflow` application contains the "static" model data (modeling
-process), and the ``instances`` application contains the dynamic part or runtime.
+process), and the ``instances`` application contains the dynamic part or instances.
 
     * Set up the database part of the settings file, for example like this::
 

@@ -2,14 +2,14 @@
 <?xml-stylesheet ekr_test?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.455070074196">
+<globals body_outline_ratio="0.5">
 	<global_window_position top="37" left="112" height="692" width="1213"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="1,0"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,1"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080809030150.7"><vh>@button remove_docs</vh></v>
@@ -25,7 +25,7 @@
 <v t="sa.20080808233935.3"><vh>recursive walk</vh></v>
 </v>
 </v>
-<v t="sa.20080726124242.2" a="E"><vh>notes</vh>
+<v t="sa.20080726124242.2"><vh>notes</vh>
 <v t="sa.20080724074952.13"><vh>other workflow engines</vh>
 <v t="sa.20080726124242.1"><vh>wfmc</vh>
 <v t="sa.20080724074952.15" tnodeList="sa.20080724074952.15,sa.20080724074952.16,sa.20080724074952.17,sa.20080724074952.18,sa.20080724074952.19"><vh>@file attributeintegration.py</vh>
@@ -387,19 +387,15 @@
 <v t="sa.20080714012008.30"><vh>@rst goflow.rst</vh></v>
 <v t="sa.20080714012008.27"><vh>@rst goflow.urls.rst</vh></v>
 <v t="sa.20080714012008.28"><vh>@rst goflow.urls_admin.rst</vh></v>
-<v t="sa.20080714012008.17"><vh>@rst goflow.graphics.rst</vh></v>
-<v t="sa.20080714012008.16"><vh>@rst goflow.graphics.models.rst</vh></v>
-<v t="sa.20080714012008.19"><vh>@rst goflow.graphics.views.rst</vh></v>
-<v t="sa.20080714012008.18"><vh>@rst goflow.graphics.urls_admin.rst</vh></v>
 <v t="sa.20080714012008.21"><vh>@rst goflow.common.rst</vh></v>
 <v t="sa.20080714012008.20"><vh>@rst goflow.common.logger.rst</vh></v>
 <v t="sa.20080714012008.33"><vh>@rst goflow.common.decorators.rst</vh></v>
-<v t="sa.20080714012008.26"><vh>@rst goflow.runtime.rst</vh></v>
-<v t="sa.20080714012008.23"><vh>@rst goflow.runtime.reporting.rst</vh></v>
-<v t="sa.20080714012008.24"><vh>@rst goflow.runtime.forms.rst</vh></v>
-<v t="sa.20080714012008.25"><vh>@rst goflow.runtime.models.rst</vh></v>
-<v t="sa.20080727144116.1"><vh>@rst goflow.runtime.managers.rst</vh></v>
-<v t="sa.20080714012008.29"><vh>@rst goflow.runtime.views.rst</vh></v>
+<v t="sa.20080714012008.26"><vh>@rst goflow.instances.rst</vh></v>
+<v t="sa.20080714012008.23"><vh>@rst goflow.instances.reporting.rst</vh></v>
+<v t="sa.20080714012008.24"><vh>@rst goflow.instances.forms.rst</vh></v>
+<v t="sa.20080714012008.25"><vh>@rst goflow.instances.models.rst</vh></v>
+<v t="sa.20080727144116.1"><vh>@rst goflow.instances.managers.rst</vh></v>
+<v t="sa.20080714012008.29"><vh>@rst goflow.instances.views.rst</vh></v>
 <v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.31"><vh>@rst goflow.workflow.managers.rst</vh></v>
 <v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
@@ -410,132 +406,7 @@
 <v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
 </v>
 </v>
-<v t="sa.20080814160255.1"><vh>code</vh>
-<v t="sa.20080814160255.2"><vh>goflow</vh>
-<v t="sa.20080814160255.3"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.4"><vh>common</vh>
-<v t="sa.20080814160255.5"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.6"><vh>@shadow decorators.py</vh></v>
-<v t="sa.20080814160255.7"><vh>@shadow errors.py</vh></v>
-<v t="sa.20080814160255.8"><vh>@shadow event.py</vh></v>
-<v t="sa.20080814160255.9"><vh>@shadow logger.py</vh></v>
-<v t="sa.20080814160255.10"><vh>management</vh>
-<v t="sa.20080814160255.11"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.12"><vh>commands</vh>
-<v t="sa.20080814160255.13"><vh>@shadow __init__.py</vh></v>
-</v>
-</v>
-<v t="sa.20080814160255.14"><vh>middleware</vh>
-<v t="sa.20080814160255.15"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.16"><vh>@shadow debug_middleware.py</vh></v>
-</v>
-</v>
-<v t="sa.20080814160255.17"><vh>graphics</vh>
-<v t="sa.20080814160255.18"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.19"><vh>js</vh>
-<v t="sa.20080814160255.20"><vh>@shadow external.txt</vh></v>
-<v t="sa.20080814160255.21"><vh>@shadow tip_centerwindow.js</vh>
-<v t="sa.20080814162013.1"><vh>tip_centerwindow declarations</vh></v>
-<v t="sa.20080814162013.2"><vh>Ctrwnd_DoCenter</vh></v>
-</v>
-<v t="sa.20080814160255.22"><vh>@shadow tip_followscroll.js</vh></v>
-<v t="sa.20080814160255.23"><vh>@shadow wz_dragdrop.js</vh></v>
-<v t="sa.20080814160255.24"><vh>@shadow wz_tooltip.js</vh></v>
-</v>
-<v t="sa.20080814160255.25"><vh>@shadow models.py</vh></v>
-<v t="sa.20080814160255.26"><vh>templatetags</vh>
-<v t="sa.20080814160255.27"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.28"><vh>@shadow libjs.py</vh></v>
-</v>
-<v t="sa.20080814160255.29"><vh>@shadow urls_admin.py</vh></v>
-<v t="sa.20080814160255.30"><vh>@shadow views.py</vh></v>
-</v>
-<v t="sa.20080814160255.31"><vh>runtime</vh>
-<v t="sa.20080814160255.32"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.33"><vh>@shadow admin.py</vh></v>
-<v t="sa.20080814160255.34"><vh>@shadow forms.py</vh></v>
-<v t="sa.20080814160255.35"><vh>@shadow managers.py</vh></v>
-<v t="sa.20080814160255.36"><vh>@shadow models.py</vh></v>
-<v t="sa.20080814160255.37"><vh>@shadow reporting.py</vh></v>
-<v t="sa.20080814160255.38"><vh>@shadow views.py</vh></v>
-</v>
-<v t="sa.20080814160255.39"><vh>@shadow urls.py</vh></v>
-<v t="sa.20080814160255.40"><vh>@shadow urls_admin.py</vh></v>
-<v t="sa.20080814160255.41"><vh>workflow</vh>
-<v t="sa.20080814160255.42"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.43"><vh>@shadow admin.py</vh></v>
-<v t="sa.20080814160255.44"><vh>@shadow applications.py</vh></v>
-<v t="sa.20080814160255.45"><vh>@shadow forms.py</vh></v>
-<v t="sa.20080814160255.46"><vh>@shadow managers.py</vh></v>
-<v t="sa.20080814160255.47"><vh>@shadow models.py</vh></v>
-<v t="sa.20080814160255.48"><vh>@shadow notification.py</vh></v>
-<v t="sa.20080814160255.49"><vh>@shadow pushapps.py</vh></v>
-<v t="sa.20080814160255.50"><vh>templatetags</vh>
-<v t="sa.20080814160255.51"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.52"><vh>@shadow debug_goflow.py</vh></v>
-</v>
-<v t="sa.20080814160255.53"><vh>@shadow views.py</vh></v>
-</v>
-</v>
-<v t="sa.20080814160255.54"><vh>leavedemo</vh>
-<v t="sa.20080814160255.55"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.56"><vh>leave</vh>
-<v t="sa.20080814160255.57"><vh>@shadow __init__.py</vh></v>
-<v t="sa.20080814160255.58"><vh>@shadow admin.py</vh></v>
-<v t="sa.20080814160255.59"><vh>@shadow auto.py</vh></v>
-<v t="sa.20080814160255.60"><vh>fixtures</vh></v>
-<v t="sa.20080814160255.61"><vh>@shadow forms.py</vh></v>
-<v t="sa.20080814160255.62"><vh>@shadow models.py</vh></v>
-<v t="sa.20080814160255.63"><vh>@shadow pushapps.py</vh></v>
-<v t="sa.20080814160255.64"><vh>@shadow readme.txt</vh></v>
-<v t="sa.20080814160255.65"><vh>templates</vh>
-<v t="sa.20080814160255.66"><vh>@shadow approval.html</vh></v>
-<v t="sa.20080814160255.67"><vh>@shadow checkstatus.html</vh></v>
-<v t="sa.20080814160255.68"><vh>@shadow finalinfo.html</vh></v>
-<v t="sa.20080814160255.69"><vh>@shadow hrform.html</vh></v>
-<v t="sa.20080814160255.70"><vh>@shadow leave.html</vh></v>
-<v t="sa.20080814160255.71"><vh>@shadow leaverequest.html</vh></v>
-<v t="sa.20080814160255.72"><vh>@shadow refine.html</vh></v>
-<v t="sa.20080814160255.73"><vh>@shadow start_leave.html</vh></v>
-</v>
-<v t="sa.20080814160255.74"><vh>@shadow tests.py</vh></v>
-<v t="sa.20080814160255.75"><vh>@shadow views.py</vh></v>
-</v>
-<v t="sa.20080814160255.76"><vh>@shadow manage.py</vh></v>
-<v t="sa.20080814160255.77"><vh>media</vh>
-<v t="sa.20080814160255.78"><vh>files</vh>
-<v t="sa.20080814160255.79"><vh>images</vh></v>
-</v>
-<v t="sa.20080814160255.80"><vh>img</vh></v>
-</v>
-<v t="sa.20080814160255.81"><vh>scripts</vh>
-<v t="sa.20080814160255.82"><vh>@shadow clean</vh></v>
-<v t="sa.20080814160255.83"><vh>@shadow dump_data.bat</vh></v>
-<v t="sa.20080814160255.84"><vh>@shadow kill</vh></v>
-<v t="sa.20080814160255.85"><vh>@shadow leave_process_builder.py</vh></v>
-<v t="sa.20080814160255.86"><vh>@shadow process_builder.py</vh></v>
-<v t="sa.20080814160255.87"><vh>@shadow reset</vh></v>
-</v>
-<v t="sa.20080814160255.88"><vh>@shadow settings.py</vh></v>
-<v t="sa.20080814160255.89"><vh>@shadow sqlite.db3</vh></v>
-<v t="sa.20080814160255.90"><vh>@shadow urls.py</vh></v>
-</v>
-<v t="sa.20080814160255.91"><vh>@auto licence.txt</vh></v>
-<v t="sa.20080814160255.92"><vh>@auto pavement.py</vh>
-<v t="sa.20080814162455.277"><vh>pavement declarations</vh></v>
-<v t="sa.20080814162455.278"><vh>sdist</vh></v>
-</v>
-<v t="sa.20080814160255.93"><vh>@auto README.TXT</vh></v>
-<v t="sa.20080814160255.94"><vh>scripts</vh>
-<v t="sa.20080814160255.95"><vh>@auto build_docs</vh></v>
-<v t="sa.20080814160255.96"><vh>@auto clean</vh></v>
-<v t="sa.20080814160255.97"><vh>@auto get_svn_leavedemo.sh</vh></v>
-<v t="sa.20080814160255.98"><vh>@auto reset</vh></v>
-</v>
-<v t="sa.20080814160255.99"><vh>test</vh>
-<v t="sa.20080814160255.100"><vh>@shadow test_pyparsing.py</vh></v>
-</v>
-</v>
+<v t="sa.20080815164305.1"><vh>code</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -760,13 +631,13 @@ lst = [
     ("goflow.graphics.models.rst","datamodels for graphics processing"),
     ("goflow.graphics.views.rst","goflow graphics views"),
     ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
-    ("goflow.runtime.rst","goflow runtime"),
-    ("goflow.runtime.reporting.rst","goflow runtime reporting"),
-    ("goflow.runtime.forms.rst","goflow runtime forms"),
-    ("goflow.runtime.models.rst","goflow runtime models"),
-    ("goflow.runtime.views.rst","goflow runtime views"),
-    ("goflow.runtime.urls.rst","goflow runtime urls"),
-    ("goflow.runtime.urls_admin.rst","goflow runtime custom admin interface"),
+    ("goflow.instances.rst","goflow instances"),
+    ("goflow.instances.reporting.rst","goflow instances reporting"),
+    ("goflow.instances.forms.rst","goflow instances forms"),
+    ("goflow.instances.models.rst","goflow instances models"),
+    ("goflow.instances.views.rst","goflow instances views"),
+    ("goflow.instances.urls.rst","goflow instances urls"),
+    ("goflow.instances.urls_admin.rst","goflow instances custom admin interface"),
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.managers.rst","key model managers for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
@@ -793,53 +664,9 @@ lst = [
 
 
 </t>
-<t tx="sa.20080714012008.16">
-
-.. _goflow.graphics.models:
-
-:mod:`goflow.graphics.models` -- datamodels for graphics processing 
-================================================================================
-
-.. automodule:: goflow.graphics.models 
-   :synopsis: datamodels for graphics processing
-   :members:
-</t>
-<t tx="sa.20080714012008.17">
-
-.. _goflow.graphics:
-
-:mod:`goflow.graphics` -- early goflow graphics module 
-================================================================================
-
-.. automodule:: goflow.graphics 
-   :synopsis: early goflow graphics module
-   :members:
-</t>
-<t tx="sa.20080714012008.18">
-
-.. _goflow.graphics.urls_admin:
-
-:mod:`goflow.graphics.urls_admin` -- goflow graphics custom admin interface 
-================================================================================
-
-.. automodule:: goflow.graphics.urls_admin 
-   :synopsis: goflow graphics custom admin interface
-   :members:
-</t>
-<t tx="sa.20080714012008.19">
-
-.. _goflow.graphics.views:
-
-:mod:`goflow.graphics.views` -- goflow graphics views 
-================================================================================
-
-.. automodule:: goflow.graphics.views 
-   :synopsis: goflow graphics views
-   :members:
-</t>
 <t tx="sa.20080714012008.20">
 
-.. _goflow.common.logger.:
+.. _goflow.common.logger:
 
 :mod:`goflow.common.logger.` -- manages sitewide logging  
 ================================================================================
@@ -861,80 +688,80 @@ lst = [
 </t>
 <t tx="sa.20080714012008.23">
 
-.. _goflow.runtime.reporting:
+.. _goflow.instances.reporting:
 
-:mod:`goflow.runtime.api` -- goflow runtime reporting 
+:mod:`goflow.instances.api` -- goflow instances reporting 
 ================================================================================
 
-.. automodule:: goflow.runtime.reporting 
-   :synopsis: goflow runtime reporting
+.. automodule:: goflow.instances.reporting 
+   :synopsis: goflow instances reporting
    :members:
 
 </t>
 <t tx="sa.20080714012008.24">
 
-.. _goflow.runtime.forms:
+.. _goflow.instances.forms:
 
-:mod:`goflow.runtime.forms` -- goflow runtime forms 
+:mod:`goflow.instances.forms` -- goflow instances forms 
 ================================================================================
 
-.. automodule:: goflow.runtime.forms 
-   :synopsis: goflow runtime forms
+.. automodule:: goflow.instances.forms 
+   :synopsis: goflow instances forms
    :members:
 </t>
 <t tx="sa.20080714012008.25">
 
-.. _goflow.runtime.models:
+.. _goflow.instances.models:
 
-:mod:`goflow.runtime.models` -- goflow runtime models 
+:mod:`goflow.instances.models` -- goflow instances models 
 ================================================================================
 
-.. automodule:: goflow.runtime.models 
-   :synopsis: goflow runtime models
+.. automodule:: goflow.instances.models 
+   :synopsis: goflow instances models
    :members:
 </t>
 <t tx="sa.20080714012008.26">
 
-.. _goflow.runtime:
+.. _goflow.instances:
 
-:mod:`goflow.runtime` -- goflow runtime 
+:mod:`goflow.instances` -- goflow instances 
 ================================================================================
 
-.. automodule:: goflow.runtime 
-   :synopsis: goflow runtime
+.. automodule:: goflow.instances 
+   :synopsis: goflow instances
    :members:
 </t>
 <t tx="sa.20080714012008.27">
 
 .. _goflow.urls:
 
-:mod:`goflow.urls` -- goflow runtime urls 
+:mod:`goflow.urls` -- goflow instances urls 
 ================================================================================
 
 .. automodule:: goflow.urls 
-   :synopsis: goflow runtime urls
+   :synopsis: goflow instances urls
    :members:
 </t>
 <t tx="sa.20080714012008.28">
 
 .. _goflow.urls_admin:
 
-:mod:`goflow.urls_admin` -- goflow runtime custom admin interface 
+:mod:`goflow.urls_admin` -- goflow instances custom admin interface 
 ================================================================================
 
 .. automodule:: goflow.urls_admin 
-   :synopsis: goflow runtime custom admin interface
+   :synopsis: goflow instances custom admin interface
    :members:
 </t>
 <t tx="sa.20080714012008.29">
 
-.. _goflow.runtime.views:
+.. _goflow.instances.views:
 
-:mod:`goflow.runtime.views` -- goflow runtime views 
+:mod:`goflow.instances.views` -- goflow instances views 
 ================================================================================
 
-.. automodule:: goflow.runtime.views 
-   :synopsis: goflow runtime views
+.. automodule:: goflow.instances.views 
+   :synopsis: goflow instances views
    :members:
 </t>
 <t tx="sa.20080714012008.30">
@@ -1077,30 +904,19 @@ goflow
    goflow.urls.rst
    goflow.urls_admin.rst
 
-goflow.graphics
------------------
 
-.. toctree::
-   :maxdepth: 2
-
-   goflow.graphics.rst
-   goflow.graphics.models.rst
-   goflow.graphics.views.rst
-   goflow.graphics.urls_admin.rst
-
-
-goflow.runtime
+goflow.instances
 -----------------
 
 .. toctree::
    :maxdepth: 2
       
-   goflow.runtime.rst
-   goflow.runtime.models.rst
-   goflow.runtime.managers.rst   
-   goflow.runtime.forms.rst
-   goflow.runtime.views.rst
-   goflow.runtime.reporting.rst
+   goflow.instances.rst
+   goflow.instances.models.rst
+   goflow.instances.managers.rst   
+   goflow.instances.forms.rst
+   goflow.instances.views.rst
+   goflow.instances.reporting.rst
 
 
 goflow.workflow
@@ -1459,7 +1275,7 @@ The directory structure of the goflow-refactored branch::
     |   |   |   `-- libjs.py
     |   |   |-- urls_admin.py
     |   |   `-- views.py
-    |   |-- runtime
+    |   |-- instances
     |   |   |-- __init__.py
     |   |   |-- admin.py
     |   |   |-- forms.py
@@ -1480,7 +1296,7 @@ The directory structure of the goflow-refactored branch::
     |       |-- pushapps.py
     |       |-- templates
     |       |   |-- admin
-    |       |   |   |-- runtime
+    |       |   |   |-- instances
     |       |   |   |   `-- defaultappmodel
     |       |   |   |       `-- change_form.html
     |       |   |   `-- workflow
@@ -1623,11 +1439,11 @@ We will discover the workflow engine with a very simple application based on a p
          ...
          'django.contrib.admin'
          'goflow.workflow'
-         'goflow.runtime'
+         'goflow.instances'
         )
 
 The `workflow` application contains the "static" model data (modeling
-process), and the ``instances`` application contains the dynamic part or runtime.
+process), and the ``instances`` application contains the dynamic part or instances.
 
     * Set up the database part of the settings file, for example like this::
 
@@ -1985,7 +1801,7 @@ After the case-payment or provide-credit tasks, initiate the product-receipt tas
 <t tx="sa.20080717192016.26">Depending on the volume of earth to be moved, either the dispatch-backhoe, dispatch-bobcat or dispatch-D9-excavator task is initiated to complete the job.
 
 After the review election task is completed, either the declare results or the recount votes task is undertaken.</t>
-<t tx="sa.20080717192016.27">The Exclusive Choice pattern allows the thread of control to be directed to a specific (subsequent) task depending on the outcome of a preceding task, the values of elements of specific data elements in the process, the results of an expression evaluation or some other form of programmatic selection mechanism. The routing decision is made dynamically allowing it to be deferred to the latest possible moment at runtime.
+<t tx="sa.20080717192016.27">The Exclusive Choice pattern allows the thread of control to be directed to a specific (subsequent) task depending on the outcome of a preceding task, the values of elements of specific data elements in the process, the results of an expression evaluation or some other form of programmatic selection mechanism. The routing decision is made dynamically allowing it to be deferred to the latest possible moment at instances.
 
 
 </t>
@@ -2017,7 +1833,7 @@ TODOs
 
 * added goflow.common.errors module for goflow related exceptions / msgs
 
-* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt instances was too generic
+* change goflow.instances to goflow.instances: this change was simply to improve understanding of the differences between goflow.instances (dynamic model) and goflow.workflow (static model), I felt instances was too generic
 
 * moved goflow.workflow.logger into goflow.common.logger
 
@@ -5544,12 +5360,12 @@ Most process elements can have names and descriptions.
 <t tx="sa.20080726124242.2"></t>
 <t tx="sa.20080727144116.1">
 
-.. _goflow.runtime.managers:
+.. _goflow.instances.managers:
 
-:mod:`goflow.runtime.managers` -- managers for process_instance management 
+:mod:`goflow.instances.managers` -- managers for process_instance management 
 ================================================================================
 
-.. automodule:: goflow.runtime.managers 
+.. automodule:: goflow.instances.managers 
    :synopsis: managers for process_instance management 
    :members:
 
@@ -5592,7 +5408,7 @@ cmds = [
     'rm -rf docs/source/modules/*.rst'
 ]
 
-for cmd in dirs:
+for cmd in cmds:
     os.system(cmd)
 </t>
 <t tx="sa.20080809054857.4">from os import listdir
@@ -5653,164 +5469,6 @@ os.system('rm -rf `find . -type d -name .leo_shadow`')
 <t tx="sa.20080813211639.1">import sys
 print sys.argv
 </t>
-<t tx="sa.20080814160255.1">@path .</t>
-<t tx="sa.20080814160255.2">@path goflow</t>
-<t tx="sa.20080814160255.4">@path goflow/common</t>
-<t tx="sa.20080814160255.10">@path goflow/common/management</t>
-<t tx="sa.20080814160255.12">@path goflow/common/management/commands</t>
-<t tx="sa.20080814160255.14">@path goflow/common/middleware</t>
-<t tx="sa.20080814160255.17">@path goflow/graphics</t>
-<t tx="sa.20080814160255.19">@path goflow/graphics/js</t>
-<t tx="sa.20080814160255.21">@language java
-@tabwidth -4
-@others
-
-@ignore</t>
-<t tx="sa.20080814160255.26">@path goflow/graphics/templatetags</t>
-<t tx="sa.20080814160255.31">@path goflow/runtime</t>
-<t tx="sa.20080814160255.41">@path goflow/workflow</t>
-<t tx="sa.20080814160255.50">@path goflow/workflow/templatetags</t>
-<t tx="sa.20080814160255.54">@path leavedemo</t>
-<t tx="sa.20080814160255.56">@path leavedemo/leave</t>
-<t tx="sa.20080814160255.60">@path leavedemo/leave/fixtures</t>
-<t tx="sa.20080814160255.65">@path leavedemo/leave/templates</t>
-<t tx="sa.20080814160255.77">@path leavedemo/media</t>
-<t tx="sa.20080814160255.78">@path leavedemo/media/files</t>
-<t tx="sa.20080814160255.79">@path leavedemo/media/files/images</t>
-<t tx="sa.20080814160255.80">@path leavedemo/media/img</t>
-<t tx="sa.20080814160255.81">@path leavedemo/scripts</t>
-<t tx="sa.20080814160255.92">@language python
-@tabwidth -4
-@others
-@ignore</t>
-<t tx="sa.20080814160255.94">@path scripts</t>
-<t tx="sa.20080814160255.99">@path test</t>
-<t tx="sa.20080814162013.1">/*
-tip_centerwindow.js  v. 1.2
-
-The latest version is available at
-http://www.walterzorn.com
-or http://www.devira.com
-or http://www.walterzorn.de
-
-Initial author: Walter Zorn
-Last modified: 23.6.2007
-
-Extension for the tooltip library wz_tooltip.js.
-Centers a sticky tooltip in the window's visible clientarea,
-optionally even if the window is being scrolled or resized.
-*/
-
-// Here we define new global configuration variable(s) (as members of the
-// predefined "config." class).
-// From each of these config variables, wz_tooltip.js will automatically derive
-// a command which can be passed to Tip() or TagToTip() in order to customize
-// tooltips individually. These command names are just the config variable
-// name(s) translated to uppercase,
-// e.g. from config. CenterWindow a command CENTERWINDOW will automatically be
-// created.
-
-//===================  GLOBAL TOOPTIP CONFIGURATION  =========================//
-config. CenterWindow = false	// true or false - set to true if you want this to be the default behaviour
-config. CenterAlways = false	// true or false - recenter if window is resized or scrolled
-//=======  END OF TOOLTIP CONFIG, DO NOT CHANGE ANYTHING BELOW  ==============//
-
-
-// Create a new tt_Extension object (make sure that the name of that object,
-// here ctrwnd, is unique amongst the extensions available for
-// wz_tooltips.js):
-var ctrwnd = new tt_Extension();
-
-// Implement extension eventhandlers on which our extension should react
-ctrwnd.OnLoadConfig = function()
-{
-	if(tt_aV[CENTERWINDOW])
-	{
-		// Permit CENTERWINDOW only if the tooltip is sticky
-		if(tt_aV[STICKY])
-		{
-			if(tt_aV[CENTERALWAYS])
-			{
-				// IE doesn't support style.position "fixed"
-				if(tt_ie)
-					tt_AddEvtFnc(window, "scroll", Ctrwnd_DoCenter);
-				else
-					tt_aElt[0].style.position = "fixed";
-				tt_AddEvtFnc(window, "resize", Ctrwnd_DoCenter);
-			}
-			return true;
-		}
-		tt_aV[CENTERWINDOW] = false;
-	}
-	return false;
-};
-// We react on the first OnMouseMove event to center the tip on that occasion
-ctrwnd.OnMoveBefore = Ctrwnd_DoCenter;
-ctrwnd.OnKill = function()
-{
-	if(tt_aV[CENTERWINDOW] &amp;&amp; tt_aV[CENTERALWAYS])
-	{
-		tt_RemEvtFnc(window, "resize", Ctrwnd_DoCenter);
-		if(tt_ie)
-			tt_RemEvtFnc(window, "scroll", Ctrwnd_DoCenter);
-		else
-			tt_aElt[0].style.position = "absolute";
-	}
-	return false;
-};
-</t>
-<t tx="sa.20080814162013.2">// Helper function
-function Ctrwnd_DoCenter()
-{
-	if(tt_aV[CENTERWINDOW])
-	{
-		var x, y, dx, dy;
-
-		// Here we use some functions and variables (tt_w, tt_h) which the
-		// extension API of wz_tooltip.js provides for us
-		if(tt_ie || !tt_aV[CENTERALWAYS])
-		{
-			dx = tt_GetScrollX();
-			dy = tt_GetScrollY();
-		}
-		else
-		{
-			dx = 0;
-			dy = 0;
-		}
-		// Position the tip, offset from the center by OFFSETX and OFFSETY
-		x = (tt_GetClientW() - tt_w) / 2 + dx + tt_aV[OFFSETX];
-		y = (tt_GetClientH() - tt_h) / 2 + dy + tt_aV[OFFSETY];
-		tt_SetTipPos(x, y);
-		return true;
-	}
-	return false;
-}</t>
-<t tx="sa.20080814162455.277">import paver.doctools
-
-options(
-        setup=Bunch(
-            name="GoFlow",
-            packages=['goflow'],
-            version="0.6",
-            author="Eric Simmore",
-            author_email="name@org.com"
-         ),
-
-        # documentation
-        sphinx=Bunch(
-            builddir="build",
-            sourcedir="source"
-        ),
-
-)
-
-</t>
-<t tx="sa.20080814162455.278">@task
-@needs(['generate_setup', 'minilib', 'setuptools.command.sdist'])
-def sdist():
-    """Overrides sdist to make sure that our setup.py is generated"""
-    pass
-</t>
+<t tx="sa.20080815164305.1"></t>
 </tnodes>
 </leo_file>

@@ -344,7 +344,7 @@ The directory structure of the goflow-refactored branch::
     |   |   |   `-- libjs.py
     |   |   |-- urls_admin.py
     |   |   `-- views.py
-    |   |-- runtime
+    |   |-- instances
     |   |   |-- __init__.py
     |   |   |-- admin.py
     |   |   |-- forms.py
@@ -365,7 +365,7 @@ The directory structure of the goflow-refactored branch::
     |       |-- pushapps.py
     |       |-- templates
     |       |   |-- admin
-    |       |   |   |-- runtime
+    |       |   |   |-- instances
     |       |   |   |   `-- defaultappmodel
     |       |   |   |       `-- change_form.html
     |       |   |   `-- workflow

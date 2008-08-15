@@ -6,7 +6,7 @@ meant to be linked to a django app as follows::
 '''
 
 from django.conf.urls.defaults import patterns
-from runtime.forms import DefaultAppStartForm
+from instances.forms import DefaultAppStartForm
 
 
 urlpatterns = patterns('django.contrib.auth.views.',
@@ -27,7 +27,7 @@ urlpatterns += patterns('goflow.workflow.applications',
         {'form_class':DefaultAppStartForm, 'template':'goflow/start_proto.html'}),
 )
 
-urlpatterns += patterns('goflow.runtime.views',
+urlpatterns += patterns('goflow.instances.views',
     (r'^otherswork/$',                 'otherswork'),
     (r'^otherswork/instancehistory/$', 'instancehistory'),
     (r'^myrequests/$',                 'myrequests'),

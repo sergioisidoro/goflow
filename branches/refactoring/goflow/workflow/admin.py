@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-provides admin functionality to runtime model
+provides admin functionality to instances model
 
 '''
 from django.contrib import admin
