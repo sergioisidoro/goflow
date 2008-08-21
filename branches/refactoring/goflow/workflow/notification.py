@@ -3,7 +3,7 @@
 
 from django.conf import settings
 from goflow.workflow.models import UserProfile
-from goflow.instances.models import WorkItem
+from goflow.runtime.models import WorkItem
 # from datetime import datetime, timedelta
 from goflow.common.logger import Log; log = Log('goflow.workflow.notification')
 

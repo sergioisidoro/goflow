@@ -1,7 +1,7 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 """
-models for goflow.instances which hold primary classes
+models for goflow.runtime which hold primary classes
 
 ProcessInstance, WorkItem, Event, DefaultAppModel
 
@@ -16,8 +16,8 @@ from django.conf import settings
 from django.core.urlresolvers import resolve
 
 #from goflow.workflow.notification import notify_if_needed
-from goflow.instances.managers import ProcessInstanceManager, WorkItemManager
-from goflow.common.logger import Log; log = Log('goflow.instances.models')
+from goflow.runtime.managers import ProcessInstanceManager, WorkItemManager
+from goflow.common.logger import Log; log = Log('goflow.runtime.models')
 from goflow.common.errors import error
 from goflow.common import get_obj, safe_eval
 

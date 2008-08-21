@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import patterns, include
 from django.conf import settings
 from leave.admin import admin as leave_admin
-from goflow.instances.admin import admin as instances_admin
+from goflow.runtime.admin import admin as instances_admin
 from goflow.workflow.admin import admin as workflow_admin
 
 

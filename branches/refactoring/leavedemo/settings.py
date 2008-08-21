@@ -82,7 +82,7 @@ INSTALLED_APPS = (
     #'django_extensions', # (optional)
     'goflow.common',
     'goflow.workflow',
-    'goflow.instances',
+    'goflow.runtime',
     'leavedemo.leave',
 )
 
