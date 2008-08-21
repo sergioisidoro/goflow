@@ -1,6 +1,6 @@
 .. rst3: filename: goflow.common.logger.rst
 
-.. _goflow.common.logger.:
+.. _goflow.common.logger:
 
 :mod:`goflow.common.logger.` -- manages sitewide logging  
 ================================================================================

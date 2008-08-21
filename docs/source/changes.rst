@@ -28,7 +28,7 @@ Improved API
 
 * added goflow.common.errors module for goflow related exceptions / msgs
 
-* change goflow.instances to goflow.instances: this change was simply to improve understanding of the differences between goflow.instances (dynamic model) and goflow.workflow (static model), I felt instances was too generic
+* change goflow.runtime to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt instances was too generic
 
 * moved goflow.workflow.logger into goflow.common.logger
 

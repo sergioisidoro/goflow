@@ -39,7 +39,7 @@ We will discover the workflow engine with a very simple application based on a p
          ...
          'django.contrib.admin'
          'goflow.workflow'
-         'goflow.instances'
+         'goflow.runtime'
         )
 
 The `workflow` application contains the "static" model data (modeling

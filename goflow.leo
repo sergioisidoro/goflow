@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,1"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,0,13,13"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080809030150.7"><vh>@button remove_docs</vh></v>
@@ -227,7 +227,7 @@
 </v>
 </v>
 <v t="sa.20080714235246.1" a="E"><vh>goflow-refactored</vh>
-<v t="sa.20080714011136.2"><vh>docs</vh>
+<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -378,7 +378,7 @@
 </v>
 <v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
 <v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
-<v t="sa.20080714012008.12"><vh>modules</vh>
+<v t="sa.20080714012008.12" a="E"><vh>modules</vh>
 <v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
 <v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
 <v t="sa.20080714012008.15"><vh>main</vh></v>
@@ -390,12 +390,12 @@
 <v t="sa.20080714012008.21"><vh>@rst goflow.common.rst</vh></v>
 <v t="sa.20080714012008.20"><vh>@rst goflow.common.logger.rst</vh></v>
 <v t="sa.20080714012008.33"><vh>@rst goflow.common.decorators.rst</vh></v>
-<v t="sa.20080714012008.26"><vh>@rst goflow.instances.rst</vh></v>
-<v t="sa.20080714012008.23"><vh>@rst goflow.instances.reporting.rst</vh></v>
-<v t="sa.20080714012008.24"><vh>@rst goflow.instances.forms.rst</vh></v>
-<v t="sa.20080714012008.25"><vh>@rst goflow.instances.models.rst</vh></v>
-<v t="sa.20080727144116.1"><vh>@rst goflow.instances.managers.rst</vh></v>
-<v t="sa.20080714012008.29"><vh>@rst goflow.instances.views.rst</vh></v>
+<v t="sa.20080714012008.26"><vh>@rst goflow.runtime.rst</vh></v>
+<v t="sa.20080714012008.23"><vh>@rst goflow.runtime.reporting.rst</vh></v>
+<v t="sa.20080714012008.24"><vh>@rst goflow.runtime.forms.rst</vh></v>
+<v t="sa.20080714012008.25"><vh>@rst goflow.runtime.models.rst</vh></v>
+<v t="sa.20080727144116.1"><vh>@rst goflow.runtime.managers.rst</vh></v>
+<v t="sa.20080714012008.29"><vh>@rst goflow.runtime.views.rst</vh></v>
 <v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.31"><vh>@rst goflow.workflow.managers.rst</vh></v>
 <v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
@@ -631,13 +631,13 @@ lst = [
     ("goflow.graphics.models.rst","datamodels for graphics processing"),
     ("goflow.graphics.views.rst","goflow graphics views"),
     ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
-    ("goflow.instances.rst","goflow instances"),
-    ("goflow.instances.reporting.rst","goflow instances reporting"),
-    ("goflow.instances.forms.rst","goflow instances forms"),
-    ("goflow.instances.models.rst","goflow instances models"),
-    ("goflow.instances.views.rst","goflow instances views"),
-    ("goflow.instances.urls.rst","goflow instances urls"),
-    ("goflow.instances.urls_admin.rst","goflow instances custom admin interface"),
+    ("goflow.runtime.rst","goflow instances"),
+    ("goflow.runtime.reporting.rst","goflow instances reporting"),
+    ("goflow.runtime.forms.rst","goflow instances forms"),
+    ("goflow.runtime.models.rst","goflow instances models"),
+    ("goflow.runtime.views.rst","goflow instances views"),
+    ("goflow.runtime.urls.rst","goflow instances urls"),
+    ("goflow.runtime.urls_admin.rst","goflow instances custom admin interface"),
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.managers.rst","key model managers for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
@@ -688,46 +688,46 @@ lst = [
 </t>
 <t tx="sa.20080714012008.23">
 
-.. _goflow.instances.reporting:
+.. _goflow.runtime.reporting:
 
-:mod:`goflow.instances.api` -- goflow instances reporting 
+:mod:`goflow.runtime.api` -- goflow instances reporting 
 ================================================================================
 
-.. automodule:: goflow.instances.reporting 
-   :synopsis: goflow instances reporting
+.. automodule:: goflow.runtime.reporting 
+   :synopsis: goflow runtime reporting
    :members:
 
 </t>
 <t tx="sa.20080714012008.24">
 
-.. _goflow.instances.forms:
+.. _goflow.runtime.forms:
 
-:mod:`goflow.instances.forms` -- goflow instances forms 
+:mod:`goflow.runtime.forms` -- goflow instances forms 
 ================================================================================
 
-.. automodule:: goflow.instances.forms 
-   :synopsis: goflow instances forms
+.. automodule:: goflow.runtime.forms 
+   :synopsis: goflow runtime forms
    :members:
 </t>
 <t tx="sa.20080714012008.25">
 
-.. _goflow.instances.models:
+.. _goflow.runtime.models:
 
-:mod:`goflow.instances.models` -- goflow instances models 
+:mod:`goflow.runtime.models` -- goflow instances models 
 ================================================================================
 
-.. automodule:: goflow.instances.models 
-   :synopsis: goflow instances models
+.. automodule:: goflow.runtime.models 
+   :synopsis: goflow runtime models
    :members:
 </t>
 <t tx="sa.20080714012008.26">
 
-.. _goflow.instances:
+.. _goflow.runtime:
 
-:mod:`goflow.instances` -- goflow instances 
+:mod:`goflow.runtime` -- goflow instances 
 ================================================================================
 
-.. automodule:: goflow.instances 
+.. automodule:: goflow.runtime 
    :synopsis: goflow instances
    :members:
 </t>
@@ -755,13 +755,13 @@ lst = [
 </t>
 <t tx="sa.20080714012008.29">
 
-.. _goflow.instances.views:
+.. _goflow.runtime.views:
 
-:mod:`goflow.instances.views` -- goflow instances views 
+:mod:`goflow.runtime.views` -- goflow instances views 
 ================================================================================
 
-.. automodule:: goflow.instances.views 
-   :synopsis: goflow instances views
+.. automodule:: goflow.runtime.views 
+   :synopsis: goflow runtime views
    :members:
 </t>
 <t tx="sa.20080714012008.30">
@@ -905,18 +905,18 @@ goflow
    goflow.urls_admin.rst
 
 
-goflow.instances
+goflow.runtime
 -----------------
 
 .. toctree::
    :maxdepth: 2
       
-   goflow.instances.rst
-   goflow.instances.models.rst
-   goflow.instances.managers.rst   
-   goflow.instances.forms.rst
-   goflow.instances.views.rst
-   goflow.instances.reporting.rst
+   goflow.runtime.rst
+   goflow.runtime.models.rst
+   goflow.runtime.managers.rst   
+   goflow.runtime.forms.rst
+   goflow.runtime.views.rst
+   goflow.runtime.reporting.rst
 
 
 goflow.workflow
@@ -1439,7 +1439,7 @@ We will discover the workflow engine with a very simple application based on a p
          ...
          'django.contrib.admin'
          'goflow.workflow'
-         'goflow.instances'
+         'goflow.runtime'
         )
 
 The `workflow` application contains the "static" model data (modeling
@@ -1833,7 +1833,7 @@ TODOs
 
 * added goflow.common.errors module for goflow related exceptions / msgs
 
-* change goflow.instances to goflow.instances: this change was simply to improve understanding of the differences between goflow.instances (dynamic model) and goflow.workflow (static model), I felt instances was too generic
+* change goflow.runtime to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt instances was too generic
 
 * moved goflow.workflow.logger into goflow.common.logger
 
@@ -5360,12 +5360,12 @@ Most process elements can have names and descriptions.
 <t tx="sa.20080726124242.2"></t>
 <t tx="sa.20080727144116.1">
 
-.. _goflow.instances.managers:
+.. _goflow.runtime.managers:
 
-:mod:`goflow.instances.managers` -- managers for process_instance management 
+:mod:`goflow.runtime.managers` -- managers for process_instance management 
 ================================================================================
 
-.. automodule:: goflow.instances.managers 
+.. automodule:: goflow.runtime.managers 
    :synopsis: managers for process_instance management 
    :members:
 

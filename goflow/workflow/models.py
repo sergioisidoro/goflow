@@ -161,7 +161,8 @@ class Process(models.Model):
         '''
         models.Model.save(self)
         if not no_end and not self.end:
-            self.end = Activity.objects.create(title='End', process=self, kind='dummy', autostart=True)
+            self.end = Activity.objects.create(title='End', process=self, 
+                                               kind='dummy', autostart=True)
             models.Model.save(self)
         try:
             if self.end and self.end.process.id != self.id:

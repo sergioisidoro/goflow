@@ -5,8 +5,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
 from django.forms.models import modelform_factory
 
-from goflow.instances.models import WorkItem #, DefaultAppModel
-from goflow.instances.forms import DefaultAppForm
+from goflow.runtime.models import WorkItem #, DefaultAppModel
+from goflow.runtime.forms import DefaultAppForm
 from goflow.workflow.models import Process
 
 from goflow.common.decorators import login_required
