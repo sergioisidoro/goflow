@@ -13,7 +13,8 @@ GoFlow - A workflow engine for Django
 2. Requirements:
 
 - Python 2.5
-- Django 1.0-Alpha (SVN)
+
+- Django 1.0 (SVN trunk)
 
 
 3. Install instructions:

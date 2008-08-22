@@ -2,7 +2,7 @@
 This is an attempt to get an easy text-based syntax to specify workflows, the beginning of this were
 initially inspired by dot-notation and the perl based Easy::Graph module.
 
-BNF:
+pseudo BNF:
 
     identifier      :: group of alphabetic characters
     from_activity   :: identifier

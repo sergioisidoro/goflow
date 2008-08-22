@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 from django.test import TestCase
 from django.test.client import Client
+from os.path import dirname, join
 
 class Test(TestCase):
-    fixtures = ["/Users/sa/Code/src/goflow-refactored/leavedemo/leave/fixtures/leave.json"]
+    fixtures = [join(dirname(__file__), "fixtures/leave.json")]
     def test_home_anonymous(self):
         client = Client()
         response = client.get('/leave/')
