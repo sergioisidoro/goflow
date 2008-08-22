@@ -2,7 +2,7 @@
 
 .. _goflow.runtime.reporting:
 
-:mod:`goflow.runtime.api` -- goflow instances reporting 
+:mod:`goflow.runtime.api` -- goflow runtime reporting 
 ================================================================================
 
 .. automodule:: goflow.runtime.reporting 
