@@ -1,11 +1,5 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
-"""
-models for goflow.runtime which hold primary classes
-
-ProcessInstance, WorkItem, Event, DefaultAppModel
-
-"""
 from django.db import models
 from django.contrib.auth.models import Group, User
 from datetime import datetime, timedelta
