@@ -24,11 +24,13 @@ New Features
 Improved API
 ^^^^^^^^^^^^
 
+* removed incomplete modules to reduce size of code
+
 * moved api into models and managers to make it more object oriented, still some way to go...
 
 * added goflow.common.errors module for goflow related exceptions / msgs
 
-* change goflow.runtime to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt instances was too generic
+* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt 'instances' was too generic
 
 * moved goflow.workflow.logger into goflow.common.logger
 
@@ -61,28 +63,10 @@ Safe Evaluation of Expressions
 Bug Fixes
 *********
 
-* synchronization with trunk 1.0
+* synchronization with Django trunk 1.0
 
 Backwards Incompatible Changes
 ******************************
 
-* given the completely new api this branched version is not backwards compatible at all...
-
-Version 0.51
-++++++++++++
-
-New Features
-************
-
-* Improved documentation based on leo-editor, Sphinx and epydoc.
-
-Bug Fixes
-*********
-
-* a bug was found here.
-
-Backwards Incompatible Changes
-******************************
-
-* api was cleaned up to make it more consistent.
+* given the completely new api this branched version is not backwards compatible at all with goflow version 0.5x
 

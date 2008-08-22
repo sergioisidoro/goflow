@@ -2,10 +2,10 @@
 
 .. _goflow.runtime:
 
-:mod:`goflow.runtime` -- goflow instances 
+:mod:`goflow.runtime` -- goflow runtime 
 ================================================================================
 
 .. automodule:: goflow.runtime 
-   :synopsis: goflow instances
+   :synopsis: goflow runtime
    :members:
 

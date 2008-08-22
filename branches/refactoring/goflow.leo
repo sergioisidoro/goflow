@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="37" left="112" height="692" width="1213"/>
+	<global_window_position top="92" left="144" height="692" width="1213"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,0,13,13"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080809030150.7"><vh>@button remove_docs</vh></v>
@@ -226,8 +226,8 @@
 </v>
 </v>
 </v>
-<v t="sa.20080714235246.1" a="E"><vh>goflow-refactored</vh>
-<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
+<v t="sa.20080714235246.1"><vh>goflow-refactored</vh>
+<v t="sa.20080714011136.2"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -341,7 +341,7 @@
 </v>
 </v>
 <v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5" a="E"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
 <v t="sa.20080714225902.6"><vh>New Features</vh>
 <v t="sa.20080724074952.3"><vh>Improved API</vh></v>
 <v t="sa.20080724074952.11"><vh>Improved documentation system</vh></v>
@@ -351,11 +351,6 @@
 </v>
 <v t="sa.20080714225902.7"><vh>Bug Fixes</vh></v>
 <v t="sa.20080714225902.8"><vh>Backwards Incompatible Changes</vh></v>
-</v>
-<v t="sa.20080720192331.1"><vh>Version 0.51</vh>
-<v t="sa.20080720192331.2"><vh>New Features</vh></v>
-<v t="sa.20080720192331.3"><vh>Bug Fixes</vh></v>
-<v t="sa.20080720192331.4"><vh>Backwards Incompatible Changes</vh></v>
 </v>
 </v>
 <v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
@@ -378,7 +373,7 @@
 </v>
 <v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
 <v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
-<v t="sa.20080714012008.12" a="E"><vh>modules</vh>
+<v t="sa.20080714012008.12"><vh>modules</vh>
 <v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
 <v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
 <v t="sa.20080714012008.15"><vh>main</vh></v>
@@ -632,12 +627,12 @@ lst = [
     ("goflow.graphics.views.rst","goflow graphics views"),
     ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
     ("goflow.runtime.rst","goflow instances"),
-    ("goflow.runtime.reporting.rst","goflow instances reporting"),
-    ("goflow.runtime.forms.rst","goflow instances forms"),
-    ("goflow.runtime.models.rst","goflow instances models"),
-    ("goflow.runtime.views.rst","goflow instances views"),
-    ("goflow.runtime.urls.rst","goflow instances urls"),
-    ("goflow.runtime.urls_admin.rst","goflow instances custom admin interface"),
+    ("goflow.runtime.reporting.rst","goflow runtime reporting"),
+    ("goflow.runtime.forms.rst","goflow runtime forms"),
+    ("goflow.runtime.models.rst","goflow runtime models"),
+    ("goflow.runtime.views.rst","goflow runtime views"),
+    ("goflow.runtime.urls.rst","goflow runtime urls"),
+    ("goflow.runtime.urls_admin.rst","goflow runtime custom admin interface"),
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.managers.rst","key model managers for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
@@ -690,7 +685,7 @@ lst = [
 
 .. _goflow.runtime.reporting:
 
-:mod:`goflow.runtime.api` -- goflow instances reporting 
+:mod:`goflow.runtime.api` -- goflow runtime reporting 
 ================================================================================
 
 .. automodule:: goflow.runtime.reporting 
@@ -702,7 +697,7 @@ lst = [
 
 .. _goflow.runtime.forms:
 
-:mod:`goflow.runtime.forms` -- goflow instances forms 
+:mod:`goflow.runtime.forms` -- goflow runtime forms 
 ================================================================================
 
 .. automodule:: goflow.runtime.forms 
@@ -713,7 +708,7 @@ lst = [
 
 .. _goflow.runtime.models:
 
-:mod:`goflow.runtime.models` -- goflow instances models 
+:mod:`goflow.runtime.models` -- goflow runtime models 
 ================================================================================
 
 .. automodule:: goflow.runtime.models 
@@ -724,40 +719,40 @@ lst = [
 
 .. _goflow.runtime:
 
-:mod:`goflow.runtime` -- goflow instances 
+:mod:`goflow.runtime` -- goflow runtime 
 ================================================================================
 
 .. automodule:: goflow.runtime 
-   :synopsis: goflow instances
+   :synopsis: goflow runtime
    :members:
 </t>
 <t tx="sa.20080714012008.27">
 
 .. _goflow.urls:
 
-:mod:`goflow.urls` -- goflow instances urls 
+:mod:`goflow.urls` -- goflow urls 
 ================================================================================
 
 .. automodule:: goflow.urls 
-   :synopsis: goflow instances urls
+   :synopsis: goflow urls
    :members:
 </t>
 <t tx="sa.20080714012008.28">
 
 .. _goflow.urls_admin:
 
-:mod:`goflow.urls_admin` -- goflow instances custom admin interface 
+:mod:`goflow.urls_admin` -- goflow custom admin interface 
 ================================================================================
 
 .. automodule:: goflow.urls_admin 
-   :synopsis: goflow instances custom admin interface
+   :synopsis: goflow custom admin interface
    :members:
 </t>
 <t tx="sa.20080714012008.29">
 
 .. _goflow.runtime.views:
 
-:mod:`goflow.runtime.views` -- goflow instances views 
+:mod:`goflow.runtime.views` -- goflow runtime views 
 ================================================================================
 
 .. automodule:: goflow.runtime.views 
@@ -1581,9 +1576,11 @@ TODO</t>
 * better documentation..
 
 </t>
-<t tx="sa.20080714225902.7">* synchronization with trunk 1.0
+<t tx="sa.20080714225902.7">* synchronization with Django trunk 1.0
 </t>
-<t tx="sa.20080714225902.8">* given the completely new api this branched version is not backwards compatible at all...
+<t tx="sa.20080714225902.8">* given the completely new api this branched version is not backwards compatible at all with goflow version 0.5x
+
+
 
 
 
@@ -1806,16 +1803,6 @@ After the review election task is completed, either the declare results or the r
 
 </t>
 <t tx="sa.20080720191846.1"></t>
-<t tx="sa.20080720192331.1"></t>
-<t tx="sa.20080720192331.2">
-	* Improved documentation based on leo-editor, Sphinx and epydoc. 
-</t>
-<t tx="sa.20080720192331.3">	* a bug was found here.
-
-</t>
-<t tx="sa.20080720192331.4">	* api was cleaned up to make it more consistent.
-
-</t>
 <t tx="sa.20080724074952.1">.. _todo:
 
 ==========================
@@ -1829,11 +1816,13 @@ TODOs
 
 </t>
 <t tx="sa.20080724074952.2"></t>
-<t tx="sa.20080724074952.3">* moved api into models and managers to make it more object oriented, still some way to go...
+<t tx="sa.20080724074952.3">* removed incomplete modules to reduce size of code
+
+* moved api into models and managers to make it more object oriented, still some way to go...
 
 * added goflow.common.errors module for goflow related exceptions / msgs
 
-* change goflow.runtime to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt instances was too generic
+* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt 'instances' was too generic
 
 * moved goflow.workflow.logger into goflow.common.logger
 
@@ -5372,7 +5361,9 @@ Most process elements can have names and descriptions.
 </t>
 <t tx="sa.20080802224603.1">* introduced safe_eval and dynamic object imports in goflow.common
 </t>
-<t tx="sa.20080806030604.1">* we are trying to provide extensive tests of all goflow functionality, with a preference for doctests.</t>
+<t tx="sa.20080806030604.1">* we are trying to provide extensive tests of all goflow functionality, with a preference for doctests.
+
+</t>
 <t tx="sa.20080806030604.2"></t>
 <t tx="sa.20080808233935.1"></t>
 <t tx="sa.20080808233935.3">import os

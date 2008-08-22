@@ -2,7 +2,7 @@
 
 .. _goflow.runtime.forms:
 
-:mod:`goflow.runtime.forms` -- goflow instances forms 
+:mod:`goflow.runtime.forms` -- goflow runtime forms 
 ================================================================================
 
 .. automodule:: goflow.runtime.forms 

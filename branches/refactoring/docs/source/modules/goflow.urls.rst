@@ -2,10 +2,10 @@
 
 .. _goflow.urls:
 
-:mod:`goflow.urls` -- goflow instances urls 
+:mod:`goflow.urls` -- goflow urls 
 ================================================================================
 
 .. automodule:: goflow.urls 
-   :synopsis: goflow instances urls
+   :synopsis: goflow urls
    :members:
 

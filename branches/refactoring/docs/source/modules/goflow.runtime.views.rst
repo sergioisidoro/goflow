@@ -2,7 +2,7 @@
 
 .. _goflow.runtime.views:
 
-:mod:`goflow.runtime.views` -- goflow instances views 
+:mod:`goflow.runtime.views` -- goflow runtime views 
 ================================================================================
 
 .. automodule:: goflow.runtime.views 

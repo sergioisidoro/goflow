@@ -2,7 +2,7 @@
 
 .. _goflow.runtime.models:
 
-:mod:`goflow.runtime.models` -- goflow instances models 
+:mod:`goflow.runtime.models` -- goflow runtime models 
 ================================================================================
 
 .. automodule:: goflow.runtime.models 
