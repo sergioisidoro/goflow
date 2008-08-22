@@ -232,8 +232,7 @@ Requirements
 Structure
 +++++++++
 
-The directory structure of the goflow-refactored branch::
-    
+The directory structure of the goflow-refactored branch consists of 39 directories, 129 files::
 
     .
     |-- README.TXT
@@ -283,68 +282,18 @@ The directory structure of the goflow-refactored branch::
     |   |-- __init__.py
     |   |-- common
     |   |   |-- __init__.py
-    |   |   |-- conf
-    |   |   |   |-- app_template
-    |   |   |   |   |-- __init__.py.tmpl
-    |   |   |   |   |-- forms.py.tmpl
-    |   |   |   |   |-- models.py.tmpl
-    |   |   |   |   |-- urls.py.tmpl
-    |   |   |   |   `-- views.py.tmpl
-    |   |   |   `-- command_template
-    |   |   |       `-- management
-    |   |   |           |-- __init__.py.tmpl
-    |   |   |           `-- commands
-    |   |   |               |-- __init__.py.tmpl
-    |   |   |               `-- sample.py.tmpl
     |   |   |-- decorators.py
     |   |   |-- errors.py
+    |   |   |-- event.py
     |   |   |-- logger.py
     |   |   |-- management
     |   |   |   |-- __init__.py
-    |   |   |   |-- color.py
-    |   |   |   |-- commands
-    |   |   |   |   |-- __init__.py
-    |   |   |   |   |-- create_app.py
-    |   |   |   |   |-- create_command.py
-    |   |   |   |   |-- create_superuser.py
-    |   |   |   |   |-- describe_form.py
-    |   |   |   |   |-- dumpscript.py
-    |   |   |   |   |-- graph_models.py
-    |   |   |   |   |-- passwd.py
-    |   |   |   |   |-- reset_db.py
-    |   |   |   |   |-- runscript.py
-    |   |   |   |   |-- runserver_plus.py
-    |   |   |   |   |-- set_fake_passwords.py
-    |   |   |   |   |-- shell_plus.py
-    |   |   |   |   `-- show_urls.py
-    |   |   |   `-- modelviz.py
+    |   |   |   `-- commands
+    |   |   |       `-- __init__.py
     |   |   `-- middleware
     |   |       |-- __init__.py
     |   |       `-- debug_middleware.py
-    |   |-- graphics
-    |   |   |-- __init__.py
-    |   |   |-- js
-    |   |   |   |-- external.txt
-    |   |   |   |-- tip_centerwindow.js
-    |   |   |   |-- tip_followscroll.js
-    |   |   |   |-- transparentpixel.gif
-    |   |   |   |-- wz_dragdrop.js
-    |   |   |   `-- wz_tooltip.js
-    |   |   |-- models.py
-    |   |   |-- templates
-    |   |   |   |-- admin
-    |   |   |   |   `-- graphics
-    |   |   |   |       `-- processimage
-    |   |   |   |           `-- change_form.html
-    |   |   |   `-- goflow
-    |   |   |       `-- graphics
-    |   |   |           `-- graph.html
-    |   |   |-- templatetags
-    |   |   |   |-- __init__.py
-    |   |   |   `-- libjs.py
-    |   |   |-- urls_admin.py
-    |   |   `-- views.py
-    |   |-- instances
+    |   |-- runtime
     |   |   |-- __init__.py
     |   |   |-- admin.py
     |   |   |-- forms.py
@@ -409,7 +358,8 @@ The directory structure of the goflow-refactored branch::
     |   |   |-- admin.py
     |   |   |-- auto.py
     |   |   |-- fixtures
-    |   |   |   `-- initial_data.json
+    |   |   |   |-- initial_data.json
+    |   |   |   `-- leave.json
     |   |   |-- forms.py
     |   |   |-- models.py
     |   |   |-- pushapps.py
@@ -444,14 +394,11 @@ The directory structure of the goflow-refactored branch::
     |   |   |-- process_builder.py
     |   |   `-- reset
     |   |-- settings.py
-    |   |-- test.py
     |   `-- urls.py
     |-- licence.txt
-    |-- pavement.py
     |-- scripts
     |   |-- build_docs
     |   |-- clean
-    |   |-- get_svn_leavedemo.sh
     |   `-- reset
     `-- test
         `-- test_pyparsing.py
