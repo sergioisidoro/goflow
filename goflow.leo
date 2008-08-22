@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="92" left="144" height="692" width="1213"/>
+	<global_window_position top="53" left="61" height="692" width="1213"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,0,2"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080809030150.7"><vh>@button remove_docs</vh></v>
@@ -226,8 +226,8 @@
 </v>
 </v>
 </v>
-<v t="sa.20080714235246.1"><vh>goflow-refactored</vh>
-<v t="sa.20080714011136.2"><vh>docs</vh>
+<v t="sa.20080714235246.1" a="E"><vh>goflow-refactored</vh>
+<v t="sa.20080714011136.2" a="E"><vh>docs</vh>
 <v t="sa.20080714012008.6"><vh>@rst index.rst</vh></v>
 <v t="sa.20080714012008.2"><vh>@rst overview.rst</vh>
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
@@ -373,7 +373,7 @@
 </v>
 <v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
 <v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
-<v t="sa.20080714012008.12"><vh>modules</vh>
+<v t="sa.20080714012008.12" a="E"><vh>modules</vh>
 <v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
 <v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
 <v t="sa.20080714012008.15"><vh>main</vh></v>
@@ -556,20 +556,23 @@ Subversion trunk code::
 Optional (but useful) Modules      
 -------------------------------
 
-    * `Graphviz`_
+    * `Django Testmaker`_ : automated test creation
     
-    * `PIL`_  
+    * `Django-extensions`_ : nifty commands to use with manage.py
+
+    * `Graphviz`_: to render dot graphs of workflows
     
-    * `Pyyaml`_
+    * `PIL`_ : python imaging library
     
-    * `Pygraphviz`_
+    * `Pygraphviz`_: pythonic interface to graphviz (actually includes it)
 
 
 
 .. _`here` :  http://code.google.com/p/goflow/downloads/list
 .. _`Graphviz` : http://www.graphviz.org/
 .. _`PIL` : http://www.pythonware.com/products/pil/
-.. _`Pyyaml` : http://pyyaml.org/
+.. _`Django Testmaker` : http://code.google.com/p/django-testmaker/
+.. _`Django-extensions` : http://code.google.com/p/django-command-extensions/
 .. _`Pygraphviz` : https://networkx.lanl.gov/wiki/pygraphviz</t>
 <t tx="sa.20080714012008.11">.. _changes:
 
@@ -666,7 +669,7 @@ lst = [
 :mod:`goflow.common.logger.` -- manages sitewide logging  
 ================================================================================
 
-.. automodule:: goflow.common.logger 
+.. automodule:: goflow.common.logger
    :synopsis: manages sitewide logging  
    :members:
 </t>
@@ -793,18 +796,10 @@ lst = [
 
 .. automodule:: goflow.workflow.applications 
    :synopsis: key application function for workflow mgmt
+   :members:
 
 
-.. function:: format_exception(etype, value, tb[, limit=None])
-
-   Format the exception with a traceback.
-
-   :param object: exception type
-   :param value: exception value
-   :param tb: traceback object
-   :param limit: maximum number of stack frames to show
-   :type limit: integer or None
-   :rtype: list of strings</t>
+</t>
 <t tx="sa.20080714012008.33">
 
 .. _goflow.common.decorators:
@@ -1158,8 +1153,7 @@ Dynamic redesign and exception handling are related to each other. Exception han
 <t tx="sa.20080714081843.18"></t>
 <t tx="sa.20080714081843.19"></t>
 <t tx="sa.20080714081843.20">
-The directory structure of the goflow-refactored branch::
-    
+The directory structure of the goflow-refactored branch consists of 39 directories, 129 files::
 
     .
     |-- README.TXT
@@ -1209,68 +1203,18 @@ The directory structure of the goflow-refactored branch::
     |   |-- __init__.py
     |   |-- common
     |   |   |-- __init__.py
-    |   |   |-- conf
-    |   |   |   |-- app_template
-    |   |   |   |   |-- __init__.py.tmpl
-    |   |   |   |   |-- forms.py.tmpl
-    |   |   |   |   |-- models.py.tmpl
-    |   |   |   |   |-- urls.py.tmpl
-    |   |   |   |   `-- views.py.tmpl
-    |   |   |   `-- command_template
-    |   |   |       `-- management
-    |   |   |           |-- __init__.py.tmpl
-    |   |   |           `-- commands
-    |   |   |               |-- __init__.py.tmpl
-    |   |   |               `-- sample.py.tmpl
     |   |   |-- decorators.py
     |   |   |-- errors.py
+    |   |   |-- event.py
     |   |   |-- logger.py
     |   |   |-- management
     |   |   |   |-- __init__.py
-    |   |   |   |-- color.py
-    |   |   |   |-- commands
-    |   |   |   |   |-- __init__.py
-    |   |   |   |   |-- create_app.py
-    |   |   |   |   |-- create_command.py
-    |   |   |   |   |-- create_superuser.py
-    |   |   |   |   |-- describe_form.py
-    |   |   |   |   |-- dumpscript.py
-    |   |   |   |   |-- graph_models.py
-    |   |   |   |   |-- passwd.py
-    |   |   |   |   |-- reset_db.py
-    |   |   |   |   |-- runscript.py
-    |   |   |   |   |-- runserver_plus.py
-    |   |   |   |   |-- set_fake_passwords.py
-    |   |   |   |   |-- shell_plus.py
-    |   |   |   |   `-- show_urls.py
-    |   |   |   `-- modelviz.py
+    |   |   |   `-- commands
+    |   |   |       `-- __init__.py
     |   |   `-- middleware
     |   |       |-- __init__.py
     |   |       `-- debug_middleware.py
-    |   |-- graphics
-    |   |   |-- __init__.py
-    |   |   |-- js
-    |   |   |   |-- external.txt
-    |   |   |   |-- tip_centerwindow.js
-    |   |   |   |-- tip_followscroll.js
-    |   |   |   |-- transparentpixel.gif
-    |   |   |   |-- wz_dragdrop.js
-    |   |   |   `-- wz_tooltip.js
-    |   |   |-- models.py
-    |   |   |-- templates
-    |   |   |   |-- admin
-    |   |   |   |   `-- graphics
-    |   |   |   |       `-- processimage
-    |   |   |   |           `-- change_form.html
-    |   |   |   `-- goflow
-    |   |   |       `-- graphics
-    |   |   |           `-- graph.html
-    |   |   |-- templatetags
-    |   |   |   |-- __init__.py
-    |   |   |   `-- libjs.py
-    |   |   |-- urls_admin.py
-    |   |   `-- views.py
-    |   |-- instances
+    |   |-- runtime
     |   |   |-- __init__.py
     |   |   |-- admin.py
     |   |   |-- forms.py
@@ -1335,7 +1279,8 @@ The directory structure of the goflow-refactored branch::
     |   |   |-- admin.py
     |   |   |-- auto.py
     |   |   |-- fixtures
-    |   |   |   `-- initial_data.json
+    |   |   |   |-- initial_data.json
+    |   |   |   `-- leave.json
     |   |   |-- forms.py
     |   |   |-- models.py
     |   |   |-- pushapps.py
@@ -1370,17 +1315,17 @@ The directory structure of the goflow-refactored branch::
     |   |   |-- process_builder.py
     |   |   `-- reset
     |   |-- settings.py
-    |   |-- test.py
     |   `-- urls.py
     |-- licence.txt
-    |-- pavement.py
     |-- scripts
     |   |-- build_docs
     |   |-- clean
-    |   |-- get_svn_leavedemo.sh
     |   `-- reset
     `-- test
         `-- test_pyparsing.py
+    
+
+    
 </t>
 <t tx="sa.20080714081843.21">To understand what is ``activity based workflow`` take a look at `OpenFlow`_ 
 

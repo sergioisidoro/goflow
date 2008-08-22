@@ -5,7 +5,7 @@
 :mod:`goflow.common.logger.` -- manages sitewide logging  
 ================================================================================
 
-.. automodule:: goflow.common.logger 
+.. automodule:: goflow.common.logger
    :synopsis: manages sitewide logging  
    :members:
 

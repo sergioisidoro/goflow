@@ -35,19 +35,22 @@ Subversion trunk code::
 Optional (but useful) Modules      
 -------------------------------
 
-    * `Graphviz`_
+    * `Django Testmaker`_ : automated test creation
     
-    * `PIL`_  
+    * `Django-extensions`_ : nifty commands to use with manage.py
+
+    * `Graphviz`_: to render dot graphs of workflows
     
-    * `Pyyaml`_
+    * `PIL`_ : python imaging library
     
-    * `Pygraphviz`_
+    * `Pygraphviz`_: pythonic interface to graphviz (actually includes it)
 
 
 
 .. _`here` :  http://code.google.com/p/goflow/downloads/list
 .. _`Graphviz` : http://www.graphviz.org/
 .. _`PIL` : http://www.pythonware.com/products/pil/
-.. _`Pyyaml` : http://pyyaml.org/
+.. _`Django Testmaker` : http://code.google.com/p/django-testmaker/
+.. _`Django-extensions` : http://code.google.com/p/django-command-extensions/
 .. _`Pygraphviz` : https://networkx.lanl.gov/wiki/pygraphviz
 
