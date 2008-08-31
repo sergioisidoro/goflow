@@ -11,6 +11,7 @@ TODOs
 Version 0.6 (refactored branch)
 +++++++++++++++++++++++++++++++
 
-more tests
-**********
+* more tests
+
+* fix Process.save()
 

@@ -9,7 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,0,2"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,0,8,0,0,0"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080809030150.7"><vh>@button remove_docs</vh></v>
@@ -340,9 +340,9 @@
 <v t="sa.20080715111354.24"><vh>The Process Monitor</vh></v>
 </v>
 </v>
-<v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
-<v t="sa.20080714225902.5"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080714225902.6"><vh>New Features</vh>
+<v t="sa.20080714012008.11" a="E"><vh>@rst changes.rst</vh>
+<v t="sa.20080714225902.5" a="E"><vh>Version 0.6 (refactored branch)</vh>
+<v t="sa.20080714225902.6" a="E"><vh>New Features</vh>
 <v t="sa.20080724074952.3"><vh>Improved API</vh></v>
 <v t="sa.20080724074952.11"><vh>Improved documentation system</vh></v>
 <v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
@@ -354,9 +354,7 @@
 </v>
 </v>
 <v t="sa.20080724074952.1"><vh>@rst todo.rst</vh>
-<v t="sa.20080724074952.2"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080806030604.2"><vh>more tests</vh></v>
-</v>
+<v t="sa.20080724074952.2"><vh>Version 0.6 (refactored branch)</vh></v>
 </v>
 <v t="sa.20080714012008.1"><vh>@rst glossary.rst</vh>
 <v t="sa.20080715122316.10"><vh>Application</vh></v>
@@ -373,7 +371,7 @@
 </v>
 <v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
 <v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
-<v t="sa.20080714012008.12" a="E"><vh>modules</vh>
+<v t="sa.20080714012008.12"><vh>modules</vh>
 <v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
 <v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
 <v t="sa.20080714012008.15"><vh>main</vh></v>
@@ -389,10 +387,8 @@
 <v t="sa.20080714012008.23"><vh>@rst goflow.runtime.reporting.rst</vh></v>
 <v t="sa.20080714012008.24"><vh>@rst goflow.runtime.forms.rst</vh></v>
 <v t="sa.20080714012008.25"><vh>@rst goflow.runtime.models.rst</vh></v>
-<v t="sa.20080727144116.1"><vh>@rst goflow.runtime.managers.rst</vh></v>
 <v t="sa.20080714012008.29"><vh>@rst goflow.runtime.views.rst</vh></v>
 <v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
-<v t="sa.20080714012008.31"><vh>@rst goflow.workflow.managers.rst</vh></v>
 <v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
 <v t="sa.20080714012008.34"><vh>@rst goflow.workflow.forms.rst</vh></v>
 <v t="sa.20080714012008.36"><vh>@rst goflow.workflow.models.rst</vh></v>
@@ -773,18 +769,6 @@ lst = [
    :synopsis: primary module containing other goflow submodules.
    :members:
    
-
-</t>
-<t tx="sa.20080714012008.31">
-
-.. _goflow.workflow.managers:
-
-:mod:`goflow.workflow.managers` -- key functions for workflow management 
-================================================================================
-
-.. automodule:: goflow.workflow.managers 
-   :synopsis: key functions for workflow management
-   :members:
 
 </t>
 <t tx="sa.20080714012008.32">
@@ -1760,10 +1744,14 @@ TODOs
 
 
 </t>
-<t tx="sa.20080724074952.2"></t>
+<t tx="sa.20080724074952.2">* more tests
+
+* fix Process.save()
+
+</t>
 <t tx="sa.20080724074952.3">* removed incomplete modules to reduce size of code
 
-* moved api into models and managers to make it more object oriented, still some way to go...
+* more object oriented simplified api, still some way to go...
 
 * added goflow.common.errors module for goflow related exceptions / msgs
 
@@ -1772,7 +1760,6 @@ TODOs
 * moved goflow.workflow.logger into goflow.common.logger
 
 * moved goflow.workflow.decorators into goflow.common.decorators
-
 
 
 </t>
@@ -5292,24 +5279,11 @@ Most process elements can have names and descriptions.
 </t>
 <t tx="sa.20080726124242.1"></t>
 <t tx="sa.20080726124242.2"></t>
-<t tx="sa.20080727144116.1">
-
-.. _goflow.runtime.managers:
-
-:mod:`goflow.runtime.managers` -- managers for process_instance management 
-================================================================================
-
-.. automodule:: goflow.runtime.managers 
-   :synopsis: managers for process_instance management 
-   :members:
-
-</t>
 <t tx="sa.20080802224603.1">* introduced safe_eval and dynamic object imports in goflow.common
 </t>
 <t tx="sa.20080806030604.1">* we are trying to provide extensive tests of all goflow functionality, with a preference for doctests.
 
 </t>
-<t tx="sa.20080806030604.2"></t>
 <t tx="sa.20080808233935.1"></t>
 <t tx="sa.20080808233935.3">import os
 from os.path import join, abspath, basename, normpath

@@ -26,7 +26,7 @@ Improved API
 
 * removed incomplete modules to reduce size of code
 
-* moved api into models and managers to make it more object oriented, still some way to go...
+* more object oriented simplified api, still some way to go...
 
 * added goflow.common.errors module for goflow related exceptions / msgs
 

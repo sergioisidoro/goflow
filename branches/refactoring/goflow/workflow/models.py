@@ -5,9 +5,6 @@ from django.contrib.auth.models import Group, User, Permission
 from django.contrib.contenttypes.models import ContentType
 
 from goflow.common.decorators import allow_tags
-from goflow.workflow.managers import ProcessManager
-
-
 from datetime import datetime, timedelta
 
 class Activity(models.Model):
@@ -20,7 +17,7 @@ class Activity(models.Model):
     usage::
 
         >>> # first get or create a process
-        >>> p1 = Process.objects.add(title="test process", description="desc")
+        >>> p1 = Process.objects.new(title="test process", description="desc")
         >>> activity = Activity(title="myactivity", process=p1)
         >>> activity.save()
 
@@ -67,6 +64,35 @@ class Activity(models.Model):
         verbose_name = 'Activity'
         verbose_name_plural = 'Activities'
 
+class ProcessManager(models.Manager):
+    '''Custom model manager for Process
+    '''
+
+    def new(self, title, description='', start='Start', end='End'):
+        '''
+        Creates, saves, and returns a new Process instance
+        and adds a start and end activity to it.
+
+        :type title: string
+        :param title: the title of the new Process instance.
+        :type description: string
+        :param description: an optional description of the new Process instance.
+        :type start: string
+        :param start: title of initial Activity
+        :type end: string
+        :param end: title of final Activity
+        :rtype: Process
+        :return: a new (saved) Process instance.
+
+        usage::
+
+            process1 = Process.objects.new(title='process1')
+        '''
+        process = self.create(title=title, description=description)
+        process.begin = Activity.objects.create(title=start, process=process)
+        process.end = Activity.objects.create(title=end, process=process)
+        process.save()
+        return process
 
 class Process(models.Model):
     """A process holds the map that describes the flow of work.
@@ -91,8 +117,8 @@ class Process(models.Model):
         >>> process
         <Process: request_holiday>
 
-        >>> # (3) using the manager class add method
-        >>> process = Process.objects.add(title='request_report', description='desc2')
+        >>> # (3) using the manager class new method (creates start & end activities)
+        >>> process = Process.objects.new(title='request_report', description='desc2')
         >>> process
         <Process: request_report>
 
@@ -127,6 +153,37 @@ class Process(models.Model):
                 '<a href=../activity/>copy</a> an activity from another process')
 
 
+    def can_start(self, user):
+        '''
+        Checks whether a process is enabled and whether the user has permission
+        to instantiate it; raises exceptions if not the case, returns None otherwise.
+
+        :type user: User
+        :param user: an instance of django.contrib.auth.models.User,
+                     typically retrieved through a request object.
+        :rtype:
+        :return: passes silently if checks are met,
+                 raises exceptions otherwise.
+
+        usage::
+
+            process.can_start(user=admin)
+
+        '''
+        if not self.enabled:
+            raise Exception('process %s disabled.' % process_name)
+
+        if user.has_perm("workflow.can_instantiate"):
+            lst = user.groups.filter(name=self.title)
+            if lst.count()==0 or \
+               (lst[0].permissions.filter(codename='can_instantiate').count() == 0):
+                raise Exception('permission needed to instantiate process %s.' % self.title)
+        else:
+            raise Exception('permission needed.')
+        return
+
+
+
     def add_activity(self, name):
         '''Add an activity to the process
 
@@ -152,36 +209,6 @@ class Process(models.Model):
                                              output=activity_out,
                                              defaults={'input':activity_in})
         return t
-
-    def save(self, no_end=False):
-        '''save process and provide automatic 'end' activity
-
-        :type no_end: bool
-        :param no_end: without specified 'end' activity
-        '''
-        models.Model.save(self)
-        if not no_end and not self.end:
-            self.end = Activity.objects.create(title='End', process=self, 
-                                               kind='dummy', autostart=True)
-            models.Model.save(self)
-        try:
-            if self.end and self.end.process.id != self.id:
-                a = self.end
-                a.id = None
-                a.process = self
-                a.save()
-                self.end = a
-                models.Model.save(self)
-            if self.begin and self.begin.process.id != self.id:
-                a = self.begin
-                a.id = None
-                a.process = self
-                a.save()
-                self.begin = a
-                models.Model.save(self)
-        except Exception:
-            # admin console error ?!?
-            pass
 
 
 class Application(models.Model):
@@ -334,7 +361,7 @@ class Transition(models.Model):
     usage::
 
         >>> # first get or create process
-        >>> p = Process.objects.add(title='test proc1', description="desc")
+        >>> p = Process.objects.new(title='test proc1', description="desc")
         >>> a1 = Activity.objects.create(title="activity_in", process=p)
         >>> a2 = Activity.objects.create(title="activity_out", process=p)
         >>> t = Transition(name='send_to_employee', process=p, input=a1, output=a2,
