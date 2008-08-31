@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
 from django.forms.models import modelform_factory
 
-from goflow.runtime.models import WorkItem #, DefaultAppModel
+from goflow.runtime.models import WorkItem, ProcessInstance #, DefaultAppModel
 from goflow.runtime.forms import DefaultAppForm
 from goflow.workflow.models import Process
 
@@ -34,7 +34,12 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
     if not process_name:
         process_name = app_label
     try:
-        Process.objects.check_start_instance_perm(process_name, request.user)
+        process = Process.objects.get(title=process_name)
+        process.can_start(request.user)
+        # TODO: process_can_start should return True / False
+        # if not process.can_start(request.user):
+        #             raise Exception('Process cannot start with user: %s' % request.user)
+
     except Exception, v:
         return HttpResponse(str(v))
 
@@ -67,7 +72,7 @@ def start_application(request, app_label=None, model_name=None, process_name=Non
                     log.error("form save error: "+str(v))
 
             if obj:
-                Process.objects.start(process_name, request.user, obj, instance_label)
+                ProcessInstance.objects.start(process_name, request.user, obj, instance_label)
             return HttpResponseRedirect(redirect)
     else:
         form = form_class()

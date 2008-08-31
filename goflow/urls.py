@@ -37,8 +37,4 @@ urlpatterns += patterns('goflow.runtime.views',
     (r'^mywork/complete/(?P<id>.*)/$', 'complete'),
 )
 
-urlpatterns += patterns('goflow.graphics.views',
-    (r'^graph/(?P<id>.*)/save/$', 'graph_save'),
-    (r'^graph/(?P<id>.*)/$', 'graph'),
-)
 

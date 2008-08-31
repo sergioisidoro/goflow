@@ -79,7 +79,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    #'django_extensions', # (optional)
+    'django_extensions', # (optional)
     'goflow.common',
     'goflow.workflow',
     'goflow.runtime',
