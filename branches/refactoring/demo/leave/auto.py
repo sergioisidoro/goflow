@@ -1,4 +1,4 @@
-from leavedemo.leave.models import Account
+from demo.leave.models import Account
 
 def update_hr(workitem):
     ''' automated and simplistic version of hrform.

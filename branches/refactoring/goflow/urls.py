@@ -6,7 +6,7 @@ meant to be linked to a django app as follows::
 '''
 
 from django.conf.urls.defaults import patterns
-from runtime.forms import DefaultAppStartForm
+from goflow.workflow.forms import DefaultAppStartForm
 
 
 urlpatterns = patterns('django.contrib.auth.views.',
@@ -18,16 +18,8 @@ urlpatterns += patterns('goflow.workflow.views',
     (r'^$', 'index'),
     (r'^process/dot/(?P<id>.*)$','process_dot'),
     (r'^cron/$','cron'),
-)
 
-urlpatterns += patterns('goflow.workflow.applications',
-    (r'^default_app/(?P<id>.*)/$', 'default_app'),
-    (r'^start/(?P<app_label>.*)/(?P<model_name>.*)/$', 'start_application'),
-    (r'^start_proto/(?P<process_name>.*)/$', 'start_application',
-        {'form_class':DefaultAppStartForm, 'template':'goflow/start_proto.html'}),
-)
-
-urlpatterns += patterns('goflow.runtime.views',
+    # former runtime views
     (r'^otherswork/$',                 'otherswork'),
     (r'^otherswork/instancehistory/$', 'instancehistory'),
     (r'^myrequests/$',                 'myrequests'),
@@ -37,4 +29,9 @@ urlpatterns += patterns('goflow.runtime.views',
     (r'^mywork/complete/(?P<id>.*)/$', 'complete'),
 )
 
-
+urlpatterns += patterns('goflow.workflow.applications',
+    (r'^default_app/(?P<id>.*)/$', 'default_app'),
+    (r'^start/(?P<app_label>.*)/(?P<model_name>.*)/$', 'start_application'),
+    (r'^start_proto/(?P<process_name>.*)/$', 'start_application',
+        {'form_class':DefaultAppStartForm, 'template':'goflow/start_proto.html'}),
+)

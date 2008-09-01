@@ -3,8 +3,8 @@
 find . -name "*.pyc" -exec rm '{}' ';'
 find . -name "*.log" -exec rm '{}' ';'
 echo 'deleting sqlite.db3'
-rm leavedemo/sqlite.db3
-cd leavedemo
+rm demo/sqlite.db3
+cd demo
 python manage.py syncdb
 python manage.py shell_plus
 

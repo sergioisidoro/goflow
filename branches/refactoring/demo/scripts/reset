@@ -4,5 +4,5 @@ mv leave/fixtures/initial_data.json leave/fixtures/initial_data.json.disabled
 python manage.py syncdb
 python scripts/leave_process_builder.py
 mv leave/fixtures/initial_data.json.disabled leave/fixtures/initial_data.json
-#python leavedemo/manage.py runserver
+#python demo/manage.py runserver
 

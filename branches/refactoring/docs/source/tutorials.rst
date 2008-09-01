@@ -150,7 +150,7 @@ Application Unit Testing
 
 We will simulate here coding an existing application of the demo ``Leave``: ``hrform``.
 
-    * Launch the local server of the demo ``leave`` in the ``leavedemo`` folder (cf. INSTALL.TXT 
+    * Launch the local server of the demo ``leave`` in the ``demo`` folder (cf. INSTALL.TXT 
       file)
   
     * Go to the admin console: [http://localhost:8000/leave/admin/]

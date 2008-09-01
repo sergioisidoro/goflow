@@ -1,18 +1,18 @@
-from goflow.common import djangopath; djangopath(up=3, settings='leavedemo.settings')
+from goflow.tools import djangopath; djangopath(up=3, settings='demo.settings')
 
 from process_builder import ProcessBuilder, User, log
-from leavedemo.leave.models import Manager
+from demo.leave.models import Manager
 
 # ====================================================================================
 # Note: to use this file you must first disable fixtures
-# just rename root/leavedemo/leave/fixtures/initial_data.json to something else
-# then from the leavedemo directory, do the following:
+# just rename root/demo/leave/fixtures/initial_data.json to something else
+# then from the demo directory, do the following:
 # ./scripts/reset
 # say no to create the users/passwords as this is done automatically in this script
 # ====================================================================================
 
 # ------------------------------------------------------------------------------------
-# Leave Process Builder for goflow.leavedemo.leave
+# Leave Process Builder for goflow.demo.leave
 # ------------------------------------------------------------------------------------
 
 class LeaveProcessBuilder(ProcessBuilder):

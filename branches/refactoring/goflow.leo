@@ -380,14 +380,9 @@
 <v t="sa.20080714012008.30"><vh>@rst goflow.rst</vh></v>
 <v t="sa.20080714012008.27"><vh>@rst goflow.urls.rst</vh></v>
 <v t="sa.20080714012008.28"><vh>@rst goflow.urls_admin.rst</vh></v>
-<v t="sa.20080714012008.21"><vh>@rst goflow.common.rst</vh></v>
-<v t="sa.20080714012008.20"><vh>@rst goflow.common.logger.rst</vh></v>
-<v t="sa.20080714012008.33"><vh>@rst goflow.common.decorators.rst</vh></v>
-<v t="sa.20080714012008.26"><vh>@rst goflow.runtime.rst</vh></v>
-<v t="sa.20080714012008.23"><vh>@rst goflow.runtime.reporting.rst</vh></v>
-<v t="sa.20080714012008.24"><vh>@rst goflow.runtime.forms.rst</vh></v>
-<v t="sa.20080714012008.25"><vh>@rst goflow.runtime.models.rst</vh></v>
-<v t="sa.20080714012008.29"><vh>@rst goflow.runtime.views.rst</vh></v>
+<v t="sa.20080714012008.21"><vh>@rst goflow.tools.rst</vh></v>
+<v t="sa.20080714012008.20"><vh>@rst goflow.tools.logger.rst</vh></v>
+<v t="sa.20080714012008.33"><vh>@rst goflow.tools.decorators.rst</vh></v>
 <v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
 <v t="sa.20080714012008.34"><vh>@rst goflow.workflow.forms.rst</vh></v>
@@ -395,6 +390,7 @@
 <v t="sa.20080714012008.37"><vh>@rst goflow.workflow.notification.rst</vh></v>
 <v t="sa.20080714012008.38"><vh>@rst goflow.workflow.pushapps.rst</vh></v>
 <v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
+<v t="sa.20080901193410.1"><vh>@rst goflow.workflow.errors.rst</vh></v>
 </v>
 </v>
 <v t="sa.20080815164305.1"><vh>code</vh></v>
@@ -621,27 +617,17 @@ template_ ='''
 
 lst = [
     ("goflow.rst","primary module containing other goflow submodules."),
-    ("goflow.graphics.rst","early goflow graphics module"),
-    ("goflow.graphics.models.rst","datamodels for graphics processing"),
-    ("goflow.graphics.views.rst","goflow graphics views"),
-    ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
-    ("goflow.runtime.rst","goflow instances"),
-    ("goflow.runtime.reporting.rst","goflow runtime reporting"),
-    ("goflow.runtime.forms.rst","goflow runtime forms"),
-    ("goflow.runtime.models.rst","goflow runtime models"),
-    ("goflow.runtime.views.rst","goflow runtime views"),
-    ("goflow.runtime.urls.rst","goflow runtime urls"),
-    ("goflow.runtime.urls_admin.rst","goflow runtime custom admin interface"),
+    ("goflow.workflow.reporting.rst","goflow runtime reporting"),
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.managers.rst","key model managers for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
-    ("goflow.common.decorators.rst","goflow decorator library"),
     ("goflow.workflow.forms.rst","goflow form utility functions"),
     ("goflow.workflow.logger.rst","logging capability"),
     ("goflow.workflow.models.rst","workflow models"),
     ("goflow.workflow.notification.rst","workflow notification library"),
     ("goflow.workflow.pushapps.rst","example goflow pushapps"),
     ("goflow.workflow.views.rst","views for goflow worklow module"),
+    ("goflow.tools.decorators.rst","goflow decorator library"),
 ]
 
 
@@ -660,69 +646,24 @@ lst = [
 </t>
 <t tx="sa.20080714012008.20">
 
-.. _goflow.common.logger:
+.. _goflow.tools.logger:
 
-:mod:`goflow.common.logger.` -- manages sitewide logging  
+:mod:`goflow.tools.logger.` -- manages sitewide logging  
 ================================================================================
 
-.. automodule:: goflow.common.logger
+.. automodule:: goflow.tools.logger
    :synopsis: manages sitewide logging  
    :members:
 </t>
 <t tx="sa.20080714012008.21">
 
-.. _goflow.common:
+.. _goflow.tools:
 
-:mod:`goflow.common` -- package for common functionality
+:mod:`goflow.tools` -- package for common functionality
 ================================================================================
 
-.. automodule:: goflow.common 
+.. automodule:: goflow.tools 
    :synopsis: package for common functionality
-   :members:
-</t>
-<t tx="sa.20080714012008.23">
-
-.. _goflow.runtime.reporting:
-
-:mod:`goflow.runtime.api` -- goflow runtime reporting 
-================================================================================
-
-.. automodule:: goflow.runtime.reporting 
-   :synopsis: goflow runtime reporting
-   :members:
-
-</t>
-<t tx="sa.20080714012008.24">
-
-.. _goflow.runtime.forms:
-
-:mod:`goflow.runtime.forms` -- goflow runtime forms 
-================================================================================
-
-.. automodule:: goflow.runtime.forms 
-   :synopsis: goflow runtime forms
-   :members:
-</t>
-<t tx="sa.20080714012008.25">
-
-.. _goflow.runtime.models:
-
-:mod:`goflow.runtime.models` -- goflow runtime models 
-================================================================================
-
-.. automodule:: goflow.runtime.models 
-   :synopsis: goflow runtime models
-   :members:
-</t>
-<t tx="sa.20080714012008.26">
-
-.. _goflow.runtime:
-
-:mod:`goflow.runtime` -- goflow runtime 
-================================================================================
-
-.. automodule:: goflow.runtime 
-   :synopsis: goflow runtime
    :members:
 </t>
 <t tx="sa.20080714012008.27">
@@ -745,17 +686,6 @@ lst = [
 
 .. automodule:: goflow.urls_admin 
    :synopsis: goflow custom admin interface
-   :members:
-</t>
-<t tx="sa.20080714012008.29">
-
-.. _goflow.runtime.views:
-
-:mod:`goflow.runtime.views` -- goflow runtime views 
-================================================================================
-
-.. automodule:: goflow.runtime.views 
-   :synopsis: goflow runtime views
    :members:
 </t>
 <t tx="sa.20080714012008.30">
@@ -786,12 +716,12 @@ lst = [
 </t>
 <t tx="sa.20080714012008.33">
 
-.. _goflow.common.decorators:
+.. _goflow.tools.decorators:
 
-:mod:`goflow.common.decorators` -- goflow decorator library 
+:mod:`goflow.tools.decorators` -- goflow decorator library 
 ================================================================================
 
-.. automodule:: goflow.common.decorators 
+.. automodule:: goflow.tools.decorators 
    :synopsis: goflow decorator library
    :members:
 </t>
@@ -879,20 +809,6 @@ goflow
    goflow.urls_admin.rst
 
 
-goflow.runtime
------------------
-
-.. toctree::
-   :maxdepth: 2
-      
-   goflow.runtime.rst
-   goflow.runtime.models.rst
-   goflow.runtime.managers.rst   
-   goflow.runtime.forms.rst
-   goflow.runtime.views.rst
-   goflow.runtime.reporting.rst
-
-
 goflow.workflow
 -----------------
 
@@ -905,18 +821,20 @@ goflow.workflow
    goflow.workflow.forms.rst
    goflow.workflow.models.rst
    goflow.workflow.notification.rst
+   goflow.workflow.reporting.rst
    goflow.workflow.pushapps.rst
    goflow.workflow.views.rst
+   goflow.workflow.errors.rst
 
-goflow.common
+goflow.tools
 -----------------
 
 .. toctree::
    :maxdepth: 2
 
-   goflow.common.rst
-   goflow.common.decorators.rst
-   goflow.common.logger.rst
+   goflow.tools.rst
+   goflow.tools.decorators.rst
+   goflow.tools.logger.rst
 
 Indices and tables
 ===================
@@ -1256,7 +1174,7 @@ The directory structure of the goflow-refactored branch consists of 39 directori
     |       |   `-- debug_goflow.py
     |       `-- views.py
     |-- goflow.leo
-    |-- leavedemo
+    |-- demo
     |   |-- __init__.py
     |   |-- leave
     |   |   |-- __init__.py
@@ -1455,7 +1373,7 @@ We are now ready to execute/test the workflow: go to the dashboard [http://local
 (tutorial draft; screenshots will be added later)</t>
 <t tx="sa.20080714081843.35">We will simulate here coding an existing application of the demo ``Leave``: ``hrform``.
 
-    * Launch the local server of the demo ``leave`` in the ``leavedemo`` folder (cf. INSTALL.TXT 
+    * Launch the local server of the demo ``leave`` in the ``demo`` folder (cf. INSTALL.TXT 
       file)
   
     * Go to the admin console: [http://localhost:8000/leave/admin/]
@@ -1500,7 +1418,7 @@ TODO</t>
 <t tx="sa.20080714225902.5"></t>
 <t tx="sa.20080714225902.6">* new more 'object-oriented' api using model classes and managers
 
-* addition of goflow.common for custom management commands, decorators, logger, etc...
+* addition of goflow.tools for custom management commands, decorators, logger, etc...
 
 * better documentation..
 
@@ -1749,17 +1667,17 @@ TODOs
 * fix Process.save()
 
 </t>
-<t tx="sa.20080724074952.3">* removed incomplete modules to reduce size of code
+<t tx="sa.20080724074952.3">* unification of goflow.runtime and goflow.workflow
+
+* removed incomplete modules to reduce size of code
 
 * more object oriented simplified api, still some way to go...
 
-* added goflow.common.errors module for goflow related exceptions / msgs
+* added goflow.workflow.errors module for goflow related exceptions / msgs
 
-* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt 'instances' was too generic
+* moved goflow.workflow.logger into goflow.tools.logger
 
-* moved goflow.workflow.logger into goflow.common.logger
-
-* moved goflow.workflow.decorators into goflow.common.decorators
+* moved goflow.workflow.decorators into goflow.tools.decorators
 
 
 </t>
@@ -5279,7 +5197,7 @@ Most process elements can have names and descriptions.
 </t>
 <t tx="sa.20080726124242.1"></t>
 <t tx="sa.20080726124242.2"></t>
-<t tx="sa.20080802224603.1">* introduced safe_eval and dynamic object imports in goflow.common
+<t tx="sa.20080802224603.1">* introduced safe_eval and dynamic object imports in goflow.tools
 </t>
 <t tx="sa.20080806030604.1">* we are trying to provide extensive tests of all goflow functionality, with a preference for doctests.
 
@@ -5380,5 +5298,16 @@ os.system('rm -rf `find . -type d -name .leo_shadow`')
 print sys.argv
 </t>
 <t tx="sa.20080815164305.1"></t>
+<t tx="sa.20080901193410.1">
+
+.. _goflow.workflow.errors:
+
+:mod:`goflow.workflow.errors` -- errors for goflow worklow module 
+================================================================================
+
+.. automodule:: goflow.workflow.errors 
+   :synopsis: errors for goflow worklow module
+   :members:
+</t>
 </tnodes>
 </leo_file>

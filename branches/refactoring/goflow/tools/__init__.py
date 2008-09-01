@@ -78,7 +78,7 @@ def djangopath(up=1, settings=None):
 
     usage::
 
-        djangopath(up=3, settings='leavedemo.settings')
+        djangopath(up=3, settings='demo.settings')
 
     '''
     # here's the magic

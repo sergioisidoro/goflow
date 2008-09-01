@@ -1,7 +1,7 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
 from models import Manager
-from goflow.common.logger import Log; log = Log('leavedemo.leave.pushapplications')
+from goflow.tools.logger import Log; log = Log('demo.leave.pushapplications')
 
 
 def route_to_secretary(workitem):

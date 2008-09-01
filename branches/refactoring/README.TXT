@@ -6,7 +6,7 @@ GoFlow - A workflow engine for Django
 
 - goflow: workflow django contrib
 
-- leavedemo: goflow demo project
+- demo: goflow demo project
 
 
 
@@ -20,7 +20,7 @@ GoFlow - A workflow engine for Django
 3. Install instructions:
 
 
-- cd leavedemo
+- cd demo
   > create the database with command "python manage.py syncdb --noinput"
   > don't create the admin account, because
     leave demo data and all users required for playing with it will

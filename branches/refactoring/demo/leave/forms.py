@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from models import LeaveRequest
 
-from goflow.runtime.forms import BaseForm, StartForm
+from goflow.workflow.forms import BaseForm, StartForm
 
 # allows calendar widgets
 from django import forms
