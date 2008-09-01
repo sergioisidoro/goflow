@@ -3,7 +3,7 @@
 
 import time
 from django.dispatch import dispatcher
-from django.core.signals import request_started
+# from django.core.signals import request_started
 from django.test.signals import template_rendered
 from django.conf import settings
 from django.db import connection

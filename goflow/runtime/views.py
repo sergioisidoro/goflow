@@ -41,7 +41,6 @@ def complete(request, id):
     return _app_response(workitem)
 
 def _app_response(workitem):
-    id = workitem.id
     activity = workitem.activity
     if not activity.process.enabled:
         return HttpResponse('process %s disabled.' % activity.process.title)
@@ -53,10 +52,12 @@ def _app_response(workitem):
     # no application: default_app
     if not activity.application:
         url = '../../../default_app'
-        return HttpResponseRedirect('%s/%d/' % (url, id))
+        return HttpResponseRedirect('%s/%d/' % (url, workitem.id))
 
     if activity.kind == 'standard':
         # standard activity
         return HttpResponseRedirect(activity.application.get_app_url(workitem))
+    
+    # TODO: this is not a very informative error
     return HttpResponse('completion page.')
 

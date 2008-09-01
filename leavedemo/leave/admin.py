@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from django.contrib import admin
-from leavedemo.leave.models import LeaveRequest, Manager, Account, User
+from leavedemo.leave.models import LeaveRequest, Manager, Account
 
 class LeaveRequestAdmin(admin.ModelAdmin):
     fieldsets = (

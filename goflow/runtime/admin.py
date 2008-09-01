@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 from goflow.runtime.models import (ProcessInstance, WorkItem, Event,
-                                    DefaultAppModel)
+                                   DefaultAppModel)
 
 
 class ProcessInstanceAdmin(admin.ModelAdmin):
