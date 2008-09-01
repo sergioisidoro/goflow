@@ -171,7 +171,7 @@ class Process(models.Model):
 
         '''
         if not self.enabled:
-            raise Exception('process %s disabled.' % process_name)
+            raise Exception('process %s disabled.' % self.title)
 
         if user.has_perm("workflow.can_instantiate"):
             lst = user.groups.filter(name=self.title)

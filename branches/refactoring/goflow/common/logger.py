@@ -1,6 +1,7 @@
 import logging
 from django.conf import settings
-from django.db.models import get_model
+# from django.db.models import get_model
+# from goflow.common.models import Event
 
 try:
     _file_log = settings.LOGGING_FILE
@@ -40,7 +41,8 @@ class Log(object):
     def __init__(self, module):
         self.log = logging.getLogger(module)
         # self.log = MockLog()
-        #self._event = get_model('instances', 'Event').objects
+        # self._event = get_model('runtime', 'Event').objects
+        # self._event = Event.objects
 
     def __getattr__(self, name):
         try:
@@ -57,5 +59,5 @@ class Log(object):
             self.log.info(" ".join([str(i) for i in args]))
 
     def event(self, msg, workitem):
-        #self._event.create(name=msg, workitem=workitem)
+        # self._event.create(name=msg, workitem=workitem)
         self.log.info('EVENT: [%s] %s' % (workitem, msg))

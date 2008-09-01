@@ -128,7 +128,7 @@ def test_start(request, id, template='goflow/test_start.html'):
                 inst.id = None
                 inst.save()
                 # start the process
-                Process.objects.start(
+                ProcessInstance.objects.start(
                             process_name='test_%s' % app.url,
                             user=request.user, item=inst,
                             title="%s test instance for app %s" % (
