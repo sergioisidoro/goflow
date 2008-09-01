@@ -24,7 +24,7 @@ New Features
 Improved API
 ^^^^^^^^^^^^
 
-* unification of goflow.runtime and goflow.workflow
+* unification of the goflow.runtime and goflow.workflow into goflow.workflow
 
 * removed incomplete modules to reduce size of code
 
