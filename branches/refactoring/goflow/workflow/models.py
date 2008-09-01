@@ -8,7 +8,7 @@ from django.conf import settings
 from django.core.urlresolvers import resolve
 
 #from goflow.workflow.notification import notify_if_needed
-from goflow.tools.errors import error
+from goflow.workflow.errors import error
 from goflow.tools import get_obj, safe_eval
 from goflow.tools.decorators import allow_tags
 from goflow.tools.logger import Log; log = Log('goflow.workflow.models')
