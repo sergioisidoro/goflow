@@ -351,7 +351,7 @@ The directory structure of the goflow-refactored branch consists of 39 directori
     |       |   `-- debug_goflow.py
     |       `-- views.py
     |-- goflow.leo
-    |-- leavedemo
+    |-- demo
     |   |-- __init__.py
     |   |-- leave
     |   |   |-- __init__.py

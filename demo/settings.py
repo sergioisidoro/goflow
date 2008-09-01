@@ -68,10 +68,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
-    #'goflow.common.middleware.debug_middleware.DebugFooter' # (optional)
+    #'goflow.tools.middleware.debug_middleware.DebugFooter' # (optional)
 )
 
-ROOT_URLCONF = 'leavedemo.urls'
+ROOT_URLCONF = 'demo.urls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -80,10 +80,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django_extensions', # (optional)
-    'goflow.common',
+    'goflow.tools',
     'goflow.workflow',
-    'goflow.runtime',
-    'leavedemo.leave',
+    'demo.leave',
 )
 
 # user profile model
@@ -95,7 +94,7 @@ TEST_USERS = (
 )
 WF_USER_AUTO = 'auto'
 WF_APPS_PREFIX = '/leave'
-WF_PUSH_APPS_PREFIX = 'leavedemo.leave.pushapps'
+WF_PUSH_APPS_PREFIX = 'demo.leave.pushapps'
 
 # mail notification settings
 DEFAULT_FROM_EMAIL = 'goflow <goflow@alwaysdata.net>'

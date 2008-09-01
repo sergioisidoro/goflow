@@ -18,7 +18,7 @@ dirname, abspath = os.path.dirname, os.path.abspath
 # absolute, like shown here.
 
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'leavedemo.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'demo.settings'
 
 
 # General configuration

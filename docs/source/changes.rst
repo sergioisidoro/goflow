@@ -17,24 +17,24 @@ New Features
 
 * new more 'object-oriented' api using model classes and managers
 
-* addition of goflow.common for custom management commands, decorators, logger, etc...
+* addition of goflow.tools for custom management commands, decorators, logger, etc...
 
 * better documentation..
 
 Improved API
 ^^^^^^^^^^^^
 
+* unification of goflow.runtime and goflow.workflow
+
 * removed incomplete modules to reduce size of code
 
 * more object oriented simplified api, still some way to go...
 
-* added goflow.common.errors module for goflow related exceptions / msgs
+* added goflow.workflow.errors module for goflow related exceptions / msgs
 
-* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt 'instances' was too generic
+* moved goflow.workflow.logger into goflow.tools.logger
 
-* moved goflow.workflow.logger into goflow.common.logger
-
-* moved goflow.workflow.decorators into goflow.common.decorators
+* moved goflow.workflow.decorators into goflow.tools.decorators
 
 Improved documentation system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,7 +58,7 @@ More tests
 Safe Evaluation of Expressions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* introduced safe_eval and dynamic object imports in goflow.common
+* introduced safe_eval and dynamic object imports in goflow.tools
 
 Bug Fixes
 *********

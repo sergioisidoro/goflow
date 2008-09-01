@@ -5,12 +5,11 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.db import models
 from django.forms.models import modelform_factory
 
-from goflow.runtime.models import WorkItem, ProcessInstance #, DefaultAppModel
-from goflow.runtime.forms import DefaultAppForm
-from goflow.workflow.models import Process
+from goflow.workflow.forms import DefaultAppForm
+from goflow.workflow.models import Process, WorkItem, ProcessInstance #, DefaultAppModel
 
-from goflow.common.decorators import login_required
-from goflow.common.logger import Log; log = Log('goflow.workflow.applications')
+from goflow.tools.decorators import login_required
+from goflow.tools.logger import Log; log = Log('goflow.workflow.applications')
 
 #TODO: which template to use 'goflow/(start_application.html|start_proto.html)' ?
 @login_required

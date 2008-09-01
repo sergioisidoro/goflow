@@ -1,7 +1,7 @@
 import logging
 from django.conf import settings
 # from django.db.models import get_model
-# from goflow.common.models import Event
+# from goflow.tools.models import Event
 
 try:
     _file_log = settings.LOGGING_FILE
@@ -24,7 +24,7 @@ logging.basicConfig(
     format=log_format,
     datefmt="%Y-%m-%d %H:%M:%S"
 )
-log = logging.getLogger('goflow.common')
+log = logging.getLogger('goflow.tools')
 if _LOG_FILE_NOTSET:
     log.warning('settings.LOGGING_FILE not set; default is workflow.log')
 
@@ -41,7 +41,7 @@ class Log(object):
     def __init__(self, module):
         self.log = logging.getLogger(module)
         # self.log = MockLog()
-        # self._event = get_model('runtime', 'Event').objects
+        # self._event = get_model('workflow', 'Event').objects
         # self._event = Event.objects
 
     def __getattr__(self, name):
