@@ -17,6 +17,7 @@ goflow
    goflow.urls_admin.rst
 
 
+
 goflow.workflow
 -----------------
 
@@ -29,9 +30,9 @@ goflow.workflow
    goflow.workflow.forms.rst
    goflow.workflow.models.rst
    goflow.workflow.notification.rst
-   goflow.workflow.reporting.rst
    goflow.workflow.pushapps.rst
    goflow.workflow.views.rst
+   goflow.workflow.reportings.rst
    goflow.workflow.errors.rst
 
 goflow.tools

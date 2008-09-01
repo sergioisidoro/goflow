@@ -3,13 +3,13 @@
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5">
-	<global_window_position top="53" left="61" height="692" width="1213"/>
+	<global_window_position top="78" left="87" height="692" width="1213"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="sa.20080716081317.2" str_leo_pos="2,0,8,0,0,0"><vh>startup</vh>
+<v t="sa.20080716081317.2" str_leo_pos="2,0,13,8"><vh>startup</vh>
 <v t="sa.20080714011136.1"><vh>@chapters</vh></v>
 <v t="sa.20080716081317.3"><vh>Buttons</vh>
 <v t="sa.20080809030150.7"><vh>@button remove_docs</vh></v>
@@ -233,6 +233,7 @@
 <v t="sa.20080714081843.1"><vh>Preface</vh></v>
 <v t="sa.20080714081843.3"><vh>Summary</vh></v>
 <v t="sa.20080714081843.2"><vh>Overview</vh></v>
+<v t="sa.20080902020055.1"><vh>DataModel</vh></v>
 <v t="sa.20080714081843.4"><vh>Benefits of using GoFlow</vh></v>
 <v t="sa.20080714081843.7"><vh>The Process Definition</vh>
 <v t="sa.20080714081843.8"><vh>Activities (What)</vh></v>
@@ -272,7 +273,7 @@
 <v t="sa.20080717192016.16"><vh>Examples</vh></v>
 <v t="sa.20080717192016.17"><vh>Motivation</vh></v>
 </v>
-<v t="sa.20080717192016.18"><vh>XOR-Join Pattern</vh>
+<v t="sa.20080717192016.18" a="E"><vh>XOR-Join Pattern</vh>
 <v t="sa.20080717192016.19"><vh>Description</vh></v>
 <v t="sa.20080717192016.20"><vh>Synonyms</vh></v>
 <v t="sa.20080717192016.21"><vh>Examples</vh></v>
@@ -340,9 +341,9 @@
 <v t="sa.20080715111354.24"><vh>The Process Monitor</vh></v>
 </v>
 </v>
-<v t="sa.20080714012008.11" a="E"><vh>@rst changes.rst</vh>
+<v t="sa.20080714012008.11"><vh>@rst changes.rst</vh>
 <v t="sa.20080714225902.5" a="E"><vh>Version 0.6 (refactored branch)</vh>
-<v t="sa.20080714225902.6" a="E"><vh>New Features</vh>
+<v t="sa.20080714225902.6"><vh>New Features</vh>
 <v t="sa.20080724074952.3"><vh>Improved API</vh></v>
 <v t="sa.20080724074952.11"><vh>Improved documentation system</vh></v>
 <v t="sa.20080724074952.12"><vh>Improved Logging Machinery</vh></v>
@@ -371,7 +372,7 @@
 </v>
 <v t="sa.20080715012904.1"><vh>@rst credits.rst</vh></v>
 <v t="sa.20080715012904.2"><vh>@rst license.rst</vh></v>
-<v t="sa.20080714012008.12"><vh>modules</vh>
+<v t="sa.20080714012008.12" a="E"><vh>modules</vh>
 <v t="sa.20080714012008.13"><vh>gen_modules.py</vh>
 <v t="sa.20080714012008.14"><vh>gen_modules declarations</vh></v>
 <v t="sa.20080714012008.15"><vh>main</vh></v>
@@ -383,11 +384,7 @@
 <v t="sa.20080714012008.21"><vh>@rst goflow.tools.rst</vh></v>
 <v t="sa.20080714012008.20"><vh>@rst goflow.tools.logger.rst</vh></v>
 <v t="sa.20080714012008.33"><vh>@rst goflow.tools.decorators.rst</vh></v>
-<v t="sa.20080714012008.26"><vh>@rst goflow.runtime.rst</vh></v>
-<v t="sa.20080714012008.23"><vh>@rst goflow.runtime.reporting.rst</vh></v>
-<v t="sa.20080714012008.24"><vh>@rst goflow.runtime.forms.rst</vh></v>
-<v t="sa.20080714012008.25"><vh>@rst goflow.runtime.models.rst</vh></v>
-<v t="sa.20080714012008.29"><vh>@rst goflow.runtime.views.rst</vh></v>
+<v t="sa.20080714012008.23"><vh>@rst goflow.workflow.reporting.rst</vh></v>
 <v t="sa.20080714012008.39"><vh>@rst goflow.workflow.rst</vh></v>
 <v t="sa.20080714012008.32"><vh>@rst goflow.workflow.applications.rst</vh></v>
 <v t="sa.20080714012008.34"><vh>@rst goflow.workflow.forms.rst</vh></v>
@@ -395,6 +392,7 @@
 <v t="sa.20080714012008.37"><vh>@rst goflow.workflow.notification.rst</vh></v>
 <v t="sa.20080714012008.38"><vh>@rst goflow.workflow.pushapps.rst</vh></v>
 <v t="sa.20080714012008.40"><vh>@rst goflow.workflow.views.rst</vh></v>
+<v t="sa.20080902015354.1"><vh>@rst goflow.workflow.errors.rst</vh></v>
 </v>
 </v>
 <v t="sa.20080815164305.1"><vh>code</vh></v>
@@ -621,17 +619,6 @@ template_ ='''
 
 lst = [
     ("goflow.rst","primary module containing other goflow submodules."),
-    ("goflow.graphics.rst","early goflow graphics module"),
-    ("goflow.graphics.models.rst","datamodels for graphics processing"),
-    ("goflow.graphics.views.rst","goflow graphics views"),
-    ("goflow.graphics.urls_admin.rst","goflow graphics custom admin interface"),
-    ("goflow.runtime.rst","goflow instances"),
-    ("goflow.runtime.reporting.rst","goflow runtime reporting"),
-    ("goflow.runtime.forms.rst","goflow runtime forms"),
-    ("goflow.runtime.models.rst","goflow runtime models"),
-    ("goflow.runtime.views.rst","goflow runtime views"),
-    ("goflow.runtime.urls.rst","goflow runtime urls"),
-    ("goflow.runtime.urls_admin.rst","goflow runtime custom admin interface"),
     ("goflow.workflow.rst","goflow core workflow functionality"),
     ("goflow.workflow.managers.rst","key model managers for workflow management"),
     ("goflow.workflow.applications.rst","key application function for workflow mgmt"),
@@ -682,48 +669,15 @@ lst = [
 </t>
 <t tx="sa.20080714012008.23">
 
-.. _goflow.runtime.reporting:
+.. _goflow.workflow.reporting:
 
-:mod:`goflow.runtime.api` -- goflow runtime reporting 
+:mod:`goflow.workflow.reporting` -- goflow workflow reporting 
 ================================================================================
 
-.. automodule:: goflow.runtime.reporting 
-   :synopsis: goflow runtime reporting
+.. automodule:: goflow.workflow.reporting 
+   :synopsis: goflow workflow reporting
    :members:
 
-</t>
-<t tx="sa.20080714012008.24">
-
-.. _goflow.runtime.forms:
-
-:mod:`goflow.runtime.forms` -- goflow runtime forms 
-================================================================================
-
-.. automodule:: goflow.runtime.forms 
-   :synopsis: goflow runtime forms
-   :members:
-</t>
-<t tx="sa.20080714012008.25">
-
-.. _goflow.runtime.models:
-
-:mod:`goflow.runtime.models` -- goflow runtime models 
-================================================================================
-
-.. automodule:: goflow.runtime.models 
-   :synopsis: goflow runtime models
-   :members:
-</t>
-<t tx="sa.20080714012008.26">
-
-.. _goflow.runtime:
-
-:mod:`goflow.runtime` -- goflow runtime 
-================================================================================
-
-.. automodule:: goflow.runtime 
-   :synopsis: goflow runtime
-   :members:
 </t>
 <t tx="sa.20080714012008.27">
 
@@ -745,17 +699,6 @@ lst = [
 
 .. automodule:: goflow.urls_admin 
    :synopsis: goflow custom admin interface
-   :members:
-</t>
-<t tx="sa.20080714012008.29">
-
-.. _goflow.runtime.views:
-
-:mod:`goflow.runtime.views` -- goflow runtime views 
-================================================================================
-
-.. automodule:: goflow.runtime.views 
-   :synopsis: goflow runtime views
    :members:
 </t>
 <t tx="sa.20080714012008.30">
@@ -879,19 +822,6 @@ goflow
    goflow.urls_admin.rst
 
 
-goflow.runtime
------------------
-
-.. toctree::
-   :maxdepth: 2
-      
-   goflow.runtime.rst
-   goflow.runtime.models.rst
-   goflow.runtime.managers.rst   
-   goflow.runtime.forms.rst
-   goflow.runtime.views.rst
-   goflow.runtime.reporting.rst
-
 
 goflow.workflow
 -----------------
@@ -907,6 +837,8 @@ goflow.workflow
    goflow.workflow.notification.rst
    goflow.workflow.pushapps.rst
    goflow.workflow.views.rst
+   goflow.workflow.reportings.rst
+   goflow.workflow.errors.rst
 
 goflow.tools
 -----------------
@@ -1137,125 +1069,11 @@ Dynamic redesign and exception handling are related to each other. Exception han
 <t tx="sa.20080714081843.18"></t>
 <t tx="sa.20080714081843.19"></t>
 <t tx="sa.20080714081843.20">
-The directory structure of the goflow-refactored branch consists of 39 directories, 129 files::
+The directory structure of the goflow-refactored branch consists of 37 directories, 139 files::
+
 
     .
     |-- README.TXT
-    |-- docs
-    |   |-- Makefile
-    |   |-- build
-    |   |-- diagrams
-    |   |   |-- goflow uml instance.graffle
-    |   |   |-- goflow uml workflow.graffle
-    |   |   |-- instances.dot
-    |   |   `-- leave.dot
-    |   |-- presentations
-    |   |   |-- goflow.odp
-    |   |   `-- goflow.ppt
-    |   `-- source
-    |       |-- _static
-    |       |-- _templates
-    |       |-- conf.py
-    |       |-- images
-    |       |   |-- admin1.png
-    |       |   |-- admin2.png
-    |       |   |-- admin3.png
-    |       |   |-- admin4.png
-    |       |   |-- admin5.png
-    |       |   |-- and-join.png
-    |       |   |-- and-split.png
-    |       |   |-- auto1.png
-    |       |   |-- auto2.png
-    |       |   |-- auto3.png
-    |       |   |-- auto4.png
-    |       |   |-- bubblesarrows.gif
-    |       |   |-- image1.png
-    |       |   |-- joinsplitmode.gif
-    |       |   |-- logo.png
-    |       |   |-- unittest1.png
-    |       |   |-- unittest2.png
-    |       |   |-- unittest3.png
-    |       |   |-- unittest4.png
-    |       |   |-- unittest5.png
-    |       |   |-- unittest6.png
-    |       |   |-- whowhatwhenhow.gif
-    |       |   |-- xor-join.png
-    |       |   `-- xor-split.png
-    |       `-- modules
-    |           `-- gen_modules.py
-    |-- goflow
-    |   |-- __init__.py
-    |   |-- common
-    |   |   |-- __init__.py
-    |   |   |-- decorators.py
-    |   |   |-- errors.py
-    |   |   |-- event.py
-    |   |   |-- logger.py
-    |   |   |-- management
-    |   |   |   |-- __init__.py
-    |   |   |   `-- commands
-    |   |   |       `-- __init__.py
-    |   |   `-- middleware
-    |   |       |-- __init__.py
-    |   |       `-- debug_middleware.py
-    |   |-- runtime
-    |   |   |-- __init__.py
-    |   |   |-- admin.py
-    |   |   |-- forms.py
-    |   |   |-- managers.py
-    |   |   |-- models.py
-    |   |   |-- reporting.py
-    |   |   `-- views.py
-    |   |-- urls.py
-    |   |-- urls_admin.py
-    |   `-- workflow
-    |       |-- __init__.py
-    |       |-- admin.py
-    |       |-- applications.py
-    |       |-- forms.py
-    |       |-- managers.py
-    |       |-- models.py
-    |       |-- notification.py
-    |       |-- pushapps.py
-    |       |-- templates
-    |       |   |-- admin
-    |       |   |   |-- instances
-    |       |   |   |   `-- defaultappmodel
-    |       |   |   |       `-- change_form.html
-    |       |   |   `-- workflow
-    |       |   |       |-- activity
-    |       |   |       |   `-- change_form.html
-    |       |   |       |-- application
-    |       |   |       |   |-- change_form.html
-    |       |   |       |   `-- change_list.html
-    |       |   |       |-- process
-    |       |   |       |   `-- change_form.html
-    |       |   |       `-- pushapplication
-    |       |   |           `-- change_form.html
-    |       |   |-- goflow
-    |       |   |   |-- base.html
-    |       |   |   |-- base_site.html
-    |       |   |   |-- default_app.html
-    |       |   |   |-- edit_model.html
-    |       |   |   |-- instancehistory.html
-    |       |   |   |-- login.html
-    |       |   |   |-- mail.txt
-    |       |   |   |-- myrequests.html
-    |       |   |   |-- mywork.html
-    |       |   |   |-- otherswork.html
-    |       |   |   |-- process.dot
-    |       |   |   |-- start_application.html
-    |       |   |   |-- start_proto.html
-    |       |   |   |-- test_start.html
-    |       |   |   `-- view_application.html
-    |       |   `-- workflow
-    |       |       |-- index.html
-    |       |       `-- start_form.html
-    |       |-- templatetags
-    |       |   |-- __init__.py
-    |       |   `-- debug_goflow.py
-    |       `-- views.py
-    |-- goflow.leo
     |-- demo
     |   |-- __init__.py
     |   |-- leave
@@ -1300,14 +1118,137 @@ The directory structure of the goflow-refactored branch consists of 39 directori
     |   |   `-- reset
     |   |-- settings.py
     |   `-- urls.py
+    |-- docs
+    |   |-- Makefile
+    |   |-- build
+    |   |-- diagrams
+    |   |   |-- goflow_uml_workflow.graffle
+    |   |   |-- goflow_uml_workflow.pdf
+    |   |   |-- instances.dot
+    |   |   `-- leave.dot
+    |   |-- presentations
+    |   |   |-- goflow.odp
+    |   |   `-- goflow.ppt
+    |   `-- source
+    |       |-- _static
+    |       |-- _templates
+    |       |-- conf.py
+    |       |-- images
+    |       |   |-- admin1.png
+    |       |   |-- admin2.png
+    |       |   |-- admin3.png
+    |       |   |-- admin4.png
+    |       |   |-- admin5.png
+    |       |   |-- and-join.png
+    |       |   |-- and-split.png
+    |       |   |-- auto1.png
+    |       |   |-- auto2.png
+    |       |   |-- auto3.png
+    |       |   |-- auto4.png
+    |       |   |-- bubblesarrows.gif
+    |       |   |-- goflow_uml_workflow.png
+    |       |   |-- image1.png
+    |       |   |-- joinsplitmode.gif
+    |       |   |-- logo.png
+    |       |   |-- unittest1.png
+    |       |   |-- unittest2.png
+    |       |   |-- unittest3.png
+    |       |   |-- unittest4.png
+    |       |   |-- unittest5.png
+    |       |   |-- unittest6.png
+    |       |   |-- whowhatwhenhow.gif
+    |       |   |-- xor-join.png
+    |       |   `-- xor-split.png
+    |       `-- modules
+    |           |-- gen_modules.py
+    |           |-- goflow.rst
+    |           |-- goflow.tools.decorators.rst
+    |           |-- goflow.tools.logger.rst
+    |           |-- goflow.tools.rst
+    |           |-- goflow.urls.rst
+    |           |-- goflow.urls_admin.rst
+    |           |-- goflow.workflow.applications.rst
+    |           |-- goflow.workflow.errors.rst
+    |           |-- goflow.workflow.forms.rst
+    |           |-- goflow.workflow.models.rst
+    |           |-- goflow.workflow.notification.rst
+    |           |-- goflow.workflow.pushapps.rst
+    |           |-- goflow.workflow.reporting.rst
+    |           |-- goflow.workflow.rst
+    |           |-- goflow.workflow.views.rst
+    |           `-- index.rst
+    |-- goflow
+    |   |-- __init__.py
+    |   |-- tools
+    |   |   |-- __init__.py
+    |   |   |-- decorators.py
+    |   |   |-- event.py
+    |   |   |-- logger.py
+    |   |   |-- management
+    |   |   |   |-- __init__.py
+    |   |   |   `-- commands
+    |   |   |       `-- __init__.py
+    |   |   `-- middleware
+    |   |       |-- __init__.py
+    |   |       `-- debug_middleware.py
+    |   |-- urls.py
+    |   |-- urls_admin.py
+    |   `-- workflow
+    |       |-- __init__.py
+    |       |-- admin.py
+    |       |-- applications.py
+    |       |-- errors.py
+    |       |-- forms.py
+    |       |-- models.py
+    |       |-- notification.py
+    |       |-- pushapps.py
+    |       |-- reporting.py
+    |       |-- templates
+    |       |   |-- admin
+    |       |   |   `-- workflow
+    |       |   |       |-- activity
+    |       |   |       |   `-- change_form.html
+    |       |   |       |-- application
+    |       |   |       |   |-- change_form.html
+    |       |   |       |   `-- change_list.html
+    |       |   |       |-- defaultappmodel
+    |       |   |       |   `-- change_form.html
+    |       |   |       |-- process
+    |       |   |       |   `-- change_form.html
+    |       |   |       `-- pushapplication
+    |       |   |           `-- change_form.html
+    |       |   |-- goflow
+    |       |   |   |-- base.html
+    |       |   |   |-- base_site.html
+    |       |   |   |-- default_app.html
+    |       |   |   |-- edit_model.html
+    |       |   |   |-- instancehistory.html
+    |       |   |   |-- login.html
+    |       |   |   |-- mail.txt
+    |       |   |   |-- myrequests.html
+    |       |   |   |-- mywork.html
+    |       |   |   |-- otherswork.html
+    |       |   |   |-- process.dot
+    |       |   |   |-- start_application.html
+    |       |   |   |-- start_proto.html
+    |       |   |   |-- test_start.html
+    |       |   |   `-- view_application.html
+    |       |   `-- workflow
+    |       |       |-- index.html
+    |       |       `-- start_form.html
+    |       |-- templatetags
+    |       |   |-- __init__.py
+    |       |   `-- debug_goflow.py
+    |       `-- views.py
+    |-- goflow.leo
     |-- licence.txt
     |-- scripts
     |   |-- build_docs
     |   |-- clean
     |   `-- reset
     `-- test
-        `-- test_pyparsing.py
-    
+       `-- test_pyparsing.py
+
 
     
 </t>
@@ -1749,13 +1690,13 @@ TODOs
 * fix Process.save()
 
 </t>
-<t tx="sa.20080724074952.3">* removed incomplete modules to reduce size of code
+<t tx="sa.20080724074952.3">* unification of the goflow.runtime and goflow.workflow into goflow.workflow
+
+* removed incomplete modules to reduce size of code
 
 * more object oriented simplified api, still some way to go...
 
 * added goflow.workflow.errors module for goflow related exceptions / msgs
-
-* change goflow.instances to goflow.runtime: this change was simply to improve understanding of the differences between goflow.runtime (dynamic model) and goflow.workflow (static model), I felt 'instances' was too generic
 
 * moved goflow.workflow.logger into goflow.tools.logger
 
@@ -5380,5 +5321,20 @@ os.system('rm -rf `find . -type d -name .leo_shadow`')
 print sys.argv
 </t>
 <t tx="sa.20080815164305.1"></t>
+<t tx="sa.20080902015354.1">
+
+.. _goflow.workflow.errors:
+
+:mod:`goflow.workflow.errors` -- errors for goflow worklow module 
+================================================================================
+
+.. automodule:: goflow.workflow.errors 
+   :synopsis: errors for goflow worklow module
+   :members:
+</t>
+<t tx="sa.20080902020055.1">..  image:: images/goflow_uml_workflow.png
+    :align: center
+
+</t>
 </tnodes>
 </leo_file>

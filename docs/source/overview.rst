@@ -50,6 +50,12 @@ Another example of an activity based process might be represented by the fund re
 
 On the other hand simpler processes do not require the complex structure of an actvity based workflow management system, and a simple entity-based workflow would suffice. For example the publication of documents on a web site can be simply modelled by the given document going through the states of new, submitted, and then approved or rejected. In such workflows the document is the main issue, and its available actions are defined by its current state.
 
+DataModel
++++++++++
+
+..  image:: images/goflow_uml_workflow.png
+    :align: center
+
 Benefits of using GoFlow
 ++++++++++++++++++++++++
 
@@ -232,125 +238,11 @@ Requirements
 Structure
 +++++++++
 
-The directory structure of the goflow-refactored branch consists of 39 directories, 129 files::
+The directory structure of the goflow-refactored branch consists of 37 directories, 139 files::
+
 
     .
     |-- README.TXT
-    |-- docs
-    |   |-- Makefile
-    |   |-- build
-    |   |-- diagrams
-    |   |   |-- goflow uml instance.graffle
-    |   |   |-- goflow uml workflow.graffle
-    |   |   |-- instances.dot
-    |   |   `-- leave.dot
-    |   |-- presentations
-    |   |   |-- goflow.odp
-    |   |   `-- goflow.ppt
-    |   `-- source
-    |       |-- _static
-    |       |-- _templates
-    |       |-- conf.py
-    |       |-- images
-    |       |   |-- admin1.png
-    |       |   |-- admin2.png
-    |       |   |-- admin3.png
-    |       |   |-- admin4.png
-    |       |   |-- admin5.png
-    |       |   |-- and-join.png
-    |       |   |-- and-split.png
-    |       |   |-- auto1.png
-    |       |   |-- auto2.png
-    |       |   |-- auto3.png
-    |       |   |-- auto4.png
-    |       |   |-- bubblesarrows.gif
-    |       |   |-- image1.png
-    |       |   |-- joinsplitmode.gif
-    |       |   |-- logo.png
-    |       |   |-- unittest1.png
-    |       |   |-- unittest2.png
-    |       |   |-- unittest3.png
-    |       |   |-- unittest4.png
-    |       |   |-- unittest5.png
-    |       |   |-- unittest6.png
-    |       |   |-- whowhatwhenhow.gif
-    |       |   |-- xor-join.png
-    |       |   `-- xor-split.png
-    |       `-- modules
-    |           `-- gen_modules.py
-    |-- goflow
-    |   |-- __init__.py
-    |   |-- common
-    |   |   |-- __init__.py
-    |   |   |-- decorators.py
-    |   |   |-- errors.py
-    |   |   |-- event.py
-    |   |   |-- logger.py
-    |   |   |-- management
-    |   |   |   |-- __init__.py
-    |   |   |   `-- commands
-    |   |   |       `-- __init__.py
-    |   |   `-- middleware
-    |   |       |-- __init__.py
-    |   |       `-- debug_middleware.py
-    |   |-- runtime
-    |   |   |-- __init__.py
-    |   |   |-- admin.py
-    |   |   |-- forms.py
-    |   |   |-- managers.py
-    |   |   |-- models.py
-    |   |   |-- reporting.py
-    |   |   `-- views.py
-    |   |-- urls.py
-    |   |-- urls_admin.py
-    |   `-- workflow
-    |       |-- __init__.py
-    |       |-- admin.py
-    |       |-- applications.py
-    |       |-- forms.py
-    |       |-- managers.py
-    |       |-- models.py
-    |       |-- notification.py
-    |       |-- pushapps.py
-    |       |-- templates
-    |       |   |-- admin
-    |       |   |   |-- instances
-    |       |   |   |   `-- defaultappmodel
-    |       |   |   |       `-- change_form.html
-    |       |   |   `-- workflow
-    |       |   |       |-- activity
-    |       |   |       |   `-- change_form.html
-    |       |   |       |-- application
-    |       |   |       |   |-- change_form.html
-    |       |   |       |   `-- change_list.html
-    |       |   |       |-- process
-    |       |   |       |   `-- change_form.html
-    |       |   |       `-- pushapplication
-    |       |   |           `-- change_form.html
-    |       |   |-- goflow
-    |       |   |   |-- base.html
-    |       |   |   |-- base_site.html
-    |       |   |   |-- default_app.html
-    |       |   |   |-- edit_model.html
-    |       |   |   |-- instancehistory.html
-    |       |   |   |-- login.html
-    |       |   |   |-- mail.txt
-    |       |   |   |-- myrequests.html
-    |       |   |   |-- mywork.html
-    |       |   |   |-- otherswork.html
-    |       |   |   |-- process.dot
-    |       |   |   |-- start_application.html
-    |       |   |   |-- start_proto.html
-    |       |   |   |-- test_start.html
-    |       |   |   `-- view_application.html
-    |       |   `-- workflow
-    |       |       |-- index.html
-    |       |       `-- start_form.html
-    |       |-- templatetags
-    |       |   |-- __init__.py
-    |       |   `-- debug_goflow.py
-    |       `-- views.py
-    |-- goflow.leo
     |-- demo
     |   |-- __init__.py
     |   |-- leave
@@ -395,11 +287,134 @@ The directory structure of the goflow-refactored branch consists of 39 directori
     |   |   `-- reset
     |   |-- settings.py
     |   `-- urls.py
+    |-- docs
+    |   |-- Makefile
+    |   |-- build
+    |   |-- diagrams
+    |   |   |-- goflow_uml_workflow.graffle
+    |   |   |-- goflow_uml_workflow.pdf
+    |   |   |-- instances.dot
+    |   |   `-- leave.dot
+    |   |-- presentations
+    |   |   |-- goflow.odp
+    |   |   `-- goflow.ppt
+    |   `-- source
+    |       |-- _static
+    |       |-- _templates
+    |       |-- conf.py
+    |       |-- images
+    |       |   |-- admin1.png
+    |       |   |-- admin2.png
+    |       |   |-- admin3.png
+    |       |   |-- admin4.png
+    |       |   |-- admin5.png
+    |       |   |-- and-join.png
+    |       |   |-- and-split.png
+    |       |   |-- auto1.png
+    |       |   |-- auto2.png
+    |       |   |-- auto3.png
+    |       |   |-- auto4.png
+    |       |   |-- bubblesarrows.gif
+    |       |   |-- goflow_uml_workflow.png
+    |       |   |-- image1.png
+    |       |   |-- joinsplitmode.gif
+    |       |   |-- logo.png
+    |       |   |-- unittest1.png
+    |       |   |-- unittest2.png
+    |       |   |-- unittest3.png
+    |       |   |-- unittest4.png
+    |       |   |-- unittest5.png
+    |       |   |-- unittest6.png
+    |       |   |-- whowhatwhenhow.gif
+    |       |   |-- xor-join.png
+    |       |   `-- xor-split.png
+    |       `-- modules
+    |           |-- gen_modules.py
+    |           |-- goflow.rst
+    |           |-- goflow.tools.decorators.rst
+    |           |-- goflow.tools.logger.rst
+    |           |-- goflow.tools.rst
+    |           |-- goflow.urls.rst
+    |           |-- goflow.urls_admin.rst
+    |           |-- goflow.workflow.applications.rst
+    |           |-- goflow.workflow.errors.rst
+    |           |-- goflow.workflow.forms.rst
+    |           |-- goflow.workflow.models.rst
+    |           |-- goflow.workflow.notification.rst
+    |           |-- goflow.workflow.pushapps.rst
+    |           |-- goflow.workflow.reporting.rst
+    |           |-- goflow.workflow.rst
+    |           |-- goflow.workflow.views.rst
+    |           `-- index.rst
+    |-- goflow
+    |   |-- __init__.py
+    |   |-- tools
+    |   |   |-- __init__.py
+    |   |   |-- decorators.py
+    |   |   |-- event.py
+    |   |   |-- logger.py
+    |   |   |-- management
+    |   |   |   |-- __init__.py
+    |   |   |   `-- commands
+    |   |   |       `-- __init__.py
+    |   |   `-- middleware
+    |   |       |-- __init__.py
+    |   |       `-- debug_middleware.py
+    |   |-- urls.py
+    |   |-- urls_admin.py
+    |   `-- workflow
+    |       |-- __init__.py
+    |       |-- admin.py
+    |       |-- applications.py
+    |       |-- errors.py
+    |       |-- forms.py
+    |       |-- models.py
+    |       |-- notification.py
+    |       |-- pushapps.py
+    |       |-- reporting.py
+    |       |-- templates
+    |       |   |-- admin
+    |       |   |   `-- workflow
+    |       |   |       |-- activity
+    |       |   |       |   `-- change_form.html
+    |       |   |       |-- application
+    |       |   |       |   |-- change_form.html
+    |       |   |       |   `-- change_list.html
+    |       |   |       |-- defaultappmodel
+    |       |   |       |   `-- change_form.html
+    |       |   |       |-- process
+    |       |   |       |   `-- change_form.html
+    |       |   |       `-- pushapplication
+    |       |   |           `-- change_form.html
+    |       |   |-- goflow
+    |       |   |   |-- base.html
+    |       |   |   |-- base_site.html
+    |       |   |   |-- default_app.html
+    |       |   |   |-- edit_model.html
+    |       |   |   |-- instancehistory.html
+    |       |   |   |-- login.html
+    |       |   |   |-- mail.txt
+    |       |   |   |-- myrequests.html
+    |       |   |   |-- mywork.html
+    |       |   |   |-- otherswork.html
+    |       |   |   |-- process.dot
+    |       |   |   |-- start_application.html
+    |       |   |   |-- start_proto.html
+    |       |   |   |-- test_start.html
+    |       |   |   `-- view_application.html
+    |       |   `-- workflow
+    |       |       |-- index.html
+    |       |       `-- start_form.html
+    |       |-- templatetags
+    |       |   |-- __init__.py
+    |       |   `-- debug_goflow.py
+    |       `-- views.py
+    |-- goflow.leo
     |-- licence.txt
     |-- scripts
     |   |-- build_docs
     |   |-- clean
     |   `-- reset
     `-- test
-        `-- test_pyparsing.py
+       `-- test_pyparsing.py
 

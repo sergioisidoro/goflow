@@ -303,27 +303,27 @@ class Application(models.Model):
             return '<a href=testenv/create/%d/>create unit test env</a>' % self.id
 
 
-class Parameter(models.Model):
-    """A parameter is a definition of what goes into workflow application or routing
-    function
-
-    usage::
-
-        >>> param = Parameter(name="age", type="integer", direction="in")
-        >>> param.save()
-
-    """
-    PARAMETER_TYPES = (
-                    ('string', 'string'),
-                    ('integer', 'integer'),
-                    ('decimal', 'decimal'),
-                    ('datetime', 'datatime')
-    )
-    name = models.CharField(max_length=50)
-    type = models.CharField(max_length=10, choices=PARAMETER_TYPES)
-    direction = models.CharField(max_length=2, choices=[('in','in'),('out','out')])
-    def __unicode__(self):
-        return self.name
+# class Parameter(models.Model):
+#     """A parameter is a definition of what goes into workflow application or routing
+#     function
+# 
+#     usage::
+# 
+#         >>> param = Parameter(name="age", type="integer", direction="in")
+#         >>> param.save()
+# 
+#     """
+#     PARAMETER_TYPES = (
+#                     ('string', 'string'),
+#                     ('integer', 'integer'),
+#                     ('decimal', 'decimal'),
+#                     ('datetime', 'datatime')
+#     )
+#     name = models.CharField(max_length=50)
+#     type = models.CharField(max_length=10, choices=PARAMETER_TYPES)
+#     direction = models.CharField(max_length=2, choices=[('in','in'),('out','out')])
+#     def __unicode__(self):
+#         return self.name
 
 
 class PushApplication(models.Model):
@@ -378,12 +378,13 @@ class Transition(models.Model):
         >>> t.save()
     """
     name = models.CharField(max_length=50, null=True, blank=True)
+    description = models.CharField(max_length=100, null=True, blank=True)
     process = models.ForeignKey(Process, related_name='transitions')
     input = models.ForeignKey(Activity, related_name='transition_inputs')
     condition = models.CharField(max_length=200, null=True, blank=True,
                                  help_text='ex: instance.condition=="OK" | OK')
     output = models.ForeignKey(Activity, related_name='transition_outputs')
-    description = models.CharField(max_length=100, null=True, blank=True)
+    
 
     def save(self):
         if self.input.process != self.process or self.output.process != self.process:
