@@ -2,6 +2,7 @@
 
 from django.contrib import admin
 from demo.leave.models import LeaveRequest, Manager, Account
+from goflow.tools import admin_register
 
 class LeaveRequestAdmin(admin.ModelAdmin):
     fieldsets = (
@@ -10,13 +11,12 @@ class LeaveRequestAdmin(admin.ModelAdmin):
               )
     list_display = ('type', 'date', 'day_start', 'day_end', 'requester')
     list_filter = ('type', 'requester')
-admin.site.register(LeaveRequest, LeaveRequestAdmin)
 
 class ManagerAdmin(admin.ModelAdmin):
     pass
-admin.site.register(Manager, ManagerAdmin)
 
 class AccountAdmin(admin.ModelAdmin):
     list_display = ('user', 'category', 'days')
-admin.site.register(Account, AccountAdmin)
 
+# register admin classes
+admin_register(admin, globals())
