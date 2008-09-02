@@ -1,0 +1,6 @@
+#!
+# test demo applications
+cd demo
+python manage.py test
+cd ..
+./scripts/clean
