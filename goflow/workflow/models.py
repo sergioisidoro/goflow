@@ -246,7 +246,6 @@ class Application(models.Model):
         return self.url
 
     def get_app_url(self, workitem=None, extern_for_user=None):
-        from django.conf import settings
         path = '%s/%s/' % (settings.WF_APPS_PREFIX, self.url)
         if workitem:
             if self.suffix:
