@@ -1,0 +1,335 @@
+[
+  {
+    "pk": 1, 
+    "model": "auth.group", 
+    "fields": {
+      "name": "Sample process", 
+      "permissions": [
+        31
+      ]
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "auth.group", 
+    "fields": {
+      "name": "sample activity group", 
+      "permissions": []
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "admin", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": true, 
+      "is_staff": true, 
+      "last_login": "2008-08-18 17:59:31", 
+      "groups": [
+        1
+      ], 
+      "user_permissions": [], 
+      "password": "sha1$ee0c2$3b0b3a44a5e6c1b54c9e9db41a160f6299fa1661", 
+      "email": "sample@project.com", 
+      "date_joined": "2008-08-18 11:02:14"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "user1", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2008-08-18 17:58:56", 
+      "groups": [
+        1, 
+        2
+      ], 
+      "user_permissions": [], 
+      "password": "sha1$61c72$3faf3371afcba941558a6c1125ea6246351468d8", 
+      "email": "", 
+      "date_joined": "2008-08-18 11:49:55"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "auto", 
+      "first_name": "", 
+      "last_name": "Auto User", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2008-08-18 17:59:56", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$22b72$084f0ff33d3a37b14f6554d76b04d7d64fc3560d", 
+      "email": "sample@project.com", 
+      "date_joined": "2008-08-18 17:59:56"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflow.activity", 
+    "fields": {
+      "kind": "dummy", 
+      "push_application": null, 
+      "description": null, 
+      "roles": [], 
+      "title": "End", 
+      "process": 1, 
+      "autofinish": true, 
+      "join_mode": "xor", 
+      "subflow": null, 
+      "application": null, 
+      "split_mode": "and", 
+      "app_param": null, 
+      "autostart": true, 
+      "pushapp_param": null
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "workflow.activity", 
+    "fields": {
+      "kind": "standard", 
+      "push_application": null, 
+      "description": "this activity use the \"view_object\" handler.", 
+      "roles": [
+        2
+      ], 
+      "title": "A sample activity", 
+      "process": 1, 
+      "autofinish": true, 
+      "join_mode": "xor", 
+      "subflow": null, 
+      "application": 1, 
+      "split_mode": "xor", 
+      "app_param": "{'action_values':('view','edit','end'), 'template':'sample/choice.html'}", 
+      "autostart": false, 
+      "pushapp_param": ""
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "workflow.activity", 
+    "fields": {
+      "kind": "standard", 
+      "push_application": 1, 
+      "description": "this activity use the \"view_application\" handler.", 
+      "roles": [
+        2
+      ], 
+      "title": "A sample activity 2", 
+      "process": 1, 
+      "autofinish": true, 
+      "join_mode": "xor", 
+      "subflow": null, 
+      "application": 2, 
+      "split_mode": "xor", 
+      "app_param": "{'template':'sample/view.html', 'ok_values':('send','end')}", 
+      "autostart": false, 
+      "pushapp_param": ""
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "workflow.activity", 
+    "fields": {
+      "kind": "standard", 
+      "push_application": 1, 
+      "description": "this activity use the \"edit_model\" handler.", 
+      "roles": [
+        2
+      ], 
+      "title": "A sample activity 3", 
+      "process": 1, 
+      "autofinish": true, 
+      "join_mode": "xor", 
+      "subflow": null, 
+      "application": 3, 
+      "split_mode": "and", 
+      "app_param": "", 
+      "autostart": false, 
+      "pushapp_param": ""
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "workflow.activity", 
+    "fields": {
+      "kind": "standard", 
+      "push_application": 1, 
+      "description": "This auto activity sends a mail", 
+      "roles": [], 
+      "title": "Sample auto activity", 
+      "process": 1, 
+      "autofinish": true, 
+      "join_mode": "xor", 
+      "subflow": null, 
+      "application": 4, 
+      "split_mode": "and", 
+      "app_param": "{'subject':'sample model content', 'template':'sample/sample_mail.txt'}", 
+      "autostart": true, 
+      "pushapp_param": ""
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflow.process", 
+    "fields": {
+      "begin": 2, 
+      "end": 1, 
+      "description": "A sample process", 
+      "title": "Sample process", 
+      "enabled": true, 
+      "priority": 0, 
+      "date": "2008-08-18 17:01:53"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflow.application", 
+    "fields": {
+      "url": "apptools/view_object", 
+      "suffix": "w"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "workflow.application", 
+    "fields": {
+      "url": "apptools/view_application", 
+      "suffix": "w"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "workflow.application", 
+    "fields": {
+      "url": "sample_edit", 
+      "suffix": "w"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "workflow.application", 
+    "fields": {
+      "url": "apptools/sendmail", 
+      "suffix": "w"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflow.pushapplication", 
+    "fields": {
+      "url": "route_to_requester"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "workflow.pushapplication", 
+    "fields": {
+      "url": "route_to_user"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "workflow.pushapplication", 
+    "fields": {
+      "url": "route_to_superuser"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflow.transition", 
+    "fields": {
+      "description": null, 
+      "process": 1, 
+      "output": 1, 
+      "input": 2, 
+      "condition": "end", 
+      "name": null
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "workflow.transition", 
+    "fields": {
+      "description": null, 
+      "process": 1, 
+      "output": 3, 
+      "input": 2, 
+      "condition": "view", 
+      "name": null
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "workflow.transition", 
+    "fields": {
+      "description": null, 
+      "process": 1, 
+      "output": 4, 
+      "input": 2, 
+      "condition": "edit", 
+      "name": null
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "workflow.transition", 
+    "fields": {
+      "description": null, 
+      "process": 1, 
+      "output": 5, 
+      "input": 3, 
+      "condition": "sendmail", 
+      "name": null
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "workflow.transition", 
+    "fields": {
+      "description": null, 
+      "process": 1, 
+      "output": 1, 
+      "input": 3, 
+      "condition": "end", 
+      "name": null
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "workflow.transition", 
+    "fields": {
+      "description": null, 
+      "process": 1, 
+      "output": 1, 
+      "input": 4, 
+      "condition": "", 
+      "name": null
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflow.userprofile", 
+    "fields": {
+      "notif_delay": 1, 
+      "notified": true, 
+      "last_notif": "2008-08-18 17:52:38", 
+      "nb_wi_notif": 1, 
+      "user": 2, 
+      "web_host": "localhost:8000"
+    }
+  }
+]
